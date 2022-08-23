@@ -28,6 +28,8 @@ namespace ShopGaspar.Admin
                 this.SearchCustomers("defaultconnection", "select * from aspnetusers", tablausers);
                 this.SearchCustomers("ShopGaspar", "SELECT * from Orders", tablatrans);
                 this.SearchCustomers("ShopGaspar", "SELECT ProductName, stock, vendido from Products", gvstat);
+                this.SearchCustomers("ShopGaspar", "SELECT * from depositos", gvdep);
+
 
 
 
@@ -47,6 +49,11 @@ namespace ShopGaspar.Admin
             if (productAction == "remcat")
             {
                 lblsuccat.Text = "Categoria Removida!";
+            }
+
+            if (productAction == "adddep")
+            {
+                lblconfirmardep.Text = "Deposito Agregado!";
             }
         }
 
@@ -106,6 +113,13 @@ namespace ShopGaspar.Admin
         {
             var _db = new ShopGaspar.Models.ProductContext();
             IQueryable query = _db.Categories;
+            return query;
+        }
+
+        public IQueryable GetDepositos()
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable query = _db.depositos;
             return query;
         }
 
@@ -312,6 +326,82 @@ namespace ShopGaspar.Admin
         {
             int id2 = Convert.ToInt32((sender as ImageButton).CommandArgument);
             Response.Redirect("~/Admin/detallesordenes.aspx?id2=" + id2);
+
+        }
+
+   
+
+        protected void btnagregardep_Click(object sender, EventArgs e)
+        {
+
+            Boolean fileOK1 = false;
+            String path1 = Server.MapPath("~/Images/");
+
+            if (FileUpload1.HasFile)
+            {
+                String fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+                String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
+
+                for (int i = 0; i < allowedExtensions.Length; i++)
+                {
+                    if (fileExtension == allowedExtensions[i])
+                    {
+                        fileOK1 = true;
+                    }
+                }
+            }
+
+            if (fileOK1)
+            {
+                try
+                {
+                    FileUpload1.PostedFile.SaveAs(path1 + "Thumbs/" + FileUpload1.FileName);
+                }
+                catch (Exception ex)
+                {
+                    lblconfirmardep.Text = ex.Message;
+                }
+
+                // Add product data to DB.
+                adddep adddep = new adddep();
+                bool addSuccess = adddep.adddeposito(txtnomdep.Text, txtdescdep.Text, FileUpload1.FileName, txtubidep.Text);
+
+                if (addSuccess)
+                {
+                    // Reload the page.
+                    string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                    Response.Redirect(pageUrl + "?ProductAction=adddep");
+                }
+                else
+                {
+                    lblconfirmardep.Text = "No se pudo agregar el deposito";
+                }
+            }
+            else
+            {
+                lblconfirmardep.Text = "No se acepta el formato";
+            }
+
+        }
+
+        protected void depdet_Click(object sender, ImageClickEventArgs e)
+        {
+            int id3 = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/prodendep.aspx?id3=" + id3);
+        }
+
+        protected void btndepexis_Click(object sender, EventArgs e)
+        {
+            if (rblistlist.Items[0].Selected)
+            {
+                //addprodendep agregarprodendep = new addprodendep();
+                //bool addSuccess = agregarprodendep.addprodendepo(txtacproddep.Text,);
+
+            }
+        }
+
+        protected void btndepexis_Click1(object sender, EventArgs e)
+        {
 
         }
     }

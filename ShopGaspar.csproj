@@ -185,6 +185,7 @@
     <Content Include="Admin\dropdownlist.asmx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
+    <Content Include="Admin\prodendep.aspx" />
     <Content Include="Checkout\CheckoutComplete.aspx" />
     <Content Include="Checkout\CheckoutReview.aspx" />
     <Content Include="Checkout\PagoCard.aspx" />
@@ -2140,6 +2141,13 @@
     <Compile Include="Admin\ordorduser.aspx.designer.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\prodendep.aspx.cs">
+      <DependentUpon>prodendep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\prodendep.aspx.designer.cs">
+      <DependentUpon>prodendep.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Checkout\CheckoutComplete.aspx.cs">
       <DependentUpon>CheckoutComplete.aspx</DependentUpon>
@@ -2164,10 +2172,14 @@
     </Compile>
     <Compile Include="Logic\AddCards.cs" />
     <Compile Include="Logic\AddCategories.cs" />
+    <Compile Include="Logic\adddep.cs" />
     <Compile Include="Logic\AddOrder.cs" />
     <Compile Include="Logic\AddOrderDetails.cs" />
+    <Compile Include="Logic\addprodendep.cs" />
     <Compile Include="Logic\Ordenarlista.cs" />
     <Compile Include="Models\Cards.cs" />
+    <Compile Include="Models\depositos.cs" />
+    <Compile Include="Models\prodendep.cs" />
     <Compile Include="Models\ProductDatabaseInitializer.cs" />
     <Compile Include="Ubicacion.aspx.cs">
       <DependentUpon>Ubicacion.aspx</DependentUpon>

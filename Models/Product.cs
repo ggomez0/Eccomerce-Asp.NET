@@ -21,12 +21,15 @@ namespace ShopGaspar.Models
 
         public int? CategoryID { get; set; }
 
-        
+
         public int? stock { get; set; }
         public int? vendido { get; set; }
 
         public virtual Category Category { get; set; }
 
+        public virtual depositos Depositos { get; set; }
+
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<prodendep> Prodendeps { get; set; }
     }
 }

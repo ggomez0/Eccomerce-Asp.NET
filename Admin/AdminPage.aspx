@@ -13,6 +13,8 @@
                
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-cat" role="tab" aria-controls="v-pills-cat" aria-selected="true">Categoria</a>
                 <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-prod" role="tab" aria-controls="v-pills-prod" aria-selected="false">Productos</a>
+                <a class="nav-link" id="v-pills-dep-tab" data-toggle="pill" href="#v-pills-dep" role="tab" aria-controls="v-pills-dep" aria-selected="false">Depositos</a>
+                <a class="nav-link" id="v-pills-prodendep-tab" data-toggle="pill" href="#v-pills-prodendep" role="tab" aria-controls="v-pills-prodendep" aria-selected="false">Ingreso / Egreso</a>
                 <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-trans" role="tab" aria-controls="v-pills-trans" aria-selected="false">Transacciones</a>
                 <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-cli" role="tab" aria-controls="v-pills-cli" aria-selected="false">Clientes</a>
                 <a class="nav-link" id="v-pills-estat-tab" data-toggle="pill" href="#v-pills-stat" role="tab" aria-controls="v-pills-stat" aria-selected="false">Estadisticas</a>
@@ -39,7 +41,9 @@
                                       </td></tr>                              
 
                         </table>
-                        <p></p>
+                        <p>
+                            
+                        </p>
                         <p></p>
                             <h3>Eliminar Categoria:</h3>
                         <table>
@@ -224,6 +228,178 @@
 
                 <%--------------------------------------------------%>
 
+                <div class="tab-pane fade" id="v-pills-dep" role="tabpanel" aria-labelledby="v-pills-dep-tab">
+                            <h3>Agregar Depositos:</h3>
+                        <table>
+                          
+                            <tr>
+                                <td><asp:Label ID="lblnomdep" runat="server">Nombre:</asp:Label></td>
+                                <td>
+                                    <asp:TextBox ID="txtnomdep" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ValidationGroup="VG20" ID="RequiredFieldValidator7" runat="server" Text="* Nombre del deposito requerido." ControlToValidate="txtnomdep" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><asp:Label ID="lbldescdep" runat="server">Descripcion:</asp:Label></td>
+                                <td>
+                                    <asp:TextBox ID="txtdescdep" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ValidationGroup="VG20" ID="RequiredFieldValidator8" runat="server" Text="* Descripcion requerida." ControlToValidate="txtdescdep" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><asp:Label ID="lblubidep" runat="server">Ubicacion:</asp:Label></td>
+                                <td>
+                                    <asp:TextBox ID="txtubidep" runat="server"></asp:TextBox>                               
+                                    <asp:RequiredFieldValidator ValidationGroup="VG20" ID="RequiredFieldValidator9" runat="server" Text="* Ubicacion requerido." ControlToValidate="txtubidep" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                           
+                            <tr>
+                                <td><asp:Label ID="imgdep" runat="server">Imagen:</asp:Label></td>
+                                <td>
+                                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                                    <asp:RequiredFieldValidator ValidationGroup="VG20" ID="RequiredFieldValidator11" runat="server" Text="* Imagen requerida." ControlToValidate="FileUpload1" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <p></p>
+
+                        <asp:Button ID="btnagregardep" runat="server" Text="Agregar Deposito" OnClick="btnagregardep_Click"  CausesValidation="true" ValidationGroup="VG20"/>
+                        <asp:Label ID="lblconfirmardep" runat="server" Text=""></asp:Label>
+
+                    <br />
+                    <br />
+
+                    <asp:UpdatePanel runat="server">
+                                <ContentTemplate>
+                            <asp:gridview class="table thead-dark" CssClass="grid" ID="gvdep" runat="server" 
+                                AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" BackColor="White" 
+                                BorderColor="#CCCCCC"  BorderStyle="None" BorderWidth="1px" CellPadding="3">            
+                                    <FooterStyle BackColor="White" ForeColor="#000066" />
+                                    <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                    <RowStyle ForeColor="#000066" />
+                                    <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                    <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                    <SortedDescendingHeaderStyle BackColor="#00547E" />  
+                                <Columns>
+                                     <asp:TemplateField HeaderText="ID">
+                                            <ItemTemplate>
+                                                <asp:Label Text='<%# Eval("DepID") %>' runat="server" />
+                                            </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Nombre">
+                                            <ItemTemplate>
+                                                <asp:Label Text='<%# Eval("DepName") %>' runat="server" />
+                                            </ItemTemplate>
+                                    </asp:TemplateField>    
+                                      <asp:TemplateField HeaderText="Ubicacion">
+                                            <ItemTemplate>
+                                                <asp:Label Text='<%# Eval("ubicacion") %>' runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField> 
+                                    <asp:TemplateField HeaderText="Descripcion">
+                                            <ItemTemplate>
+                                                <asp:Label Text='<%# Eval("Description") %>' runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField> 
+                                    <asp:TemplateField HeaderText="Foto">
+                                            <ItemTemplate>
+                                                
+                                                  <img class="card-img-top" src="/Images/Thumbs/<%#:Eval("ImagePath") %>"  style="height:10rem; object-fit:contain;" />
+                                            </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Detalles">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ValidationGroup="depdet" ImageUrl="~/Images/lupa.png" ID="depdet" runat="server" OnClick="depdet_Click"   CommandArgument='<%#Eval("DepID") %>'  Width="20px" Height="20px"/>
+                                            </ItemTemplate>
+                                    </asp:TemplateField>
+                            
+                                </Columns> 
+                
+                            </asp:GridView>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+               
+                </div>
+                    
+                    <div class="tab-pane fade" id="v-pills-prodendep" role="tabpanel" aria-labelledby="v-pills-prodendep-tab">
+                          <h3>Agregar existencias al deposito:</h3>
+                        <table>
+                        
+                            <tr>
+                              <td>
+                                    <asp:RadioButtonList ID="rblistlist" runat="server">
+                              
+                                            <asp:ListItem>Ingreso</asp:ListItem>
+                                            <asp:ListItem>Egreso</asp:ListItem>
+
+                            </asp:RadioButtonList>
+                                   
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Text="* Precio requerido." ControlToValidate="AddProductPrice" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ValidationGroup="VG21" ID="RegularExpressionValidator3" runat="server" Text="* Valor numerico sin $" ControlToValidate="AddProductPrice" SetFocusOnError="True" Display="Dynamic" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
+                                </td>
+                            </tr>
+
+
+                            <tr>                               
+                                <td>
+                              <asp:Label ID="Label1" runat="server">Producto:</asp:Label></td>
+                                <td>
+
+                       
+                               <asp:TextBox ID="txtacproddep" runat="server" AutoPostBack="true" AutoCompleteType="Search"></asp:TextBox>
+                                <cc1:AutoCompleteExtender  ID="AutoCompleteExtender2" runat="server" ServiceMethod="ProductSearch"
+                                    MinimumPrefixLength="1" CompletionInterval="100" EnableCaching="false" CompletionSetCount="10"
+                                    TargetControlID="txtacproddep" FirstRowSelected="false" ServicePath="dropdownlist.asmx">
+                                    </cc1:AutoCompleteExtender>                    
+
+                                  
+                                </td>
+                            </tr>
+                           
+                            <tr>
+                                <td><asp:Label ID="Label5" runat="server">Cantidad:</asp:Label></td>
+                                <td>
+                                    <asp:TextBox ID="txtcantdep" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" Text="* Stock requerido." ControlToValidate="txtcantdep" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ValidationGroup="VG21" ID="RegularExpressionValidator4" runat="server" Text="* Debe ser valor numerico" ControlToValidate="txtcantdep" SetFocusOnError="True" Display="Dynamic" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
+                                </td>
+                            </tr>
+
+                             <tr>
+                                <td><asp:Label ID="Label2" runat="server">Deposito:</asp:Label></td>
+                                <td>
+                                      <asp:DropDownList ID="ddlistdep" runat="server" 
+                                        ItemType="ShopGaspar.Models.depositos" 
+                                        SelectMethod="GetDepositos" DataTextField="DepName" 
+                                        DataValueField="DepID" >
+                                    </asp:DropDownList>
+                                      </td>
+                            </tr>
+
+                            <tr>
+                                <td><asp:Label ID="Label3" runat="server">Observaciones:</asp:Label></td>
+                                <td>
+                                    <asp:TextBox ID="txtobsdep" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ValidationGroup="VG21" ID="RequiredFieldValidator10" runat="server" Text="* Observaciones requerida." ControlToValidate="txtobsdep" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                        <p></p>
+                        <p></p>
+
+                        <asp:Button ID="btndepexis" runat="server" Text="Realizar movimiento de existencias" OnClick="btndepexis_Click1"   CausesValidation="true" ValidationGroup="VG21"/>
+                        <asp:Label ID="Label7" runat="server" Text=""></asp:Label>
+                     </div>
+
+
+                    <%-----------------------------------------------------------%>
+
                     <div class="tab-pane fade" id="v-pills-trans" role="tabpanel" aria-labelledby="v-pills-trans-tab">
                            
                         <div class="">  
@@ -317,6 +493,9 @@
 
                      </asp:GridView>
                 </div>
+
+                     
+
                 
                 
                 </div>
