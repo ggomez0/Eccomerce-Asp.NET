@@ -11,7 +11,7 @@ namespace ShopGaspar.Logic
         public bool addprodendepo(string prodname, string observaciones, int cantingreso, int depid)
         {
             var prodendep = new prodendep();
-            prodendep.Product.ProductName = prodname;
+            prodendep.Product.ProductID = 1;
             prodendep.Observaciones = observaciones;
             prodendep.cantingreso = Convert.ToInt32(cantingreso);
             prodendep.Depositos.DepID = depid;

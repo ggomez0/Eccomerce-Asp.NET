@@ -2,8 +2,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    <div >
-    <h1 style="text-align:center;">Administracion</h1>
-    <hr />
+   
 
 <%--//////////////////////////////////////////////////--%>
 
@@ -99,14 +98,7 @@
                                     <asp:RegularExpressionValidator ValidationGroup="VG2" ID="RegularExpressionValidator1" runat="server" Text="* Valor numerico sin $" ControlToValidate="AddProductPrice" SetFocusOnError="True" Display="Dynamic" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
-                            <tr>
-                                <td><asp:Label ID="lblstock" runat="server">Stock:</asp:Label></td>
-                                <td>
-                                    <asp:TextBox ID="txtstock" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" Text="* Stock requerido." ControlToValidate="txtstock" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
-                                    <asp:RegularExpressionValidator ValidationGroup="VG2" ID="RegularExpressionValidator2" runat="server" Text="* Debe ser valor numerico" ControlToValidate="txtstock" SetFocusOnError="True" Display="Dynamic" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
-                                </td>
-                            </tr>
+                         
                             <tr>
                                 <td><asp:Label ID="LabelAddImageFile" runat="server">Imagen:</asp:Label></td>
                                 <td>
@@ -185,9 +177,7 @@
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("stock") %>' runat="server" />
                         </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtstock" Text='<%# Eval("stock") %>' Width="80%" runat="server" />
-                        </EditItemTemplate>
+                       
                     </asp:TemplateField>
                         <asp:TemplateField HeaderText="Vendido">
                         <ItemTemplate>
@@ -327,23 +317,21 @@
                 </div>
                     
                     <div class="tab-pane fade" id="v-pills-prodendep" role="tabpanel" aria-labelledby="v-pills-prodendep-tab">
+                        <asp:UpdatePanel runat="server">
+                            <ContentTemplate>
+
                           <h3>Agregar existencias al deposito:</h3>
                         <table>
-                        
-                            <tr>
-                              <td>
+                        <tr><td>
+                           
                                     <asp:RadioButtonList ID="rblistlist" runat="server">
                               
                                             <asp:ListItem>Ingreso</asp:ListItem>
                                             <asp:ListItem>Egreso</asp:ListItem>
 
                             </asp:RadioButtonList>
-                                   
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Text="* Precio requerido." ControlToValidate="AddProductPrice" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
-                                    <asp:RegularExpressionValidator ValidationGroup="VG21" ID="RegularExpressionValidator3" runat="server" Text="* Valor numerico sin $" ControlToValidate="AddProductPrice" SetFocusOnError="True" Display="Dynamic" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
-                                </td>
-                            </tr>
-
+                                   </td></tr>
+                                 
 
                             <tr>                               
                                 <td>
@@ -394,8 +382,11 @@
                         <p></p>
 
                         <asp:Button ID="btndepexis" runat="server" Text="Realizar movimiento de existencias" OnClick="btndepexis_Click1"   CausesValidation="true" ValidationGroup="VG21"/>
-                        <asp:Label ID="Label7" runat="server" Text=""></asp:Label>
-                     </div>
+                        <asp:Label ID="lblprodendep" runat="server" Text=""></asp:Label>
+                     
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                        </div>
 
 
                     <%-----------------------------------------------------------%>
@@ -433,11 +424,6 @@
                                                 <asp:Label Text='<%# Eval("Username") %>' runat="server" />
                                             </ItemTemplate>
                                     </asp:TemplateField> 
-                                   <%--  <asp:TemplateField HeaderText="Total">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%# Eval("Total") %>' runat="server" />
-                                            </ItemTemplate>
-                                    </asp:TemplateField> --%>
                                     <asp:TemplateField HeaderText="Detalles">
                                             <ItemTemplate>
                                                 <asp:ImageButton ValidationGroup="ordenesval" ImageUrl="~/Images/lupa.png" ID="imgordenes" runat="server"  CommandArgument='<%#Eval("OrderId") %>' OnClick="imgordenes_Click" Width="20px" Height="20px"/>

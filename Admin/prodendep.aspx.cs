@@ -28,7 +28,8 @@ namespace ShopGaspar.Admin
             SqlCommand cmd = new SqlCommand();
             DataTable dataTable = new DataTable();
             SqlDataAdapter sqlDA; cnn.Open();
-            cmd.CommandText = "select * from prodendep where Depositos_DepID = @idorder";
+            cmd.CommandText = "select IngID, ProductName as Nombre, cantingreso as Cantidad from prodendeps p inner join " +
+                "Products pr on p.Product_ProductID=pr.ProductID where p.Depositos_DepID = @idorder";
             cmd.Parameters.AddWithValue("@idorder", ido);
             cmd.CommandType = CommandType.Text;
             cmd.Connection = cnn;

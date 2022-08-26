@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%: Page.Title %> - EL PUENTE</title>
+    <title><%: Page.Title %> - GamerSalta</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -44,8 +44,8 @@
 
 
  <nav class="navbar navbar-expand-lg navbar-light"> 
-      <a class="navbar-brand" runat="server" href="~/"  title="EL PUENTE">
-          <img style="height:70px" runat="server" src="~/Images/logo.png">
+      <a class="navbar-brand" runat="server" href="~/"  title="GamerSalta">
+          <img style="height:70px" runat="server" src="~/Images/logoh.png">
         </a>
 
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,7 @@
           </a>
         </li>
 
-          <li class="nav-item">
+          <%--<li class="nav-item">
               <a class="nav-link active" runat="server" href="~/ProductList">Productos</a>
           </li>
           <li class="nav-item">
@@ -68,12 +68,12 @@
           </li>
           <li class="nav-item">
              <a class="nav-link active" runat="server" href="~/Contact/Contact">Contacto</a>
-          </li>
+          </li>--%>
         
 
           <%--carrito--%>
 
-          <li>    
+          <%--<li>    
               <a href="~/ShoppingCart" runat="server">
                 <img src="Images/shopping-cart.png" runat="server" style="height:40px; width:40px;"/>
              </a>
@@ -81,7 +81,7 @@
 
           <li class="nav-item">
             <a class="nav-link active" runat="server" href="~/ShoppingCart" ID="cartCount"/>          
-          </li>
+          </li>--%>
           
            <%--carrito--%>
              
@@ -129,7 +129,7 @@
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
      
-      <span class="text-muted">&copy; <%: DateTime.Now.Year %> - EL PUENTE</span>
+      <span class="text-muted">&copy; <%: DateTime.Now.Year %> - GamerSalta</span>
     </div>
 
 
@@ -157,49 +157,6 @@
     <script type="text/javascript" src="Scripts/switch.js"></script>
   <script type="text/javascript">
     $(function () {
-        //$("[id*=tablatrans]").DataTable({
-        //        bLengthChange: true,
-        //        lengthMenu: [[5, 10, -1], [5, 10, "Todos"]],
-        //        bFilter: true,
-        //        bSort: true,
-        //    bPaginate: true,
-        //    "scrollX": false,
-        //    "language": {
-        //        "lengthMenu": "Mostrar _MENU_ registros por pagina",
-        //        "zeroRecords": "No se encontraron registros",
-        //        "info": "Pagina _PAGE_ de _PAGES_",
-        //        "infoEmpty": "No se encontraron registros",
-        //        "infoFiltered": "(filtrado de _MAX_ registros)",
-        //        "search": "Buscar:",
-        //        "paginate": {
-        //            "first": "Primero",
-        //            "last": "Ultima",
-        //            "next": "Siguiente",
-        //            "previous": "Anterior"
-        //        },
-        //    }
-        //});
-        //$("[id*=tablausers]").DataTable({
-        //    bLengthChange: true,
-        //    lengthMenu: [[5, 10, -1], [5, 10, "Todos"]],
-        //    bFilter: true,
-        //    bSort: true,
-        //    bPaginate: true,
-        //    "language": {
-        //        "lengthMenu": "Mostrar _MENU_ registros por pagina",
-        //        "zeroRecords": "No se encontraron registros",
-        //        "info": "Pagina _PAGE_ de _PAGES_",
-        //        "infoEmpty": "No se encontraron registros",
-        //        "infoFiltered": "(filtrado de _MAX_ registros)",
-        //        "search": "Buscar:",
-        //        "paginate": {
-        //            "first": "Primero",
-        //            "last": "Ultima",
-        //            "next": "Siguiente",
-        //            "previous": "Anterior"
-        //        },
-        //    }
-        //});
         $(".grid").DataTable({
             bLengthChange: true,
             lengthMenu: [[5, 10, -1], [5, 10, "Todos"]],
@@ -221,48 +178,6 @@
                 },
             }
         });
-        //$("[id*=gvorderuser]").DataTable({
-        //    bLengthChange: true,
-        //    lengthMenu: [[5, 10, -1], [5, 10, "Todos"]],
-        //    bFilter: true,
-        //    bSort: true,
-        //    bPaginate: true,
-        //    "language": {
-        //        "lengthMenu": "Mostrar _MENU_ registros por pagina",
-        //        "zeroRecords": "No se encontraron registros",
-        //        "info": "Pagina _PAGE_ de _PAGES_",
-        //        "infoEmpty": "No se encontraron registros",
-        //        "infoFiltered": "(filtrado de _MAX_ registros)",
-        //        "search": "Buscar:",
-        //        "paginate": {
-        //            "first": "Primero",
-        //            "last": "Ultima",
-        //            "next": "Siguiente",
-        //            "previous": "Anterior"
-        //        },
-        //    }
-        //});
-        //$("[id*=gvorderid]").DataTable({
-        //    bLengthChange: true,
-        //    lengthMenu: [[5, 10, -1], [5, 10, "Todos"]],
-        //    bFilter: true,
-        //    bSort: true,
-        //    bPaginate: true,
-        //    "language": {
-        //        "lengthMenu": "Mostrar _MENU_ registros por pagina",
-        //        "zeroRecords": "No se encontraron registros",
-        //        "info": "Pagina _PAGE_ de _PAGES_",
-        //        "infoEmpty": "No se encontraron registros",
-        //        "infoFiltered": "(filtrado de _MAX_ registros)",
-        //        "search": "Buscar:",
-        //        "paginate": {
-        //            "first": "Primero",
-        //            "last": "Ultima",
-        //            "next": "Siguiente",
-        //            "previous": "Anterior"
-        //        },
-        //    }
-        //});
     });             
   </script>
 

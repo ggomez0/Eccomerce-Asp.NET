@@ -55,6 +55,10 @@ namespace ShopGaspar.Admin
             {
                 lblconfirmardep.Text = "Deposito Agregado!";
             }
+            if (productAction == "addprodendep")
+            {
+                lblprodendep.Text = "Existencia actualizada!";
+            }
         }
 
         protected void AddProductButton_Click(object sender, EventArgs e)
@@ -89,7 +93,7 @@ namespace ShopGaspar.Admin
 
                 // Add product data to DB.
                 AddProducts products = new AddProducts();
-                bool addSuccess = products.AddProduct(Convert.ToInt32(txtstock.Text), AddProductName.Text, AddProductDescription.Text,
+                bool addSuccess = products.AddProduct(0, AddProductName.Text, AddProductDescription.Text,
                     AddProductPrice.Text, DropDownAddCategory.SelectedValue, ProductImage.FileName,0);
 
                 if (addSuccess)
@@ -269,13 +273,12 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "UPDATE Products SET ProductName=@ProductName,Description=@Description,ImagePath=@ImagePath,UnitPrice=@UnitPrice,CategoryID=@CategoryID,stock=@stock WHERE ProductID = @ProductID";
+                    string query = "UPDATE Products SET ProductName=@ProductName,Description=@Description,ImagePath=@ImagePath,UnitPrice=@UnitPrice,CategoryID=@CategoryID WHERE ProductID = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductName", (gridproductos.Rows[e.RowIndex].FindControl("txtProductName") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@Description", (gridproductos.Rows[e.RowIndex].FindControl("txtDescription") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@ImagePath", (gridproductos.Rows[e.RowIndex].FindControl("txtImagePath") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@UnitPrice", (gridproductos.Rows[e.RowIndex].FindControl("txtUnitPrice") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@stock", (gridproductos.Rows[e.RowIndex].FindControl("txtstock") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@CategoryID", (gridproductos.Rows[e.RowIndex].FindControl("txtctid") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gridproductos.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
@@ -390,24 +393,78 @@ namespace ShopGaspar.Admin
             Response.Redirect("~/Admin/prodendep.aspx?id3=" + id3);
         }
 
-        protected void btndepexis_Click(object sender, EventArgs e)
-        {
-            if (rblistlist.Items[0].Selected)
-            {
-                //addprodendep agregarprodendep = new addprodendep();
-                //bool addSuccess = agregarprodendep.addprodendepo(txtacproddep.Text,);
-
-            }
-        }
+      
 
         protected void btndepexis_Click1(object sender, EventArgs e)
         {
+            if (rblistlist.Items[0].Selected)
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "IF EXISTS(SELECT* FROM prodendeps WHERE Depositos_DepID = @Depositos and (prodendeps.Product_ProductID in " +
+                        "(select ProductID from Products where ProductName = @Productos))) BEGIN UPDATE prodendeps " +
+                        "SET cantingreso = cantingreso + @cantingreso, Observaciones = @Observaciones WHERE Depositos_DepID = @Depositos and " +
+                        "(prodendeps.Product_ProductID in (select ProductID from Products where ProductName = @Productos)); END ELSE BEGIN insert into " +
+                        "prodendeps(Observaciones, cantingreso, Depositos_DepID, Product_ProductID) values(@Observaciones, @cantingreso, @Depositos, " +
+                        "(select ProductID from Products where ProductName = @Productos)); END";
+                   SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
+                    sqlCmd.Parameters.AddWithValue("@cantingreso", txtcantdep.Text);
+                    sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                    sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex+1);
+                    sqlCmd.ExecuteNonQuery();
+                }
+                using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
+                {
+                    sqlCon1.Open();
+                    string query1 = "UPDATE Products SET stock = stock + @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
+                    SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
+                    sqlCmd1.Parameters.AddWithValue("@stock", txtcantdep.Text);
+                    sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                    sqlCmd1.ExecuteNonQuery();
+                }
 
+                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                Response.Redirect(pageUrl + "?ProductAction=addprodendep");
+            }
+            if (rblistlist.Items[1].Selected)
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "IF EXISTS(SELECT* FROM prodendeps WHERE Depositos_DepID = @Depositos and (prodendeps.Product_ProductID in " +
+                        "(select ProductID from Products where ProductName = @Productos))) BEGIN UPDATE prodendeps " +
+                        "SET cantingreso = cantingreso + @cantingreso, Observaciones = @Observaciones WHERE Depositos_DepID = @Depositos and " +
+                        "(prodendeps.Product_ProductID in (select ProductID from Products where ProductName = @Productos)); END ELSE BEGIN insert into " +
+                        "prodendeps(Observaciones, cantingreso, Depositos_DepID, Product_ProductID) values(@Observaciones, @cantingreso, @Depositos, " +
+                        "(select ProductID from Products where ProductName = @Productos)); END";
+
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
+                    sqlCmd.Parameters.AddWithValue("@cantingreso", - Convert.ToInt32(txtcantdep.Text));
+                    sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                    sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex + 1);
+                    sqlCmd.ExecuteNonQuery();
+                }
+
+                using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
+                {
+                    sqlCon1.Open();
+                    string query1 = "UPDATE Products SET stock = stock - @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
+                    SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
+                    sqlCmd1.Parameters.AddWithValue("@stock", txtcantdep.Text);
+                    sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                    sqlCmd1.ExecuteNonQuery();
+                }
+
+                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                Response.Redirect(pageUrl + "?ProductAction=addprodendep");
+                
+            }
         }
     }
 
 
+
 }
-
-
-
