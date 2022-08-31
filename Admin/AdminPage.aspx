@@ -1,7 +1,8 @@
 ﻿    <%@ Page Title="Admin" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="ShopGaspar.Admin.AdminPage" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1"  %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   <div >
+   <div class="container">
    
 
 <%--//////////////////////////////////////////////////--%>
@@ -23,8 +24,19 @@
        
             <div class="col-9">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-cat" role="tabpanel" aria-labelledby="v-pills-cat-tab">                       
-                        <h3>Agregar Categoria:</h3>
+                    <div class="tab-pane fade show active" id="v-pills-cat" role="tabpanel" aria-labelledby="v-pills-cat-tab"> 
+                        
+
+                        <asp:Button ID="Button1" runat="server" Text="Agregar Categoria" />
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="Panel2" TargetControlID="Button1"
+    CancelControlID="Button2" BackgroundCssClass="modalBackground">
+</cc1:ModalPopupExtender>
+<asp:Panel ID="Panel2" runat="server" CssClass="modalPopup" align="center" Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+    <div style="padding:20px">
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+            <h3>Agregar Categoria:</h3>
                         <table>
                             <tr>
                                 <td>
@@ -40,11 +52,25 @@
                                       </td></tr>                              
 
                         </table>
-                        <p>
-                            
-                        </p>
-                        <p></p>
-                            <h3>Eliminar Categoria:</h3>
+
+
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+    <asp:Button ID="Button2" runat="server" Text="Cerrar" />
+</asp:Panel>
+                       
+                       <asp:Button ID="Button5" runat="server" Text="Eliminar Categoria" />
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="Panel4" TargetControlID="Button5"
+    CancelControlID="Button6" BackgroundCssClass="modalBackground">
+</cc1:ModalPopupExtender>        
+<asp:Panel ID="Panel4" runat="server" CssClass="modalPopup" align="center" Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+    <div style="padding:20px">
+        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+            <ContentTemplate>
+                 <h3>Eliminar Categoria:</h3>
                         <table>
                             <tr>
                                 <td> 
@@ -61,10 +87,34 @@
                         <asp:Label ID="lblsuccat" runat="server" Text=""></asp:Label>
 
 
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+    <asp:Button ID="Button6" runat="server" Text="Cerrar" />
+</asp:Panel>
+                           
+
+                               <asp:GridView ID="gvcattab" runat="server" CssClass="grid"
+                ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="true" BackColor="White" 
+                                BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3"></asp:GridView>
+            
+                        <%----hacer detalles de categoria y mostrar todos los productos que son de esa categoria ---%>
                     </div>
                    
                             <div class="tab-pane fade" id="v-pills-prod" role="tabpanel" aria-labelledby="v-pills-prod-tab">
-                        <h3>Agregar producto:</h3>
+                      
+                                
+<asp:Button ID="btnShow" runat="server" CssClass="btn-primary" Text="Agregar Producto" ValidationGroup="vg23"/>
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
+    CancelControlID="btnClose" BackgroundCssClass="modalBackground ">
+</cc1:ModalPopupExtender>
+<asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+    <div style="margin:15px">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                
+                  <h3>Agregar producto:</h3>
                         <table>
                             <tr><td>
                               <asp:Label ID="LabelAddCategory" runat="server">Categoria:</asp:Label></td>
@@ -112,66 +162,66 @@
 
                         <asp:Button ID="AddProductButton" runat="server" Text="Agregar Producto" OnClick="AddProductButton_Click"  CausesValidation="true" ValidationGroup="VG2"/>
                         <asp:Label ID="LabelAddStatus" runat="server" Text=""></asp:Label>
-
+                <asp:Button ID="btnClose" runat="server" Text="Cancelar" />
                         <p></p>
+
+
+
+                    
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+    
+</asp:Panel>
                                 <br />
                                 <br />
-                                <p></p>
-                                <h3>Editar y Eliminar productos</h3>
+                         
                            <div>
  <asp:UpdatePanel ID="wer123" runat="server">
                         <ContentTemplate>
-
-            <asp:GridView ID="gridproductos" runat="server" ShowFooter="true" DataKeyNames="ProductID"
-                ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
-
-                OnRowCommand="gridproductos_RowCommand" OnRowEditing="gridproductos_RowEditing" OnRowCancelingEdit="gridproductos_RowCancelingEdit"
-                OnRowUpdating="gridproductos_RowUpdating" OnRowDeleting="gridproductos_RowDeleting"
-
-       BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                            
+                            <asp:GridView ID="gvprodtab" runat="server" CssClass="grid"
+                ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false" BackColor="White" 
+                                BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
             
-                <FooterStyle BackColor="White" ForeColor="#000066" />
-                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                <RowStyle ForeColor="#000066" />
-                <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                <SortedDescendingHeaderStyle BackColor="#00547E" />
+             
+
+               <%-- DataKeyNames="ProductID" <--- va arriba -- OnRowCommand="gridproductos_RowCommand" OnRowEditing="gridproductos_RowEditing" OnRowCancelingEdit="gridproductos_RowCancelingEdit"
+                OnRowUpdating="gridproductos_RowUpdating" OnRowDeleting="gridproductos_RowDeleting"--%>
+
                 
                 <Columns>
                     <asp:TemplateField HeaderText="Nombre">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("ProductName") %>' runat="server" />
                         </ItemTemplate>
-                        <EditItemTemplate>
+                       <%-- <EditItemTemplate>
                             <asp:TextBox ID="txtProductName" Text='<%# Eval("ProductName") %>' runat="server" />
-                        </EditItemTemplate>
+                        </EditItemTemplate>--%>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Descripcion">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("Description") %>' runat="server" />
                         </ItemTemplate>
-                        <EditItemTemplate>
+                       <%-- <EditItemTemplate>
                             <asp:TextBox ID="txtDescription" TextMode="MultiLine" Text='<%# Eval("Description") %>' runat="server" />
-                        </EditItemTemplate>
+                        </EditItemTemplate>--%>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="ImagePath">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("ImagePath") %>' runat="server" />
                         </ItemTemplate>
-                        <EditItemTemplate>
+                       <%-- <EditItemTemplate>
                             <asp:TextBox ID="txtImagePath" Text='<%# Eval("ImagePath") %>' Width="85%" runat="server" />
-                        </EditItemTemplate>
+                        </EditItemTemplate>--%>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Precio">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("UnitPrice") %>' runat="server" />
                         </ItemTemplate>
-                        <EditItemTemplate>
+                     <%--   <EditItemTemplate>
                             <asp:TextBox ID="txtUnitPrice" Width="80%" Text='<%# Eval("UnitPrice") %>' runat="server" />
-                        </EditItemTemplate>
+                        </EditItemTemplate>--%>
                     </asp:TemplateField>
                         <asp:TemplateField HeaderText="Stock">
                         <ItemTemplate>
@@ -188,13 +238,13 @@
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("CategoryID") %>' runat="server" />
                         </ItemTemplate>
-                        <EditItemTemplate>
+                       <%-- <EditItemTemplate>
                    
                             <asp:TextBox ID="txtctid" Text='<%# Eval("CategoryID") %>' Width="50%" runat="server" />
 
-                        </EditItemTemplate>
+                        </EditItemTemplate>--%>
                     </asp:TemplateField>
-                    <asp:TemplateField>
+                   <%-- <asp:TemplateField>
                         <ItemTemplate>
                             <asp:ImageButton ImageUrl="~/Images/edit.png" runat="server" ValidationGroup="Vagos" CommandName="Edit" ToolTip="Editar" Width="20px" Height="20px"/>
                             <asp:ImageButton ImageUrl="~/Images/delete.png" runat="server" CommandName="Delete" ValidationGroup="Vagos" ToolTip="Eliminar" Width="20px" Height="20px"/>
@@ -203,15 +253,12 @@
                             <asp:ImageButton ImageUrl="~/Images/save.png" runat="server" CommandName="Update" ValidationGroup="Vagos" ToolTip="Actualizar" Width="20px" Height="20px"/>
                             <asp:ImageButton ImageUrl="~/Images/cancel.png" runat="server" CommandName="Cancel" ValidationGroup="Vagos" ToolTip="Cancelar" Width="20px" Height="20px"/>
                         </EditItemTemplate>                
-                    </asp:TemplateField>
+                    </asp:TemplateField>--%>
                 </Columns>
             </asp:GridView>
         </ContentTemplate>
     </asp:UpdatePanel>
-            <br />
-            <asp:Label ID="lblSuccessMessage" Text="" runat="server" ForeColor="Green" />
-            <br />
-            <asp:Label ID="lblErrorMessage" Text="" runat="server" ForeColor="Red" />
+         
 
         </div>
                     </div>
@@ -219,7 +266,17 @@
                 <%--------------------------------------------------%>
 
                 <div class="tab-pane fade" id="v-pills-dep" role="tabpanel" aria-labelledby="v-pills-dep-tab">
-                            <h3>Agregar Depositos:</h3>
+                    <asp:Button ID="Button3" runat="server" Text="Agregar Depositos" />
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="Panel3" TargetControlID="Button3"
+    CancelControlID="Button4" BackgroundCssClass="modalBackground">
+</cc1:ModalPopupExtender>        
+<asp:Panel ID="Panel3" runat="server" CssClass="modalPopup" align="center" Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+    <div style="padding:20px">
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+            <ContentTemplate>
+
+                 <h3>Agregar Depositos:</h3>
                         <table>
                           
                             <tr>
@@ -252,29 +309,29 @@
                                 </td>
                             </tr>
                         </table>
-                        <p></p>
-                        <p></p>
+
+
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
+   
+    
 
                         <asp:Button ID="btnagregardep" runat="server" Text="Agregar Deposito" OnClick="btnagregardep_Click"  CausesValidation="true" ValidationGroup="VG20"/>
-                        <asp:Label ID="lblconfirmardep" runat="server" Text=""></asp:Label>
 
-                    <br />
-                    <br />
+    <asp:Button ID="Button4" runat="server" Text="Cerrar" />
+                            <asp:Label ID="lblconfirmardep" runat="server" Text=""></asp:Label>
+         </div>
+</asp:Panel>
+                           
+                       
 
                     <asp:UpdatePanel runat="server">
                                 <ContentTemplate>
                             <asp:gridview class="table thead-dark" CssClass="grid" ID="gvdep" runat="server" 
                                 AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" BackColor="White" 
                                 BorderColor="#CCCCCC"  BorderStyle="None" BorderWidth="1px" CellPadding="3">            
-                                    <FooterStyle BackColor="White" ForeColor="#000066" />
-                                    <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                                    <RowStyle ForeColor="#000066" />
-                                    <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#00547E" />  
+                                     
                                 <Columns>
                                      <asp:TemplateField HeaderText="ID">
                                             <ItemTemplate>

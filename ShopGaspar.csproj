@@ -1932,7 +1932,6 @@
     <Content Include="Images\Thumbs\spf.png" />
     <Content Include="Images\verduleria.jpg" />
     <Content Include="Images\whatsapp.png" />
-    <Content Include="Scripts\switch.js" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
