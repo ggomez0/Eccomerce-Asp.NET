@@ -132,13 +132,13 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control UpdatePanel100.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel100;
 
         /// <summary>
         /// Control LabelAddCategory.
@@ -258,22 +258,22 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Label LabelAddImageFile;
 
         /// <summary>
-        /// Control ProductImage.
+        /// Control imgprodadd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ProductImage;
+        protected global::System.Web.UI.WebControls.FileUpload imgprodadd;
 
         /// <summary>
-        /// Control RequiredFieldValidator4.
+        /// Control RequiredFieldValidator440.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator440;
 
         /// <summary>
         /// Control AddProductButton.
