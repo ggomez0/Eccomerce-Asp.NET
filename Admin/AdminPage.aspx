@@ -3,17 +3,17 @@
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
         <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-            <div class="container">
+            <div class="">
                   <style>
                                         .button4 {border-radius: 12px;}
                                     </style>
 
                 <%-- //////////////////////////////////////////////////--%>
 
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-2">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-                                aria-orientation="vertical">
+                                aria-orientation="vertical" style="border-color:black; border-right:groove; border-color:black;">
 
                                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-cat"
                                     role="tab" aria-controls="v-pills-cat" aria-selected="true">Categoria</a>
@@ -34,7 +34,7 @@
                         </div>
 
 
-                        <div class="col-9">
+                        <div class="col-9" >
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-cat" role="tabpanel"
                                     aria-labelledby="v-pills-cat-tab">
@@ -97,6 +97,11 @@
                                                     OnRowCancelingEdit="gvcattab_RowCancelingEdit"
                                                     OnRowUpdating="gvcattab_RowUpdating"
                                                     OnRowDeleting="gvcattab_RowDeleting">
+                                                            <HeaderStyle BackColor="black" Font-Bold="True"
+                                                                ForeColor="White"  />
+                                                            
+                                                          
+                                                           
                                         <Columns>
 
                                               <asp:TemplateField HeaderText="ID">
@@ -132,12 +137,12 @@
                                                                     </cc1:ModalPopupExtender>
                                                                     <asp:Panel ID="Panel21" runat="server"
                                                                         CssClass="modalPopup" align="center"
-                                                                        Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+                                                                        Style="background-color:white; border:solid; border-color:black;">
                                                                         <div style="padding:20px">
                                                                             <asp:UpdatePanel ID="UpdatePanel2"
                                                                                 runat="server">
                                                                                 <ContentTemplate>
-                                                                                    <h3>Editar categoria:</h3>
+                                                                                    <h3>Editar categoria</h3>
                                                                                     <table>                                                                                     
                                                                                         <tr>
                                                                                             <td>
@@ -163,20 +168,20 @@
                                                                                                 </asp:RequiredFieldValidator>
                                                                                             </td>
                                                                                         </tr>
-                                                                                       
+
 
                                                                                        
                                                                                     </table>
                                                                                     <p></p>
                                                                                     <p></p>
 
-                                                                                    <asp:Button ID="Editcat"
+                                                                                    <asp:Button CssClass="btn btn-success button4" ID="Editcat"
                                                                                         runat="server"
                                                                                         Text="Editar Producto"
                                                                                         CommandName="Update"
                                                                                         CausesValidation="true"
                                                                                         ValidationGroup="VG15" />
-                                                                                      <asp:Button ID="btncerrareditcat" runat="server"
+                                                                                      <asp:Button ID="btncerrareditcat" CssClass="btn btn-danger button4" runat="server"
                                                                             Text="Cerrar"
                                                                             ValidationGroup="VG16" />
                                                                                   
@@ -350,6 +355,8 @@
                                                     OnRowCancelingEdit="gridproductos_RowCancelingEdit"
                                                     OnRowUpdating="gridproductos_RowUpdating"
                                                     OnRowDeleting="gridproductos_RowDeleting">
+                                                    <HeaderStyle BackColor="black" Font-Bold="True"
+                                                                ForeColor="White"  />
 
 
                                                     <Columns>
@@ -711,6 +718,8 @@
                                                     OnRowCancelingEdit="gvdep_RowCancelingEdit"
                                                     OnRowUpdating="gvdep_RowUpdating"
                                                     OnRowDeleting="gvdep_RowDeleting">
+                                                    <HeaderStyle BackColor="black" Font-Bold="True"
+                                                                ForeColor="White"  />
 
                                                     <Columns>
                                                         <asp:TemplateField HeaderText="ID">
@@ -915,7 +924,7 @@
                                         <asp:UpdatePanel runat="server">
                                             <ContentTemplate>
 
-                                                <h3>Agregar existencias al deposito:</h3>
+                                                <h3>Realizar movimientos de stock</h3>
                                                 <table>
                                                     <tr>
                                                         <td>
@@ -1028,18 +1037,9 @@
                                                             ShowHeaderWhenEmpty="true" BackColor="White"
                                                             BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
                                                             CellPadding="3">
-                                                            <FooterStyle BackColor="White" ForeColor="#000066" />
-                                                            <HeaderStyle BackColor="#006699" Font-Bold="True"
-                                                                ForeColor="White" />
-                                                            <PagerStyle BackColor="White" ForeColor="#000066"
-                                                                HorizontalAlign="Left" />
-                                                            <RowStyle ForeColor="#000066" />
-                                                            <SelectedRowStyle BackColor="#669999" Font-Bold="True"
-                                                                ForeColor="White" />
-                                                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                                            <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                                            <SortedDescendingHeaderStyle BackColor="#00547E" />
+                                                            <HeaderStyle BackColor="black" Font-Bold="True"
+                                                                ForeColor="White"  />
+                                                     
                                                             <Columns>
                                                                 <asp:TemplateField HeaderText="ID">
                                                                     <ItemTemplate>
@@ -1091,6 +1091,8 @@
                                                                 BorderWidth="1px" CellPadding="3"
                                                                 ShowHeaderWhenEmpty="true" BackColor="White"
                                                                 BorderColor="#CCCCCC">
+                                                                <HeaderStyle BackColor="black" Font-Bold="True"
+                                                                ForeColor="White"  />
                                                                 <Columns>
                                                                     <asp:TemplateField HeaderText="Usuario">
                                                                         <ItemTemplate>
@@ -1131,6 +1133,8 @@
                                                 <asp:GridView ID="gvstat" BorderStyle="None" runat="server"
                                                     CssClass="grid" ShowHeaderWhenEmpty="true"
                                                     AutoGenerateColumns="true">
+                                                    <HeaderStyle BackColor="black" Font-Bold="True"
+                                                                ForeColor="White"  />
 
                                                 </asp:GridView>
                                             </div>
