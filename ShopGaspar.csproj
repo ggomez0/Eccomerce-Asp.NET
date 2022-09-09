@@ -221,12 +221,14 @@
     <Content Include="Account\ordersusers.aspx" />
     <Content Include="Account\passrecov.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
+    <Content Include="Admin\detprodcat.aspx" />
     <Content Include="Admin\dropdownlist.asmx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
     <Content Include="Admin\prodendep.aspx" />
     <Content Include="Content\bootstrap-icons.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Default.aspx" />
     <Content Include="Images\addnew.png" />
     <Content Include="Images\Almacen.jpg" />
     <Content Include="Images\asado.jpg" />
@@ -2151,6 +2153,13 @@
     <Compile Include="Admin\detallesordenes.aspx.designer.cs">
       <DependentUpon>detallesordenes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\detprodcat.aspx.cs">
+      <DependentUpon>detprodcat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\detprodcat.aspx.designer.cs">
+      <DependentUpon>detprodcat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\dropdownlist.asmx.cs">
       <DependentUpon>dropdownlist.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -2177,6 +2186,13 @@
       <DependentUpon>prodendep.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Logic\AddCards.cs" />
     <Compile Include="Logic\AddCategories.cs" />
     <Compile Include="Logic\adddep.cs" />

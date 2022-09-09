@@ -37,15 +37,18 @@
                                 <div class="tab-pane fade show active" id="v-pills-cat" role="tabpanel"
                                     aria-labelledby="v-pills-cat-tab">
 
+                                    <style>
+                                        .button4 {border-radius: 12px;}
+                                    </style>
 
-                                    <asp:Button ID="Button1" runat="server" Text="Agregar Categoria" />
+                                    <asp:Button ID="Button1" CssClass="btn btn-success button4"  runat="server" Text="Agregar Categoria" />
                                     <!-- ModalPopupExtender -->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
                                         PopupControlID="Panel2" TargetControlID="Button1" CancelControlID="Button2"
                                         BackgroundCssClass="modalBackground">
                                     </cc1:ModalPopupExtender>
                                     <asp:Panel ID="Panel2" runat="server" CssClass="modalPopup" align="center"
-                                        Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+                                        Style="background-color:white; border:solid; border-color:blue; border-radius:30px">
                                         <div style="padding:20px">
                                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                 <ContentTemplate>
@@ -85,69 +88,142 @@
                                         <asp:Button ID="Button2" runat="server" Text="Cerrar" />
                                     </asp:Panel>
 
-                                    <asp:Button ID="Button5" runat="server" Text="Eliminar Categoria" />
-                                    <!-- ModalPopupExtender -->
-                                    <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
-                                        PopupControlID="Panel4" TargetControlID="Button5" CancelControlID="Button6"
-                                        BackgroundCssClass="modalBackground">
-                                    </cc1:ModalPopupExtender>
-                                    <asp:Panel ID="Panel4" runat="server" CssClass="modalPopup" align="center"
-                                        Style="background-color:white; border:solid; border-color:black;  ">
-                                        <div style="padding:20px">
-                                            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-                                                <ContentTemplate>
-                                                    <h3>Eliminar Categoria:</h3>
-                                                    <table>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Label ID="lblCat" runat="server">Categoria:
-                                                                </asp:Label>
-                                                                <asp:TextBox ID="txtContactsSearch" runat="server"
-                                                                    AutoPostBack="true" AutoCompleteType="Search">
-                                                                </asp:TextBox>
-                                                                <cc1:AutoCompleteExtender ID="AutoCompleteExtender1"
-                                                                    runat="server" ServiceMethod="CategorySearch"
-                                                                    MinimumPrefixLength="1" CompletionInterval="100"
-                                                                    EnableCaching="false" CompletionSetCount="10"
-                                                                    TargetControlID="txtContactsSearch"
-                                                                    FirstRowSelected="false"
-                                                                    ServicePath="dropdownlist.asmx">
-                                                                </cc1:AutoCompleteExtender>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <p></p>
-                                                    <asp:Button ID="btnremcat" runat="server" Text="Remover Categoria"
-                                                        OnClick="btnremcat_Click" CausesValidation="false" />
-                                                    <asp:Label ID="lblsuccat" runat="server" Text=""></asp:Label>
+                              
 
 
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                        </div>
-                                        <asp:Button ID="Button6" runat="server" Text="Cerrar" />
-                                    </asp:Panel>
+
 
 
                                     <asp:GridView ID="gvcattab" runat="server" CssClass="grid"
-                                        ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="true"
+                                        ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
                                         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
-                                        CellPadding="3" DataKeyNames="ProductID" OnRowCommand="gridproductos_RowCommand"
+                                        CellPadding="3" DataKeyNames="CategoryID" OnRowCommand="gvcattab_RowCommand"
                                                     OnRowEditing="gvcattab_RowEditing"
                                                     OnRowCancelingEdit="gvcattab_RowCancelingEdit"
                                                     OnRowUpdating="gvcattab_RowUpdating"
-                                                    OnRowDeleting="gvcattab_RowDeleting"></asp:GridView>
+                                                    OnRowDeleting="gvcattab_RowDeleting">
+                                        <Columns>
 
-                                    <%----hacer detalles de categoria y mostrar todos los productos que son de esa
-                                        categoria ---%>
+                                              <asp:TemplateField HeaderText="ID">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("CategoryID") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Nombre">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("CategoryName") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                              <asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                    <asp:ImageButton ImageUrl="~/Images/lupa.png"
+                                                                        runat="server" ValidationGroup="VG2" ID="btndetcat" Width="20px"
+                                                                        Height="20px" OnClick="btndetcat_Click" CommandArgument='<%#Eval("CategoryID") %>' />
+                                                               
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                             <asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                    <asp:ImageButton ImageUrl="~/Images/edit.png"
+                                                                        runat="server" ValidationGroup="VG3" ID="btneditcat" Width="20px"
+                                                                        Height="20px"  />
+                                                                  <cc1:ModalPopupExtender ID="mp1" runat="server"
+                                                                        PopupControlID="Panel21"
+                                                                        TargetControlID="btneditcat"
+                                                                        CancelControlID="btncerrareditcat"
+                                                                        BackgroundCssClass="modalBackground">
+                                                                    </cc1:ModalPopupExtender>
+                                                                    <asp:Panel ID="Panel21" runat="server"
+                                                                        CssClass="modalPopup" align="center"
+                                                                        Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+                                                                        <div style="padding:20px">
+                                                                            <asp:UpdatePanel ID="UpdatePanel2"
+                                                                                runat="server">
+                                                                                <ContentTemplate>
+                                                                                    <h3>Editar categoria:</h3>
+                                                                                    <table>                                                                                     
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <asp:Label
+                                                                                                    ID="lbleditnamecat"
+                                                                                                    runat="server">
+                                                                                                    Nombre:</asp:Label>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <asp:TextBox
+                                                                                                    ID="txtCategoryNameedit"
+                                                                                                    Text='<%# Eval("CategoryName") %>'
+                                                                                                    runat="server" />
+
+                                                                                                <asp:RequiredFieldValidator
+                                                                                                    ValidationGroup="VG15"
+                                                                                                    ID="RequiredFieldValidator112"
+                                                                                                    runat="server"
+                                                                                                    Text="* Nombre del producto requerido."
+                                                                                                    ControlToValidate="txtCategoryNameedit"
+                                                                                                    SetFocusOnError="true"
+                                                                                                    Display="Dynamic">
+                                                                                                </asp:RequiredFieldValidator>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                       
+
+                                                                                       
+                                                                                    </table>
+                                                                                    <p></p>
+                                                                                    <p></p>
+
+                                                                                    <asp:Button ID="Editcat"
+                                                                                        runat="server"
+                                                                                        Text="Editar Producto"
+                                                                                        CommandName="Update"
+                                                                                        CausesValidation="true"
+                                                                                        ValidationGroup="VG15" />
+                                                                                      <asp:Button ID="btncerrareditcat" runat="server"
+                                                                            Text="Cerrar"
+                                                                            ValidationGroup="VG16" />
+                                                                                  
+
+
+
+                                                                                </ContentTemplate>
+                                                                            </asp:UpdatePanel>
+                                                                        </div>
+                                                                        <asp:Label ID="lblcatedit"
+                                                                                        runat="server" Text="">
+                                                                                    </asp:Label>
+                                                                    </asp:Panel>
+
+                                                               
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField>
+                                                            <ItemTemplate>
+
+                                                                <asp:ImageButton ImageUrl="~/Images/delete.png"
+                                                                    runat="server" CommandName="Delete"
+                                                                    ValidationGroup="VG3" ToolTip="Eliminar"
+                                                                    Width="20px" Height="20px" />
+                                                            </ItemTemplate>                                                       
+                                                        </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
                                 </div>
+
+                                <%----------------------------------------------------%>
+                                <%----------------------------------------------------%>
+                                <%------------PRODUCTOS-------------------------------%>
+                                <%----------------------------------------------------%>
+                                <%----------------------------------------------------%>
 
                                 <div class="tab-pane fade" id="v-pills-prod" role="tabpanel"
                                     aria-labelledby="v-pills-prod-tab">
 
 
                                     <asp:Button ID="btnShow" runat="server" CssClass="btn-primary"
-                                        Text="Agregar Producto" ValidationGroup="vg23" />
+                                        Text="Agregar Producto" ValidationGroup="VG4" />
                                     <!-- ModalPopupExtender -->
                                     <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1"
                                         TargetControlID="btnShow" CancelControlID="btnClose"
@@ -183,7 +259,7 @@
                                                             <td>
                                                                 <asp:TextBox ID="AddProductName" runat="server">
                                                                 </asp:TextBox>
-                                                                <asp:RequiredFieldValidator ValidationGroup="VG2guardar"
+                                                                <asp:RequiredFieldValidator ValidationGroup="VG5"
                                                                     ID="RequiredFieldValidator1" runat="server"
                                                                     Text="* Nombre del producto requerido."
                                                                     ControlToValidate="AddProductName"
@@ -199,7 +275,7 @@
                                                             <td>
                                                                 <asp:TextBox ID="AddProductDescription" runat="server">
                                                                 </asp:TextBox>
-                                                                <asp:RequiredFieldValidator ValidationGroup="VG2guardar"
+                                                                <asp:RequiredFieldValidator ValidationGroup="VG5"
                                                                     ID="RequiredFieldValidator2" runat="server"
                                                                     Text="* Descripcion requerida."
                                                                     ControlToValidate="AddProductDescription"
@@ -218,10 +294,10 @@
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3"
                                                                     runat="server" Text="* Precio requerido."
                                                                     ControlToValidate="AddProductPrice"
-                                                                    SetFocusOnError="true" Display="Dynamic">
+                                                                    SetFocusOnError="true" Display="Dynamic" ValidationGroup="VG5">
                                                                 </asp:RequiredFieldValidator>
                                                                 <asp:RegularExpressionValidator
-                                                                    ValidationGroup="VG2guardar"
+                                                                    ValidationGroup="VG5"
                                                                     ID="RegularExpressionValidator1" runat="server"
                                                                     Text="* Valor numerico sin $"
                                                                     ControlToValidate="AddProductPrice"
@@ -238,7 +314,7 @@
                                                             </td>
                                                             <td>
                                                                 <asp:FileUpload ID="ProductImage" runat="server" />
-                                                                <asp:RequiredFieldValidator ValidationGroup="VG2guardar"
+                                                                <asp:RequiredFieldValidator ValidationGroup="VG5"
                                                                     ID="RequiredFieldValidator4" runat="server"
                                                                     Text="* Imagen requerida."
                                                                     ControlToValidate="ProductImage"
@@ -252,10 +328,10 @@
 
                                                     <asp:Button ID="AddProductButton" runat="server"
                                                         Text="Agregar Producto" OnClick="AddProductButton_Click"
-                                                        CausesValidation="true" ValidationGroup="VG2guardar" />
+                                                        CausesValidation="true" ValidationGroup="VG5" />
                                                     <asp:Label ID="LabelAddStatus" runat="server" Text=""></asp:Label>
                                                     <asp:Button ID="btnClose" runat="server" Text="Cancelar"
-                                                        ValidationGroup="VGcerrar" />
+                                                        ValidationGroup="VG6" />
                                                     <p></p>
 
 
@@ -336,7 +412,7 @@
 
                                                                     <asp:ImageButton ImageUrl="~/Images/edit.png"
                                                                         runat="server" ID="btneditprod" Width="20px"
-                                                                        Height="20px" />
+                                                                        Height="20px" ValidationGroup="VG7" />
                                                                     <!-- ModalPopupExtender -->
                                                                     <cc1:ModalPopupExtender ID="mp1" runat="server"
                                                                         PopupControlID="Panel21"
@@ -366,7 +442,7 @@
                                                                                                     ID="txtctid"
                                                                                                     Text='<%# Eval("CategoryID") %>'
                                                                                                     Width="50%"
-                                                                                                    runat="server" />
+                                                                                                    runat="server" ValidationGroup="VG8" />
 
 
                                                                                             </td>
@@ -385,7 +461,7 @@
                                                                                                     runat="server" />
 
                                                                                                 <asp:RequiredFieldValidator
-                                                                                                    ValidationGroup="VG211"
+                                                                                                    ValidationGroup="VG8"
                                                                                                     ID="RequiredFieldValidator111"
                                                                                                     runat="server"
                                                                                                     Text="* Nombre del producto requerido."
@@ -411,7 +487,7 @@
                                                                                                     runat="server" />
 
                                                                                                 <asp:RequiredFieldValidator
-                                                                                                    ValidationGroup="VG211"
+                                                                                                    ValidationGroup="VG8"
                                                                                                     ID="RequiredFieldValidator211"
                                                                                                     runat="server"
                                                                                                     Text="* Descripcion requerida."
@@ -441,10 +517,10 @@
                                                                                                     Text="* Precio requerido."
                                                                                                     ControlToValidate="txtUnitPrice"
                                                                                                     SetFocusOnError="true"
-                                                                                                    Display="Dynamic">
+                                                                                                    Display="Dynamic" ValidationGroup="VG8">
                                                                                                 </asp:RequiredFieldValidator>
                                                                                                 <asp:RegularExpressionValidator
-                                                                                                    ValidationGroup="VG211"
+                                                                                                    ValidationGroup="VG8"
                                                                                                     ID="RegularExpressionValidator111"
                                                                                                     runat="server"
                                                                                                     Text="* Valor numerico sin $"
@@ -470,7 +546,7 @@
                                                                                                     Width="85%"
                                                                                                     runat="server" />
                                                                                                 <asp:RequiredFieldValidator
-                                                                                                    ValidationGroup="VG211"
+                                                                                                    ValidationGroup="VG8"
                                                                                                     ID="RequiredFieldValidator411"
                                                                                                     runat="server"
                                                                                                     Text="* Imagen requerida."
@@ -489,7 +565,7 @@
                                                                                         Text="Editar Producto"
                                                                                         CommandName="Update"
                                                                                         CausesValidation="true"
-                                                                                        ValidationGroup="VG211" />
+                                                                                        ValidationGroup="VG8" />
                                                                                     <asp:Label ID="lblprodedit"
                                                                                         runat="server" Text="">
                                                                                     </asp:Label>
@@ -500,7 +576,7 @@
                                                                         </div>
                                                                         <asp:Button ID="btncerraredit" runat="server"
                                                                             Text="Cerrar"
-                                                                            ValidationGroup="VGprodaddcerrar" />
+                                                                            ValidationGroup="VG9" />
                                                                     </asp:Panel>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
@@ -509,14 +585,9 @@
 
                                                                 <asp:ImageButton ImageUrl="~/Images/delete.png"
                                                                     runat="server" CommandName="Delete"
-                                                                    ValidationGroup="Vagos" ToolTip="Eliminar"
+                                                                    ValidationGroup="VG10" ToolTip="Eliminar"
                                                                     Width="20px" Height="20px" />
-                                                            </ItemTemplate>
-                                                            <%-- <asp:ImageButton ImageUrl="~/Images/save.png"
-                                                                runat="server" CommandName="Update"
-                                                                ValidationGroup="Vagos" ToolTip="Actualizar"
-                                                                Width="20px" Height="20px" />--%>
-
+                                                            </ItemTemplate>                                                       
                                                         </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
@@ -534,7 +605,7 @@
                                     <div class="tab-pane fade" id="v-pills-dep" role="tabpanel"
                                         aria-labelledby="v-pills-dep-tab">
                                         <asp:Button ID="Button3" runat="server" Text="Agregar Depositos"
-                                            ValidationGroup="VG20depositoabrir" />
+                                            ValidationGroup="VG11" />
                                         <!-- ModalPopupExtender -->
                                         <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
                                             PopupControlID="Panel3" TargetControlID="Button3" CancelControlID="Button4"
@@ -558,7 +629,7 @@
                                                                     <asp:TextBox ID="txtnomdep" runat="server">
                                                                     </asp:TextBox>
                                                                     <asp:RequiredFieldValidator
-                                                                        ValidationGroup="VG20deposito"
+                                                                        ValidationGroup="VG12"
                                                                         ID="RequiredFieldValidator7" runat="server"
                                                                         Text="* Nombre del deposito requerido."
                                                                         ControlToValidate="txtnomdep"
@@ -575,7 +646,7 @@
                                                                     <asp:TextBox ID="txtdescdep" runat="server">
                                                                     </asp:TextBox>
                                                                     <asp:RequiredFieldValidator
-                                                                        ValidationGroup="VG20deposito"
+                                                                        ValidationGroup="VG12"
                                                                         ID="RequiredFieldValidator8" runat="server"
                                                                         Text="* Descripcion requerida."
                                                                         ControlToValidate="txtdescdep"
@@ -592,7 +663,7 @@
                                                                     <asp:TextBox ID="txtubidep" runat="server">
                                                                     </asp:TextBox>
                                                                     <asp:RequiredFieldValidator
-                                                                        ValidationGroup="VG20deposito"
+                                                                        ValidationGroup="VG12"
                                                                         ID="RequiredFieldValidator9" runat="server"
                                                                         Text="* Ubicacion requerido."
                                                                         ControlToValidate="txtubidep"
@@ -609,7 +680,7 @@
                                                                 <td>
                                                                     <asp:FileUpload ID="FileUpload1" runat="server" />
                                                                     <asp:RequiredFieldValidator
-                                                                        ValidationGroup="VG20deposito"
+                                                                        ValidationGroup="VG12"
                                                                         ID="RequiredFieldValidator11" runat="server"
                                                                         Text="* Imagen requerida."
                                                                         ControlToValidate="FileUpload1"
@@ -628,10 +699,10 @@
 
                                                 <asp:Button ID="btnagregardep" runat="server" Text="Agregar Deposito"
                                                     OnClick="btnagregardep_Click" CausesValidation="true"
-                                                    ValidationGroup="VG20deposito" />
+                                                    ValidationGroup="VG12" />
 
                                                 <asp:Button ID="Button4" runat="server" Text="Cerrar"
-                                                    ValidationGroup="vg20depositocerrar" />
+                                                    ValidationGroup="VG13" />
                                                 <asp:Label ID="lblconfirmardep" runat="server" Text=""></asp:Label>
                                             </div>
                                         </asp:Panel>
@@ -684,6 +755,23 @@
                                                                     CommandArgument='<%#Eval("DepID") %>' Width="20px"
                                                                     Height="20px" />
                                                             </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                    <asp:ImageButton ImageUrl="~/Images/edit.png"
+                                                                        runat="server" ID="btneditdep" Width="20px"
+                                                                        Height="20px" />
+                                                               
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField>
+                                                            <ItemTemplate>
+
+                                                                <asp:ImageButton ImageUrl="~/Images/delete.png"
+                                                                    runat="server" CommandName="Delete"
+                                                                    ValidationGroup="Vagosdep" ToolTip="Eliminar"
+                                                                    Width="20px" Height="20px" />
+                                                            </ItemTemplate>                                                       
                                                         </asp:TemplateField>
 
                                                     </Columns>
@@ -924,4 +1012,9 @@
                     </div>
                     <p></p>
             </div>
+
+
+
+
+
         </asp:Content>

@@ -25,11 +25,11 @@ namespace ShopGaspar.Admin
             if (!this.IsPostBack)
             {
                 PopulateGridview();
+                PopulateGridview1();
                 this.SearchCustomers("defaultconnection", "select * from aspnetusers", tablausers);
                 this.SearchCustomers("ShopGaspar", "SELECT * from Orders", tablatrans);
                 this.SearchCustomers("ShopGaspar", "SELECT ProductName, stock, vendido from Products", gvstat);
                 this.SearchCustomers("ShopGaspar", "SELECT * from depositos", gvdep);
-                this.SearchCustomers("ShopGaspar", "SELECT CategoryID, CategoryName from Categories", gvcattab);
 
 
 
@@ -47,10 +47,10 @@ namespace ShopGaspar.Admin
                 lbladdcatstatus.Text = "Categoria agregada!";
             }
 
-            if (productAction == "remcat")
-            {
-                lblsuccat.Text = "Categoria Removida!";
-            }
+            //if (productAction == "remcat")
+            //{
+            //    lblsuccat.Text = "Categoria Removida!";
+            //}
 
             if (productAction == "adddep")
             {
@@ -152,26 +152,26 @@ namespace ShopGaspar.Admin
             }
         }
 
-        protected void btnremcat_Click(object sender, EventArgs e)
-        {
-            using (var _db = new ShopGaspar.Models.ProductContext())
-            {
-                var myItem1 = (from c in _db.Categories where c.CategoryName == txtContactsSearch.Text select c).FirstOrDefault();
-                if (myItem1 != null)
-                {
-                    _db.Categories.Remove(myItem1);
-                    _db.SaveChanges();
+        //protected void btnremcat_Click(object sender, EventArgs e)
+        //{
+        //    using (var _db = new ShopGaspar.Models.ProductContext())
+        //    {
+        //        var myItem1 = (from c in _db.Categories where c.CategoryName == txtContactsSearch.Text select c).FirstOrDefault();
+        //        if (myItem1 != null)
+        //        {
+        //            _db.Categories.Remove(myItem1);
+        //            _db.SaveChanges();
 
-                    // Reload the page.
-                    string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                    Response.Redirect(pageUrl + "?ProductAction=remcat");
-                }
-                else
-                {
-                    lblsuccat.Text = "No se localizo la categoria";
-                }
-            }
-        }
+        //            // Reload the page.
+        //            string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+        //            Response.Redirect(pageUrl + "?ProductAction=remcat");
+        //        }
+        //        else
+        //        {
+        //            lblsuccat.Text = "No se localizo la categoria";
+        //        }
+        //    }
+        //}
        
 
         private void SearchCustomers(string conexion, string comando, GridView tabla)
@@ -496,16 +496,40 @@ namespace ShopGaspar.Admin
 
         protected void gvcattab_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            
+            gvcattab.EditIndex = e.NewEditIndex;
+            PopulateGridview1();
         }   
 
         protected void gvcattab_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            gvcattab.EditIndex = -1;
+            PopulateGridview1();
         }
 
         protected void gvcattab_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "UPDATE Categories SET CategoryName=@ProductName WHERE CategoryID = @ProductID";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@ProductName", (gvcattab.Rows[e.RowIndex].FindControl("txtCategoryNameedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvcattab.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    gvcattab.EditIndex = -1;
+                    PopulateGridview1();
+                    lblSuccessMessage.Text = "Categoria actualizado con exito";
+                    lblErrorMessage.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+            Response.Redirect("~/Admin/AdminPage.aspx");
 
         }
 
@@ -516,11 +540,11 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM Categories WHERE CategoryName = @ProductID";
+                    string query = "DELETE FROM Categories WHERE CategoryID = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvcattab.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
-                    PopulateGridview();
+                    PopulateGridview1();
                     lblSuccessMessage.Text = "Categoria eliminado con exito";
                     lblErrorMessage.Text = "";
 
@@ -534,6 +558,73 @@ namespace ShopGaspar.Admin
             }
             Response.Redirect("~/Admin/AdminPage.aspx");
 
+        }
+
+        protected void gvcattab_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                if (e.CommandName.Equals("AddNew"))
+                {
+                    using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                    {
+                        sqlCon.Open();
+                        string query = "INSERT INTO Products (ProductName,Description,ImagePath,UnitPrice,CategoryID,stock) VALUES (@ProductName,@Description,@ImagePath,@UnitPrice,@CategoryID,@stock)";
+                        SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                        sqlCmd.Parameters.AddWithValue("@ProductName", (gridproductos.FooterRow.FindControl("txtProductNameFooter") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@Description", (gridproductos.FooterRow.FindControl("txtDescriptionFooter") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@ImagePath", (gridproductos.FooterRow.FindControl("txtImagePathFooter") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@UnitPrice", (gridproductos.FooterRow.FindControl("txtUnitPriceFooter") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@CategoryID", (gridproductos.FooterRow.FindControl("ddlprodupf") as DropDownList).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@stock", (gridproductos.FooterRow.FindControl("txtstockFooter") as TextBox).Text.Trim());
+
+                        sqlCmd.ExecuteNonQuery();
+                        PopulateGridview1();
+                        lblSuccessMessage.Text = "Nueva categoria Agregado";
+                        lblErrorMessage.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+        }
+
+        void PopulateGridview1()
+        {
+            DataTable dtbl = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT CategoryID, CategoryName from Categories", sqlCon);
+                sqlDa.Fill(dtbl);
+            }
+            if (dtbl.Rows.Count > 0)
+            {
+                gvcattab.DataSource = dtbl;
+                gvcattab.DataBind();
+            }
+            else
+            {
+                dtbl.Rows.Add(dtbl.NewRow());
+                gvcattab.DataSource = dtbl;
+                gvcattab.DataBind();
+                gvcattab.Rows[0].Cells.Clear();
+                gvcattab.Rows[0].Cells.Add(new TableCell());
+                gvcattab.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
+                gvcattab.Rows[0].Cells[0].Text = "No se encontraron categorias..!";
+                gvcattab.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+            }
+            gvcattab.UseAccessibleHeader = true;
+            gvcattab.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
+
+        protected void btndetcat_Click(object sender, ImageClickEventArgs e)
+        {
+            int id4 = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/detprodcat.aspx?id4=" + id4);
         }
     }
 }
