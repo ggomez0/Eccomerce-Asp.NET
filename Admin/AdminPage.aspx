@@ -6,6 +6,7 @@
             <div class="">
                   <style>
                                         .button4 {border-radius: 12px;}
+                                   
                                     </style>
 
                 <%-- //////////////////////////////////////////////////--%>
@@ -231,12 +232,12 @@
                                         BackgroundCssClass="modalBackground ">
                                     </cc1:ModalPopupExtender>
                                     <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center"
-                                        Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+                                        Style="background-color:white; border:solid; border-color:black;">
                                         <div style="margin:15px">
                                             <asp:UpdatePanel ID="UpdatePanel100" runat="server">
                                                 <ContentTemplate>
 
-                                                    <h3>Agregar producto:</h3>
+                                                    <h3>Agregar producto</h3>
                                                     <table>
                                                         <tr>
                                                             <td>
@@ -327,11 +328,11 @@
                                                     <p></p>
                                                     <p></p>
 
-                                                    <asp:Button ID="AddProductButton" runat="server"
+                                                    <asp:Button ID="AddProductButton" CssClass="btn btn-success button4" runat="server"
                                                         Text="Agregar Producto" OnClick="AddProductButton_Click"
                                                         CausesValidation="true" ValidationGroup="VG5" />
                                                     <asp:Label ID="LabelAddStatus" runat="server" Text=""></asp:Label>
-                                                    <asp:Button ID="btnClose" runat="server" Text="Cancelar"
+                                                    <asp:Button ID="btnClose" CssClass="btn btn-danger button4" runat="server" Text="Cancelar"
                                                         ValidationGroup="VG6" />
                                                     <p></p>
 
@@ -425,12 +426,12 @@
                                                                     </cc1:ModalPopupExtender>
                                                                     <asp:Panel ID="Panel21" runat="server"
                                                                         CssClass="modalPopup" align="center"
-                                                                        Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+                                                                        Style="background-color:white; border:solid; border-color:black;">
                                                                         <div style="padding:20px">
                                                                             <asp:UpdatePanel ID="UpdatePanel2"
                                                                                 runat="server">
                                                                                 <ContentTemplate>
-                                                                                    <h3>Editar producto:</h3>
+                                                                                    <h3>Editar producto</h3>
                                                                                     <table>
                                                                                         <tr>
                                                                                             <td>
@@ -563,12 +564,7 @@
                                                                                     <p></p>
                                                                                     <p></p>
 
-                                                                                    <asp:Button ID="Editbtnprod"
-                                                                                        runat="server"
-                                                                                        Text="Editar Producto"
-                                                                                        CommandName="Update"
-                                                                                        CausesValidation="true"
-                                                                                        ValidationGroup="VG8" />
+                                                                                  
                                                                                     <asp:Label ID="lblprodedit"
                                                                                         runat="server" Text="">
                                                                                     </asp:Label>
@@ -577,9 +573,17 @@
                                                                                 </ContentTemplate>
                                                                             </asp:UpdatePanel>
                                                                         </div>
-                                                                        <asp:Button ID="btncerraredit" runat="server"
+                                                                          <asp:Button ID="Editbtnprod"
+                                                                                        runat="server"
+                                                                                        Text="Editar"
+                                                                                        CommandName="Update"
+                                                                                        CausesValidation="true"
+                                                                                        ValidationGroup="VG8" CssClass="btn btn-success button4" />
+                                                                        <asp:Button ID="btncerraredit" CssClass="btn btn-danger button4" runat="server"
                                                                             Text="Cerrar"
                                                                             ValidationGroup="VG9" />
+                                                                        <p></p>
+                                                                        <p></p>
                                                                     </asp:Panel>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
@@ -615,12 +619,12 @@
                                             BackgroundCssClass="modalBackground">
                                         </cc1:ModalPopupExtender>
                                         <asp:Panel ID="Panel3" runat="server" CssClass="modalPopup" align="center"
-                                            Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+                                            Style="background-color:white; border:solid; border-color:black;">
                                             <div style="padding:20px">
                                                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                                     <ContentTemplate>
 
-                                                        <h3>Agregar Depositos:</h3>
+                                                        <h3>Agregar Depositos</h3>
                                                         <table>
 
                                                             <tr>
@@ -704,7 +708,7 @@
                                                     OnClick="btnagregardep_Click" CssClass="btn btn-success button4" CausesValidation="true"
                                                     ValidationGroup="VG12" />
 
-                                                <asp:Button ID="Button4" runat="server" Text="Cerrar"
+                                                <asp:Button ID="Button4" runat="server" CssClass="btn btn-danger button4" Text="Cerrar"
                                                     ValidationGroup="VG13" />
                                                 <asp:Label ID="lblconfirmardep" runat="server" Text=""></asp:Label>
                                             </div>
@@ -780,7 +784,7 @@
                                                                     </cc1:ModalPopupExtender>
                                                                     <asp:Panel ID="Panel21" runat="server"
                                                                         CssClass="modalPopup" align="center"
-                                                                        Style="background-color:white; border:solid; border-color:blue; border-radius:30px 5px ">
+                                                                        Style="background-color:white; border:solid; border-color:black;">
                                                                         <div style="padding:20px">
                                                                             <asp:UpdatePanel ID="UpdatePanel2"
                                                                                 runat="server">
@@ -889,18 +893,18 @@
                                                                                         Text="Editar Deposito"
                                                                                         CommandName="Update"
                                                                                         CausesValidation="true"
-                                                                                        ValidationGroup="VG31" />
-                                                                                    <asp:Label ID="lbldepedit"
-                                                                                        runat="server" Text="">
-                                                                                    </asp:Label>
-
+                                                                                        ValidationGroup="VG31" CssClass="btn btn-success button4" />
+                                                                                    
+                                                                                      <asp:Button ID="btncerrareditdep" runat="server"
+                                                                            Text="Cerrar" CssClass="btn btn-danger button4"
+                                                                            ValidationGroup="VG32" />
 
                                                                                 </ContentTemplate>
                                                                             </asp:UpdatePanel>
                                                                         </div>
-                                                                        <asp:Button ID="btncerrareditdep" runat="server"
-                                                                            Text="Cerrar"
-                                                                            ValidationGroup="VG32" />
+                                                                      <asp:Label ID="lbldepedit"
+                                                                                        runat="server" Text="">
+                                                                                    </asp:Label>
                                                                     </asp:Panel>
                                                                
                                                             </ItemTemplate>

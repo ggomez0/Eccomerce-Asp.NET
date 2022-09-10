@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
        <div class="container">
         <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">ORDENES REALIZADAS POR EL USUARIO </asp:Label>
-        <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvordenesusuario" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
+        <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvordenesusuario" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false"> <HeaderStyle BackColor="black" Font-Bold="True"
+                                                                ForeColor="White"  />
         <Columns>
             <asp:TemplateField HeaderText="ID">
                 <ItemTemplate>
