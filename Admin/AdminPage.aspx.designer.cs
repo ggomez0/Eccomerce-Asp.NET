@@ -60,15 +60,6 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.TextBox AddCategoria;
 
         /// <summary>
-        /// Control AddCat.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddCat;
-
-        /// <summary>
         /// Control RequiredFieldValidator5.
         /// </summary>
         /// <remarks>
@@ -85,6 +76,15 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbladdcatstatus;
+
+        /// <summary>
+        /// Control AddCat.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddCat;
 
         /// <summary>
         /// Control Button2.

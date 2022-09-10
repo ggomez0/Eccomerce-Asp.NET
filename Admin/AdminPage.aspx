@@ -48,19 +48,17 @@
                                         BackgroundCssClass="modalBackground">
                                     </cc1:ModalPopupExtender>
                                     <asp:Panel ID="Panel2" runat="server" CssClass="modalPopup" align="center"
-                                        Style="background-color:white; border:solid; border-color:blue; border-radius:30px">
+                                        Style="background-color:white; border:solid; border-color:black;" >
                                         <div style="padding:20px">
                                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                 <ContentTemplate>
-                                                    <h3>Agregar Categoria:</h3>
+                                                    <h3>Agregar Categoria</h3>
                                                     <table>
                                                         <tr>
                                                             <td>
                                                                 <asp:TextBox ID="AddCategoria" runat="server">
                                                                 </asp:TextBox>
-                                                                <asp:Button ID="AddCat" runat="server" Text="Agregar"
-                                                                    OnClick="AddCat_Click" CausesValidation="true"
-                                                                    ValidationGroup="VG1" />
+                                                                
 
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5"
                                                                     runat="server" Font-Bold="true"
@@ -85,7 +83,13 @@
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </div>
-                                        <asp:Button ID="Button2" runat="server" Text="Cerrar" />
+                                        <asp:Button ID="AddCat" runat="server" Text="Agregar"
+                                                                    OnClick="AddCat_Click" CssClass="btn btn-success button4" CausesValidation="true"
+                                                                    ValidationGroup="VG1" />
+                                        <asp:Button ID="Button2" CssClass="btn btn-danger button4" runat="server" Text="Cerrar" />
+                                        <br />
+                                        <p>  </p>
+                                        <p></p>
                                     </asp:Panel>
 
                               
