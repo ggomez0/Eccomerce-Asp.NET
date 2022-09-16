@@ -21,6 +21,9 @@ namespace ShopGaspar.Models
         public string email { get; set; }
         public string comentario { get; set; }
 
-       
+       public string cuit { get; set; }
+
+        public virtual ICollection<lstcompra> Lstcompras{ get; set; }
+
     }
 }

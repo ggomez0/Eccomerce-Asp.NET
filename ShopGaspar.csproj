@@ -2194,9 +2194,11 @@
     <Compile Include="Logic\AddCards.cs" />
     <Compile Include="Logic\AddCategories.cs" />
     <Compile Include="Logic\adddep.cs" />
+    <Compile Include="Logic\addlstcpra.cs" />
     <Compile Include="Logic\AddOrder.cs" />
     <Compile Include="Logic\AddOrderDetails.cs" />
     <Compile Include="Logic\addprodendep.cs" />
+    <Compile Include="Logic\AgregarProv.cs" />
     <Compile Include="Logic\Ordenarlista.cs" />
     <Compile Include="Migrations\202208261939110_InitialCreate.cs" />
     <Compile Include="Migrations\202208261939110_InitialCreate.Designer.cs">
@@ -2206,9 +2208,18 @@
     <Compile Include="Migrations\202209160614505_InitialCreate1.Designer.cs">
       <DependentUpon>202209160614505_InitialCreate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209161554410_InitialCreate2.cs" />
+    <Compile Include="Migrations\202209161554410_InitialCreate2.Designer.cs">
+      <DependentUpon>202209161554410_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209161640200_lstcpra.cs" />
+    <Compile Include="Migrations\202209161640200_lstcpra.Designer.cs">
+      <DependentUpon>202209161640200_lstcpra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
     <Compile Include="Models\depositos.cs" />
+    <Compile Include="Models\lstcompra.cs" />
     <Compile Include="Models\prodendep.cs" />
     <Compile Include="Models\ProductDatabaseInitializer.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -2272,6 +2283,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209160614505_InitialCreate1.resx">
       <DependentUpon>202209160614505_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209161554410_InitialCreate2.resx">
+      <DependentUpon>202209161554410_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209161640200_lstcpra.resx">
+      <DependentUpon>202209161640200_lstcpra.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

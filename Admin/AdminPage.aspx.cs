@@ -438,11 +438,6 @@ namespace ShopGaspar.Admin
             }
         }
 
-        protected void Editbtnprod_Click(object sender, EventArgs e)
-        {
-       //borrar    
-        }
-
         protected void Editbtnprod_Click1(object sender, GridViewUpdateEventArgs e)
         {
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
@@ -720,13 +715,15 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "UPDATE proveedores SET ProvName=@ProductName,Description=@Description,ImagePath=@ImagePath,ubicacion=@ubicacion WHERE DepID = @DepID";
+                    string query = "UPDATE proveedores SET ProvName=@ProvName,ReprProv=@ReprProv,cuit=@cuit,email=@email,telefono=@telefono,comentario=@comentario WHERE ProvID = @provid";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@ProductName", (gvproveedores.Rows[e.RowIndex].FindControl("txtdepnameedit") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@Description", (gvproveedores.Rows[e.RowIndex].FindControl("txtdesceditdep") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@ImagePath", (gvproveedores.Rows[e.RowIndex].FindControl("txtImagePathdep") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@ubicacion", (gvproveedores.Rows[e.RowIndex].FindControl("txtubieditdep") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@DepID", Convert.ToInt32(gvproveedores.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.Parameters.AddWithValue("@ProvName", (gvproveedores.Rows[e.RowIndex].FindControl("txtnomprovedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@ReprProv", (gvproveedores.Rows[e.RowIndex].FindControl("txtreprprovedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@cuit", (gvproveedores.Rows[e.RowIndex].FindControl("txtcuitprovedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@email", (gvproveedores.Rows[e.RowIndex].FindControl("txtemailprovedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@telefono", (gvproveedores.Rows[e.RowIndex].FindControl("txttelprovedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@comentario", (gvproveedores.Rows[e.RowIndex].FindControl("txtcomprovedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@provid", Convert.ToInt32(gvproveedores.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
                     gvproveedores.EditIndex = -1;
                     this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
@@ -772,33 +769,52 @@ namespace ShopGaspar.Admin
 
         protected void gvproveedores_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            try
-            {
-                if (e.CommandName.Equals("AddNew"))
-                {
-                    using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                    {
-                        sqlCon.Open();
-                        string query = "INSERT INTO proveedores (ProvName,ReprProv,telefono,email,comentario) VALUES (@ProvName,@ReprProv,@telefono,@email,@comentario)";
-                        SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                        sqlCmd.Parameters.AddWithValue("@ProvName", (gvproveedores.Rows[e.RowIndex].FindControl("txtnomprov") as TextBox).Text.Trim());
-                        sqlCmd.Parameters.AddWithValue("@ReprProv", (gvproveedores.Rows[e.RowIndex].FindControl("txtreprprov") as TextBox).Text.Trim());
-                        sqlCmd.Parameters.AddWithValue("@telefono", (gvproveedores.Rows[e.RowIndex].FindControl("txttelprov") as TextBox).Text.Trim());
-                        sqlCmd.Parameters.AddWithValue("@email", (gvproveedores.Rows[e.RowIndex].FindControl("txtemailprov") as TextBox).Text.Trim());
-                        sqlCmd.Parameters.AddWithValue("@comentario", (gvproveedores.Rows[e.RowIndex].FindControl("txtcomprov") as TextBox).Text.Trim());
-                        sqlCmd.ExecuteNonQuery();
-                        this.databasecrud(connectionString, "SELECT * from proveedores", gvproveedores);
-                        lblSuccessMessage.Text = "Nuevo proveedor Agregado";
-                        lblErrorMessage.Text = "";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lblSuccessMessage.Text = "";
-                lblErrorMessage.Text = ex.Message;
-            }
+        //    try
+        //    {
+        //        if (e.CommandName.Equals("AddNew"))
+        //        {
+        //            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+        //            {
+        //                sqlCon.Open();
+        //                string query = "INSERT INTO proveedores (ProvName,ReprProv,telefono,email,comentario) VALUES (@ProvName,@ReprProv,@telefono,@email,@comentario)";
+        //                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+        //                sqlCmd.Parameters.AddWithValue("@ProvName", (gvproveedores.Rows[e.RowIndex].FindControl("txtnomprov") as TextBox).Text.Trim());
+        //                sqlCmd.Parameters.AddWithValue("@ReprProv", (gvproveedores.Rows[e.RowIndex].FindControl("txtreprprov") as TextBox).Text.Trim());
+        //                sqlCmd.Parameters.AddWithValue("@telefono", (gvproveedores.Rows[e.RowIndex].FindControl("txttelprov") as TextBox).Text.Trim());
+        //                sqlCmd.Parameters.AddWithValue("@email", (gvproveedores.Rows[e.RowIndex].FindControl("txtemailprov") as TextBox).Text.Trim());
+        //                sqlCmd.Parameters.AddWithValue("@comentario", (gvproveedores.Rows[e.RowIndex].FindControl("txtcomprov") as TextBox).Text.Trim());
+        //                sqlCmd.ExecuteNonQuery();
+        //                this.databasecrud(connectionString, "SELECT * from proveedores", gvproveedores);
+        //                lblSuccessMessage.Text = "Nuevo proveedor Agregado";
+        //                lblErrorMessage.Text = "";
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblSuccessMessage.Text = "";
+        //        lblErrorMessage.Text = ex.Message;
+        //    }
         }
 
+      
+
+        protected void btnagregarprov_Click(object sender, EventArgs e)
+        {
+            AgregarProv addprov = new AgregarProv();
+            bool addSuccess = addprov.AddProv(txtnomprov.Text,txtreprprov.Text, txttelprov.Text, txtemailprov.Text, txtcomprov.Text, txtcuitprov.Text);
+
+            if (addSuccess)
+            {
+                // Reload the page.
+                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                Response.Redirect(pageUrl + "?ProductAction=adddep");
+            }
+            else
+            {
+                lblconfirmardep.Text = "No se pudo agregar el deposito";
+            }
+
+        }
     }
 }

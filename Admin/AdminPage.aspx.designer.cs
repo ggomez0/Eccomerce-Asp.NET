@@ -312,13 +312,13 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control Button6.
+        /// Control btnagregarprov.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button6;
+        protected global::System.Web.UI.WebControls.Button btnagregarprov;
 
         /// <summary>
         /// Control Button7.
