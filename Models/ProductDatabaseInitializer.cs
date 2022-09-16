@@ -9,7 +9,21 @@ namespace ShopGaspar.Models
         {
             GetCategories().ForEach(c => context.Categories.Add(c));
             GetProducts().ForEach(p => context.Products.Add(p));
+
+
+            //public IQueryable GetProducts()
+            //{
+            //    var _db = new ShopGaspar.Models.ProductContext();
+            //    IQueryable query = _db.Products;
+            //    return query;
+            //}
+
+
+
+
         }
+
+
 
         private static List<Category> GetCategories()
         {

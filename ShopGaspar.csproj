@@ -220,15 +220,23 @@
     <Content Include="Account\orderdetailsuser.aspx" />
     <Content Include="Account\ordersusers.aspx" />
     <Content Include="Account\passrecov.aspx" />
+    <Content Include="Admin\CategoriaAdmin.aspx" />
+    <Content Include="Admin\ClientesAdmin.aspx" />
+    <Content Include="Admin\ComprasAdmin.aspx" />
+    <Content Include="Admin\DepositosAdmin.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
     <Content Include="Admin\detprodcat.aspx" />
     <Content Include="Admin\dropdownlist.asmx" />
+    <Content Include="Admin\EstadisticasAdmin.aspx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
+    <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
     <Content Include="Admin\prodendep.aspx" />
+    <Content Include="Admin\ProductosAdmin.aspx" />
+    <Content Include="Admin\TransaccionesAdmin.aspx" />
     <Content Include="Content\bootstrap-icons.css" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="Admin\Menu.aspx" />
     <Content Include="Images\Almacen.jpg" />
     <Content Include="Images\asado.jpg" />
     <Content Include="Images\asado1.jpg" />
@@ -1948,7 +1956,6 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Admin\AdminPage.aspx" />
     <Content Include="Admin\Web.config" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -2137,12 +2144,33 @@
     <Compile Include="Account\ordersusers.aspx.designer.cs">
       <DependentUpon>ordersusers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AdminPage.aspx.cs">
-      <DependentUpon>AdminPage.aspx</DependentUpon>
+    <Compile Include="Admin\CategoriaAdmin.aspx.cs">
+      <DependentUpon>CategoriaAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\AdminPage.aspx.designer.cs">
-      <DependentUpon>AdminPage.aspx</DependentUpon>
+    <Compile Include="Admin\CategoriaAdmin.aspx.designer.cs">
+      <DependentUpon>CategoriaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ClientesAdmin.aspx.cs">
+      <DependentUpon>ClientesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ClientesAdmin.aspx.designer.cs">
+      <DependentUpon>ClientesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ComprasAdmin.aspx.cs">
+      <DependentUpon>ComprasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ComprasAdmin.aspx.designer.cs">
+      <DependentUpon>ComprasAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DepositosAdmin.aspx.cs">
+      <DependentUpon>DepositosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DepositosAdmin.aspx.designer.cs">
+      <DependentUpon>DepositosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\detallesordenes.aspx.cs">
       <DependentUpon>detallesordenes.aspx</DependentUpon>
@@ -2162,12 +2190,26 @@
       <DependentUpon>dropdownlist.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Admin\EstadisticasAdmin.aspx.cs">
+      <DependentUpon>EstadisticasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EstadisticasAdmin.aspx.designer.cs">
+      <DependentUpon>EstadisticasAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\gvordenesusuarios.aspx.cs">
       <DependentUpon>gvordenesusuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\gvordenesusuarios.aspx.designer.cs">
       <DependentUpon>gvordenesusuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\IngEgrAdmin.aspx.cs">
+      <DependentUpon>IngEgrAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\IngEgrAdmin.aspx.designer.cs">
+      <DependentUpon>IngEgrAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ordorduser.aspx.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
@@ -2183,13 +2225,28 @@
     <Compile Include="Admin\prodendep.aspx.designer.cs">
       <DependentUpon>prodendep.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Admin\ProductosAdmin.aspx.cs">
+      <DependentUpon>ProductosAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Admin\ProductosAdmin.aspx.designer.cs">
+      <DependentUpon>ProductosAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SQLtable.cs" />
+    <Compile Include="Admin\TransaccionesAdmin.aspx.cs">
+      <DependentUpon>TransaccionesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TransaccionesAdmin.aspx.designer.cs">
+      <DependentUpon>TransaccionesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Admin\Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\AddCards.cs" />
     <Compile Include="Logic\AddCategories.cs" />

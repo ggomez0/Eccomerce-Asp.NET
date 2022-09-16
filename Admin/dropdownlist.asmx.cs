@@ -73,5 +73,32 @@ namespace ShopGaspar.Admin
                 }
             }
         }
+
+        [WebMethod]
+        public List<string> ProvSearch(string prefixText, int count)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["ShopGaspar"].ConnectionString;
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "select ProvID, ProvName from proveedores where ProvName like @SearchText + '%'";
+                    cmd.Parameters.AddWithValue("@SearchText", prefixText);
+                    cmd.Connection = conn;
+                    conn.Open();
+                    List<string> lstseacrh = new List<string>();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            lstseacrh.Add(sdr["ProvName"].ToString());
+                        }
+                    }
+                    conn.Close();
+
+                    return lstseacrh;
+                }
+            }
+        }
     }
 }
