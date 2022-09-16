@@ -25,6 +25,9 @@
                                 <a class="nav-link" id="v-pills-prodendep-tab" data-toggle="pill"
                                     href="#v-pills-prodendep" role="tab" aria-controls="v-pills-prodendep"
                                     aria-selected="false">Ingreso / Egreso</a>
+                                <a class="nav-link" id="v-pills-compras-tab" data-toggle="pill"
+                                    href="#v-pills-compras" role="tab" aria-controls="v-pills-compras"
+                                    aria-selected="false">Compras</a>
                                 <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-trans"
                                     role="tab" aria-controls="v-pills-trans" aria-selected="false">Transacciones</a>
                                 <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-cli"
@@ -218,6 +221,436 @@
                                 </div>
 
                                 <%--///////////////////////////////////////////////////////--%>
+
+                                <div class="tab-pane fade show active" id="v-pills-compras" role="tabpanel"
+                                    aria-labelledby="v-pills-compras-tab">
+
+                                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                          <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="pills-prov-tab" data-bs-toggle="pill" data-bs-target="#pills-prov" type="button" role="tab" aria-controls="pills-prov" aria-selected="true">Proveedores</button>
+                                          </li>
+                                          <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="pills-lstcpra-tab" data-bs-toggle="pill" data-bs-target="#pills-lstcpra" type="button" role="tab" aria-controls="pills-lstcpra" aria-selected="false">Lista de compras</button>
+                                          </li>
+                                          <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="pills-ordcpra-tab" data-bs-toggle="pill" data-bs-target="#pills-ordcpra" type="button" role="tab" aria-controls="pills-ordcpra" aria-selected="false">Ordenes de Compra</button>
+                                          </li>
+                                        </ul>
+
+
+                                        <div class="tab-content" id="pills-tabContent">
+                                          <div class="tab-pane fade show active" id="pills-prov" role="tabpanel" aria-labelledby="pills-prov-tab">
+
+                                                <asp:Button ID="Button5" CssClass="btn btn-success button4"  runat="server" Text="Agregar Proveedores" ValidationGroup="VG99" />
+                                    <!-- ModalPopupExtender -->
+                                    <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
+                                        PopupControlID="Panel21" TargetControlID="Button5" CancelControlID="Button7"
+                                        BackgroundCssClass="modalBackground">
+                                    </cc1:ModalPopupExtender>
+                                    <asp:Panel ID="Panel21" runat="server" CssClass="modalPopup" align="center"
+                                        Style="background-color:white; border:solid; border-color:black;" >
+                                        <div style="padding:20px">
+                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                <ContentTemplate>
+                                                    <h3>Agregar Proveedor</h3>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Label ID="Label6" runat="server">
+                                                                    Nombre:</asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtnomprov" runat="server">
+                                                                </asp:TextBox>
+                                                                
+
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4"
+                                                                    runat="server" Font-Bold="true"
+                                                                    Text="*Nombre del proveedor requerida"
+                                                                    ControlToValidate="txtnomprov"
+                                                                    SetFocusOnError="true" Display="Dynamic"
+                                                                    ValidationGroup="VG100"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                             <td>
+                                                                <asp:Label ID="Label7" runat="server">
+                                                                    Representante:</asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtreprprov" runat="server">
+                                                                </asp:TextBox>
+                                                                
+
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6"
+                                                                    runat="server" Font-Bold="true"
+                                                                    Text="*Nombre del representante requerida"
+                                                                    ControlToValidate="txtreprprov"
+                                                                    SetFocusOnError="true" Display="Dynamic"
+                                                                    ValidationGroup="VG100"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                             <td>
+                                                                <asp:Label ID="Label8" runat="server">
+                                                                    Telefono:</asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txttelprov" runat="server">
+                                                                </asp:TextBox>
+                                                                
+
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator12"
+                                                                    runat="server" Font-Bold="true"
+                                                                    Text="*Numero de telefono requerida"
+                                                                    ControlToValidate="txttelprov"
+                                                                    SetFocusOnError="true" Display="Dynamic"
+                                                                    ValidationGroup="VG100"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                             <td>
+                                                                <asp:Label ID="Label9" runat="server">
+                                                                    CUIT:</asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtcuitprov" runat="server">
+                                                                </asp:TextBox>
+                                                                
+
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13"
+                                                                    runat="server" Font-Bold="true"
+                                                                    Text="*CUIT requerido"
+                                                                    ControlToValidate="txtcuitprov"
+                                                                    SetFocusOnError="true" Display="Dynamic"
+                                                                    ValidationGroup="VG100"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                             <td>
+                                                                <asp:Label ID="Label10" runat="server">
+                                                                    E-mail:</asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtemailprov" runat="server">
+                                                                </asp:TextBox>
+                                                                
+
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15"
+                                                                    runat="server" Font-Bold="true"
+                                                                    Text="*Email requerida"
+                                                                    ControlToValidate="txtemailprov"
+                                                                    SetFocusOnError="true" Display="Dynamic"
+                                                                    ValidationGroup="VG100"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                             <td>
+                                                                <asp:Label ID="Label11" runat="server">
+                                                                    Comentario:</asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtcomprov" runat="server">
+                                                                </asp:TextBox>
+                                                                
+
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator16"
+                                                                    runat="server" Font-Bold="true"
+                                                                    Text="*Comentario requerido"
+                                                                    ControlToValidate="txtcomprov"
+                                                                    SetFocusOnError="true" Display="Dynamic"
+                                                                    ValidationGroup="VG100"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                        <tr>
+
+                                                            <td>
+                                                                <asp:Label ID="Label4" runat="server" Text="">
+                                                                </asp:Label>
+
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+
+
+
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                        <asp:Button ID="Button6" runat="server" Text="Agregar"
+                                                                    OnClick="AddCat_Click" CssClass="btn btn-success button4" CausesValidation="true"
+                                                                    ValidationGroup="VG100" />
+                                        <asp:Button ID="Button7" CssClass="btn btn-danger button4" runat="server" Text="Cerrar" ValidationGroup="VG101" />
+                                        <br />
+                                        <p>  </p>
+                                        <p></p>
+                                    </asp:Panel>
+
+                              
+                                    <asp:GridView ID="gvproveedores" runat="server" CssClass="grid"
+                                        ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
+                                        BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
+                                        CellPadding="3" DataKeyNames="ProvID" OnRowCommand="gvproveedores_RowCommand"
+                                                    OnRowEditing="gvproveedores_RowEditing"
+                                                    OnRowCancelingEdit="gvproveedores_RowCancelingEdit"
+                                                    OnRowUpdating="gvproveedores_RowUpdating"
+                                                    OnRowDeleting="gvproveedores_RowDeleting">
+                                                            <HeaderStyle BackColor="black" Font-Bold="True"
+                                                                ForeColor="White"  />
+                                                            
+                                                          
+                                                           
+                                        <Columns>
+
+                                              <asp:TemplateField HeaderText="ID">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("ProvID") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Nombre">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("ProvName") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                               <asp:TemplateField HeaderText="Representante">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("ReprProv") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                               <asp:TemplateField HeaderText="Telefono">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("telefono") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                               <asp:TemplateField HeaderText="E-Mail">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("email") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                               <asp:TemplateField HeaderText="Comentario">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("comentario") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                              <asp:TemplateField HeaderStyle-Width="10px" >
+                                                            <ItemTemplate>
+                                                                    <asp:ImageButton ImageUrl="~/Images/lupa.png"
+                                                                        runat="server" ValidationGroup="VG102" ID="btndetcat" Width="20px"
+                                                                        Height="20px" CommandArgument='<%#Eval("ProvID") %>' />
+                                                               
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                             <asp:TemplateField HeaderStyle-Width="10px">
+                                                            <ItemTemplate>
+                                                                    <asp:ImageButton ImageUrl="~/Images/edit.png"
+                                                                        runat="server" ValidationGroup="VG103" ID="btneditprov" Width="20px"
+                                                                        Height="20px"  />
+
+                                                          <%--        <cc1:ModalPopupExtender ID="mp1" runat="server"
+                                                                        PopupControlID="Panel21"
+                                                                        TargetControlID="btneditprov"
+                                                                        CancelControlID="btncerrareditprov"
+                                                                        BackgroundCssClass="modalBackground">
+                                                                    </cc1:ModalPopupExtender>
+                                                                    <asp:Panel ID="Panel21" runat="server"
+                                                                        CssClass="modalPopup" align="center"
+                                                                        Style="background-color:white; border:solid; border-color:black;">
+                                                                        <div style="padding:20px">
+                                                                            <asp:UpdatePanel ID="UpdatePanel2"
+                                                                                runat="server">
+                                                                                <ContentTemplate>
+                                                                                    <h3>Editar proveedores</h3>
+                                                                                    <table>                                                                                     
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <asp:Label
+                                                                                                    ID="lbleditnamecat"
+                                                                                                    runat="server">
+                                                                                                    Nombre:</asp:Label>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <asp:TextBox
+                                                                                                    ID="txtCategoryNameedit"
+                                                                                                    Text='<%# Eval("CategoryName") %>'
+                                                                                                    runat="server" />
+
+                                                                                                <asp:RequiredFieldValidator
+                                                                                                    ValidationGroup="VG15"
+                                                                                                    ID="RequiredFieldValidator112"
+                                                                                                    runat="server"
+                                                                                                    Text="* Nombre del producto requerido."
+                                                                                                    ControlToValidate="txtCategoryNameedit"
+                                                                                                    SetFocusOnError="true"
+                                                                                                    Display="Dynamic">
+                                                                                                </asp:RequiredFieldValidator>
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <asp:Label
+                                                                                                    ID="Label6"
+                                                                                                    runat="server">
+                                                                                                    Nombre:</asp:Label>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <asp:TextBox
+                                                                                                    ID="TextBox1"
+                                                                                                    Text='<%# Eval("CategoryName") %>'
+                                                                                                    runat="server" />
+
+                                                                                                <asp:RequiredFieldValidator
+                                                                                                    ValidationGroup="VG15"
+                                                                                                    ID="RequiredFieldValidator17"
+                                                                                                    runat="server"
+                                                                                                    Text="* Nombre del producto requerido."
+                                                                                                    ControlToValidate="txtCategoryNameedit"
+                                                                                                    SetFocusOnError="true"
+                                                                                                    Display="Dynamic">
+                                                                                                </asp:RequiredFieldValidator>
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <asp:Label
+                                                                                                    ID="Label7"
+                                                                                                    runat="server">
+                                                                                                    Nombre:</asp:Label>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <asp:TextBox
+                                                                                                    ID="TextBox2"
+                                                                                                    Text='<%# Eval("CategoryName") %>'
+                                                                                                    runat="server" />
+
+                                                                                                <asp:RequiredFieldValidator
+                                                                                                    ValidationGroup="VG15"
+                                                                                                    ID="RequiredFieldValidator18"
+                                                                                                    runat="server"
+                                                                                                    Text="* Nombre del producto requerido."
+                                                                                                    ControlToValidate="txtCategoryNameedit"
+                                                                                                    SetFocusOnError="true"
+                                                                                                    Display="Dynamic">
+                                                                                                </asp:RequiredFieldValidator>
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <asp:Label
+                                                                                                    ID="Label8"
+                                                                                                    runat="server">
+                                                                                                    Nombre:</asp:Label>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <asp:TextBox
+                                                                                                    ID="TextBox3"
+                                                                                                    Text='<%# Eval("CategoryName") %>'
+                                                                                                    runat="server" />
+
+                                                                                                <asp:RequiredFieldValidator
+                                                                                                    ValidationGroup="VG15"
+                                                                                                    ID="RequiredFieldValidator19"
+                                                                                                    runat="server"
+                                                                                                    Text="* Nombre del producto requerido."
+                                                                                                    ControlToValidate="txtCategoryNameedit"
+                                                                                                    SetFocusOnError="true"
+                                                                                                    Display="Dynamic">
+                                                                                                </asp:RequiredFieldValidator>
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <asp:Label
+                                                                                                    ID="Label9"
+                                                                                                    runat="server">
+                                                                                                    Nombre:</asp:Label>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <asp:TextBox
+                                                                                                    ID="TextBox4"
+                                                                                                    Text='<%# Eval("CategoryName") %>'
+                                                                                                    runat="server" />
+
+                                                                                                <asp:RequiredFieldValidator
+                                                                                                    ValidationGroup="VG15"
+                                                                                                    ID="RequiredFieldValidator20"
+                                                                                                    runat="server"
+                                                                                                    Text="* Nombre del producto requerido."
+                                                                                                    ControlToValidate="txtCategoryNameedit"
+                                                                                                    SetFocusOnError="true"
+                                                                                                    Display="Dynamic">
+                                                                                                </asp:RequiredFieldValidator>
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                       
+                                                                                    </table>
+                                                                                    <p></p>
+                                                                                    <p></p>
+
+                                                                                    <asp:Button CssClass="btn btn-success button4" ID="Editcat"
+                                                                                        runat="server"
+                                                                                        Text="Editar Producto"
+                                                                                        CommandName="Update"
+                                                                                        CausesValidation="true"
+                                                                                        ValidationGroup="VG15" />
+                                                                                      <asp:Button ID="btncerrareditcat" CssClass="btn btn-danger button4" runat="server"
+                                                                            Text="Cerrar"
+                                                                            ValidationGroup="VG16" />
+                                                                                  
+
+
+
+                                                                                </ContentTemplate>
+                                                                            </asp:UpdatePanel>
+                                                                        </div>
+                                                                        <asp:Label ID="lblcatedit"
+                                                                                        runat="server" Text="">
+                                                                                    </asp:Label>
+                                                                    </asp:Panel>--%>
+
+                                                               
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderStyle-Width="10px">
+                                                            <ItemTemplate>
+
+                                                                <asp:ImageButton ImageUrl="~/Images/delete.png"
+                                                                    runat="server" CommandName="Delete"
+                                                                    ValidationGroup="VG3" ToolTip="Eliminar"
+                                                                    Width="20px" Height="20px" />
+                                                            </ItemTemplate>                                                       
+                                                        </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                              
+
+                                          </div>
+                                          <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel" aria-labelledby="pills-lstcpra-tab">
+                                              dddddlll2
+                                          </div>
+                                          <div class="tab-pane fade" id="pills-ordcpra" role="tabpanel" aria-labelledby="pills-ordcpra-tab">
+
+                                              3333
+                                          </div>
+                                        </div>
+
+                                    </div>
+
+
+
+
                                 <%------------PRODUCTOS-------------------------------%>
 
                                 <div class="tab-pane fade" id="v-pills-prod" role="tabpanel"

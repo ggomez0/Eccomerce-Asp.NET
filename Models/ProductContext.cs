@@ -17,6 +17,7 @@ namespace ShopGaspar.Models
 
         public DbSet<depositos> depositos { get; set; }
         public DbSet<prodendep> prodendeps { get; set; }
+        public DbSet<proveedores> proveedores { get; set; }
 
     }
 }

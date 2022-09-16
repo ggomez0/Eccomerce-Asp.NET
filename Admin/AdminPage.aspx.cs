@@ -30,11 +30,7 @@ namespace ShopGaspar.Admin
                 this.databasecrud(connectionString, "SELECT CategoryID, CategoryName from Categories", gvcattab);
                 this.databasecrud(connectionString, "SELECT * FROM Products", gridproductos);
                 this.databasecrud(connectionString, "SELECT * FROM depositos", gvdep);
-
-
-
-
-
+                this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
             }
 
             string productAction = Request.QueryString["ProductAction"];
@@ -704,6 +700,105 @@ namespace ShopGaspar.Admin
             //}
         }
 
+
+        protected void gvproveedores_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvproveedores.EditIndex = e.NewEditIndex;
+            this.databasecrud(connectionString, "SELECT * FROM proveedores ", gvproveedores);
+        }
+
+        protected void gvproveedores_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvproveedores.EditIndex = -1;
+            this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
+        }
+
+        protected void gvproveedores_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "UPDATE proveedores SET ProvName=@ProductName,Description=@Description,ImagePath=@ImagePath,ubicacion=@ubicacion WHERE DepID = @DepID";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@ProductName", (gvproveedores.Rows[e.RowIndex].FindControl("txtdepnameedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Description", (gvproveedores.Rows[e.RowIndex].FindControl("txtdesceditdep") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@ImagePath", (gvproveedores.Rows[e.RowIndex].FindControl("txtImagePathdep") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@ubicacion", (gvproveedores.Rows[e.RowIndex].FindControl("txtubieditdep") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@DepID", Convert.ToInt32(gvproveedores.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    gvproveedores.EditIndex = -1;
+                    this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
+                    lblSuccessMessage.Text = "Deposito actualizado con exito";
+                    lblErrorMessage.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+            Response.Redirect("~/Admin/AdminPage.aspx");
+
+        }
+
+        protected void gvproveedores_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "DELETE FROM proveedores WHERE ProvID = @ProductID";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvproveedores.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
+                    lblSuccessMessage.Text = "Proveedor eliminado con exito";
+                    lblErrorMessage.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+
+            }
+            Response.Redirect("~/Admin/AdminPage.aspx");
+
+        }
+
+        protected void gvproveedores_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                if (e.CommandName.Equals("AddNew"))
+                {
+                    using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                    {
+                        sqlCon.Open();
+                        string query = "INSERT INTO proveedores (ProvName,ReprProv,telefono,email,comentario) VALUES (@ProvName,@ReprProv,@telefono,@email,@comentario)";
+                        SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                        sqlCmd.Parameters.AddWithValue("@ProvName", (gvproveedores.Rows[e.RowIndex].FindControl("txtnomprov") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@ReprProv", (gvproveedores.Rows[e.RowIndex].FindControl("txtreprprov") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@telefono", (gvproveedores.Rows[e.RowIndex].FindControl("txttelprov") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@email", (gvproveedores.Rows[e.RowIndex].FindControl("txtemailprov") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@comentario", (gvproveedores.Rows[e.RowIndex].FindControl("txtcomprov") as TextBox).Text.Trim());
+                        sqlCmd.ExecuteNonQuery();
+                        this.databasecrud(connectionString, "SELECT * from proveedores", gvproveedores);
+                        lblSuccessMessage.Text = "Nuevo proveedor Agregado";
+                        lblErrorMessage.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+        }
 
     }
 }
