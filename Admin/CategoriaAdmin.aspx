@@ -6,7 +6,7 @@
     <div class="container">
 
          <asp:Button ID="Button1" CssClass="btn btn-success button4"  runat="server" Text="Agregar Categoria" />
-                                    <!-- ModalPopupExtender -->
+                                    <!-- ModalPopupExtender --->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
                                         PopupControlID="Panel2" TargetControlID="Button1" CancelControlID="Button2"
                                         BackgroundCssClass="modalBackground">
