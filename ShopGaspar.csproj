@@ -69,14 +69,17 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Postgrest, Version=2.0.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\postgrest-csharp.2.0.11\lib\netstandard2.0\Postgrest.dll</HintPath>
+    <Reference Include="Postgrest, Version=2.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\postgrest-csharp.2.0.12\lib\netstandard2.0\Postgrest.dll</HintPath>
     </Reference>
     <Reference Include="Realtime, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\realtime-csharp.3.0.1\lib\netstandard2.0\Realtime.dll</HintPath>
     </Reference>
     <Reference Include="Storage, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\supabase-storage-csharp.1.1.1\lib\netstandard2.0\Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Supabase, Version=0.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\supabase-csharp.0.5.2\lib\netstandard2.0\Supabase.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />

@@ -163,8 +163,9 @@ namespace ShopGaspar.Admin
 
         protected void AddProductButton_Click(object sender, EventArgs e)
         {
-            Boolean fileOK1 = false;
-            String path1 = Server.MapPath("~/Images/");
+
+            Boolean fileOK = false;
+            String path = Server.MapPath("~/Images/");
 
             if (imgprodadd.HasFile)
             {
@@ -175,16 +176,16 @@ namespace ShopGaspar.Admin
                 {
                     if (fileExtension == allowedExtensions[i])
                     {
-                        fileOK1 = true;
+                        fileOK = true;
                     }
                 }
             }
 
-            if (fileOK1)
+            if (fileOK)
             {
                 try
                 {
-                    imgprodadd.PostedFile.SaveAs(path1 + "Thumbs/" + imgprodadd.FileName);
+                    imgprodadd.PostedFile.SaveAs(path + "Thumbs/" + imgprodadd.FileName);
                 }
                 catch (Exception ex)
                 {
@@ -209,7 +210,7 @@ namespace ShopGaspar.Admin
             }
             else
             {
-                LabelAddStatus.Text = "ERROR formato de la imagen";
+                LabelAddStatus.Text = "No se acepta el formato";
             }
         }
 

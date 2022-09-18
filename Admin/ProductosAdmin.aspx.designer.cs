@@ -42,15 +42,6 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// Control UpdatePanel100.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel100;
-
-        /// <summary>
         /// Control LabelAddCategory.
         /// </summary>
         /// <remarks>
@@ -157,15 +148,6 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-
-        /// <summary>
-        /// Control LabelAddImageFile.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelAddImageFile;
 
         /// <summary>
         /// Control imgprodadd.

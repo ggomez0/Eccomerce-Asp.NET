@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
 
-         <asp:Button ID="btnShow" runat="server" CssClass="btn btn-success button4"
+         <asp:Button ID="btnShow" runat="server" CssClass="btn btn-success rounded-3"
                                         Text="Agregar Producto" ValidationGroup="VG4" />
                                     <!-- ModalPopupExtender -->
                                     <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1"
@@ -14,9 +14,7 @@
                                     <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center"
                                         Style="background-color:white; border:solid; border-color:black;">
                                         <div style="margin:15px">
-                                            <asp:UpdatePanel ID="UpdatePanel100" runat="server">
-                                                <ContentTemplate>
-
+                                       
                                                     <h3>Agregar producto</h3>
                                                     <table>
                                                         <tr>
@@ -91,7 +89,7 @@
 
                                                         <tr>
                                                             <td>
-                                                                <asp:Label ID="LabelAddImageFile" runat="server">Imagen:
+                                                                <asp:Label runat="server">Imagen:
                                                                 </asp:Label>
                                                             </td>
                                                             <td>
@@ -108,19 +106,16 @@
                                                     <p></p>
                                                     <p></p>
 
-                                                    <asp:Button ID="AddProductButton" CssClass="btn btn-success button4" runat="server"
+                                                    <asp:Button ID="AddProductButton" CssClass="btn btn-success rounded-3" runat="server"
                                                         Text="Agregar Producto" OnClick="AddProductButton_Click"
                                                         CausesValidation="true" ValidationGroup="VG5" />
                                                     <asp:Label ID="LabelAddStatus" runat="server" Text=""></asp:Label>
-                                                    <asp:Button ID="btnClose" CssClass="btn btn-danger button4" runat="server" Text="Cancelar"
+                                                    <asp:Button ID="btnClose" CssClass="btn btn-danger rounded-3" runat="server" Text="Cancelar"
                                                         ValidationGroup="VG6" />
                                                     <p></p>
 
 
 
-
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
                                         </div>
 
                                     </asp:Panel>
@@ -358,8 +353,8 @@
                                                                                         Text="Editar"
                                                                                         CommandName="Update"
                                                                                         CausesValidation="true"
-                                                                                        ValidationGroup="VG8" CssClass="btn btn-success button4" />
-                                                                        <asp:Button ID="btncerraredit" CssClass="btn btn-danger button4" runat="server"
+                                                                                        ValidationGroup="VG8" CssClass="btn btn-success rounded-3" />
+                                                                        <asp:Button ID="btncerraredit" CssClass="btn btn-danger rounded-3" runat="server"
                                                                             Text="Cerrar"
                                                                             ValidationGroup="VG9" />
                                                                         <p></p>

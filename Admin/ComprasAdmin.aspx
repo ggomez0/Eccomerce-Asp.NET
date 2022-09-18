@@ -21,7 +21,7 @@
                                         <div class="tab-content" id="pills-tabContent">
                                           <div class="tab-pane fade show active" id="pills-prov" role="tabpanel" aria-labelledby="pills-prov-tab">
 
-                                                <asp:Button ID="Button5" CssClass="btn btn-success button4"  runat="server" Text="Agregar Proveedores" ValidationGroup="VG99" />
+                                                <asp:Button ID="Button5" CssClass="btn btn-success rounded-3"  runat="server" Text="Agregar Proveedores" ValidationGroup="VG99" />
                                     <!-- ModalPopupExtender -->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
                                         PopupControlID="Panel21" TargetControlID="Button5" CancelControlID="Button7"
@@ -160,9 +160,9 @@
                                             </asp:UpdatePanel>
                                         </div>
                                         <asp:Button ID="btnagregarprov" runat="server" Text="Agregar" OnClick="btnagregarprov_Click"       
-                                                                     CssClass="btn btn-success button4" CausesValidation="true"
+                                                                     CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                                     ValidationGroup="VG100" />
-                                        <asp:Button ID="Button7" CssClass="btn btn-danger button4" runat="server" Text="Cerrar" ValidationGroup="VG101" />
+                                        <asp:Button ID="Button7" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG101" />
                                         <br />
                                         <p>  </p>
                                         <p></p>
@@ -362,9 +362,9 @@
                                                            
                                                     </table>
                                                             <asp:Button ID="Button6" runat="server" Text="Editar"
-                                                                     CssClass="btn btn-success button4" CausesValidation="true"  CommandName="Update"
+                                                                     CssClass="btn btn-success rounded-3" CausesValidation="true"  CommandName="Update"
                                                                     ValidationGroup="VG106" />
-                                                                <asp:Button ID="btncerrareditprov" CssClass="btn btn-danger button4" runat="server" Text="Cerrar" ValidationGroup="VG107" />
+                                                                <asp:Button ID="btncerrareditprov" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG107" />
                                     
                                                      </ContentTemplate>
                                                                                 
@@ -399,7 +399,7 @@
 
                                           <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel" aria-labelledby="pills-lstcpra-tab">
                                               
-                                   <asp:Button ID="Button8" CssClass="btn btn-success button4"  runat="server" Text="Agregar Producto a la lista" ValidationGroup="VG109" />
+                                   <asp:Button ID="Button8" CssClass="btn btn-success rounded-3"  runat="server" Text="Agregar Producto a la lista" ValidationGroup="VG109" />
                                     <!-- ModalPopupExtender -->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender4" runat="server"
                                         PopupControlID="Panel4" TargetControlID="Button8" CancelControlID="Button9"
@@ -523,9 +523,9 @@
                                             </asp:UpdatePanel>
                                         </div>
                                         <asp:Button ID="btnaddlstcpra" runat="server" Text="Agregar" OnClick="btnaddlstcpra_Click"    
-                                                                     CssClass="btn btn-success button4" CausesValidation="true"
+                                                                     CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                                     ValidationGroup="VG110" />
-                                        <asp:Button ID="Button10" CssClass="btn btn-danger button4" runat="server" Text="Cerrar" ValidationGroup="VG111" />
+                                        <asp:Button ID="Button10" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG111" />
                                         <br />
                                         <p>  </p>
                                         <p></p>
@@ -729,9 +729,9 @@
                                                            
                                                     </table>
                                                             <asp:Button ID="Button6" runat="server" Text="Editar"
-                                                                     CssClass="btn btn-success button4" CausesValidation="true"  CommandName="Update"
+                                                                     CssClass="btn btn-success rounded-3" CausesValidation="true"  CommandName="Update"
                                                                     ValidationGroup="VG106" />
-                                                                <asp:Button ID="btncerrareditprov" CssClass="btn btn-danger button4" runat="server" Text="Cerrar" ValidationGroup="VG107" />
+                                                                <asp:Button ID="btncerrareditprov" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG107" />
                                     
                                                      </ContentTemplate>
                                                                                 
