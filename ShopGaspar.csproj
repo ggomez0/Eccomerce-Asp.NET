@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1933,6 +1934,7 @@
     <Content Include="Images\lupa.png" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\plus.png" />
+    <Content Include="Images\plusicon.png" />
     <Content Include="Images\save.png" />
     <Content Include="Images\shopping-cart.png" />
     <Content Include="Images\Thumbs\ami.png" />
@@ -2272,10 +2274,15 @@
     <Compile Include="Migrations\202209211838489_ffcvv.Designer.cs">
       <DependentUpon>202209211838489_ffcvv.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209212234374_lclc.cs" />
+    <Compile Include="Migrations\202209212234374_lclc.Designer.cs">
+      <DependentUpon>202209212234374_lclc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
     <Compile Include="Models\depositos.cs" />
     <Compile Include="Models\lstcompra.cs" />
+    <Compile Include="Models\lstcompradetalles.cs" />
     <Compile Include="Models\prodendep.cs" />
     <Compile Include="Models\ProductDatabaseInitializer.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -2336,6 +2343,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202209211838489_ffcvv.resx">
       <DependentUpon>202209211838489_ffcvv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209212234374_lclc.resx">
+      <DependentUpon>202209212234374_lclc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

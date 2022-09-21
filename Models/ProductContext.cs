@@ -19,6 +19,7 @@ namespace ShopGaspar.Models
         public DbSet<prodendep> prodendeps { get; set; }
         public DbSet<proveedores> proveedores { get; set; }
         public DbSet<lstcompra> lstcompras { get; set; }
+        public DbSet<lstcompradetalles> lstcompradetalles { get; set; }
 
     }
 }

@@ -3,9 +3,15 @@
      <div class="container">
         <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">Productos del proveedor N°</asp:Label>
          
-        <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvprodprov" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true">
-             <HeaderStyle BackColor="black" Font-Bold="True"
-                                                                ForeColor="White"  />
+        <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvprodprov" 
+            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true"
+            DataKeyNames="ProductID" OnRowCommand="gvprodprov_RowCommand"
+            OnRowEditing="gvprodprov_RowEditing"
+            OnRowCancelingEdit="gvprodprov_RowCancelingEdit"
+            OnRowUpdating="gvprodprov_RowUpdating"
+            OnRowDeleting="gvprodprov_RowDeleting">
+             <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White"  />
+
         
         </asp:GridView>
     </div>

@@ -8,15 +8,11 @@ namespace ShopGaspar.Logic
 {
     public class addlstcpra
     {
-        public bool addlstcpraa(string productname, string descripcion, int provid, int importe, int catid, int cantidad)
+        public bool addlstcpraa(string descripcion)
         {
             var mylstcpra = new lstcompra();
-            mylstcpra.Product.ProductName = productname;
             mylstcpra.descripcion = descripcion;
-            mylstcpra.Proveedores.ProvID = provid;
-            mylstcpra.cantidad = cantidad;
-            mylstcpra.importe = importe;
-            mylstcpra.Product.CategoryID = catid;
+            mylstcpra.dateTime = DateTime.Now;
 
 
             using (ProductContext _db = new ProductContext())

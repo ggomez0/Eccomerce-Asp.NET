@@ -41,5 +41,60 @@ namespace ShopGaspar.Admin
             gvprodprov.UseAccessibleHeader = true;
             gvprodprov.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
+
+
+        protected void gvprodprov_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+
+        }
+
+        protected void gvprodprov_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+
+        }
+
+        protected void gvprodprov_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+              
+
+        }
+
+        protected void gvprodprov_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+           
+
+        }
+
+        protected void gvprodprov_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            //try
+            //{
+            //    if (e.CommandName.Equals("pasar"))
+            //    {
+            //        using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            //        {
+            //            sqlCon.Open();
+            //            string query = "INSERT INTO Products (ProductName,Description,ImagePath,UnitPrice,CategoryID,stock) VALUES (@ProductName,@Description,@ImagePath,@UnitPrice,@CategoryID,@stock)";
+            //            SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+            //            sqlCmd.Parameters.AddWithValue("@ProductName", (gridproductos.FooterRow.FindControl("txtProductNameFooter") as TextBox).Text.Trim());
+            //            sqlCmd.Parameters.AddWithValue("@Description", (gridproductos.FooterRow.FindControl("txtDescriptionFooter") as TextBox).Text.Trim());
+            //            sqlCmd.Parameters.AddWithValue("@ImagePath", (gridproductos.FooterRow.FindControl("txtImagePathFooter") as TextBox).Text.Trim());
+            //            sqlCmd.Parameters.AddWithValue("@UnitPrice", (gridproductos.FooterRow.FindControl("txtUnitPriceFooter") as TextBox).Text.Trim());
+            //            sqlCmd.Parameters.AddWithValue("@CategoryID", (gridproductos.FooterRow.FindControl("ddlprodupf") as DropDownList).Text.Trim());
+            //            sqlCmd.Parameters.AddWithValue("@stock", (gridproductos.FooterRow.FindControl("txtstockFooter") as TextBox).Text.Trim());
+
+            //            sqlCmd.ExecuteNonQuery();
+            //            //this.databasecrud(connectionString, "SELECT * FROM Products", gridproductos);
+                     
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    //lblSuccessMessage.Text = "";
+            //    //lblErrorMessage.Text = ex.Message;
+            //}
+        }
     }
+
 }

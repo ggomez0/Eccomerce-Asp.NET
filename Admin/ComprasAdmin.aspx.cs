@@ -155,23 +155,7 @@ namespace ShopGaspar.Admin
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        protected void btnaddlstcpra_Click(object sender, EventArgs e)
-        {
-            addlstcpra addlstcpra = new addlstcpra();
-            bool addSuccess = addlstcpra.addlstcpraa(txtprodnamelst.Text, txtdesclst.Text, Convert.ToInt32(txtprovdrop.Text), Convert.ToInt32(txtimplst.Text), 1, 1);
-
-            if (addSuccess)
-            {
-                // Reload the page.
-                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                Response.Redirect(pageUrl + "?ProductAction=adddep");
-            }
-            else
-            {
-                lblconfirmardep.Text = "No se pudo agregar el deposito";
-            }
-
-        }
+       
 
         protected void gvlstcpra_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -192,18 +176,13 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "UPDATE lstcpra SET ProvName=@ProvName,ReprProv=@ReprProv,cuit=@cuit,email=@email,telefono=@telefono,comentario=@comentario WHERE ProvID = @provid";
+                    string query = "UPDATE lstcompras SET descripcion=@Name WHERE lstcpraid = @provid";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@ProvName", (gvlstcpra.Rows[e.RowIndex].FindControl("txtnomprovedit") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@ReprProv", (gvlstcpra.Rows[e.RowIndex].FindControl("txtreprprovedit") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@cuit", (gvlstcpra.Rows[e.RowIndex].FindControl("txtcuitprovedit") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@email", (gvlstcpra.Rows[e.RowIndex].FindControl("txtemailprovedit") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@telefono", (gvlstcpra.Rows[e.RowIndex].FindControl("txttelprovedit") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@comentario", (gvlstcpra.Rows[e.RowIndex].FindControl("txtcomprovedit") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@Name", (gvlstcpra.Rows[e.RowIndex].FindControl("txtdesc") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@provid", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
                     gvlstcpra.EditIndex = -1;
-                    this.databasecrud(connectionString, "SELECT * FROM lstcpra", gvlstcpra);
+                    this.databasecrud(connectionString, "SELECT * FROM lstcompras", gvlstcpra);
                     lblSuccessMessage.Text = "Lista actualizado con exito";
                     lblErrorMessage.Text = "";
                 }
@@ -224,11 +203,11 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM lstcpra WHERE lstcpraid = @ProductID";
+                    string query = "DELETE FROM lstcompras WHERE lstcpraid = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
-                    this.databasecrud(connectionString, "SELECT * FROM lstcpra", gvlstcpra);
+                    this.databasecrud(connectionString, "SELECT * FROM lstcompras", gvlstcpra);
                     lblSuccessMessage.Text = "Pedido eliminado con exito";
                     lblErrorMessage.Text = "";
 
@@ -246,38 +225,35 @@ namespace ShopGaspar.Admin
 
         protected void gvlstcpra_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            //    try
-            //    {
-            //        if (e.CommandName.Equals("AddNew"))
-            //        {
-            //            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            //            {
-            //                sqlCon.Open();
-            //                string query = "INSERT INTO proveedores (ProvName,ReprProv,telefono,email,comentario) VALUES (@ProvName,@ReprProv,@telefono,@email,@comentario)";
-            //                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-            //                sqlCmd.Parameters.AddWithValue("@ProvName", (gvproveedores.Rows[e.RowIndex].FindControl("txtnomprov") as TextBox).Text.Trim());
-            //                sqlCmd.Parameters.AddWithValue("@ReprProv", (gvproveedores.Rows[e.RowIndex].FindControl("txtreprprov") as TextBox).Text.Trim());
-            //                sqlCmd.Parameters.AddWithValue("@telefono", (gvproveedores.Rows[e.RowIndex].FindControl("txttelprov") as TextBox).Text.Trim());
-            //                sqlCmd.Parameters.AddWithValue("@email", (gvproveedores.Rows[e.RowIndex].FindControl("txtemailprov") as TextBox).Text.Trim());
-            //                sqlCmd.Parameters.AddWithValue("@comentario", (gvproveedores.Rows[e.RowIndex].FindControl("txtcomprov") as TextBox).Text.Trim());
-            //                sqlCmd.ExecuteNonQuery();
-            //                this.databasecrud(connectionString, "SELECT * from proveedores", gvproveedores);
-            //                lblSuccessMessage.Text = "Nuevo proveedor Agregado";
-            //                lblErrorMessage.Text = "";
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        lblSuccessMessage.Text = "";
-            //        lblErrorMessage.Text = ex.Message;
-            //    }
+            
         }
 
         protected void btnprodprov_Click(object sender, ImageClickEventArgs e)
         {
             int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
             Response.Redirect("~/Admin/proddeprov.aspx?id=" + id);
+        }
+
+        protected void addlstbtn_Click(object sender, EventArgs e)
+        {
+            addlstcpra addlstcpra = new addlstcpra();
+            bool addSuccess = addlstcpra.addlstcpraa(addlst.Text);
+
+            if (addSuccess)
+            {
+                // Reload the page.
+                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                Response.Redirect(pageUrl + "?ProductAction=Agregado");
+            }
+            else
+            {
+                lblconfirmardep.Text = "No se pudo agregar la lista";
+            }
+        }
+
+        protected void btnlstdet_Click(object sender, ImageClickEventArgs e)
+        {
+
         }
     }
 }

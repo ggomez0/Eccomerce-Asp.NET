@@ -406,121 +406,34 @@
 
                                           <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel" aria-labelledby="pills-lstcpra-tab">
                                               
-                                   <asp:Button ID="Button8" CssClass="btn btn-success rounded-3"  runat="server" Text="Agregar Producto a la lista" ValidationGroup="VG109" />
-                                    <!-- ModalPopupExtender -->
-                                    <cc1:ModalPopupExtender ID="ModalPopupExtender4" runat="server"
-                                        PopupControlID="Panel4" TargetControlID="Button8" CancelControlID="Button9"
+                                   <asp:Button ID="Button1" CssClass="btn btn-success rounded-3"  runat="server" Text="Nueva Lista de compra" />
+                                    <!-- ModalPopupExtender --->
+                                    <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
+                                        PopupControlID="Panel2" TargetControlID="Button1" CancelControlID="Button2"
                                         BackgroundCssClass="modalBackground">
                                     </cc1:ModalPopupExtender>
-                                    <asp:Panel ID="Panel4" runat="server" CssClass="modalPopup" align="center"
+                                    <asp:Panel ID="Panel2" runat="server" CssClass="modalPopup" align="center"
                                         Style="background-color:white; border:solid; border-color:black;" >
                                         <div style="padding:20px">
-                                            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                 <ContentTemplate>
-                                                    <h3>Agregar Producto a la lista de compra</h3>
+                                                    <h3>Nueva Lista de compra</h3>
                                                     <table>
                                                         <tr>
                                                             <td>
-                                                                <asp:Label runat="server">
-                                                                    Producto:</asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                 <asp:TextBox ID="txtprodnamelst" runat="server"
-                                                                AutoPostBack="true" AutoCompleteType="Search">
-                                                            </asp:TextBox>
-                                                            <cc1:AutoCompleteExtender ID="AutoCompleteExtender1"
-                                                                runat="server" ServiceMethod="ProductSearch"
-                                                                MinimumPrefixLength="1" CompletionInterval="100"
-                                                                EnableCaching="false" CompletionSetCount="10"
-                                                                TargetControlID="txtprodnamelst" FirstRowSelected="false"
-                                                                ServicePath="dropdownlist.asmx">
-                                                            </cc1:AutoCompleteExtender>
-
-                                                                
-                                                            </td>
-                                                        </tr>
-                                                         <tr>
-                                                             <td>
-                                                                <asp:Label runat="server">
-                                                                    Proveedor:</asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                 <asp:TextBox ID="txtprovdrop" runat="server"
-                                                                AutoPostBack="true" AutoCompleteType="Search">
-                                                            </asp:TextBox>
-                                                            <cc1:AutoCompleteExtender ID="AutoCompleteExtender3"
-                                                                runat="server" ServiceMethod="ProvSearch"
-                                                                MinimumPrefixLength="1" CompletionInterval="100"
-                                                                EnableCaching="false" CompletionSetCount="10"
-                                                                TargetControlID="txtprovdrop" FirstRowSelected="false"
-                                                                ServicePath="dropdownlist.asmx">
-                                                            </cc1:AutoCompleteExtender>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td>
-                                                                <asp:Label runat="server">
-                                                                    Descripcion:</asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox ID="txtdesclst" runat="server">
+                                                                <asp:TextBox ID="addlst" runat="server">
                                                                 </asp:TextBox>
                                                                 
 
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17"
+                                                                <asp:RequiredFieldValidator
                                                                     runat="server" Font-Bold="true"
-                                                                    Text="*Cantidad requerida"
-                                                                    ControlToValidate="txtdesclst"
+                                                                    Text="*No debe estar vacia"
+                                                                    ControlToValidate="addlst"
                                                                     SetFocusOnError="true" Display="Dynamic"
-                                                                    ValidationGroup="VG110"></asp:RequiredFieldValidator>
+                                                                    ValidationGroup="VG1"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
-                                                         <tr>
-                                                             <td>
-                                                                <asp:Label runat="server">
-                                                                    Cantidad:</asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox ID="txtcantlst" runat="server">
-                                                                </asp:TextBox>
-                                                                
-
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator51"
-                                                                    runat="server" Font-Bold="true"
-                                                                    Text="*Cantidad requerida"
-                                                                    ControlToValidate="txtcantlst"
-                                                                    SetFocusOnError="true" Display="Dynamic"
-                                                                    ValidationGroup="VG110"></asp:RequiredFieldValidator>
-                                                            </td>
-                                                        </tr>
-                                                         <tr>
-                                                             <td>
-                                                                <asp:Label runat="server">
-                                                                    Importe:</asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox ID="txtimplst" runat="server">
-                                                                </asp:TextBox>
-                                                                
-
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator52"
-                                                                    runat="server" Font-Bold="true"
-                                                                    Text="*importe requerido"
-                                                                    ControlToValidate="txtimplst"
-                                                                    SetFocusOnError="true" Display="Dynamic"
-                                                                    ValidationGroup="VG110"></asp:RequiredFieldValidator>
-                                                            </td>
-                                                        </tr>
-                                                        
-                                                        
-                                                        <tr>
-
-                                                            <td>
-                                                                <asp:Label ID="Label18" runat="server" Text="">
-                                                                </asp:Label>
-
-                                                            </td>
-                                                        </tr>
+                                   
 
                                                     </table>
 
@@ -529,10 +442,9 @@
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </div>
-                                        <asp:Button ID="btnaddlstcpra" runat="server" Text="Agregar" OnClick="btnaddlstcpra_Click"    
-                                                                     CssClass="btn btn-success rounded-3" CausesValidation="true"
-                                                                    ValidationGroup="VG110" />
-                                        <asp:Button ID="Button10" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG111" />
+                                        <asp:Button ID="addlstbtn" runat="server" Text="Agregar" OnClick="addlstbtn_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
+                                                                    ValidationGroup="VG1" />
+                                        <asp:Button ID="Button2" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" />
                                         <br />
                                         <p>  </p>
                                         <p></p>
@@ -560,36 +472,32 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                       <%-- <asp:TemplateField HeaderText="Descripcion">
+                                                        <asp:TemplateField HeaderText="Descripcion">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("descripcion") %>'
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                               <asp:TemplateField HeaderText="Cantidad">
+                                               <asp:TemplateField HeaderText="Fecha">
                                                             <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("cantidad") %>'
+                                                                <asp:Label Text='<%# Eval("dateTime") %>'
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                               <asp:TemplateField HeaderText="Importe">
+                                           
+                                               <asp:TemplateField HeaderStyle-Width="10px" >
                                                             <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("importe") %>'
-                                                                    runat="server" />
+                                                                    <asp:ImageButton ImageUrl="~/Images/plus.png"
+                                                                        runat="server" ValidationGroup="VG77" ID="btnlstdet" Width="20px" OnClick="btnlstdet_Click"
+                                                                        Height="20px" CommandArgument='<%#Eval("lstcpraid") %>' />
+                                                               
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                               <asp:TemplateField HeaderText="E-Mail">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("email") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                              
                                              
-                                             <asp:TemplateField HeaderStyle-Width="10px">
+                                             <%--<asp:TemplateField HeaderStyle-Width="10px">
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/edit.png"
-                                                                        runat="server" ValidationGroup="VG112" ID="btneditlstcpra" Width="20px"
+                                                                        runat="server" ValidationGroup="VG5" ID="btneditlstcpra" Width="20px"
                                                                         Height="20px"  />
 
                                                                   <cc1:ModalPopupExtender ID="mp45" runat="server"
@@ -751,7 +659,7 @@
 
                                                               
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                                         <asp:TemplateField HeaderStyle-Width="10px">
                                                             <ItemTemplate>
 
@@ -760,11 +668,19 @@
                                                                     ValidationGroup="VG108" ToolTip="Eliminar"
                                                                     Width="20px" Height="20px" />
                                                             </ItemTemplate>                                                       
-                                                        </asp:TemplateField>--%>
+                                                        </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
 
                                           </div>
+
+
+
+
+
+
+
+
                                           <div class="tab-pane fade" id="pills-ordcpra" role="tabpanel" aria-labelledby="pills-ordcpra-tab">
 
                                               3333
