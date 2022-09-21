@@ -33,5 +33,8 @@ namespace ShopGaspar.Models
         public virtual ICollection<prodendep> Prodendeps { get; set; }
         public virtual ICollection<lstcompra> Lstcompras { get; set; }
 
+        public virtual ICollection<proveedores> Proveedores { get; set; }
+
+
     }
 }

@@ -274,6 +274,10 @@ namespace ShopGaspar.Admin
             //    }
         }
 
-
+        protected void btnprodprov_Click(object sender, ImageClickEventArgs e)
+        {
+            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/proddeprov.aspx?id=" + id);
+        }
     }
 }

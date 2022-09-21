@@ -18,6 +18,8 @@ namespace ShopGaspar.Models
 
         public int importe { get; set; }
 
+       public DateTime dateTime { get; set; }
+
         public virtual Product Product { get; set; }
 
         public virtual proveedores Proveedores { get; set; }

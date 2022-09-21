@@ -75,10 +75,10 @@ namespace ShopGaspar
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User.IsInRole("ADMIN"))
-            {
-                adminLink.Visible = true;
-            }
+            //if (HttpContext.Current.User.IsInRole("ADMIN"))
+            //{
+            //    adminLink.Visible = true;
+            //}
         }
         protected void Page_PreRender(object sender, EventArgs e)
         {

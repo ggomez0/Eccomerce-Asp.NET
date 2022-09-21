@@ -34,6 +34,14 @@ namespace ShopGaspar.Admin
             return query;
         }
 
+        public IQueryable GetProveedores()
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable query = _db.proveedores;
+            return query;
+        }
+
+
         protected void gridproductos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try

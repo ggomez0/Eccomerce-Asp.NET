@@ -24,6 +24,7 @@ namespace ShopGaspar.Admin
             if(!IsPostBack)
             {
                 this.databasecrud(connectionString, "SELECT * FROM depositos", gvdep);
+                
 
             }
         }

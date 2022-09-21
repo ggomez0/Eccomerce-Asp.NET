@@ -86,7 +86,20 @@
                                                                 </asp:RegularExpressionValidator>
                                                             </td>
                                                         </tr>
-
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Label runat="server">
+                                                                    Proveedor:</asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:DropDownList ID="ddlistprovprod"
+                                                                    runat="server" ItemType="ShopGaspar.Models.proveedores"
+                                                                    SelectMethod="GetProveedores"
+                                                                    DataTextField="ProvName"
+                                                                    DataValueField="ProvID">
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                        </tr>
                                                         <tr>
                                                             <td>
                                                                 <asp:Label runat="server">Imagen:

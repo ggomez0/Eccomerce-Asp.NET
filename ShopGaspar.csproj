@@ -234,6 +234,7 @@
     <Content Include="Admin\gvordenesusuarios.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
+    <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
     <Content Include="Admin\ProductosAdmin.aspx" />
     <Content Include="Admin\TransaccionesAdmin.aspx" />
@@ -2221,6 +2222,13 @@
     <Compile Include="Admin\ordorduser.aspx.designer.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\proddeprov.aspx.cs">
+      <DependentUpon>proddeprov.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\proddeprov.aspx.designer.cs">
+      <DependentUpon>proddeprov.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\prodendep.aspx.cs">
       <DependentUpon>prodendep.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2275,6 +2283,10 @@
     <Compile Include="Migrations\202209161640200_lstcpra.cs" />
     <Compile Include="Migrations\202209161640200_lstcpra.Designer.cs">
       <DependentUpon>202209161640200_lstcpra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209202342529_provdatabase.cs" />
+    <Compile Include="Migrations\202209202342529_provdatabase.Designer.cs">
+      <DependentUpon>202209202342529_provdatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
@@ -2349,6 +2361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209161640200_lstcpra.resx">
       <DependentUpon>202209161640200_lstcpra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209202342529_provdatabase.resx">
+      <DependentUpon>202209202342529_provdatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

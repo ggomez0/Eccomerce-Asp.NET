@@ -22,7 +22,7 @@ namespace ShopGaspar.Admin
         {
             if (!IsPostBack)
             {
-
+                ddlistdep.Items.Insert(0, new ListItem("Choose one", "Choose one"));
             }
         }
 
