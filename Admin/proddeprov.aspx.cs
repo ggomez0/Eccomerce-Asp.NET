@@ -29,7 +29,7 @@ namespace ShopGaspar.Admin
             SqlCommand cmd = new SqlCommand();
             DataTable dataTable = new DataTable();
             SqlDataAdapter sqlDA; cnn.Open();
-            cmd.CommandText = "select prod.ProductName as 'Producto' from proveedores p innerjoin Products prod on p.Product_ProductID= where ProvID = 2";
+            cmd.CommandText = "select ProductID,ProductName,UnitPrice from Products p inner join proveedores pr on p.ProvID=pr.ProvID where p.ProvID=@idorder";
             cmd.Parameters.AddWithValue("@idorder", ido);
             cmd.CommandType = CommandType.Text;
             cmd.Connection = cnn;

@@ -7,13 +7,13 @@ namespace ShopGaspar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitialCreate1 : IMigrationMetadata
+    public sealed partial class ffcvv : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ffcvv));
         
         string IMigrationMetadata.Id
         {
-            get { return "202209160614505_InitialCreate1"; }
+            get { return "202209211838489_ffcvv"; }
         }
         
         string IMigrationMetadata.Source

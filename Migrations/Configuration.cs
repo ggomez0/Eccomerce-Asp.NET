@@ -10,7 +10,6 @@ namespace ShopGaspar.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ShopGaspar.Models.ProductContext";
         }
 
         protected override void Seed(ShopGaspar.Models.ProductContext context)

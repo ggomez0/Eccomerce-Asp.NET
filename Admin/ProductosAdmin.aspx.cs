@@ -203,7 +203,7 @@ namespace ShopGaspar.Admin
                 // Add product data to DB.
                 AddProducts products = new AddProducts();
                 bool addSuccess = products.AddProduct(0, AddProductName.Text, AddProductDescription.Text,
-                    AddProductPrice.Text, DropDownAddCategory.SelectedValue, imgprodadd.FileName, 0);
+                    AddProductPrice.Text, DropDownAddCategory.SelectedValue, imgprodadd.FileName, 0, ddlistprovprod.SelectedValue);
 
                 if (addSuccess)
                 {

@@ -8,7 +8,7 @@ namespace ShopGaspar.Logic
 {
     public class AddProducts
     {
-        public bool AddProduct(int stock, string ProductName, string ProductDesc, string ProductPrice, string ProductCategory, string ProductImagePath, int vendido)
+        public bool AddProduct(int stock, string ProductName, string ProductDesc, string ProductPrice, string ProductCategory, string ProductImagePath, int vendido, string proveedores)
         {
             var myProduct = new Product();
             myProduct.ProductName = ProductName;
@@ -18,6 +18,8 @@ namespace ShopGaspar.Logic
             myProduct.CategoryID = Convert.ToInt32(ProductCategory);
             myProduct.stock = Convert.ToInt32(stock);
             myProduct.vendido = Convert.ToInt32(vendido);
+            myProduct.ProvID = Convert.ToInt32(proveedores);
+
 
             using (ProductContext _db = new ProductContext())
             {
