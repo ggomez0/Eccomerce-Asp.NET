@@ -195,34 +195,7 @@ namespace ShopGaspar.Admin
 
         protected void gvdep_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            //try
-            //{
-            //    if (e.CommandName.Equals("AddNew"))
-            //    {
-            //        using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            //        {
-            //            sqlCon.Open();
-            //            string query = "INSERT INTO Products (ProductName,Description,ImagePath,UnitPrice,CategoryID,stock) VALUES (@ProductName,@Description,@ImagePath,@UnitPrice,@CategoryID,@stock)";
-            //            SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-            //            sqlCmd.Parameters.AddWithValue("@ProductName", (gridproductos.FooterRow.FindControl("txtProductNameFooter") as TextBox).Text.Trim());
-            //            sqlCmd.Parameters.AddWithValue("@Description", (gridproductos.FooterRow.FindControl("txtDescriptionFooter") as TextBox).Text.Trim());
-            //            sqlCmd.Parameters.AddWithValue("@ImagePath", (gridproductos.FooterRow.FindControl("txtImagePathFooter") as TextBox).Text.Trim());
-            //            sqlCmd.Parameters.AddWithValue("@UnitPrice", (gridproductos.FooterRow.FindControl("txtUnitPriceFooter") as TextBox).Text.Trim());
-            //            sqlCmd.Parameters.AddWithValue("@CategoryID", (gridproductos.FooterRow.FindControl("ddlprodupf") as DropDownList).Text.Trim());
-            //            sqlCmd.Parameters.AddWithValue("@stock", (gridproductos.FooterRow.FindControl("txtstockFooter") as TextBox).Text.Trim());
-
-            //            sqlCmd.ExecuteNonQuery();
-            //            this.databasecrud(connectionString, "SELECT CategoryID, CategoryName from Categories", gvcattab);
-            //            lblSuccessMessage.Text = "Nueva categoria Agregado";
-            //            lblErrorMessage.Text = "";
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    lblSuccessMessage.Text = "";
-            //    lblErrorMessage.Text = ex.Message;
-            //}
+            
         }
     }
 }

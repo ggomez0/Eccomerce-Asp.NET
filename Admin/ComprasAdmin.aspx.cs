@@ -253,7 +253,8 @@ namespace ShopGaspar.Admin
 
         protected void btnlstdet_Click(object sender, ImageClickEventArgs e)
         {
-
+            int id1 = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id1);
         }
     }
 }
