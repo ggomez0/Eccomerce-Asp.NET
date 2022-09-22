@@ -25,5 +25,9 @@ namespace ShopGaspar.Models
 
         public virtual ICollection<lstcompra> Lstcompras{ get; set; }
 
+        public virtual ICollection<Product> Products { get; set; }
+
+
+
     }
 }

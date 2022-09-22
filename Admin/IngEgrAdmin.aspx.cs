@@ -22,9 +22,17 @@ namespace ShopGaspar.Admin
         {
             if (!IsPostBack)
             {
-
+                ddlistdep.Items.Insert(0, new ListItem("Choose one", "Choose one"));
             }
         }
+
+        public IQueryable GetDepositos()
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable query = _db.depositos;
+            return query;
+        }
+
 
         protected void btndepexis_Click1(object sender, EventArgs e)
         {
@@ -43,8 +51,9 @@ namespace ShopGaspar.Admin
                     sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
                     sqlCmd.Parameters.AddWithValue("@cantingreso", txtcantdep.Text);
                     sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                    sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex + 1);
+                    sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex);
                     sqlCmd.ExecuteNonQuery();
+                    sqlCon.Close();
                 }
                 using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
                 {
@@ -54,6 +63,7 @@ namespace ShopGaspar.Admin
                     sqlCmd1.Parameters.AddWithValue("@stock", txtcantdep.Text);
                     sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
                     sqlCmd1.ExecuteNonQuery();
+                    sqlCon1.Close();
                 }
 
                 string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
@@ -75,7 +85,7 @@ namespace ShopGaspar.Admin
                     sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
                     sqlCmd.Parameters.AddWithValue("@cantingreso", -Convert.ToInt32(txtcantdep.Text));
                     sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                    sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex + 1);
+                    sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex);
                     sqlCmd.ExecuteNonQuery();
                 }
 

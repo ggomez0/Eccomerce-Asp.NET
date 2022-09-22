@@ -34,6 +34,14 @@ namespace ShopGaspar.Admin
             return query;
         }
 
+        public IQueryable GetProveedores()
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable query = _db.proveedores;
+            return query;
+        }
+
+
         protected void gridproductos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
@@ -163,8 +171,9 @@ namespace ShopGaspar.Admin
 
         protected void AddProductButton_Click(object sender, EventArgs e)
         {
-            Boolean fileOK1 = false;
-            String path1 = Server.MapPath("~/Images/");
+
+            Boolean fileOK = false;
+            String path = Server.MapPath("~/Images/");
 
             if (imgprodadd.HasFile)
             {
@@ -175,16 +184,16 @@ namespace ShopGaspar.Admin
                 {
                     if (fileExtension == allowedExtensions[i])
                     {
-                        fileOK1 = true;
+                        fileOK = true;
                     }
                 }
             }
 
-            if (fileOK1)
+            if (fileOK)
             {
                 try
                 {
-                    imgprodadd.PostedFile.SaveAs(path1 + "Thumbs/" + imgprodadd.FileName);
+                    imgprodadd.PostedFile.SaveAs(path + "Thumbs/" + imgprodadd.FileName);
                 }
                 catch (Exception ex)
                 {
@@ -194,7 +203,7 @@ namespace ShopGaspar.Admin
                 // Add product data to DB.
                 AddProducts products = new AddProducts();
                 bool addSuccess = products.AddProduct(0, AddProductName.Text, AddProductDescription.Text,
-                    AddProductPrice.Text, DropDownAddCategory.SelectedValue, imgprodadd.FileName, 0);
+                    AddProductPrice.Text, DropDownAddCategory.SelectedValue, imgprodadd.FileName, 0, ddlistprovprod.SelectedValue);
 
                 if (addSuccess)
                 {
@@ -209,7 +218,7 @@ namespace ShopGaspar.Admin
             }
             else
             {
-                LabelAddStatus.Text = "ERROR formato de la imagen";
+                LabelAddStatus.Text = "No se acepta el formato";
             }
         }
 

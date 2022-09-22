@@ -98,7 +98,7 @@
                                                 <asp:Button ID="btndepexis" runat="server"
                                                     Text="Realizar movimiento de existencias"
                                                     OnClick="btndepexis_Click1" CausesValidation="true"
-                                                    ValidationGroup="VG21" CssClass="btn btn-success button4" />
+                                                    ValidationGroup="VG21" CssClass="btn btn-success rounded-3" />
                                                 <asp:Label ID="lblprodendep" runat="server" Text=""></asp:Label>
 
                                             </ContentTemplate>

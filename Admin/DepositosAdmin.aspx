@@ -1,21 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DepositosAdmin.aspx.cs" Inherits="ShopGaspar.Admin.DepositosAdmin" %>
+﻿<%@ Page Title="Depositos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DepositosAdmin.aspx.cs" Inherits="ShopGaspar.Admin.DepositosAdmin" %>
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
 
-        <asp:Button ID="Button3" CssClass="btn btn-success button4" runat="server" Text="Agregar Depositos"
+        <asp:Button ID="Button3" CssClass="btn btn-success rounded-3" runat="server" Text="Agregar Depositos"
                                             ValidationGroup="VG11" />
                                         <!-- ModalPopupExtender -->
                                         <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
-                                            PopupControlID="Panel3" TargetControlID="Button3" CancelControlID="Button4"
+                                            PopupControlID="Panel3" TargetControlID="Button3" CancelControlID="rounded-3"
                                             BackgroundCssClass="modalBackground">
                                         </cc1:ModalPopupExtender>
                                         <asp:Panel ID="Panel3" runat="server" CssClass="modalPopup" align="center"
                                             Style="background-color:white; border:solid; border-color:black;">
                                             <div style="padding:20px">
-                                                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                                                    <ContentTemplate>
+                                            
 
                                                         <h3>Agregar Depositos</h3>
                                                         <table>
@@ -92,25 +91,18 @@
 
 
 
-                                                    </ContentTemplate>
-                                                </asp:UpdatePanel>
-
 
 
                                                 <asp:Button ID="btnagregardep" runat="server" Text="Agregar Deposito"
-                                                    OnClick="btnagregardep_Click" CssClass="btn btn-success button4" CausesValidation="true"
+                                                    OnClick="btnagregardep_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                     ValidationGroup="VG12" />
 
-                                                <asp:Button ID="Button4" runat="server" CssClass="btn btn-danger button4" Text="Cerrar"
+                                                <asp:Button ID="Button4" runat="server" CssClass="btn btn-danger rounded-3" Text="Cerrar"
                                                     ValidationGroup="VG13" />
                                                 <asp:Label ID="lblconfirmardep" runat="server" Text=""></asp:Label>
                                             </div>
                                         </asp:Panel>
 
-
-
-                                        <asp:UpdatePanel runat="server">
-                                            <ContentTemplate>
                                                 <asp:gridview class="table thead-dark" CssClass="grid" ID="gvdep"
                                                     runat="server" AutoGenerateColumns="false"
                                                     ShowHeaderWhenEmpty="true" BackColor="White" BorderColor="#CCCCCC"
@@ -169,19 +161,17 @@
                                                                         runat="server" ID="btneditdep" Width="20px"
                                                                         Height="20px" ValidationGroup="VG30" />
 
-                                                                 <cc1:ModalPopupExtender ID="mp1" runat="server"
-                                                                        PopupControlID="Panel21"
+                                                                 <cc1:ModalPopupExtender ID="mp8" runat="server"
+                                                                        PopupControlID="Panel2188"
                                                                         TargetControlID="btneditdep"
                                                                         CancelControlID="btncerrareditdep"
                                                                         BackgroundCssClass="modalBackground">
                                                                     </cc1:ModalPopupExtender>
-                                                                    <asp:Panel ID="Panel21" runat="server"
+                                                                    <asp:Panel ID="Panel2188" runat="server"
                                                                         CssClass="modalPopup" align="center"
                                                                         Style="background-color:white; border:solid; border-color:black;">
                                                                         <div style="padding:20px">
-                                                                            <asp:UpdatePanel ID="UpdatePanel2"
-                                                                                runat="server">
-                                                                                <ContentTemplate>
+                                                                         
                                                                                     <h3>Editar deposito:</h3>
                                                                                     <table>
                                                                                         <tr>
@@ -207,7 +197,7 @@
                                                                                                 <asp:Label
                                                                                                     ID="lbldescdepedit"
                                                                                                     runat="server">
-                                                                                                    Nombre:</asp:Label>
+                                                                                                    Descripcion:</asp:Label>
                                                                                             </td>
                                                                                             <td>
                                                                                                 <asp:TextBox
@@ -238,7 +228,7 @@
                                                                                                 <asp:TextBox
                                                                                                     ID="txtubieditdep"
                                                                                                     TextMode="MultiLine"
-                                                                                                    Text='<%# Eval("Description") %>'
+                                                                                                    Text='<%# Eval("ubicacion") %>'
                                                                                                     runat="server" ValidationGroup="VG31" />
 
                                                                                                 <asp:RequiredFieldValidator
@@ -286,14 +276,12 @@
                                                                                         Text="Editar Deposito"
                                                                                         CommandName="Update"
                                                                                         CausesValidation="true"
-                                                                                        ValidationGroup="VG31" CssClass="btn btn-success button4" />
+                                                                                        ValidationGroup="VG31" CssClass="btn btn-success rounded-3" />
                                                                                     
                                                                                       <asp:Button ID="btncerrareditdep" runat="server"
-                                                                            Text="Cerrar" CssClass="btn btn-danger button4"
+                                                                            Text="Cerrar" CssClass="btn btn-danger rounded-3"
                                                                             ValidationGroup="VG32" />
 
-                                                                                </ContentTemplate>
-                                                                            </asp:UpdatePanel>
                                                                         </div>
                                                                       <asp:Label ID="lbldepedit"
                                                                                         runat="server" Text="">
@@ -315,8 +303,7 @@
                                                     </Columns>
 
                                                 </asp:GridView>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
+                                      
 
         <asp:Label id="lblSuccessMessage" runat="server"></asp:Label>
         <asp:Label id="lblErrorMessage" runat="server"></asp:Label>

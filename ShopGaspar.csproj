@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,14 +70,17 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Postgrest, Version=2.0.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\postgrest-csharp.2.0.11\lib\netstandard2.0\Postgrest.dll</HintPath>
+    <Reference Include="Postgrest, Version=2.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\postgrest-csharp.2.0.12\lib\netstandard2.0\Postgrest.dll</HintPath>
     </Reference>
     <Reference Include="Realtime, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\realtime-csharp.3.0.1\lib\netstandard2.0\Realtime.dll</HintPath>
     </Reference>
     <Reference Include="Storage, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\supabase-storage-csharp.1.1.1\lib\netstandard2.0\Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Supabase, Version=0.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\supabase-csharp.0.5.2\lib\netstandard2.0\Supabase.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -230,7 +234,9 @@
     <Content Include="Admin\EstadisticasAdmin.aspx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
+    <Content Include="Admin\lstcompradet.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
+    <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
     <Content Include="Admin\ProductosAdmin.aspx" />
     <Content Include="Admin\TransaccionesAdmin.aspx" />
@@ -1929,6 +1935,7 @@
     <Content Include="Images\lupa.png" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\plus.png" />
+    <Content Include="Images\plusicon.png" />
     <Content Include="Images\save.png" />
     <Content Include="Images\shopping-cart.png" />
     <Content Include="Images\Thumbs\ami.png" />
@@ -2211,12 +2218,26 @@
     <Compile Include="Admin\IngEgrAdmin.aspx.designer.cs">
       <DependentUpon>IngEgrAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\lstcompradet.aspx.cs">
+      <DependentUpon>lstcompradet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\lstcompradet.aspx.designer.cs">
+      <DependentUpon>lstcompradet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ordorduser.aspx.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\ordorduser.aspx.designer.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\proddeprov.aspx.cs">
+      <DependentUpon>proddeprov.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\proddeprov.aspx.designer.cs">
+      <DependentUpon>proddeprov.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\prodendep.aspx.cs">
       <DependentUpon>prodendep.aspx</DependentUpon>
@@ -2257,26 +2278,19 @@
     <Compile Include="Logic\addprodendep.cs" />
     <Compile Include="Logic\AgregarProv.cs" />
     <Compile Include="Logic\Ordenarlista.cs" />
-    <Compile Include="Migrations\202208261939110_InitialCreate.cs" />
-    <Compile Include="Migrations\202208261939110_InitialCreate.Designer.cs">
-      <DependentUpon>202208261939110_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202209211838489_ffcvv.cs" />
+    <Compile Include="Migrations\202209211838489_ffcvv.Designer.cs">
+      <DependentUpon>202209211838489_ffcvv.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202209160614505_InitialCreate1.cs" />
-    <Compile Include="Migrations\202209160614505_InitialCreate1.Designer.cs">
-      <DependentUpon>202209160614505_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209161554410_InitialCreate2.cs" />
-    <Compile Include="Migrations\202209161554410_InitialCreate2.Designer.cs">
-      <DependentUpon>202209161554410_InitialCreate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209161640200_lstcpra.cs" />
-    <Compile Include="Migrations\202209161640200_lstcpra.Designer.cs">
-      <DependentUpon>202209161640200_lstcpra.cs</DependentUpon>
+    <Compile Include="Migrations\202209212234374_lclc.cs" />
+    <Compile Include="Migrations\202209212234374_lclc.Designer.cs">
+      <DependentUpon>202209212234374_lclc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
     <Compile Include="Models\depositos.cs" />
     <Compile Include="Models\lstcompra.cs" />
+    <Compile Include="Models\lstcompradetalles.cs" />
     <Compile Include="Models\prodendep.cs" />
     <Compile Include="Models\ProductDatabaseInitializer.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -2335,17 +2349,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202208261939110_InitialCreate.resx">
-      <DependentUpon>202208261939110_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202209211838489_ffcvv.resx">
+      <DependentUpon>202209211838489_ffcvv.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209160614505_InitialCreate1.resx">
-      <DependentUpon>202209160614505_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209161554410_InitialCreate2.resx">
-      <DependentUpon>202209161554410_InitialCreate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209161640200_lstcpra.resx">
-      <DependentUpon>202209161640200_lstcpra.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202209212234374_lclc.resx">
+      <DependentUpon>202209212234374_lclc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

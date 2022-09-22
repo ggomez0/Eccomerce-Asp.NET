@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CategoriaAdmin.aspx.cs" Inherits="ShopGaspar.Admin.CategoriaAdmin" %>
+﻿<%@ Page Title="Categoria" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CategoriaAdmin.aspx.cs" Inherits="ShopGaspar.Admin.CategoriaAdmin" %>
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
 
-         <asp:Button ID="Button1" CssClass="btn btn-success button4"  runat="server" Text="Agregar Categoria" />
-                                    <!-- ModalPopupExtender -->
+         <asp:Button ID="Button1" CssClass="btn btn-success rounded-3"  runat="server" Text="Agregar Categoria" />
+                                    <!-- ModalPopupExtender --->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
                                         PopupControlID="Panel2" TargetControlID="Button1" CancelControlID="Button2"
                                         BackgroundCssClass="modalBackground">
@@ -48,9 +48,9 @@
                                             </asp:UpdatePanel>
                                         </div>
                                         <asp:Button ID="AddCat" runat="server" Text="Agregar"
-                                                                    OnClick="AddCat_Click" CssClass="btn btn-success button4" CausesValidation="true"
+                                                                    OnClick="AddCat_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                                     ValidationGroup="VG1" />
-                                        <asp:Button ID="Button2" CssClass="btn btn-danger button4" runat="server" Text="Cerrar" />
+                                        <asp:Button ID="Button2" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" />
                                         <br />
                                         <p>  </p>
                                         <p></p>
@@ -143,13 +143,13 @@
                                                                                     <p></p>
                                                                                     <p></p>
 
-                                                                                    <asp:Button CssClass="btn btn-success button4" ID="Editcat"
+                                                                                    <asp:Button CssClass="btn btn-success rounded-3" ID="Editcat"
                                                                                         runat="server"
                                                                                         Text="Editar Producto"
                                                                                         CommandName="Update"
                                                                                         CausesValidation="true"
                                                                                         ValidationGroup="VG15" />
-                                                                                      <asp:Button ID="btncerrareditcat" CssClass="btn btn-danger button4" runat="server"
+                                                                                      <asp:Button ID="btncerrareditcat" CssClass="btn btn-danger rounded-3" runat="server"
                                                                             Text="Cerrar"
                                                                             ValidationGroup="VG16" />
                                                                                   

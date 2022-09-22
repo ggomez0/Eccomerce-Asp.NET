@@ -60,15 +60,10 @@
           </a>
         </li>
 
-          <%--<li class="nav-item">
-              <a class="nav-link active" runat="server" href="~/ProductList">Productos</a>
-          </li>
+      
           <li class="nav-item">
-             <a class="nav-link active" runat="server" href="~/Ubicacion">Ubicacion</a>
+             <a class="nav-link active" runat="server" href="~/Admin/Menu.aspx">Menu ADMIN</a>
           </li>
-          <li class="nav-item">
-             <a class="nav-link active" runat="server" href="~/Contact/Contact">Contacto</a>
-          </li>--%>
         
 
           <%--carrito--%>
@@ -84,10 +79,10 @@
           </li>--%>
           
            <%--carrito--%>
-             
+         <%--    
           <li class="nav-item">
-              <a class="nav-link active" runat="server" id="adminLink" visible="false" href="~/Admin/AdminPage">Admin</a>
-          </li>
+              <a class="nav-link active" runat="server" id="adminLink" visible="false" href="~/Admin/Menu.aspx">Menu-Admin</a>
+          </li>--%>
          
       </ul>
         
@@ -154,9 +149,8 @@
   </script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-   <%-- <script type="text/javascript" src="Scripts/switch.js"></script>--%>
   <script type="text/javascript">
-    $(function () {
+      $(function () {
         $(".grid").DataTable({
             bLengthChange: true,
             lengthMenu: [[5, 10, -1], [5, 10, "Todos"]],
