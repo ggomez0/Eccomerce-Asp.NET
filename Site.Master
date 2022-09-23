@@ -44,8 +44,10 @@
 
 
  <nav class="navbar navbar-expand-lg navbar-light"> 
-      <a class="navbar-brand" runat="server" href="~/"  title="GamerSalta">
-          <img style="height:70px" runat="server" src="~/Images/logoh.png">
+      <a class="navbar-brand" runat="server" href="~/"  title="GamerSalta" style="font-size:2em; 
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">GamerSalta
+          
+<%--   //Imagen en el navbar     <img style="height:70px" runat="server" src="~/Images/logoh.png">--%>
         </a>
 
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +64,7 @@
 
       
           <li class="nav-item">
-             <a class="nav-link active" runat="server" href="~/Admin/Menu.aspx">Menu ADMIN</a>
+             <a class="nav-link active" runat="server" href="~/Admin/Menu.aspx">ADMIN</a>
           </li>
         
 
@@ -79,8 +81,8 @@
           </li>--%>
           
            <%--carrito--%>
-         <%--    
-          <li class="nav-item">
+             
+        <%--  <li class="nav-item">
               <a class="nav-link active" runat="server" id="adminLink" visible="false" href="~/Admin/Menu.aspx">Menu-Admin</a>
           </li>--%>
          
@@ -115,6 +117,7 @@
     </div>
       
         </nav>     
+        
       
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -133,13 +136,10 @@
       
     </form>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sc-2.0.6/datatables.min.js"></script>
- 
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sc-2.0.6/datatables.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script>

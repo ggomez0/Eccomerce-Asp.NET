@@ -5,7 +5,7 @@
          <h3>Seleccione los productos para agregarlos a la lista</h3>
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
             ID="gvproductoslista" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
-            DataKeyNames="ProductID"     OnRowUpdating="gvproductoslista_RowUpdating">
+            DataKeyNames="ID"     OnRowUpdating="gvproductoslista_RowUpdating">
              <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White" />
         <Columns>
             <asp:TemplateField>
