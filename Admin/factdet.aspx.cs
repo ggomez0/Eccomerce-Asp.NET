@@ -74,7 +74,7 @@ namespace ShopGaspar.Admin
                     string query = "insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@lstcomprar,@product,@lstcompra);";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@lstcompra", lblinvisible.Text);
-                    sqlCmd.Parameters.AddWithValue("@lstcomprar", 1);
+                    sqlCmd.Parameters.AddWithValue("@lstcomprar", 3);
                     sqlCmd.Parameters.AddWithValue("@product", Convert.ToInt32(gvproductoslista.DataKeys[e.RowIndex].Value.ToString()));
 
                     sqlCmd.ExecuteNonQuery();

@@ -631,28 +631,33 @@
                                                 <ContentTemplate>
                                                     <h3>Nueva Factura</h3>
                                                     <table>
-                                                        <tr>
-                                                            <td><asp:Label runat="server" Text="Nombre:"></asp:Label></td>
+                                                         <tr>
+                                                            <td><asp:Label runat="server" Text="Tipo:"></asp:Label></td>
                                                             <td>
-                                                                <asp:TextBox ID="TextBox1" runat="server">
+                                                                <asp:TextBox ID="txttipo" runat="server">
+                                                                </asp:TextBox>
+                                                                </tr>
+                                                                <tr>
+                                                            <td><asp:Label runat="server" Text="Descripcion:"></asp:Label></td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtdesc" runat="server">
                                                                 </asp:TextBox>
                                                                 
 
-                                                                <asp:RequiredFieldValidator
-                                                                    runat="server" Font-Bold="true"
-                                                                    Text="*No debe estar vacia"
-                                                                    ControlToValidate="TextBox1"
-                                                                    SetFocusOnError="true" Display="Dynamic"
-                                                                    ValidationGroup="VG1789"></asp:RequiredFieldValidator>
+                                                          
                                                             </td>
                                                         </tr>
+                                                          
+                                                            </td>
+                                                        </tr>
+                                         
                                                        <tr>
                                                             <td>
                                                                 <asp:Label runat="server">
                                                                     Proveedor:</asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:DropDownList ID="DropDownList1"
+                                                                <asp:DropDownList ID="ddlistfact"
                                                                     runat="server" ItemType="ShopGaspar.Models.proveedores"
                                                                     SelectMethod="GetProveedores"
                                                                     DataTextField="ProvName"
@@ -671,7 +676,7 @@
                                         </div>
                                         <asp:Button ID="btnanfact" runat="server" Text="Agregar" OnClick="btnanfact_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                                     ValidationGroup="VG11111" />
-                                        <asp:Button ID="Button8" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" />
+                                        <asp:Button ID="Button8" CssClass="btn btn-danger rounded-3" ValidationGroup="wdko" runat="server" Text="Cerrar" />
                                         <br />
                                         <p>  </p>
                                         <p></p>
@@ -698,7 +703,7 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Descripcion">
+                                                        <asp:TemplateField HeaderText="Tipo de factura">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("Nombre") %>'
                                                                     runat="server" />
@@ -726,8 +731,8 @@
                                                <asp:TemplateField HeaderStyle-Width="10px" >
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/plus.png"
-                                                                        runat="server" ValidationGroup="VG7711" ID="btnlstdet" Width="20px" OnClick="btnlstdet_Click"
-                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") %>'  />
+                                                                        runat="server" ValidationGroup="VG7711" ID="btnlstdet1" Width="20px" OnClick="btnlstdet1_Click"
+                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") + "," + Eval("ProvID") %>'  />
                                                                
                                                             </ItemTemplate>
                                                         </asp:TemplateField>

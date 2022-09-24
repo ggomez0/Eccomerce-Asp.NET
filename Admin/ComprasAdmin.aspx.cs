@@ -25,6 +25,7 @@ namespace ShopGaspar.Admin
                 this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=1", gvlstcpra);
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=2", gvordcpra);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvfact);
             }
 
         }
@@ -253,11 +254,11 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM comprobantes WHERE lstcpraid = @ProductID and idcomprobante=3";
+                    string query = "DELETE FROM comprobantes WHERE idcomp = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvfact.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
-                    lblSuccessMessage.Text = "Factura eliminada con exito";
+                    lblSuccessMessage.Text = "Orden de compra eliminada con exito";
                     lblErrorMessage.Text = "";
 
                 }
@@ -294,7 +295,7 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM comprobantes WHERE lstcpraid = @ProductID";
+                    string query = "DELETE FROM comprobantes WHERE idcomp = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvordcpra.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
@@ -315,8 +316,28 @@ namespace ShopGaspar.Admin
 
         protected void btnanfact_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
-            Response.Redirect("~/Admin/ordcpradet.aspx?id=" + id);
+            addcomprobante addprov = new addcomprobante();
+            bool addSuccess = addprov.addcomprobantes(txttipo.Text, txtdesc.Text, 0, 3, ddlistfact.SelectedValue);
+
+            if (addSuccess)
+            {
+                // Reload the page.
+                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                Response.Redirect(pageUrl + "?ProductAction=addfact");
+            }
+            else
+            {
+                lblconfirmardep.Text = "No se pudo agregar la factura ";
+            }
+        }
+    
+
+        protected void btnlstdet1_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton btnSelect = (sender as ImageButton);
+            string[] id1 = btnSelect.CommandArgument.Split(',');
+
+            Response.Redirect("~/Admin/factdet.aspx?id1=" + id1[0] + "&id2=" + id1[1]);
         }
     }
 }

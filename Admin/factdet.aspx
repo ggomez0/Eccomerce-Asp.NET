@@ -80,7 +80,7 @@
 
 
 
-         <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA ORDEN N°</asp:Label>
+         <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA FACTURA N°</asp:Label>
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvlstcompradet" 
             ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
             DataKeyNames="idcomprdet"  OnRowDeleting="gvlstcompradet_RowDeleting">
