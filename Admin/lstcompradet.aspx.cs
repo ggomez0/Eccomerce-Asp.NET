@@ -119,8 +119,44 @@ namespace ShopGaspar.Admin
 
         }
 
-    
+        protected void btnlstord_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    string nID12 = Request.QueryString["id1"];
+                    sqlCon.Open();
+                    string query = "insert into comprobantes(Nombre,descripcion,importe,dateTime,ProvID,idcomprobante)" +
+                        " select Nombre,descripcion,importe,GETDATE(),ProvID,2 from comprobantes where idcomp= @ProductID";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@ProductID", nID12);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlCon.Close();
 
+                }
+                //using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                //{
+                //    string nID12 = Request.QueryString["id1"];
+                //    sqlCon.Open();
+                //    string query = "insert into comprobantes(Nombre,descripcion,importe,dateTime,ProvID,idcomprobante)" +
+                //        " select Nombre,descripcion,importe,GETDATE(),ProvID,2 from comprobantes where idcomp= @ProductID";
+                //    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                //    sqlCmd.Parameters.AddWithValue("@ProductID", nID12);
+                //    sqlCmd.ExecuteNonQuery();
+                //    this.databasecrud(connectionString, "SELECT * FROM comprobantesdets", gvlstcompradet);
+
+                //}
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+
+            }
+            Response.Redirect("~/Admin/ComprasAdmin.aspx");
+
+        }
     }
 
 

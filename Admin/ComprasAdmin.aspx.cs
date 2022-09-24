@@ -134,8 +134,6 @@ namespace ShopGaspar.Admin
 
         }
 
-
-
         protected void btnagregarprov_Click(object sender, EventArgs e)
         {
             AgregarProv addprov = new AgregarProv();
@@ -156,8 +154,6 @@ namespace ShopGaspar.Admin
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-       
-
         protected void gvlstcpra_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvlstcpra.EditIndex = e.NewEditIndex;
@@ -172,28 +168,7 @@ namespace ShopGaspar.Admin
 
         protected void gvlstcpra_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            try
-            {
-                using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                {
-                    sqlCon.Open();
-                    string query = "UPDATE lstcompras SET descripcion=@Name WHERE lstcpraid = @provid";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@Name", (gvlstcpra.Rows[e.RowIndex].FindControl("txtdesc") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@provid", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
-                    sqlCmd.ExecuteNonQuery();
-                    gvlstcpra.EditIndex = -1;
-                    this.databasecrud(connectionString, "SELECT * FROM lstcompras", gvlstcpra);
-                    lblSuccessMessage.Text = "Lista actualizado con exito";
-                    lblErrorMessage.Text = "";
-                }
-            }
-            catch (Exception ex)
-            {
-                lblSuccessMessage.Text = "";
-                lblErrorMessage.Text = ex.Message;
-            }
-            Response.Redirect(Request.RawUrl);
+            
 
         }
 
@@ -204,11 +179,10 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM comprobantes WHERE lstcpraid = @ProductID and idcomprobante=1";
+                    string query = "DELETE FROM comprobantes WHERE idcomp = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
-                    this.databasecrud(connectionString, "SELECT * FROM lstcompras", gvlstcpra);
                     lblSuccessMessage.Text = "Pedido eliminado con exito";
                     lblErrorMessage.Text = "";
 
@@ -320,11 +294,11 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM comprobantes WHERE lstcpraid = @ProductID and idcomprobante=2";
+                    string query = "DELETE FROM comprobantes WHERE lstcpraid = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvordcpra.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
-                    lblSuccessMessage.Text = "Pedido eliminado con exito";
+                    lblSuccessMessage.Text = "Factura eliminado con exito";
                     lblErrorMessage.Text = "";
 
                 }

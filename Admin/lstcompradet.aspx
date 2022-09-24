@@ -99,6 +99,7 @@
         </Columns>
         </asp:GridView>
 
+         <asp:Button runat="server" CssClass="btn rounded-3 btn-success" ID="btnlstord" OnClick="btnlstord_Click" Text="Enviar lista a ordenes de compra"/>
 
          <asp:Label runat="server" ID="lblSuccessMessage"></asp:Label>
          <asp:Label runat="server" ID="lblErrorMessage"></asp:Label>
