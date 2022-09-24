@@ -31,7 +31,7 @@ namespace ShopGaspar.Models
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual ICollection<prodendep> Prodendeps { get; set; }
-        public virtual ICollection<lstcompra> Lstcompras { get; set; }
+        public virtual ICollection<comprobantesdet> Comprobantesdet { get; set; }
 
         public virtual proveedores Proveedores { get; set; }
 

@@ -2272,7 +2272,7 @@
     <Compile Include="Logic\AddCards.cs" />
     <Compile Include="Logic\AddCategories.cs" />
     <Compile Include="Logic\adddep.cs" />
-    <Compile Include="Logic\addlstcpra.cs" />
+    <Compile Include="Logic\addcomprobante.cs" />
     <Compile Include="Logic\AddOrder.cs" />
     <Compile Include="Logic\AddOrderDetails.cs" />
     <Compile Include="Logic\addprodendep.cs" />
@@ -2286,11 +2286,23 @@
     <Compile Include="Migrations\202209212234374_lclc.Designer.cs">
       <DependentUpon>202209212234374_lclc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209240037420_fffd.cs" />
+    <Compile Include="Migrations\202209240037420_fffd.Designer.cs">
+      <DependentUpon>202209240037420_fffd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209240428251_vgf.cs" />
+    <Compile Include="Migrations\202209240428251_vgf.Designer.cs">
+      <DependentUpon>202209240428251_vgf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209240636009_cd.cs" />
+    <Compile Include="Migrations\202209240636009_cd.Designer.cs">
+      <DependentUpon>202209240636009_cd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
+    <Compile Include="Models\comprobantes.cs" />
+    <Compile Include="Models\comprobantesdet.cs" />
     <Compile Include="Models\depositos.cs" />
-    <Compile Include="Models\lstcompra.cs" />
-    <Compile Include="Models\lstcompradetalles.cs" />
     <Compile Include="Models\prodendep.cs" />
     <Compile Include="Models\ProductDatabaseInitializer.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -2310,6 +2322,7 @@
     <Compile Include="Models\ProductContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\proveedores.cs" />
+    <Compile Include="Models\tipocomprobantes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -2354,6 +2367,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209212234374_lclc.resx">
       <DependentUpon>202209212234374_lclc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209240037420_fffd.resx">
+      <DependentUpon>202209240037420_fffd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209240428251_vgf.resx">
+      <DependentUpon>202209240428251_vgf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209240636009_cd.resx">
+      <DependentUpon>202209240636009_cd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

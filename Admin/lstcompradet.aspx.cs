@@ -21,13 +21,14 @@ namespace ShopGaspar.Admin
             if (!IsPostBack)
             {
                 string nID = Request.QueryString["id1"];
+                string nID1 = Request.QueryString["id2"];
                 lblinvisible.Text = nID;
                 lblord.Text += nID;
                 this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
-                    "Descripcion,UnitPrice as Precio,CategoryID,Stock,ProvID FROM Products", gvproductoslista);
-                this.databasecrud(connectionString, "SELECT ProductName, UnitPrice, pr.ProvName, c.CategoryName, l.lstcpradetid FROM lstcompradetalles l" +
+                    "Descripcion,UnitPrice as Precio,CategoryID,Stock,ProvID FROM Products where ProvID= " + nID1 , gvproductoslista);
+                this.databasecrud(connectionString, "SELECT ProductName, UnitPrice, pr.ProvName, c.CategoryName, l.idcomprdet FROM comprobantesdets l" +
                     " inner join Products p on l.Product_ProductID=p.ProductID inner join proveedores pr on pr.ProvID=p.ProvID inner join Categories c" +
-                    " on c.CategoryID=p.CategoryID where Lstcompra_lstcpraid =" + nID, gvlstcompradet);
+                    " on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);
 
 
 
@@ -70,9 +71,10 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "insert into lstcompradetalles(cantidad,Product_ProductID,Lstcompra_lstcpraid) values (0,@product,@lstcompra);";
+                    string query = "insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@lstcomprar,@product,@lstcompra);";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);                    
                     sqlCmd.Parameters.AddWithValue("@lstcompra", lblinvisible.Text);
+                    sqlCmd.Parameters.AddWithValue("@lstcomprar", 1);
                     sqlCmd.Parameters.AddWithValue("@product", Convert.ToInt32(gvproductoslista.DataKeys[e.RowIndex].Value.ToString()));
 
                     sqlCmd.ExecuteNonQuery();
@@ -99,11 +101,11 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM lstcompradetalles WHERE lstcpradetid = @ProductID";
+                    string query = "DELETE FROM comprobantesdets WHERE idcomprdet = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvlstcompradet.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
-                    this.databasecrud(connectionString, "SELECT * FROM lstcompradetalles", gvlstcompradet);
+                    this.databasecrud(connectionString, "SELECT * FROM comprobantesdets", gvlstcompradet);
 
                 }
             }

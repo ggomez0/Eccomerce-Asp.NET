@@ -23,7 +23,7 @@ namespace ShopGaspar.Admin
             if (!IsPostBack)
             {
                 this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
-                this.databasecrud(connectionString, "SELECT * FROM lstcompras", gvlstcpra);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=1", gvlstcpra);
             }
 
         }
@@ -50,7 +50,7 @@ namespace ShopGaspar.Admin
                 tablag.Rows[0].Cells.Clear();
                 tablag.Rows[0].Cells.Add(new TableCell());
                 tablag.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
-                tablag.Rows[0].Cells[0].Text = "No se encontraron categorias..!";
+                tablag.Rows[0].Cells[0].Text = "No se encontraron registros!";
                 tablag.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
             }
             tablag.UseAccessibleHeader = true;
@@ -203,7 +203,7 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM lstcompras WHERE lstcpraid = @ProductID";
+                    string query = "DELETE FROM comprobantes WHERE lstcpraid = @ProductID and idcomprobante=1";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
@@ -228,6 +228,13 @@ namespace ShopGaspar.Admin
             
         }
 
+        public IQueryable GetProveedores()
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable query = _db.proveedores;
+            return query;
+        }
+
         protected void btnprodprov_Click(object sender, ImageClickEventArgs e)
         {
             int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
@@ -236,8 +243,8 @@ namespace ShopGaspar.Admin
 
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
-            addlstcpra addlstcpra = new addlstcpra();
-            bool addSuccess = addlstcpra.addlstcpraa(addlst.Text);
+            addcomprobante addlstcpra = new addcomprobante();
+            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text,"Descripcion","0","1", ddlistprovlstcpra.SelectedValue);
 
             if (addSuccess)
             {
@@ -253,8 +260,10 @@ namespace ShopGaspar.Admin
 
         protected void btnlstdet_Click(object sender, ImageClickEventArgs e)
         {
-            int id1 = Convert.ToInt32((sender as ImageButton).CommandArgument);
-            Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id1);
+            ImageButton btnSelect = (sender as ImageButton);
+            string[] id1 = btnSelect.CommandArgument.Split(',');
+
+            Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id1[0] + "&id2="+id1[1]);
         }
     }
 }
