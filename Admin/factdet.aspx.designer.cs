@@ -11,7 +11,7 @@ namespace ShopGaspar.Admin
 {
 
 
-    public partial class lstcompradet
+    public partial class factdet
     {
 
         /// <summary>
@@ -40,15 +40,6 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvlstcompradet;
-
-        /// <summary>
-        /// Control btnlstord.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnlstord;
 
         /// <summary>
         /// Control lblSuccessMessage.

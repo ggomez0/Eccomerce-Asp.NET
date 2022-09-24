@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace ShopGaspar.Admin
 {
-    public partial class lstcompradet : System.Web.UI.Page
+    public partial class factdet : System.Web.UI.Page
     {
         private ProductContext _db = new ProductContext();
         string connectionString = ConfigurationManager.ConnectionStrings["ShopGaspar"].ConnectionString;
@@ -25,7 +25,7 @@ namespace ShopGaspar.Admin
                 lblinvisible.Text = nID;
                 lblord.Text += nID;
                 this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
-                    "Descripcion,UnitPrice as Precio,CategoryID,Stock,ProvID FROM Products where ProvID= " + nID1 , gvproductoslista);
+                    "Descripcion,UnitPrice as Precio,CategoryID,Stock,ProvID FROM Products where ProvID= " + nID1, gvproductoslista);
                 this.databasecrud(connectionString, "SELECT ProductName, UnitPrice, pr.ProvName, c.CategoryName, l.idcomprdet FROM comprobantesdets l" +
                     " inner join Products p on l.Product_ProductID=p.ProductID inner join proveedores pr on pr.ProvID=p.ProvID inner join Categories c" +
                     " on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);
@@ -66,15 +66,15 @@ namespace ShopGaspar.Admin
 
         protected void gvproductoslista_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            try                    
+            try
             {
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
                     string query = "insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@lstcomprar,@product,@lstcompra);";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);                    
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@lstcompra", lblinvisible.Text);
-                    sqlCmd.Parameters.AddWithValue("@lstcomprar", 1);
+                    sqlCmd.Parameters.AddWithValue("@lstcomprar", 3);
                     sqlCmd.Parameters.AddWithValue("@product", Convert.ToInt32(gvproductoslista.DataKeys[e.RowIndex].Value.ToString()));
 
                     sqlCmd.ExecuteNonQuery();
@@ -119,44 +119,8 @@ namespace ShopGaspar.Admin
 
         }
 
-        protected void btnlstord_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                {
-                    string nID12 = Request.QueryString["id1"];
-                    sqlCon.Open();
-                    string query = "insert into comprobantes(Nombre,descripcion,importe,dateTime,ProvID,idcomprobante)" +
-                        " select Nombre,descripcion,importe,GETDATE(),ProvID,2 from comprobantes where idcomp= @ProductID";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@ProductID", nID12);
-                    sqlCmd.ExecuteNonQuery();
-                    sqlCon.Close();
 
-                }
-                //using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                //{
-                //    string nID12 = Request.QueryString["id1"];
-                //    sqlCon.Open();
-                //    string query = "insert into comprobantes(Nombre,descripcion,importe,dateTime,ProvID,idcomprobante)" +
-                //        " select Nombre,descripcion,importe,GETDATE(),ProvID,2 from comprobantes where idcomp= @ProductID";
-                //    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                //    sqlCmd.Parameters.AddWithValue("@ProductID", nID12);
-                //    sqlCmd.ExecuteNonQuery();
-                //    this.databasecrud(connectionString, "SELECT * FROM comprobantesdets", gvlstcompradet);
 
-                //}
-            }
-            catch (Exception ex)
-            {
-                lblSuccessMessage.Text = "";
-                lblErrorMessage.Text = ex.Message;
-
-            }
-            Response.Redirect("~/Admin/ComprasAdmin.aspx");
-
-        }
     }
 
 

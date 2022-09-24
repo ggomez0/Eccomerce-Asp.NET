@@ -6,19 +6,22 @@ using System.Web;
 
 namespace ShopGaspar.Logic
 {
-    public class addlstcpra
+    public class addcomprobante
     {
-        public bool addlstcpraa(string descripcion)
+        public bool addcomprobantes(string nombre, string descripcion, int importe, int idc, string prov)
         {
-            var mylstcpra = new lstcompra();
+            var mylstcpra = new comprobantes();
+            mylstcpra.Nombre = nombre;
             mylstcpra.descripcion = descripcion;
+            mylstcpra.importe =importe;
             mylstcpra.dateTime = DateTime.Now;
-
+            mylstcpra.ProvID = Convert.ToInt32(prov);
+            mylstcpra.idcomprobante = idc;
 
             using (ProductContext _db = new ProductContext())
             {
                 // Add product to DB.
-                _db.lstcompras.Add(mylstcpra);
+                _db.comprobantes.Add(mylstcpra);
                 _db.SaveChanges();
             }
             // Success.

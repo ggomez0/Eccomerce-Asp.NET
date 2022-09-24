@@ -23,7 +23,7 @@ namespace ShopGaspar.Models
 
        public string cuit { get; set; }
 
-        public virtual ICollection<lstcompra> Lstcompras{ get; set; }
+        public virtual ICollection<comprobantes> Comprobantes{ get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
 

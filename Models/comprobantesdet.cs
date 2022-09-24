@@ -6,17 +6,15 @@ using System.Web;
 
 namespace ShopGaspar.Models
 {
-    public class lstcompradetalles
+    public class comprobantesdet
     {
         [ScaffoldColumn(false), Key]
-        public int lstcpradetid { get; set; }
+        public int idcomprdet { get; set; }
 
         public int cantidad { get; set; }
 
         public virtual Product Product { get; set; }
 
-        public virtual lstcompra Lstcompra { get; set; }
-
-
+        public virtual comprobantes Comprobantes { get; set; }
     }
 }

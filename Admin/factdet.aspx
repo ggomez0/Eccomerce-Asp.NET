@@ -1,12 +1,11 @@
-﻿<%@ Page Title="Lista de compra" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="lstcompradet.aspx.cs" Inherits="ShopGaspar.Admin.lstcompradet" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="factdet.aspx.cs" Inherits="ShopGaspar.Admin.factdet" %>
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-     <div class="container">
+      <div class="container">
       
         <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black">Productos</asp:Label>
-         <h3>Seleccione los productos para agregarlos a la lista</h3>
+         <h3>Seleccione los productos para agregarlos a la factura</h3>
         
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
             ID="gvproductoslista" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
@@ -29,7 +28,7 @@
                                         Style="background-color:white; border:solid; border-color:black;" >
                                         <div style="padding:20px">
                                            
-                                                    <h3>Agregar Producto a la lista</h3>
+                                                    <h3>Agregar Producto a la factura</h3>
                                                     <table>
                                                         <tr>
                                                             <td>
@@ -81,7 +80,7 @@
 
 
 
-         <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA ORDEN N°</asp:Label>
+         <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA FACTURA N°</asp:Label>
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvlstcompradet" 
             ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
             DataKeyNames="idcomprdet"  OnRowDeleting="gvlstcompradet_RowDeleting">
@@ -99,7 +98,6 @@
         </Columns>
         </asp:GridView>
 
-         <asp:Button runat="server" CssClass="btn rounded-3 btn-success" ID="btnlstord" OnClick="btnlstord_Click" Text="Enviar lista a ordenes de compra"/>
 
          <asp:Label runat="server" ID="lblSuccessMessage"></asp:Label>
          <asp:Label runat="server" ID="lblErrorMessage"></asp:Label>
@@ -107,5 +105,4 @@
 
 
     </div>
-
 </asp:Content>

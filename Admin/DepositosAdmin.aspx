@@ -162,12 +162,12 @@
                                                                         Height="20px" ValidationGroup="VG30" />
 
                                                                  <cc1:ModalPopupExtender ID="mp8" runat="server"
-                                                                        PopupControlID="Panel2188"
+                                                                        PopupControlID="Pane2188"
                                                                         TargetControlID="btneditdep"
                                                                         CancelControlID="btncerrareditdep"
                                                                         BackgroundCssClass="modalBackground">
                                                                     </cc1:ModalPopupExtender>
-                                                                    <asp:Panel ID="Panel2188" runat="server"
+                                                                    <asp:Panel ID="Pane2188" runat="server"
                                                                         CssClass="modalPopup" align="center"
                                                                         Style="background-color:white; border:solid; border-color:black;">
                                                                         <div style="padding:20px">

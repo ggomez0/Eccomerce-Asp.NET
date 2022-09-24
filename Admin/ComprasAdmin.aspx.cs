@@ -23,7 +23,9 @@ namespace ShopGaspar.Admin
             if (!IsPostBack)
             {
                 this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
-                this.databasecrud(connectionString, "SELECT * FROM lstcompras", gvlstcpra);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=1", gvlstcpra);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=2", gvordcpra);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvfact);
             }
 
         }
@@ -50,7 +52,7 @@ namespace ShopGaspar.Admin
                 tablag.Rows[0].Cells.Clear();
                 tablag.Rows[0].Cells.Add(new TableCell());
                 tablag.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
-                tablag.Rows[0].Cells[0].Text = "No se encontraron categorias..!";
+                tablag.Rows[0].Cells[0].Text = "No se encontraron registros!";
                 tablag.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
             }
             tablag.UseAccessibleHeader = true;
@@ -133,8 +135,6 @@ namespace ShopGaspar.Admin
 
         }
 
-
-
         protected void btnagregarprov_Click(object sender, EventArgs e)
         {
             AgregarProv addprov = new AgregarProv();
@@ -155,8 +155,6 @@ namespace ShopGaspar.Admin
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-       
-
         protected void gvlstcpra_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvlstcpra.EditIndex = e.NewEditIndex;
@@ -171,28 +169,7 @@ namespace ShopGaspar.Admin
 
         protected void gvlstcpra_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            try
-            {
-                using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                {
-                    sqlCon.Open();
-                    string query = "UPDATE lstcompras SET descripcion=@Name WHERE lstcpraid = @provid";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@Name", (gvlstcpra.Rows[e.RowIndex].FindControl("txtdesc") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@provid", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
-                    sqlCmd.ExecuteNonQuery();
-                    gvlstcpra.EditIndex = -1;
-                    this.databasecrud(connectionString, "SELECT * FROM lstcompras", gvlstcpra);
-                    lblSuccessMessage.Text = "Lista actualizado con exito";
-                    lblErrorMessage.Text = "";
-                }
-            }
-            catch (Exception ex)
-            {
-                lblSuccessMessage.Text = "";
-                lblErrorMessage.Text = ex.Message;
-            }
-            Response.Redirect(Request.RawUrl);
+            
 
         }
 
@@ -203,11 +180,10 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM lstcompras WHERE lstcpraid = @ProductID";
+                    string query = "DELETE FROM comprobantes WHERE idcomp = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
-                    this.databasecrud(connectionString, "SELECT * FROM lstcompras", gvlstcpra);
                     lblSuccessMessage.Text = "Pedido eliminado con exito";
                     lblErrorMessage.Text = "";
 
@@ -228,6 +204,13 @@ namespace ShopGaspar.Admin
             
         }
 
+        public IQueryable GetProveedores()
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable query = _db.proveedores;
+            return query;
+        }
+
         protected void btnprodprov_Click(object sender, ImageClickEventArgs e)
         {
             int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
@@ -236,8 +219,8 @@ namespace ShopGaspar.Admin
 
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
-            addlstcpra addlstcpra = new addlstcpra();
-            bool addSuccess = addlstcpra.addlstcpraa(addlst.Text);
+            addcomprobante addlstcpra = new addcomprobante();
+            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text,"Descripcion",0,1, ddlistprovlstcpra.SelectedValue);
 
             if (addSuccess)
             {
@@ -253,8 +236,108 @@ namespace ShopGaspar.Admin
 
         protected void btnlstdet_Click(object sender, ImageClickEventArgs e)
         {
-            int id1 = Convert.ToInt32((sender as ImageButton).CommandArgument);
-            Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id1);
+            ImageButton btnSelect = (sender as ImageButton);
+            string[] id1 = btnSelect.CommandArgument.Split(',');
+
+            Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id1[0] + "&id2="+id1[1]);
+        }
+
+        protected void gvordcpra_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void gvordcpra_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "DELETE FROM comprobantes WHERE idcomp = @ProductID";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvfact.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    lblSuccessMessage.Text = "Orden de compra eliminada con exito";
+                    lblErrorMessage.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+
+            }
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnorddet_Click(object sender, ImageClickEventArgs e)
+        {
+            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/ordcpradet.aspx?id=" + id);
+        }
+
+        protected void gvfact_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void gvfact_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+        protected void gvfact_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "DELETE FROM comprobantes WHERE idcomp = @ProductID";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvordcpra.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    lblSuccessMessage.Text = "Factura eliminado con exito";
+                    lblErrorMessage.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+
+            }
+            Response.Redirect(Request.RawUrl);
+        }
+
+
+        protected void btnanfact_Click(object sender, EventArgs e)
+        {
+            addcomprobante addprov = new addcomprobante();
+            bool addSuccess = addprov.addcomprobantes(txttipo.Text, txtdesc.Text, 0, 3, ddlistfact.SelectedValue);
+
+            if (addSuccess)
+            {
+                // Reload the page.
+                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                Response.Redirect(pageUrl + "?ProductAction=addfact");
+            }
+            else
+            {
+                lblconfirmardep.Text = "No se pudo agregar la factura ";
+            }
+        }
+    
+
+        protected void btnlstdet1_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton btnSelect = (sender as ImageButton);
+            string[] id1 = btnSelect.CommandArgument.Split(',');
+
+            Response.Redirect("~/Admin/factdet.aspx?id1=" + id1[0] + "&id2=" + id1[1]);
         }
     }
 }

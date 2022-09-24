@@ -27,7 +27,8 @@ namespace ShopGaspar.Admin
             SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["ShopGaspar"].ToString());
             SqlCommand cmd = new SqlCommand();
             DataTable dataTable = new DataTable();
-            SqlDataAdapter sqlDA; cnn.Open();
+            SqlDataAdapter sqlDA; 
+            cnn.Open();
             cmd.CommandText = "select OrderDetailId as 'ID', Username as 'Usuario',ProductName as 'Producto', Quantity as 'Cantidad'," +
                 " UnitPrice as 'Precio Unit.', totalprod as 'Total' from OrderDetails od inner join Orders o on od.OrderId=o.OrderId where od.OrderId = @idorder";
             cmd.Parameters.AddWithValue("@idorder", ido);
