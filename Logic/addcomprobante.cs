@@ -8,15 +8,15 @@ namespace ShopGaspar.Logic
 {
     public class addcomprobante
     {
-        public bool addcomprobantes(string nombre, string descripcion, string importe, string idc, string prov)
+        public bool addcomprobantes(string nombre, string descripcion, int importe, int idc, string prov)
         {
             var mylstcpra = new comprobantes();
             mylstcpra.Nombre = nombre;
             mylstcpra.descripcion = descripcion;
-            mylstcpra.importe = Convert.ToInt32(importe);
+            mylstcpra.importe =importe;
             mylstcpra.dateTime = DateTime.Now;
             mylstcpra.ProvID = Convert.ToInt32(prov);
-            mylstcpra.idcomprobante = Convert.ToInt32(idc);
+            mylstcpra.idcomprobante = idc;
 
             using (ProductContext _db = new ProductContext())
             {

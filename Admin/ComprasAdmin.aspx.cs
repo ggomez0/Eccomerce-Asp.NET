@@ -24,6 +24,7 @@ namespace ShopGaspar.Admin
             {
                 this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=1", gvlstcpra);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=2", gvordcpra);
             }
 
         }
@@ -244,7 +245,7 @@ namespace ShopGaspar.Admin
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
             addcomprobante addlstcpra = new addcomprobante();
-            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text,"Descripcion","0","1", ddlistprovlstcpra.SelectedValue);
+            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text,"Descripcion",0,1, ddlistprovlstcpra.SelectedValue);
 
             if (addSuccess)
             {
@@ -264,6 +265,84 @@ namespace ShopGaspar.Admin
             string[] id1 = btnSelect.CommandArgument.Split(',');
 
             Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id1[0] + "&id2="+id1[1]);
+        }
+
+        protected void gvordcpra_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void gvordcpra_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "DELETE FROM comprobantes WHERE lstcpraid = @ProductID and idcomprobante=3";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvfact.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    lblSuccessMessage.Text = "Factura eliminada con exito";
+                    lblErrorMessage.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+
+            }
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnorddet_Click(object sender, ImageClickEventArgs e)
+        {
+            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/ordcpradet.aspx?id=" + id);
+        }
+
+        protected void gvfact_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void gvfact_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+        protected void gvfact_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "DELETE FROM comprobantes WHERE lstcpraid = @ProductID and idcomprobante=2";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvordcpra.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    lblSuccessMessage.Text = "Pedido eliminado con exito";
+                    lblErrorMessage.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+
+            }
+            Response.Redirect(Request.RawUrl);
+        }
+
+
+        protected void btnanfact_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/ordcpradet.aspx?id=" + id);
         }
     }
 }

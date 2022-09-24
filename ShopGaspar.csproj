@@ -232,9 +232,11 @@
     <Content Include="Admin\detprodcat.aspx" />
     <Content Include="Admin\dropdownlist.asmx" />
     <Content Include="Admin\EstadisticasAdmin.aspx" />
+    <Content Include="Admin\factdet.aspx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\lstcompradet.aspx" />
+    <Content Include="Admin\ordcpradet.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
     <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
@@ -2204,6 +2206,13 @@
     <Compile Include="Admin\EstadisticasAdmin.aspx.designer.cs">
       <DependentUpon>EstadisticasAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\factdet.aspx.cs">
+      <DependentUpon>factdet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\factdet.aspx.designer.cs">
+      <DependentUpon>factdet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\gvordenesusuarios.aspx.cs">
       <DependentUpon>gvordenesusuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2224,6 +2233,13 @@
     </Compile>
     <Compile Include="Admin\lstcompradet.aspx.designer.cs">
       <DependentUpon>lstcompradet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcpradet.aspx.cs">
+      <DependentUpon>ordcpradet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcpradet.aspx.designer.cs">
+      <DependentUpon>ordcpradet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ordorduser.aspx.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
