@@ -19,8 +19,10 @@ namespace ShopGaspar.Models
 
         public DateTime dateTime { get; set; }
 
-        public int? ProductID { get; set; }
-        public virtual Product Product { get; set; }    
+        public string ProductName { get; set; }
 
-}
+        public int? DepID { get; set; }
+        public virtual depositos Depositos { get; set; }
+
+    }
 }

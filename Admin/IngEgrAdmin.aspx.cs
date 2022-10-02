@@ -22,7 +22,7 @@ namespace ShopGaspar.Admin
         {
             if (!IsPostBack)
             {
-                ddlistdep.Items.Insert(0, new ListItem("Choose one", "Choose one"));
+
             }
         }
 
@@ -38,67 +38,83 @@ namespace ShopGaspar.Admin
         {
             if (rblistlist.Items[0].Selected)
             {
-                using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                {
-                    sqlCon.Open();
-                    string query = "IF EXISTS(SELECT* FROM prodendeps WHERE Depositos_DepID = @Depositos and (prodendeps.Product_ProductID in " +
-                        "(select ProductID from Products where ProductName = @Productos))) BEGIN UPDATE prodendeps " +
-                        "SET cantingreso = cantingreso + @cantingreso, Observaciones = @Observaciones WHERE Depositos_DepID = @Depositos and " +
-                        "(prodendeps.Product_ProductID in (select ProductID from Products where ProductName = @Productos)); END ELSE BEGIN insert into " +
-                        "prodendeps(Observaciones, cantingreso, Depositos_DepID, Product_ProductID) values(@Observaciones, @cantingreso, @Depositos, " +
-                        "(select ProductID from Products where ProductName = @Productos)); END";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
-                    sqlCmd.Parameters.AddWithValue("@cantingreso", txtcantdep.Text);
-                    sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                    sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex);
-                    sqlCmd.ExecuteNonQuery();
-                    sqlCon.Close();
-                }
-                using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
-                {
-                    sqlCon1.Open();
-                    string query1 = "UPDATE Products SET stock = stock + @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
-                    SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
-                    sqlCmd1.Parameters.AddWithValue("@stock", txtcantdep.Text);
-                    sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                    sqlCmd1.ExecuteNonQuery();
-                    sqlCon1.Close();
-                }
+                
+
+                    using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                    {
+                        sqlCon.Open();
+                        string query = "IF EXISTS(SELECT* FROM prodendeps WHERE Depositos_DepID = @Depositos and (prodendeps.Product_ProductID in " +
+                            "(select ProductID from Products where ProductName = @Productos))) BEGIN UPDATE prodendeps " +
+                            "SET cantingreso = cantingreso + @cantingreso, Observaciones = @Observaciones WHERE Depositos_DepID = @Depositos and " +
+                            "(prodendeps.Product_ProductID in (select ProductID from Products where ProductName = @Productos)); END ELSE BEGIN insert into " +
+                            "prodendeps(Observaciones, cantingreso, Depositos_DepID, Product_ProductID) values(@Observaciones, @cantingreso, @Depositos, " +
+                            "(select ProductID from Products where ProductName = @Productos)); END";
+                        SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                        sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
+                        sqlCmd.Parameters.AddWithValue("@cantingreso", txtcantdep.Text);
+                        sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                        sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex);
+                        sqlCmd.ExecuteNonQuery();
+                        sqlCon.Close();
+                    }
+                    using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
+                    {
+                        sqlCon1.Open();
+                        string query1 = "UPDATE Products SET stock = stock + @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
+                        SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
+                        sqlCmd1.Parameters.AddWithValue("@stock", txtcantdep.Text);
+                        sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                        sqlCmd1.ExecuteNonQuery();
+                        sqlCon1.Close();
+                    }
+
+                    addhistorial addhistorial = new addhistorial();
+                    bool addSucces = addhistorial.addhistorials("Ingreso", Convert.ToInt32(txtcantdep.Text), txtacproddep.Text, ddlistdep.SelectedValue);
+                
+
+            
 
                 string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
                 Response.Redirect(pageUrl + "?ProductAction=addprodendep");
             }
             if (rblistlist.Items[1].Selected)
             {
-                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                try
                 {
-                    sqlCon.Open();
-                    string query = "IF EXISTS(SELECT* FROM prodendeps WHERE Depositos_DepID = @Depositos and (prodendeps.Product_ProductID in " +
-                        "(select ProductID from Products where ProductName = @Productos))) BEGIN UPDATE prodendeps " +
-                        "SET cantingreso = cantingreso + @cantingreso, Observaciones = @Observaciones WHERE Depositos_DepID = @Depositos and " +
-                        "(prodendeps.Product_ProductID in (select ProductID from Products where ProductName = @Productos)); END ELSE BEGIN insert into " +
-                        "prodendeps(Observaciones, cantingreso, Depositos_DepID, Product_ProductID) values(@Observaciones, @cantingreso, @Depositos, " +
-                        "(select ProductID from Products where ProductName = @Productos)); END";
+                    using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                    {
+                        sqlCon.Open();
+                        string query = "IF EXISTS(SELECT* FROM prodendeps WHERE Depositos_DepID = @Depositos and (prodendeps.Product_ProductID in " +
+                            "(select ProductID from Products where ProductName = @Productos))) BEGIN UPDATE prodendeps " +
+                            "SET cantingreso = cantingreso + @cantingreso, Observaciones = @Observaciones WHERE Depositos_DepID = @Depositos and " +
+                            "(prodendeps.Product_ProductID in (select ProductID from Products where ProductName = @Productos)); END ELSE BEGIN insert into " +
+                            "prodendeps(Observaciones, cantingreso, Depositos_DepID, Product_ProductID) values(@Observaciones, @cantingreso, @Depositos, " +
+                            "(select ProductID from Products where ProductName = @Productos)); END";
 
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
-                    sqlCmd.Parameters.AddWithValue("@cantingreso", -Convert.ToInt32(txtcantdep.Text));
-                    sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                    sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex);
-                    sqlCmd.ExecuteNonQuery();
+                        SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                        sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
+                        sqlCmd.Parameters.AddWithValue("@cantingreso", -Convert.ToInt32(txtcantdep.Text));
+                        sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                        sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex);
+                        sqlCmd.ExecuteNonQuery();
+                    }
+
+                    using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
+                    {
+                        sqlCon1.Open();
+                        string query1 = "UPDATE Products SET stock = stock - @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
+                        SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
+                        sqlCmd1.Parameters.AddWithValue("@stock", txtcantdep.Text);
+                        sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                        sqlCmd1.ExecuteNonQuery();
+                    }
+
+                    addhistorial addhistorial = new addhistorial();
+                    bool addSucces = addhistorial.addhistorials("Egreso", -Convert.ToInt32(txtcantdep.Text), txtacproddep.Text, ddlistdep.SelectedValue);
                 }
 
-                using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
-                {
-                    sqlCon1.Open();
-                    string query1 = "UPDATE Products SET stock = stock - @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
-                    SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
-                    sqlCmd1.Parameters.AddWithValue("@stock", txtcantdep.Text);
-                    sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                    sqlCmd1.ExecuteNonQuery();
-                }
 
+                catch { }
                 string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
                 Response.Redirect(pageUrl + "?ProductAction=addprodendep");
 

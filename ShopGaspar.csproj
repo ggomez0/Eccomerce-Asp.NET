@@ -2289,6 +2289,7 @@
     <Compile Include="Logic\AddCategories.cs" />
     <Compile Include="Logic\adddep.cs" />
     <Compile Include="Logic\addcomprobante.cs" />
+    <Compile Include="Logic\addhistorial.cs" />
     <Compile Include="Logic\AddOrder.cs" />
     <Compile Include="Logic\AddOrderDetails.cs" />
     <Compile Include="Logic\addprodendep.cs" />
@@ -2317,6 +2318,14 @@
     <Compile Include="Migrations\202210021639126_fgh.cs" />
     <Compile Include="Migrations\202210021639126_fgh.Designer.cs">
       <DependentUpon>202210021639126_fgh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210021739332_fgc.cs" />
+    <Compile Include="Migrations\202210021739332_fgc.Designer.cs">
+      <DependentUpon>202210021739332_fgc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210021806485_fgcvvlff.cs" />
+    <Compile Include="Migrations\202210021806485_fgcvvlff.Designer.cs">
+      <DependentUpon>202210021806485_fgcvvlff.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
@@ -2400,6 +2409,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210021639126_fgh.resx">
       <DependentUpon>202210021639126_fgh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210021739332_fgc.resx">
+      <DependentUpon>202210021739332_fgc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210021806485_fgcvvlff.resx">
+      <DependentUpon>202210021806485_fgcvvlff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
