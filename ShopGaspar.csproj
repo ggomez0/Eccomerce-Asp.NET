@@ -2314,11 +2314,16 @@
     <Compile Include="Migrations\202209240636009_cd.Designer.cs">
       <DependentUpon>202209240636009_cd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210021639126_fgh.cs" />
+    <Compile Include="Migrations\202210021639126_fgh.Designer.cs">
+      <DependentUpon>202210021639126_fgh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
     <Compile Include="Models\comprobantes.cs" />
     <Compile Include="Models\comprobantesdet.cs" />
     <Compile Include="Models\depositos.cs" />
+    <Compile Include="Models\historial.cs" />
     <Compile Include="Models\prodendep.cs" />
     <Compile Include="Models\ProductDatabaseInitializer.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -2392,6 +2397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209240636009_cd.resx">
       <DependentUpon>202209240636009_cd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210021639126_fgh.resx">
+      <DependentUpon>202210021639126_fgh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
