@@ -234,6 +234,7 @@
     <Content Include="Admin\EstadisticasAdmin.aspx" />
     <Content Include="Admin\factdet.aspx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
+    <Content Include="Admin\historial.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\lstcompradet.aspx" />
     <Content Include="Admin\ordcpradet.aspx" />
@@ -2219,6 +2220,13 @@
     </Compile>
     <Compile Include="Admin\gvordenesusuarios.aspx.designer.cs">
       <DependentUpon>gvordenesusuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\historial.aspx.cs">
+      <DependentUpon>historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\historial.aspx.designer.cs">
+      <DependentUpon>historial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\IngEgrAdmin.aspx.cs">
       <DependentUpon>IngEgrAdmin.aspx</DependentUpon>

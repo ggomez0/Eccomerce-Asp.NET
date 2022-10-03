@@ -4,13 +4,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
 
-        
-                                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                           <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="pills-prov-tab" data-bs-toggle="pill" data-bs-target="#pills-prov" type="button" role="tab" aria-controls="pills-prov" aria-selected="true">Proveedores</button>
                                           </li>
                                           <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-lstcpra-tab" data-bs-toggle="pill" data-bs-target="#pills-lstcpra" type="button" role="tab" aria-controls="pills-lstcpra" aria-selected="false">Lista de compras</button>
+                                            <button class="nav-link" id="pills-lstcpra-tab" data-bs-toggle="pill" data-bs-target="#pills-lstcpra" type="button" role="tab" aria-controls="pills-lstcpra" aria-selected="false">Pedido de compra</button>
                                           </li>
                                           <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="pills-ordcpra-tab" data-bs-toggle="pill" data-bs-target="#pills-ordcpra" type="button" role="tab" aria-controls="pills-ordcpra" aria-selected="false">Ordenes de Compra</button>
