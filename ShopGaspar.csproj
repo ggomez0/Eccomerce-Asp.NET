@@ -227,6 +227,7 @@
     <Content Include="Admin\CategoriaAdmin.aspx" />
     <Content Include="Admin\ClientesAdmin.aspx" />
     <Content Include="Admin\ComprasAdmin.aspx" />
+    <Content Include="Admin\Cosas q arreglar.txt" />
     <Content Include="Admin\DepositosAdmin.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
     <Content Include="Admin\detprodcat.aspx" />
@@ -2335,6 +2336,14 @@
     <Compile Include="Migrations\202210021806485_fgcvvlff.Designer.cs">
       <DependentUpon>202210021806485_fgcvvlff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210030410190_esc.cs" />
+    <Compile Include="Migrations\202210030410190_esc.Designer.cs">
+      <DependentUpon>202210030410190_esc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210030418587_escs.cs" />
+    <Compile Include="Migrations\202210030418587_escs.Designer.cs">
+      <DependentUpon>202210030418587_escs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
     <Compile Include="Models\comprobantes.cs" />
@@ -2423,6 +2432,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210021806485_fgcvvlff.resx">
       <DependentUpon>202210021806485_fgcvvlff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210030410190_esc.resx">
+      <DependentUpon>202210030410190_esc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210030418587_escs.resx">
+      <DependentUpon>202210030418587_escs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

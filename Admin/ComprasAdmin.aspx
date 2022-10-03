@@ -419,7 +419,7 @@
                                         <div style="padding:20px">
                                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                 <ContentTemplate>
-                                                    <h3>Nueva Lista de compra</h3>
+                                                    <h3>Nuevo Pedido de compra</h3>
                                                     <table>
                                                         <tr>
                                                             <td><asp:Label runat="server" Text="Nombre:"></asp:Label></td>
@@ -615,6 +615,9 @@
 
                                           </div>
                                             
+
+                                           <%------------------------------------------------------------------------------------------%>
+
                                             <div class="tab-pane fade" id="pills-fact" role="tabpanel" aria-labelledby="pills-fact-tab">
 
                                               <asp:Button ID="Button123123" CssClass="btn btn-success rounded-3"  runat="server" Text="Nueva Factura" />
@@ -631,25 +634,32 @@
                                                     <h3>Nueva Factura</h3>
                                                     <table>
                                                          <tr>
+                                                            <td><asp:Label runat="server" Text="N° Factura:"></asp:Label></td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtnumfact" runat="server">
+                                                                </asp:TextBox>
+                                                                </tr>
+                                                                <tr>
                                                             <td><asp:Label runat="server" Text="Tipo:"></asp:Label></td>
                                                             <td>
                                                                 <asp:TextBox ID="txttipo" runat="server">
                                                                 </asp:TextBox>
-                                                                </tr>
-                                                                <tr>
-                                                            <td><asp:Label runat="server" Text="Descripcion:"></asp:Label></td>
+                                                                                                                          
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><asp:Label runat="server" Text="N° Sucursal:"></asp:Label></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtdesc" runat="server">
-                                                                </asp:TextBox>
-                                                                
-
-                                                          
+                                                                <asp:TextBox ID="txtsucursal"  runat="server">
+                                                                </asp:TextBox>                                                                
                                                             </td>
-                                                        </tr>
-                                                          
-                                                            </td>
-                                                        </tr>
-                                         
+                                                        </tr>    
+                                                          <tr>
+                                                            <td><asp:Label runat="server" Text="Fecha factura:"></asp:Label></td>
+                                                            <td>
+                                                              <asp:TextBox runat="server" TextMode="DateTimeLocal" ID="txtcalendar"> </asp:TextBox>
+                                                        </td>
+                                                        </tr>                                         
                                                        <tr>
                                                             <td>
                                                                 <asp:Label runat="server">
@@ -663,13 +673,8 @@
                                                                     DataValueField="ProvID">
                                                                 </asp:DropDownList>
                                                             </td>
-                                                        </tr>
-                                   
-
+                                                        </tr>    
                                                     </table>
-
-
-
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </div>
@@ -698,7 +703,13 @@
 
                                               <asp:TemplateField HeaderText="ID">
                                                             <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("idcomp") %>'
+                                                                <asp:Label Text='<%# Eval("descripcion") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Sucursal">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("stringn") %>'
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
@@ -710,7 +721,7 @@
                                                         </asp:TemplateField>
                                                <asp:TemplateField HeaderText="Fecha">
                                                             <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("dateTime") %>'
+                                                                <asp:Label Text='<%# Eval("fechacomprobante") %>'
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>

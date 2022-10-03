@@ -220,7 +220,7 @@ namespace ShopGaspar.Admin
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
             addcomprobante addlstcpra = new addcomprobante();
-            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text,"Descripcion",0,1, ddlistprovlstcpra.SelectedValue);
+            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text,"Descripcion",0,1, ddlistprovlstcpra.SelectedValue,"0","");
 
             if (addSuccess)
             {
@@ -297,7 +297,7 @@ namespace ShopGaspar.Admin
                     sqlCon.Open();
                     string query = "DELETE FROM comprobantes WHERE idcomp = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvordcpra.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvfact.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
                     lblSuccessMessage.Text = "Factura eliminado con exito";
                     lblErrorMessage.Text = "";
@@ -317,7 +317,8 @@ namespace ShopGaspar.Admin
         protected void btnanfact_Click(object sender, EventArgs e)
         {
             addcomprobante addprov = new addcomprobante();
-            bool addSuccess = addprov.addcomprobantes(txttipo.Text, txtdesc.Text, 0, 3, ddlistfact.SelectedValue);
+            bool addSuccess = addprov.addcomprobantes(txttipo.Text, txtsucursal.Text, 0, 3, ddlistfact.SelectedValue, txtnumfact.Text, txtcalendar.Text);
+            
 
             if (addSuccess)
             {

@@ -1,0 +1,17 @@
+deposito arreglar id ---- dificil
+
+orden de compra/lista
+
+forma de pago en orden de compra
+estados en orden de compra (borrador, enviado, recibido)
+
+sacar proveedor en producto
+
+informacion en detalle deposito y similares
+
+
+
+
+
+
+
