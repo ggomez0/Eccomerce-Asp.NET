@@ -375,6 +375,15 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.UpdatePanel UpdatePanel3;
 
         /// <summary>
+        /// Control txtnumfact.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtnumfact;
+
+        /// <summary>
         /// Control txttipo.
         /// </summary>
         /// <remarks>
@@ -384,13 +393,22 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.TextBox txttipo;
 
         /// <summary>
-        /// Control txtdesc.
+        /// Control txtsucursal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdesc;
+        protected global::System.Web.UI.WebControls.TextBox txtsucursal;
+
+        /// <summary>
+        /// Control txtcalendar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtcalendar;
 
         /// <summary>
         /// Control ddlistfact.

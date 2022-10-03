@@ -8,7 +8,7 @@ namespace ShopGaspar.Logic
 {
     public class addcomprobante
     {
-        public bool addcomprobantes(string nombre, string descripcion, int importe, int idc, string prov)
+        public bool addcomprobantes(string nombre, string descripcion, int importe, int idc, string prov, string noom, string calendar)
         {
             var mylstcpra = new comprobantes();
             mylstcpra.Nombre = nombre;
@@ -17,6 +17,8 @@ namespace ShopGaspar.Logic
             mylstcpra.dateTime = DateTime.Now;
             mylstcpra.ProvID = Convert.ToInt32(prov);
             mylstcpra.idcomprobante = idc;
+            mylstcpra.stringn = noom;
+            mylstcpra.fechacomprobante = calendar;
 
             using (ProductContext _db = new ProductContext())
             {

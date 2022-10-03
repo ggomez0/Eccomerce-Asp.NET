@@ -227,6 +227,7 @@
     <Content Include="Admin\CategoriaAdmin.aspx" />
     <Content Include="Admin\ClientesAdmin.aspx" />
     <Content Include="Admin\ComprasAdmin.aspx" />
+    <Content Include="Admin\Cosas q arreglar.txt" />
     <Content Include="Admin\DepositosAdmin.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
     <Content Include="Admin\detprodcat.aspx" />
@@ -234,6 +235,7 @@
     <Content Include="Admin\EstadisticasAdmin.aspx" />
     <Content Include="Admin\factdet.aspx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
+    <Content Include="Admin\historial.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\lstcompradet.aspx" />
     <Content Include="Admin\ordcpradet.aspx" />
@@ -2220,6 +2222,13 @@
     <Compile Include="Admin\gvordenesusuarios.aspx.designer.cs">
       <DependentUpon>gvordenesusuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\historial.aspx.cs">
+      <DependentUpon>historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\historial.aspx.designer.cs">
+      <DependentUpon>historial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\IngEgrAdmin.aspx.cs">
       <DependentUpon>IngEgrAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2289,6 +2298,7 @@
     <Compile Include="Logic\AddCategories.cs" />
     <Compile Include="Logic\adddep.cs" />
     <Compile Include="Logic\addcomprobante.cs" />
+    <Compile Include="Logic\addhistorial.cs" />
     <Compile Include="Logic\AddOrder.cs" />
     <Compile Include="Logic\AddOrderDetails.cs" />
     <Compile Include="Logic\addprodendep.cs" />
@@ -2314,11 +2324,32 @@
     <Compile Include="Migrations\202209240636009_cd.Designer.cs">
       <DependentUpon>202209240636009_cd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210021639126_fgh.cs" />
+    <Compile Include="Migrations\202210021639126_fgh.Designer.cs">
+      <DependentUpon>202210021639126_fgh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210021739332_fgc.cs" />
+    <Compile Include="Migrations\202210021739332_fgc.Designer.cs">
+      <DependentUpon>202210021739332_fgc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210021806485_fgcvvlff.cs" />
+    <Compile Include="Migrations\202210021806485_fgcvvlff.Designer.cs">
+      <DependentUpon>202210021806485_fgcvvlff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210030410190_esc.cs" />
+    <Compile Include="Migrations\202210030410190_esc.Designer.cs">
+      <DependentUpon>202210030410190_esc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210030418587_escs.cs" />
+    <Compile Include="Migrations\202210030418587_escs.Designer.cs">
+      <DependentUpon>202210030418587_escs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
     <Compile Include="Models\comprobantes.cs" />
     <Compile Include="Models\comprobantesdet.cs" />
     <Compile Include="Models\depositos.cs" />
+    <Compile Include="Models\historial.cs" />
     <Compile Include="Models\prodendep.cs" />
     <Compile Include="Models\ProductDatabaseInitializer.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -2392,6 +2423,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209240636009_cd.resx">
       <DependentUpon>202209240636009_cd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210021639126_fgh.resx">
+      <DependentUpon>202210021639126_fgh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210021739332_fgc.resx">
+      <DependentUpon>202210021739332_fgc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210021806485_fgcvvlff.resx">
+      <DependentUpon>202210021806485_fgcvvlff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210030410190_esc.resx">
+      <DependentUpon>202210030410190_esc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210030418587_escs.resx">
+      <DependentUpon>202210030418587_escs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -197,5 +197,10 @@ namespace ShopGaspar.Admin
         {
             
         }
+
+        protected void btnhistorial_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/historial.aspx");
+        }
     }
 }
