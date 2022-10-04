@@ -2304,45 +2304,9 @@
     <Compile Include="Logic\addprodendep.cs" />
     <Compile Include="Logic\AgregarProv.cs" />
     <Compile Include="Logic\Ordenarlista.cs" />
-    <Compile Include="Migrations\202209211838489_ffcvv.cs" />
-    <Compile Include="Migrations\202209211838489_ffcvv.Designer.cs">
-      <DependentUpon>202209211838489_ffcvv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209212234374_lclc.cs" />
-    <Compile Include="Migrations\202209212234374_lclc.Designer.cs">
-      <DependentUpon>202209212234374_lclc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209240037420_fffd.cs" />
-    <Compile Include="Migrations\202209240037420_fffd.Designer.cs">
-      <DependentUpon>202209240037420_fffd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209240428251_vgf.cs" />
-    <Compile Include="Migrations\202209240428251_vgf.Designer.cs">
-      <DependentUpon>202209240428251_vgf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209240636009_cd.cs" />
-    <Compile Include="Migrations\202209240636009_cd.Designer.cs">
-      <DependentUpon>202209240636009_cd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210021639126_fgh.cs" />
-    <Compile Include="Migrations\202210021639126_fgh.Designer.cs">
-      <DependentUpon>202210021639126_fgh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210021739332_fgc.cs" />
-    <Compile Include="Migrations\202210021739332_fgc.Designer.cs">
-      <DependentUpon>202210021739332_fgc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210021806485_fgcvvlff.cs" />
-    <Compile Include="Migrations\202210021806485_fgcvvlff.Designer.cs">
-      <DependentUpon>202210021806485_fgcvvlff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210030410190_esc.cs" />
-    <Compile Include="Migrations\202210030410190_esc.Designer.cs">
-      <DependentUpon>202210030410190_esc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210030418587_escs.cs" />
-    <Compile Include="Migrations\202210030418587_escs.Designer.cs">
-      <DependentUpon>202210030418587_escs.cs</DependentUpon>
+    <Compile Include="Migrations\202210041623534_aver.cs" />
+    <Compile Include="Migrations\202210041623534_aver.Designer.cs">
+      <DependentUpon>202210041623534_aver.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
@@ -2351,7 +2315,6 @@
     <Compile Include="Models\depositos.cs" />
     <Compile Include="Models\historial.cs" />
     <Compile Include="Models\prodendep.cs" />
-    <Compile Include="Models\ProductDatabaseInitializer.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -2409,35 +2372,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202209211838489_ffcvv.resx">
-      <DependentUpon>202209211838489_ffcvv.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209212234374_lclc.resx">
-      <DependentUpon>202209212234374_lclc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209240037420_fffd.resx">
-      <DependentUpon>202209240037420_fffd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209240428251_vgf.resx">
-      <DependentUpon>202209240428251_vgf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209240636009_cd.resx">
-      <DependentUpon>202209240636009_cd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210021639126_fgh.resx">
-      <DependentUpon>202210021639126_fgh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210021739332_fgc.resx">
-      <DependentUpon>202210021739332_fgc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210021806485_fgcvvlff.resx">
-      <DependentUpon>202210021806485_fgcvvlff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210030410190_esc.resx">
-      <DependentUpon>202210030410190_esc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210030418587_escs.resx">
-      <DependentUpon>202210030418587_escs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202210041623534_aver.resx">
+      <DependentUpon>202210041623534_aver.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

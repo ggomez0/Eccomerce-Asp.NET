@@ -22,11 +22,10 @@ namespace ShopGaspar.Admin
             if (!IsPostBack)
             {
                 string nID = Request.QueryString["id1"];
-                string nID1 = Request.QueryString["id2"];
                 lblinvisible.Text = nID;
                 lblord.Text += nID;
                 this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
-                    "Descripcion,UnitPrice as Precio,CategoryID,Stock,ProvID FROM Products where ProvID= " + nID1 , gvproductoslista);
+                    "Descripcion,UnitPrice as Precio,CategoryID,Stock,ProvID FROM Products", gvproductoslista);
                 this.databasecrud(connectionString, "SELECT ProductName, UnitPrice, pr.ProvName, c.CategoryName, l.idcomprdet FROM comprobantesdets l" +
                     " inner join Products p on l.Product_ProductID=p.ProductID inner join proveedores pr on pr.ProvID=p.ProvID inner join Categories c" +
                     " on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);

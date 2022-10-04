@@ -436,7 +436,7 @@
                                                                     ValidationGroup="VG1"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
-                                                       <tr>
+                                                      <%-- <tr>
                                                             <td>
                                                                 <asp:Label runat="server">
                                                                     Proveedor:</asp:Label>
@@ -449,7 +449,7 @@
                                                                     DataValueField="ProvID">
                                                                 </asp:DropDownList>
                                                             </td>
-                                                        </tr>
+                                                        </tr>--%>
                                    
 
                                                     </table>
@@ -501,12 +501,7 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                               <asp:TemplateField HeaderText="Proveedor">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("ProvID") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
+                                               
                                             <asp:TemplateField HeaderText="Total">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("importe") %>'
@@ -518,7 +513,7 @@
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/plus.png"
                                                                         runat="server" ValidationGroup="VG77" ID="btnlstdet" Width="20px" OnClick="btnlstdet_Click"
-                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") + "," + Eval("ProvID") %>'  />
+                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") %>'  />
                                                                
                                                             </ItemTemplate>
                                                         </asp:TemplateField>

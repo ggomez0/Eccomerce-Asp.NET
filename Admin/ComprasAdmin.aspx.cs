@@ -220,7 +220,7 @@ namespace ShopGaspar.Admin
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
             addcomprobante addlstcpra = new addcomprobante();
-            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text,"Descripcion",0,1, ddlistprovlstcpra.SelectedValue,"0","");
+            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text, null, 0, 1, null, null, null);
 
             if (addSuccess)
             {
@@ -236,10 +236,8 @@ namespace ShopGaspar.Admin
 
         protected void btnlstdet_Click(object sender, ImageClickEventArgs e)
         {
-            ImageButton btnSelect = (sender as ImageButton);
-            string[] id1 = btnSelect.CommandArgument.Split(',');
-
-            Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id1[0] + "&id2="+id1[1]);
+            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id);
         }
 
         protected void gvordcpra_RowCommand(object sender, GridViewCommandEventArgs e)
