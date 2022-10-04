@@ -2278,7 +2278,6 @@
     <Compile Include="Admin\ProductosAdmin.aspx.designer.cs">
       <DependentUpon>ProductosAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\SQLtable.cs" />
     <Compile Include="Admin\TransaccionesAdmin.aspx.cs">
       <DependentUpon>TransaccionesAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
