@@ -71,7 +71,8 @@
                                                             <asp:DropDownList ID="ddlistdep" runat="server"
                                                                 ItemType="ShopGaspar.Models.depositos"
                                                                 SelectMethod="GetDepositos" DataTextField="DepName"
-                                                                DataValueField="DepID">
+                                                                DataValueField="DepID" ViewStateMode="Disabled" AppendDataBoundItems="true">
+                                                                <asp:ListItem Value="0">Elegir</asp:ListItem>
                                                             </asp:DropDownList>
                                                         </td>
                                                     </tr>

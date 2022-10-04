@@ -408,7 +408,7 @@
 
                                           <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel" aria-labelledby="pills-lstcpra-tab">
                                               
-                                   <asp:Button ID="Button1" CssClass="btn btn-success rounded-3"  runat="server" Text="Nueva Lista de compra" />
+                                   <asp:Button ID="Button1" CssClass="btn btn-success rounded-3"  runat="server" Text="Nuevo pedido de compra" />
                                     <!-- ModalPopupExtender --->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
                                         PopupControlID="Panel2" TargetControlID="Button1" CancelControlID="Button2"
