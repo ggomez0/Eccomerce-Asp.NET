@@ -19,7 +19,7 @@ namespace ShopGaspar.Admin
             {
                 string nID = Request.QueryString["id"];
                 lblord.Text += nID;
-                mostrarorder(nID);
+                //mostrarorder(nID);
             }
         }
 

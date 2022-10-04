@@ -467,7 +467,7 @@
                                         <p></p>
                                     </asp:Panel>
 
-                              
+                                 
                                     <asp:GridView ID="gvlstcpra" runat="server" CssClass="grid"
                                         ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
                                         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
@@ -632,13 +632,16 @@
                                                             <td><asp:Label runat="server" Text="N° Factura:"></asp:Label></td>
                                                             <td>
                                                                 <asp:TextBox ID="txtnumfact" runat="server">
-                                                                </asp:TextBox>
+                                                                </asp:TextBox></td>
                                                                 </tr>
                                                                 <tr>
                                                             <td><asp:Label runat="server" Text="Tipo:"></asp:Label></td>
                                                             <td>
-                                                                <asp:TextBox ID="txttipo" runat="server">
-                                                                </asp:TextBox>
+                                                                <asp:DropDownList ID="txttipo" runat="server">
+                                                                    <asp:ListItem Text="A"></asp:ListItem>
+                                                                    <asp:ListItem Text="B"></asp:ListItem>
+                                                                    <asp:ListItem Text="C"></asp:ListItem>
+                                                                </asp:DropDownList>
                                                                                                                           
                                                             </td>
                                                         </tr>
@@ -685,7 +688,7 @@
                                     <asp:GridView ID="gvfact" runat="server" CssClass="grid"
                                         ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
                                         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
-                                        CellPadding="3" DataKeyNames="idcomp" OnRowCommand="gvfact_RowCommand"
+                                        CellPadding="3" DataKeyNames="idcomp" OnRowCommand="gvfact_RowCommand"   
                                                     
                                                     OnRowUpdating="gvfact_RowUpdating"
                                                     OnRowDeleting="gvfact_RowDeleting">
@@ -738,6 +741,15 @@
                                                                     <asp:ImageButton ImageUrl="~/Images/plus.png"
                                                                         runat="server" ValidationGroup="VG7711" ID="btnlstdet1" Width="20px" OnClick="btnlstdet1_Click"
                                                                         Height="20px" CommandArgument='<%#Eval("idcomp") + "," + Eval("ProvID") %>'  />
+                                                               
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+
+                                              <asp:TemplateField HeaderStyle-Width="10px" >
+                                                            <ItemTemplate>
+                                                                    <asp:ImageButton ImageUrl="~/Images/pdf.png"
+                                                                        runat="server" ValidationGroup="VG77111" ID="btngeneratepdf" Width="20px" OnClick="GenerateInvoicePDF"
+                                                                        Height="20px"  />
                                                                
                                                             </ItemTemplate>
                                                         </asp:TemplateField>

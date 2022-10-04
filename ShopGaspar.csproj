@@ -48,11 +48,17 @@
     <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Functions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\functions-csharp.1.0.1\lib\netstandard2.0\Functions.dll</HintPath>
     </Reference>
     <Reference Include="Gotrue, Version=2.4.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\gotrue-csharp.2.4.5\lib\netstandard2.0\Gotrue.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -227,7 +233,6 @@
     <Content Include="Admin\CategoriaAdmin.aspx" />
     <Content Include="Admin\ClientesAdmin.aspx" />
     <Content Include="Admin\ComprasAdmin.aspx" />
-    <Content Include="Admin\Cosas q arreglar.txt" />
     <Content Include="Admin\DepositosAdmin.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
     <Content Include="Admin\detprodcat.aspx" />
@@ -1937,6 +1942,7 @@
     <Content Include="Images\carrito.png" />
     <Content Include="Images\logoh.png" />
     <Content Include="Images\lupa.png" />
+    <Content Include="Images\pdf.png" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\plus.png" />
     <Content Include="Images\plusicon.png" />
@@ -1989,6 +1995,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="Images\icons\bootstrap-icons.json" />
     <Content Include="Images\icons\bootstrap-icons.scss" />
+    <Content Include=".editorconfig" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\coca.png" />
