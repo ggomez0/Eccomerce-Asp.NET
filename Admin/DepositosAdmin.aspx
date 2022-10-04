@@ -10,7 +10,7 @@
                                             ValidationGroup="VG117899" />
                                         <!-- ModalPopupExtender -->
                                         <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
-                                            PopupControlID="Panel3" TargetControlID="Button3" CancelControlID="rounded-3"
+                                            PopupControlID="Panel3" TargetControlID="Button3" CancelControlID="btncerrardep"
                                             BackgroundCssClass="modalBackground">
                                         </cc1:ModalPopupExtender>
                                         <asp:Panel ID="Panel3" runat="server" CssClass="modalPopup" align="center"
@@ -99,7 +99,7 @@
                                                     OnClick="btnagregardep_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                     ValidationGroup="VG12" />
 
-                                                <asp:Button ID="Button4" runat="server" CssClass="btn btn-danger rounded-3" Text="Cerrar"
+                                                <asp:Button ID="btncerrardep" runat="server" CssClass="btn btn-danger rounded-3" Text="Cerrar"
                                                     ValidationGroup="VG13" />
                                                 <asp:Label ID="lblconfirmardep" runat="server" Text=""></asp:Label>
                                             </div>

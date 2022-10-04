@@ -86,7 +86,7 @@
                                                                 </asp:RegularExpressionValidator>
                                                             </td>
                                                         </tr>
-                                                        <tr>
+                                                        <%--<tr>
                                                             <td>
                                                                 <asp:Label runat="server">
                                                                     Proveedor:</asp:Label>
@@ -99,7 +99,7 @@
                                                                     DataValueField="ProvID">
                                                                 </asp:DropDownList>
                                                             </td>
-                                                        </tr>
+                                                        </tr>--%>
                                                         <tr>
                                                             <td>
                                                                 <asp:Label runat="server">Imagen:

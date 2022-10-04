@@ -23,7 +23,6 @@ namespace ShopGaspar.Models
 
         public int? stock { get; set; }
         public int? vendido { get; set; }        
-        public int? ProvID { get; set; }        
 
         public virtual Category Category { get; set; }
 
@@ -33,7 +32,6 @@ namespace ShopGaspar.Models
         public virtual ICollection<prodendep> Prodendeps { get; set; }
         public virtual ICollection<comprobantesdet> Comprobantesdet { get; set; }
 
-        public virtual proveedores Proveedores { get; set; }
 
     }
 }

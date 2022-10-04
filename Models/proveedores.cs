@@ -25,8 +25,6 @@ namespace ShopGaspar.Models
 
         public virtual ICollection<comprobantes> Comprobantes{ get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
-
 
 
     }

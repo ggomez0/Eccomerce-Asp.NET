@@ -7,13 +7,13 @@ namespace ShopGaspar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class lclc : IMigrationMetadata
+    public sealed partial class aver : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(lclc));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(aver));
         
         string IMigrationMetadata.Id
         {
-            get { return "202209212234374_lclc"; }
+            get { return "202210041623534_aver"; }
         }
         
         string IMigrationMetadata.Source

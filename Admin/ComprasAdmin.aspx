@@ -408,7 +408,7 @@
 
                                           <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel" aria-labelledby="pills-lstcpra-tab">
                                               
-                                   <asp:Button ID="Button1" CssClass="btn btn-success rounded-3"  runat="server" Text="Nueva Lista de compra" />
+                                   <asp:Button ID="Button1" CssClass="btn btn-success rounded-3"  runat="server" Text="Nuevo pedido de compra" />
                                     <!-- ModalPopupExtender --->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
                                         PopupControlID="Panel2" TargetControlID="Button1" CancelControlID="Button2"
@@ -436,7 +436,7 @@
                                                                     ValidationGroup="VG1"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
-                                                       <tr>
+                                                      <%-- <tr>
                                                             <td>
                                                                 <asp:Label runat="server">
                                                                     Proveedor:</asp:Label>
@@ -449,7 +449,7 @@
                                                                     DataValueField="ProvID">
                                                                 </asp:DropDownList>
                                                             </td>
-                                                        </tr>
+                                                        </tr>--%>
                                    
 
                                                     </table>
@@ -501,12 +501,7 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                               <asp:TemplateField HeaderText="Proveedor">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("ProvID") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
+                                               
                                             <asp:TemplateField HeaderText="Total">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("importe") %>'
@@ -518,7 +513,7 @@
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/plus.png"
                                                                         runat="server" ValidationGroup="VG77" ID="btnlstdet" Width="20px" OnClick="btnlstdet_Click"
-                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") + "," + Eval("ProvID") %>'  />
+                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") %>'  />
                                                                
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
