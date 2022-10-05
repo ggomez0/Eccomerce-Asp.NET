@@ -28,7 +28,7 @@ namespace ShopGaspar.Admin
             if (!IsPostBack)
             {
                 this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
-                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=1", gvlstcpra);
+                this.databasecrud(connectionString, "SELECT * FROM pedrepoes", gvlstcpra);
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=2", gvordcpra);
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvfact);
             }
@@ -224,8 +224,9 @@ namespace ShopGaspar.Admin
 
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
-            addcomprobante addlstcpra = new addcomprobante();
-            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text, null, 0, 1, null, null, null);
+            addrepoes addlstcpra = new addrepoes();
+            bool addSuccess = addlstcpra.addrepooes("Lista",null,0,null, null);
+
 
             if (addSuccess)
             {
@@ -358,7 +359,10 @@ namespace ShopGaspar.Admin
                             new DataColumn("stringn", typeof(int)),
                             new DataColumn("cantidad", typeof(int)),
                             new DataColumn("importe", typeof(int))});
-            
+            dt.Rows.Add(101, "Sun Glasses", 200, 5, 1000);
+            dt.Rows.Add(102, "Jeans", 400, 2, 800);
+            dt.Rows.Add(103, "Trousers", 300, 3, 900);
+            dt.Rows.Add(104, "Shirts", 550, 2, 1100);
 
             using (StringWriter sw = new StringWriter())
             {
@@ -406,7 +410,7 @@ namespace ShopGaspar.Admin
                     sb.Append(dt.Columns.Count - 1);
                     sb.Append("'>Total</td>");
                     sb.Append("<td>");
-                    sb.Append(dt.Compute("sum(Total)", ""));
+                    sb.Append(dt.Compute("sum(importe)", ""));
                     sb.Append("</td>");
                     sb.Append("</tr></table>");
 

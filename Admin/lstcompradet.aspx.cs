@@ -28,7 +28,7 @@ namespace ShopGaspar.Admin
                     "Descripcion,UnitPrice as Precio,CategoryID,Stock,ProvID FROM Products", gvproductoslista);
                 this.databasecrud(connectionString, "SELECT ProductName, UnitPrice, pr.ProvName, c.CategoryName, l.idcomprdet FROM comprobantesdets l" +
                     " inner join Products p on l.Product_ProductID=p.ProductID inner join proveedores pr on pr.ProvID=p.ProvID inner join Categories c" +
-                    " on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);
+                    " on c.CategoryID=p.CategoryID where pedrepo_idcomp =" + nID, gvlstcompradet);
 
 
 

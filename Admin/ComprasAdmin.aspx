@@ -9,7 +9,7 @@
                                             <button class="nav-link active" id="pills-prov-tab" data-bs-toggle="pill" data-bs-target="#pills-prov" type="button" role="tab" aria-controls="pills-prov" aria-selected="true">Proveedores</button>
                                           </li>
                                           <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-lstcpra-tab" data-bs-toggle="pill" data-bs-target="#pills-lstcpra" type="button" role="tab" aria-controls="pills-lstcpra" aria-selected="false">Pedido de compra</button>
+                                            <button class="nav-link" id="pills-lstcpra-tab" data-bs-toggle="pill" data-bs-target="#pills-lstcpra" type="button" role="tab" aria-controls="pills-lstcpra" aria-selected="false">Pedido de reposicion</button>
                                           </li>
                                           <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="pills-ordcpra-tab" data-bs-toggle="pill" data-bs-target="#pills-ordcpra" type="button" role="tab" aria-controls="pills-ordcpra" aria-selected="false">Ordenes de Compra</button>
@@ -408,64 +408,11 @@
 
                                           <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel" aria-labelledby="pills-lstcpra-tab">
                                               
-                                   <asp:Button ID="Button1" CssClass="btn btn-success rounded-3"  runat="server" Text="Nuevo pedido de compra" />
-                                    <!-- ModalPopupExtender --->
-                                    <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
-                                        PopupControlID="Panel2" TargetControlID="Button1" CancelControlID="Button2"
-                                        BackgroundCssClass="modalBackground">
-                                    </cc1:ModalPopupExtender>
-                                    <asp:Panel ID="Panel2" runat="server" CssClass="modalPopup" align="center"
-                                        Style="background-color:white; border:solid; border-color:black;" >
-                                        <div style="padding:20px">
-                                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                                                <ContentTemplate>
-                                                    <h3>Nuevo Pedido de compra</h3>
-                                                    <table>
-                                                        <tr>
-                                                            <td><asp:Label runat="server" Text="Nombre:"></asp:Label></td>
-                                                            <td>
-                                                                <asp:TextBox ID="addlst" runat="server">
-                                                                </asp:TextBox>
-                                                                
-
-                                                                <asp:RequiredFieldValidator
-                                                                    runat="server" Font-Bold="true"
-                                                                    Text="*No debe estar vacia"
-                                                                    ControlToValidate="addlst"
-                                                                    SetFocusOnError="true" Display="Dynamic"
-                                                                    ValidationGroup="VG1"></asp:RequiredFieldValidator>
-                                                            </td>
-                                                        </tr>
-                                                      <%-- <tr>
-                                                            <td>
-                                                                <asp:Label runat="server">
-                                                                    Proveedor:</asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:DropDownList ID="ddlistprovlstcpra"
-                                                                    runat="server" ItemType="ShopGaspar.Models.proveedores"
-                                                                    SelectMethod="GetProveedores"
-                                                                    DataTextField="ProvName"
-                                                                    DataValueField="ProvID">
-                                                                </asp:DropDownList>
-                                                            </td>
-                                                        </tr>--%>
-                                   
-
-                                                    </table>
-
-
-
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                        </div>
-                                        <asp:Button ID="addlstbtn" runat="server" Text="Agregar" OnClick="addlstbtn_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
+                                  
+                                        <asp:Button ID="addlstbtn" runat="server" Text="Nuevo Pedido de reposicion" OnClick="addlstbtn_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                                     ValidationGroup="VG1" />
-                                        <asp:Button ID="Button2" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" />
-                                        <br />
-                                        <p>  </p>
-                                        <p></p>
-                                    </asp:Panel>
+                                    
+                                              
 
                                  
                                     <asp:GridView ID="gvlstcpra" runat="server" CssClass="grid"
@@ -489,12 +436,7 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Descripcion">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("Nombre") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                       
                                                <asp:TemplateField HeaderText="Fecha">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("dateTime") %>'
@@ -502,12 +444,7 @@
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                
-                                            <asp:TemplateField HeaderText="Total">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("importe") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
+                                   
                                            
                                                <asp:TemplateField HeaderStyle-Width="10px" >
                                                             <ItemTemplate>
@@ -586,14 +523,14 @@
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                            
-                                               <asp:TemplateField HeaderStyle-Width="10px" >
+                                           <%--    <asp:TemplateField HeaderStyle-Width="10px" >
                                                             <ItemTemplate>
 <%--                                                                    <asp:ImageButton ImageUrl="~/Images/plus.png"
                                                                         runat="server" ValidationGroup="VG78 ID="btnorddet" Width="20px" OnClick="btnorddet_Click"
-                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") %>'  />--%>
+                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") %>'  />
                                                                
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                              
                                        
                                                         <asp:TemplateField HeaderStyle-Width="10px">
@@ -685,7 +622,7 @@
                                     </asp:Panel>
 
                               
-                                    <asp:GridView ID="gvfact" runat="server" CssClass="grid"
+                                    <asp:GridView ID="gvfact" runat="server" CssClass="grid" 
                                         ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
                                         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
                                         CellPadding="3" DataKeyNames="idcomp" OnRowCommand="gvfact_RowCommand"   

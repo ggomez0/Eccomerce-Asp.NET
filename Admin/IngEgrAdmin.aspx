@@ -48,18 +48,15 @@
                                                             <asp:Label ID="Label5" runat="server">Cantidad:</asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="txtcantdep" runat="server"></asp:TextBox>
+                                                            <asp:TextBox ID="txtcantdep" runat="server" TextMode="Number"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator14"
-                                                                runat="server" Text="* Stock requerido."
+                                                                runat="server" Text="* campo requerido."
                                                                 ControlToValidate="txtcantdep" ValidationGroup="VG21" SetFocusOnError="true"
                                                                 Display="Dynamic"></asp:RequiredFieldValidator>
-                                                            <asp:RegularExpressionValidator ValidationGroup="VG21"
-                                                                ID="RegularExpressionValidator4" runat="server"
-                                                                Text="* Debe ser valor numerico"
-                                                                ControlToValidate="txtcantdep" SetFocusOnError="True"
-                                                                Display="Dynamic"
-                                                                ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$">
-                                                            </asp:RegularExpressionValidator>
+                                                            <asp:CompareValidator ID="CompareValidator1" runat="server"
+                                                                ControlToValidate="txtcantdep" ErrorMessage="Debe ser &gt; 0"
+                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" />
+                                                            
                                                         </td>
                                                     </tr>
 
