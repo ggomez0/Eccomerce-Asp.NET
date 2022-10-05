@@ -244,6 +244,9 @@
     <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\lstcompradet.aspx" />
     <Content Include="Admin\ordcpradet.aspx" />
+    <Content Include="Admin\ordcpraenv.aspx" />
+    <Content Include="Admin\ordcprafin.aspx" />
+    <Content Include="Admin\ordcprarec.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
     <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
@@ -2256,6 +2259,27 @@
     </Compile>
     <Compile Include="Admin\ordcpradet.aspx.designer.cs">
       <DependentUpon>ordcpradet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcpraenv.aspx.cs">
+      <DependentUpon>ordcpraenv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcpraenv.aspx.designer.cs">
+      <DependentUpon>ordcpraenv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcprafin.aspx.cs">
+      <DependentUpon>ordcprafin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcprafin.aspx.designer.cs">
+      <DependentUpon>ordcprafin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcprarec.aspx.cs">
+      <DependentUpon>ordcprarec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcprarec.aspx.designer.cs">
+      <DependentUpon>ordcprarec.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ordorduser.aspx.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>

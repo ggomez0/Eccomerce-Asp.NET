@@ -222,14 +222,14 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                              <asp:TemplateField HeaderStyle-Width="10px" >
+                                             <%-- <asp:TemplateField HeaderStyle-Width="10px" >
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/lupa.png"
                                                                         runat="server" ValidationGroup="VG2" ID="btnprodprov" Width="20px"
                                                                         Height="20px" OnClick="btnprodprov_Click" CommandArgument='<%#Eval("ProvID") %>' />
                                                                
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                              <asp:TemplateField HeaderStyle-Width="10px">
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/edit.png"
@@ -479,6 +479,14 @@
 
                                           <div class="tab-pane fade" id="pills-ordcpra" role="tabpanel" aria-labelledby="pills-ordcpra-tab">
 
+                                              <asp:Button runat="server" ID="btnordcprarec" OnClick="btnordcprarec_Click" CssClass="btn btn-success rounded-3" Text="Ordenes recibidos" />
+                                              <asp:Button runat="server" ID="btnordcpraenv" OnClick="btnordcpraenv_Click" CssClass="btn btn-success rounded-3" Text="Ordenes enviados" />
+                                              <asp:Button runat="server" ID="btnordcprafin" OnClick="btnordcprafin_Click" CssClass="btn btn-success rounded-3" Text="Ordenes finalizados" />
+
+                                              <p></p>
+                                              <h1>Pedidos de reposicion</h1>
+                                              <h3>Seleccione el pedido para generar la orden de compra</h3>
+
                                                                     
                                     <asp:GridView ID="gvordcpra" runat="server" CssClass="grid"
                                         ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
@@ -487,9 +495,6 @@
                                                     OnRowDeleting="gvordcpra_RowDeleting">
                                                             <HeaderStyle BackColor="black" Font-Bold="True"
                                                                 ForeColor="White"  />
-                                                            
-                                                          
-                                                           
                                         <Columns>
 
                                               <asp:TemplateField HeaderText="ID">
@@ -498,31 +503,13 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Descripcion">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("Nombre") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                    
                                                <asp:TemplateField HeaderText="Fecha">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("dateTime") %>'
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                               <asp:TemplateField HeaderText="Proveedor">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("ProvID") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Total">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("importe") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                           
                                            <%--    <asp:TemplateField HeaderStyle-Width="10px" >
                                                             <ItemTemplate>
 <%--                                                                    <asp:ImageButton ImageUrl="~/Images/plus.png"
