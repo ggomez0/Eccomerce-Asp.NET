@@ -11,6 +11,11 @@ using System.Data;
 using System.Configuration;
 using System.Web.Services;
 using System.Web.Script.Services;
+using System.IO;
+using System.Text;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
 
 namespace ShopGaspar.Admin
 {
@@ -23,8 +28,7 @@ namespace ShopGaspar.Admin
             if (!IsPostBack)
             {
                 this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
-                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=1", gvlstcpra);
-                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=2", gvordcpra);
+                this.databasecrud(connectionString, "SELECT * FROM pedrepoes", gvlstcpra);
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvfact);
             }
 
@@ -169,8 +173,22 @@ namespace ShopGaspar.Admin
 
         protected void gvlstcpra_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "(insert comprobantes(ProvID, stringn, idcomprobante, dateTime, descripcion)(select distinct ProvID, pedrepo_idcomp, 2,"+
+                                    "GETDATE(), 'Borrador' from pedrepodets where (ProvID in (select ProvID  from pedrepodets group by ProvID)))";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.Parameters.AddWithValue("@idpedidos", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
 
+                sqlCmd.ExecuteNonQuery();
+                gvlstcpra.EditIndex = -1;
+                lblSuccessMessage.Text = "Agregado con exito";
+                lblErrorMessage.Text = "";
+            }
+
+            
+         
         }
 
         protected void gvlstcpra_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -201,7 +219,19 @@ namespace ShopGaspar.Admin
 
         protected void gvlstcpra_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            
+            try
+            {
+                if (e.CommandName.Equals("AddNew"))
+                {
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+            Response.Redirect(Request.RawUrl);
         }
 
         public IQueryable GetProveedores()
@@ -211,16 +241,12 @@ namespace ShopGaspar.Admin
             return query;
         }
 
-        protected void btnprodprov_Click(object sender, ImageClickEventArgs e)
-        {
-            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
-            Response.Redirect("~/Admin/proddeprov.aspx?id=" + id);
-        }
-
+      
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
-            addcomprobante addlstcpra = new addcomprobante();
-            bool addSuccess = addlstcpra.addcomprobantes(addlst.Text, null, 0, 1, null, null, null);
+            addrepoes addlstcpra = new addrepoes();
+            bool addSuccess = addlstcpra.addrepooes("Lista",null,0,null, null);
+
 
             if (addSuccess)
             {
@@ -338,5 +364,26 @@ namespace ShopGaspar.Admin
 
             Response.Redirect("~/Admin/factdet.aspx?id1=" + id1[0] + "&id2=" + id1[1]);
         }
+
+
+
+        protected void btnordcprarec_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/ordcprarec");
+        }
+
+        protected void btnordcpraenv_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/ordcpraenv");
+
+        }
+
+        protected void btnordcprafin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/ordcprafin");
+
+        }
+
+     
     }
 }

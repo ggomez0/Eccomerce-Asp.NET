@@ -48,11 +48,17 @@
     <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Functions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\functions-csharp.1.0.1\lib\netstandard2.0\Functions.dll</HintPath>
     </Reference>
     <Reference Include="Gotrue, Version=2.4.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\gotrue-csharp.2.4.5\lib\netstandard2.0\Gotrue.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -227,7 +233,6 @@
     <Content Include="Admin\CategoriaAdmin.aspx" />
     <Content Include="Admin\ClientesAdmin.aspx" />
     <Content Include="Admin\ComprasAdmin.aspx" />
-    <Content Include="Admin\Cosas q arreglar.txt" />
     <Content Include="Admin\DepositosAdmin.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
     <Content Include="Admin\detprodcat.aspx" />
@@ -238,7 +243,11 @@
     <Content Include="Admin\historial.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\lstcompradet.aspx" />
+    <Content Include="Admin\ordcpraborrdet.aspx" />
     <Content Include="Admin\ordcpradet.aspx" />
+    <Content Include="Admin\ordcpraenv.aspx" />
+    <Content Include="Admin\ordcprafin.aspx" />
+    <Content Include="Admin\ordcprarec.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
     <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
@@ -1937,6 +1946,7 @@
     <Content Include="Images\carrito.png" />
     <Content Include="Images\logoh.png" />
     <Content Include="Images\lupa.png" />
+    <Content Include="Images\pdf.png" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\plus.png" />
     <Content Include="Images\plusicon.png" />
@@ -1989,6 +1999,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="Images\icons\bootstrap-icons.json" />
     <Content Include="Images\icons\bootstrap-icons.scss" />
+    <Content Include=".editorconfig" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\coca.png" />
@@ -2243,12 +2254,40 @@
     <Compile Include="Admin\lstcompradet.aspx.designer.cs">
       <DependentUpon>lstcompradet.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ordcpraborrdet.aspx.cs">
+      <DependentUpon>ordcpraborrdet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcpraborrdet.aspx.designer.cs">
+      <DependentUpon>ordcpraborrdet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ordcpradet.aspx.cs">
       <DependentUpon>ordcpradet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\ordcpradet.aspx.designer.cs">
       <DependentUpon>ordcpradet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcpraenv.aspx.cs">
+      <DependentUpon>ordcpraenv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcpraenv.aspx.designer.cs">
+      <DependentUpon>ordcpraenv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcprafin.aspx.cs">
+      <DependentUpon>ordcprafin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcprafin.aspx.designer.cs">
+      <DependentUpon>ordcprafin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcprarec.aspx.cs">
+      <DependentUpon>ordcprarec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcprarec.aspx.designer.cs">
+      <DependentUpon>ordcprarec.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ordorduser.aspx.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
@@ -2295,6 +2334,7 @@
     </Compile>
     <Compile Include="Logic\AddCards.cs" />
     <Compile Include="Logic\AddCategories.cs" />
+    <Compile Include="Logic\addpedrepoes.cs" />
     <Compile Include="Logic\adddep.cs" />
     <Compile Include="Logic\addcomprobante.cs" />
     <Compile Include="Logic\addhistorial.cs" />
@@ -2307,9 +2347,19 @@
     <Compile Include="Migrations\202210041623534_aver.Designer.cs">
       <DependentUpon>202210041623534_aver.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210051656156_werr.cs" />
+    <Compile Include="Migrations\202210051656156_werr.Designer.cs">
+      <DependentUpon>202210051656156_werr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210051716446_werrx.cs" />
+    <Compile Include="Migrations\202210051716446_werrx.Designer.cs">
+      <DependentUpon>202210051716446_werrx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
+    <Compile Include="Models\pedrepo.cs" />
     <Compile Include="Models\comprobantes.cs" />
+    <Compile Include="Models\pedrepodet.cs" />
     <Compile Include="Models\comprobantesdet.cs" />
     <Compile Include="Models\depositos.cs" />
     <Compile Include="Models\historial.cs" />
@@ -2373,6 +2423,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202210041623534_aver.resx">
       <DependentUpon>202210041623534_aver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210051656156_werr.resx">
+      <DependentUpon>202210051656156_werr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210051716446_werrx.resx">
+      <DependentUpon>202210051716446_werrx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

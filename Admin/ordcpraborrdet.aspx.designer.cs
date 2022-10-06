@@ -11,17 +11,8 @@ namespace ShopGaspar.Admin
 {
 
 
-    public partial class lstcompradet
+    public partial class ordcpraborrdet
     {
-
-        /// <summary>
-        /// Control gvproductoslista.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvproductoslista;
 
         /// <summary>
         /// Control lblord.
@@ -33,39 +24,30 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Label lblord;
 
         /// <summary>
-        /// Control gvlstcompradet.
+        /// Control ddlistformadepago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvlstcompradet;
+        protected global::System.Web.UI.WebControls.DropDownList ddlistformadepago;
 
         /// <summary>
-        /// Control lblSuccessMessage.
+        /// Control gvordcpraborrdet.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuccessMessage;
+        protected global::System.Web.UI.WebControls.GridView gvordcpraborrdet;
 
         /// <summary>
-        /// Control lblErrorMessage.
+        /// Control btnordcprahecho.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
-
-        /// <summary>
-        /// Control lblinvisible.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblinvisible;
+        protected global::System.Web.UI.WebControls.Button btnordcprahecho;
     }
 }

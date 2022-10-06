@@ -24,6 +24,7 @@ namespace ShopGaspar.Models
        public string cuit { get; set; }
 
         public virtual ICollection<comprobantes> Comprobantes{ get; set; }
+        public virtual ICollection<pedrepodet> Pedrepodets{ get; set; }
 
 
 

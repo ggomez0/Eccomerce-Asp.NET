@@ -53,7 +53,7 @@ namespace ShopGaspar.Admin
                         sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
                         sqlCmd.Parameters.AddWithValue("@cantingreso", txtcantdep.Text);
                         sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                        sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex);
+                        sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedValue);
                         sqlCmd.ExecuteNonQuery();
                         sqlCon.Close();
                     }
@@ -79,8 +79,6 @@ namespace ShopGaspar.Admin
             }
             if (rblistlist.Items[1].Selected)
             {
-                try
-                {
                     using (SqlConnection sqlCon = new SqlConnection(connectionString))
                     {
                         sqlCon.Open();
@@ -95,7 +93,7 @@ namespace ShopGaspar.Admin
                         sqlCmd.Parameters.AddWithValue("@Observaciones", txtobsdep.Text);
                         sqlCmd.Parameters.AddWithValue("@cantingreso", -Convert.ToInt32(txtcantdep.Text));
                         sqlCmd.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                        sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedIndex);
+                        sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedValue);
                         sqlCmd.ExecuteNonQuery();
                     }
 
@@ -110,11 +108,8 @@ namespace ShopGaspar.Admin
                     }
 
                     addhistorial addhistorial = new addhistorial();
-                    bool addSucces = addhistorial.addhistorials("Egreso", -Convert.ToInt32(txtcantdep.Text), txtacproddep.Text, ddlistdep.SelectedValue);
-                }
-
-
-                catch { }
+                    bool addSucces3 = addhistorial.addhistorials("Egreso", Convert.ToInt32(txtcantdep.Text), txtacproddep.Text, ddlistdep.SelectedValue);
+              
                 string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
                 Response.Redirect(pageUrl + "?ProductAction=addprodendep");
 

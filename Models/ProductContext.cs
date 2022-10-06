@@ -22,6 +22,8 @@ namespace ShopGaspar.Models
         public DbSet<comprobantes> comprobantes { get; set; }
         public DbSet<comprobantesdet> comprobantesdet { get; set; }
         public DbSet<historial> historials { get; set; }
+        public DbSet<pedrepo> pedrepos { get; set; }
+        public DbSet<pedrepodet> pedrepodets { get; set; }
 
     }
 }

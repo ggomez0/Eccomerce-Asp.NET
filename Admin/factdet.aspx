@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="factdet.aspx.cs" Inherits="ShopGaspar.Admin.factdet" %>
+﻿<%@ Page Title="Detalle Factura" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="~/Admin/factdet.aspx.cs" Inherits="ShopGaspar.Admin.factdet" %>
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -35,19 +35,11 @@
                                                                 <asp:Label Text="Cantidad" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtcantlst" CssClass="rounded-3" />
-                                                                    <asp:RequiredFieldValidator ID="dcdecc"
-                                                                    runat="server" Text="* campo requerido."
-                                                                    ControlToValidate="txtcantlst"
-                                                                    SetFocusOnError="true" Display="Dynamic" ValidationGroup="VG5">
-                                                                </asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="fvfreve"
-                                                                    ValidationGroup="VG5" runat="server"
-                                                                    Text="* Valor numerico"
-                                                                    ControlToValidate="txtcantlst"
-                                                                    SetFocusOnError="True" Display="Dynamic"
-                                                                    ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$">
-                                                                </asp:RegularExpressionValidator>
+                                                                <asp:TextBox runat="server" ID="txtcantlstfact" TextMode="Number" CssClass="rounded-3" CausesValidation="true" />
+                                                               
+                                                            <asp:CompareValidator runat="server"
+                                                                ControlToValidate="txtcantlstfact" ErrorMessage="Debe ser &gt; 0"
+                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG2144" />
                                                             </td>
                                                            
                                                        
@@ -61,8 +53,7 @@
                                             runat="server" Font-Size="Large" Font-Bold="true"
                                             Text="+"
                                             CommandName="Update"
-                                            CausesValidation="true"
-                                            ValidationGroup="VG31" CssClass="btn btn-success rounded-3" />
+                                            ValidationGroup="VG2144" CssClass="btn btn-success rounded-3"  />
                                         <asp:Button ID="Button7" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG101" />
                                         <br />
                                         <p>  </p>
