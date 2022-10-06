@@ -80,17 +80,15 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "insert into pedrepoesdets(cantidad,ProvID,Product_ProductID,pedrepo_idcomp) values (@cantped,@provid,@product,@idpedido);";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);       
-                    //no reconoce los txt
-                    sqlCmd.Parameters.AddWithValue("@cantped", 1);
-                    sqlCmd.Parameters.AddWithValue("@provid", 4);
-                    sqlCmd.Parameters.AddWithValue("@idpedido", 1);
+                    string query = "insert into pedrepodets(cantidad,ProvID,Product_ProductID,pedrepo_idcomp) values (@cantped,@provid,@product,@idpedido);";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);   
+                    sqlCmd.Parameters.AddWithValue("@cantped", (gvproductoslista.Rows[e.RowIndex].FindControl("txtcantpedido") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@provid", (gvproductoslista.Rows[e.RowIndex].FindControl("ddlistprovprod") as DropDownList).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@idpedido", lblinvisible.Text);
                     sqlCmd.Parameters.AddWithValue("@product", Convert.ToInt32(gvproductoslista.DataKeys[e.RowIndex].Value.ToString()));
 
                     sqlCmd.ExecuteNonQuery();
                     gvproductoslista.EditIndex = -1;
-                    this.databasecrud(connectionString, "SELECT * FROM Products", gvproductoslista);
                     lblSuccessMessage.Text = "Agregado con exito";
                     lblErrorMessage.Text = "";
                 }
@@ -112,11 +110,11 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "DELETE FROM pedrepoesdets WHERE idcomprdet = @ProductID";
+                    string query = "DELETE FROM pedrepodets WHERE idcomprdet = @ProductID";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@ProductID", Convert.ToInt32(gvlstcompradet.DataKeys[e.RowIndex].Value.ToString()));
                     sqlCmd.ExecuteNonQuery();
-                    this.databasecrud(connectionString, "SELECT * FROM pedrepoesdets", gvlstcompradet);
+                    this.databasecrud(connectionString, "SELECT * FROM pedrepodets", gvlstcompradet);
 
                 }
             }

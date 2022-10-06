@@ -36,7 +36,7 @@
                                                                 <asp:Label Text="Cantidad: " runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtcantpedido123" TextMode="Number" CssClass="rounded-3" />
+                                                                <asp:TextBox runat="server" ID="txtcantpedido" TextMode="Number" CssClass="rounded-3"/>
                                                                    
                                                             </td>
                                                            

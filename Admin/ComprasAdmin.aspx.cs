@@ -29,7 +29,6 @@ namespace ShopGaspar.Admin
             {
                 this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
                 this.databasecrud(connectionString, "SELECT * FROM pedrepoes", gvlstcpra);
-                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=2", gvordcpra);
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvfact);
             }
 
@@ -174,7 +173,20 @@ namespace ShopGaspar.Admin
 
         protected void gvlstcpra_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "insert comprobantes(ProvID,stringn,idcomprobante,dateTime,descripcion,Nombre)" +
+                    "((select distinct ProvID, pedrepo_idcomp, 2, GETDATE(),'Borrador','1' from pedrepodets " +
+                    "where (ProvID in ((select ProvID  from pedrepodets group by ProvID))) and pedrepo_idcomp=@idpedidos))";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.Parameters.AddWithValue("@idpedidos", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
+
+                sqlCmd.ExecuteNonQuery();
+                gvlstcpra.EditIndex = -1;
+                lblSuccessMessage.Text = "Agregado con exito";
+                lblErrorMessage.Text = "";
+            }
 
         }
 
@@ -206,7 +218,19 @@ namespace ShopGaspar.Admin
 
         protected void gvlstcpra_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            
+            try
+            {
+                if (e.CommandName.Equals("AddNew"))
+                {
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+            Response.Redirect(Request.RawUrl);
         }
 
         public IQueryable GetProveedores()
@@ -446,6 +470,11 @@ namespace ShopGaspar.Admin
         {
             Response.Redirect("~/Admin/ordcprafin");
 
+        }
+
+        protected void btnlstpasaraord_Click(object sender, ImageClickEventArgs e)
+        {
+            
         }
     }
 }

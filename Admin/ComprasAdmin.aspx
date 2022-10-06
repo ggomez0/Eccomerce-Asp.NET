@@ -465,6 +465,17 @@
                                                                     Width="20px" Height="20px" />
                                                             </ItemTemplate>                                                       
                                                         </asp:TemplateField>
+
+                                             <asp:TemplateField HeaderStyle-Width="10px" >
+                                                            <ItemTemplate>
+                                                             
+                                                                   <asp:ImageButton ImageUrl="~/Images/plus.png"
+                                                                        runat="server" ValidationGroup="VG7007" ID="btnlstpasaraord" Width="20px" OnClick="btnlstpasaraord_Click"
+                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") %>' CommandName="Update"  />
+                                                               
+                                                               
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
 
@@ -478,59 +489,14 @@
 
 
                                           <div class="tab-pane fade" id="pills-ordcpra" role="tabpanel" aria-labelledby="pills-ordcpra-tab">
-
-                                              <asp:Button runat="server" ID="btnordcprarec" OnClick="btnordcprarec_Click" CssClass="btn btn-success rounded-3" Text="Ordenes recibidos" />
-                                              <asp:Button runat="server" ID="btnordcpraenv" OnClick="btnordcpraenv_Click" CssClass="btn btn-success rounded-3" Text="Ordenes enviados" />
-                                              <asp:Button runat="server" ID="btnordcprafin" OnClick="btnordcprafin_Click" CssClass="btn btn-success rounded-3" Text="Ordenes finalizados" />
-
                                               <p></p>
-                                              <h1>Pedidos de reposicion</h1>
-                                              <h3>Seleccione el pedido para generar la orden de compra</h3>
+                                              <h3>Seleccione el tipo de orden que requiera</h3>
+                                              <p></p>
+                                              <asp:Button runat="server" ID="btnordcprarec" OnClick="btnordcprarec_Click" CssClass="btn btn-success rounded-3" Text="Ordenes borrador" />
+                                              <asp:Button runat="server" ID="btnordcpraenv" OnClick="btnordcpraenv_Click" CssClass="btn btn-success rounded-3" Text="Ordenes recibidos" />
+                                              <asp:Button runat="server" ID="btnordcprafin" OnClick="btnordcprafin_Click" CssClass="btn btn-success rounded-3" Text="Ordenes enviados" />
 
-                                                                    
-                                    <asp:GridView ID="gvordcpra" runat="server" CssClass="grid"
-                                        ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
-                                        BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
-                                        CellPadding="3" DataKeyNames="idcomp" OnRowCommand="gvordcpra_RowCommand"
-                                                    OnRowDeleting="gvordcpra_RowDeleting">
-                                                            <HeaderStyle BackColor="black" Font-Bold="True"
-                                                                ForeColor="White"  />
-                                        <Columns>
-
-                                              <asp:TemplateField HeaderText="ID">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("idcomp") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                    
-                                               <asp:TemplateField HeaderText="Fecha">
-                                                            <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("dateTime") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                           <%--    <asp:TemplateField HeaderStyle-Width="10px" >
-                                                            <ItemTemplate>
-<%--                                                                    <asp:ImageButton ImageUrl="~/Images/plus.png"
-                                                                        runat="server" ValidationGroup="VG78 ID="btnorddet" Width="20px" OnClick="btnorddet_Click"
-                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") %>'  />
-                                                               
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>--%>
-                                             
-                                       
-                                                        <asp:TemplateField HeaderStyle-Width="10px">
-                                                            <ItemTemplate>
-
-                                                                <asp:ImageButton ImageUrl="~/Images/delete.png"
-                                                                    runat="server" CommandName="Delete"
-                                                                    ValidationGroup="VG1099" ToolTip="Eliminar"
-                                                                    Width="20px" Height="20px" />
-                                                            </ItemTemplate>                                                       
-                                                        </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
+                                            
 
                                           </div>
                                             
@@ -669,14 +635,14 @@
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
 
-                                              <asp:TemplateField HeaderStyle-Width="10px" >
+                            <%--                  <asp:TemplateField HeaderStyle-Width="10px" >
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/pdf.png"
                                                                         runat="server" ValidationGroup="VG77111" ID="btngeneratepdf" Width="20px" OnClick="GenerateInvoicePDF"
                                                                         Height="20px"  />
                                                                
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                              
                                        
                                                         <asp:TemplateField HeaderStyle-Width="10px">
