@@ -463,8 +463,8 @@
                                                             <ItemTemplate>
                                                              
                                                                    <asp:ImageButton ImageUrl="~/Images/plus.png"
-                                                                        runat="server" ValidationGroup="VG7007" ID="btnlstpasaraord" Width="20px" OnClick="btnlstpasaraord_Click"
-                                                                        Height="20px" CommandArgument='<%#Eval("idcomp") %>' CommandName="Update"  />
+                                                                        runat="server" ValidationGroup="VG7007" ID="btnlstpasaraord" Width="20px"
+                                                                        Height="20px" CommandName="Update"  />
                                                                
                                                                
                                                             </ItemTemplate>

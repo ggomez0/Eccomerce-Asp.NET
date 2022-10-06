@@ -176,9 +176,8 @@ namespace ShopGaspar.Admin
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "insert comprobantes(ProvID,stringn,idcomprobante,dateTime,descripcion,Nombre)" +
-                    "((select distinct ProvID, pedrepo_idcomp, 2, GETDATE(),'Borrador','1' from pedrepodets " +
-                    "where (ProvID in ((select ProvID  from pedrepodets group by ProvID))) and pedrepo_idcomp=@idpedidos))";
+                string query = "(insert comprobantes(ProvID, stringn, idcomprobante, dateTime, descripcion)(select distinct ProvID, pedrepo_idcomp, 2,"+
+                                    "GETDATE(), 'Borrador' from pedrepodets where (ProvID in (select ProvID  from pedrepodets group by ProvID)))";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@idpedidos", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
 
@@ -385,9 +384,6 @@ namespace ShopGaspar.Admin
 
         }
 
-        protected void btnlstpasaraord_Click(object sender, ImageClickEventArgs e)
-        {
-            
-        }
+     
     }
 }
