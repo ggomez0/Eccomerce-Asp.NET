@@ -27,6 +27,7 @@
             ShowHeaderWhenEmpty="true" AutoGenerateColumns="true"> 
             <HeaderStyle BackColor="black" Font-Bold="True"
                                                                 ForeColor="White"  />
+            <Columns>
                   <asp:TemplateField HeaderStyle-Width="10px">
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/edit.png"
@@ -46,24 +47,16 @@
                                                                             <asp:UpdatePanel ID="UpdatePanel2"
                                                                                 runat="server">
                                                                                 <ContentTemplate>
-                                                                                      <h3>Editar Proveedor</h3>
                                                     <table>
                                                         <tr>
                                                             <td>
                                                                 <asp:Label ID="Label6e" runat="server">
-                                                                    Nombre:</asp:Label>
+                                                                    Cantidad:</asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txtnomprovedit" runat="server" Text='<%# Eval("cantidad") %>' TextMode="Number">
+                                                                <asp:TextBox ID="txtcant" runat="server" Text='<%# Eval("cantidad") %>' TextMode="Number">
                                                                 </asp:TextBox>
-                                                                
-
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator35"
-                                                                    runat="server" Font-Bold="true"
-                                                                    Text="*Nombre del proveedor requerida"
-                                                                    ControlToValidate="txtnomprovedit"
-                                                                    SetFocusOnError="true" Display="Dynamic"
-                                                                    ValidationGroup="VG106"></asp:RequiredFieldValidator>
+                                              
                                                             </td>
                                                         </tr>
                                                          <tr>
@@ -72,40 +65,13 @@
                                                                     Representante:</asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txtreprprovedit" runat="server" Text='<%# Eval("ReprProv") %>'>
+                                                                <asp:TextBox ID="txtimporte" runat="server" TextMode="Number">
                                                                 </asp:TextBox>
                                                                 
 
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator36"
-                                                                    runat="server" Font-Bold="true"
-                                                                    Text="*Nombre del representante requerida"
-                                                                    ControlToValidate="txtreprprovedit"
-                                                                    SetFocusOnError="true" Display="Dynamic"
-                                                                    ValidationGroup="VG106"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
-                                                         <tr>
-                                                             <td>
-                                                                <asp:Label ID="Label8e" runat="server">
-                                                                    Telefono:</asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox ID="txttelprovedit" runat="server" Text='<%# Eval("telefono") %>'>
-                                                                </asp:TextBox>
-                                                                
-
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator37"
-                                                                    runat="server" Font-Bold="true"
-                                                                    Text="*Numero de telefono requerida"
-                                                                    ControlToValidate="txttelprovedit"
-                                                                    SetFocusOnError="true" Display="Dynamic"
-                                                                    ValidationGroup="VG106"></asp:RequiredFieldValidator>
-                                                            </td>
-                                                        </tr>
-                                                      
-                                                     
                                                         
-                                                       
                                                            
                                                     </table>
                                                             <asp:Button ID="Button6" runat="server" Text="Editar"
@@ -124,7 +90,8 @@
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                        
-                                        </Columns>
+                                      </Columns>
             </asp:GridView>
+        <asp:Button runat="server" ID="btnordcprahecho" Text="Enviar orden de compra" OnClick="btnordcprahecho_Click"/>
     </div>
 </asp:Content>

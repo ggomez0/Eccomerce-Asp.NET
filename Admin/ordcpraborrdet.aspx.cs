@@ -53,5 +53,10 @@ namespace ShopGaspar.Admin
             tablag.UseAccessibleHeader = true;
             tablag.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
+
+        protected void btnordcprahecho_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/ComprasAdmin.aspx");
+        }
     }
 }
