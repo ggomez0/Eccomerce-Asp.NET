@@ -1,17 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ordcprarec.aspx.cs" Inherits="ShopGaspar.Admin.ordcprarec" %>
+﻿<%@ Page Title="Ordenes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ordcprarec.aspx.cs" Inherits="ShopGaspar.Admin.ordcprarec" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="container">
          <p></p>
         <h1>Ordenes en estado borrador</h1>
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvordcprarec" 
-            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true"> 
+            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" OnRowUpdated="gvordcprarec_RowUpdated" DataKeyNames="idcomp"> 
             <HeaderStyle BackColor="black" Font-Bold="True"
                                                                 ForeColor="White"  />
         
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button runat="server" Text="Ver" CssClass="btn btn-success rounded-3" />
+                        <asp:Button runat="server" Text="Ver" CssClass="btn btn-success rounded-3" ID="btnvermasordcpraenv" OnClick="btnvermasordcpraenv_Click" CommandArgument='<%#Eval("idcomp") %>' CommandName="Update" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

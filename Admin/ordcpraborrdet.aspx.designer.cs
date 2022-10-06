@@ -11,7 +11,7 @@ namespace ShopGaspar.Admin
 {
 
 
-    public partial class ordcprafin
+    public partial class ordcpraborrdet
     {
 
         /// <summary>
@@ -24,12 +24,12 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Label lblord;
 
         /// <summary>
-        /// Control gvordcpraenv.
+        /// Control gvordcpraborrdet.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvordcpraenv;
+        protected global::System.Web.UI.WebControls.GridView gvordcpraborrdet;
     }
 }

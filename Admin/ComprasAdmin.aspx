@@ -222,14 +222,7 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                             <%-- <asp:TemplateField HeaderStyle-Width="10px" >
-                                                            <ItemTemplate>
-                                                                    <asp:ImageButton ImageUrl="~/Images/lupa.png"
-                                                                        runat="server" ValidationGroup="VG2" ID="btnprodprov" Width="20px"
-                                                                        Height="20px" OnClick="btnprodprov_Click" CommandArgument='<%#Eval("ProvID") %>' />
-                                                               
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>--%>
+                                          
                                              <asp:TemplateField HeaderStyle-Width="10px">
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/edit.png"

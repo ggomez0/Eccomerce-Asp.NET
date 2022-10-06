@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace ShopGaspar.Admin
 {
-    public partial class ordcprafin : System.Web.UI.Page
+    public partial class ordcpraborrdet : System.Web.UI.Page
     {
         string connectionString = ConfigurationManager.ConnectionStrings["ShopGaspar"].ConnectionString;
 
@@ -18,7 +18,9 @@ namespace ShopGaspar.Admin
         {
             if (!IsPostBack)
             {
-                this.databasecrud(connectionString, "select * from comprobantes where idcomprobante=2 and descripcion='Enviadas'", gvordcpraenv);
+                string nID = Request.QueryString["id"];
+                lblord.Text += nID;
+                this.databasecrud(connectionString, "select * from comprobantesdets where Comprobantes_idcomp=" + nID , gvordcpraborrdet);
             }
         }
 
@@ -50,13 +52,6 @@ namespace ShopGaspar.Admin
             }
             tablag.UseAccessibleHeader = true;
             tablag.HeaderRow.TableSection = TableRowSection.TableHeader;
-        }
-
-
-        protected void btnvermasordcpra_Click1(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32((sender as Button).CommandArgument);
-            Response.Redirect("~/Admin/ordcpraenvdet.aspx?id=" + id);
         }
     }
 }

@@ -243,6 +243,7 @@
     <Content Include="Admin\historial.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\lstcompradet.aspx" />
+    <Content Include="Admin\ordcpraborrdet.aspx" />
     <Content Include="Admin\ordcpradet.aspx" />
     <Content Include="Admin\ordcpraenv.aspx" />
     <Content Include="Admin\ordcprafin.aspx" />
@@ -2252,6 +2253,13 @@
     </Compile>
     <Compile Include="Admin\lstcompradet.aspx.designer.cs">
       <DependentUpon>lstcompradet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcpraborrdet.aspx.cs">
+      <DependentUpon>ordcpraborrdet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcpraborrdet.aspx.designer.cs">
+      <DependentUpon>ordcpraborrdet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ordcpradet.aspx.cs">
       <DependentUpon>ordcpradet.aspx</DependentUpon>

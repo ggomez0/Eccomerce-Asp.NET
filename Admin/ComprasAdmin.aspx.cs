@@ -188,6 +188,8 @@ namespace ShopGaspar.Admin
                 lblErrorMessage.Text = "";
             }
 
+            
+         
         }
 
         protected void gvlstcpra_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -240,12 +242,7 @@ namespace ShopGaspar.Admin
             return query;
         }
 
-        //protected void btnprodprov_Click(object sender, ImageClickEventArgs e)
-        //{
-        //    int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
-        //    Response.Redirect("~/Admin/proddeprov.aspx?id=" + id);
-        //}
-
+      
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
             addrepoes addlstcpra = new addrepoes();
