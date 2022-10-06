@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ordcpraborrdet.aspx.cs" Inherits="ShopGaspar.Admin.ordcpraborrdet" %>
+﻿<%@ Page Title="Ordenes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ordcpraborrdet.aspx.cs" Inherits="ShopGaspar.Admin.ordcpraborrdet" %>
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -54,19 +54,33 @@
                                                                     Cantidad:</asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txtcant" runat="server" Text='<%# Eval("cantidad") %>' TextMode="Number">
+                                                                <asp:TextBox ID="txtcant" runat="server" Text='<%# Eval("cantidad") %>' TextMode="Number" CausesValidation="true">
                                                                 </asp:TextBox>
+                                                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                                                                runat="server" Text="* campo requerido."
+                                                                ControlToValidate="txtcant" ValidationGroup="VG21" SetFocusOnError="true"
+                                                                Display="Dynamic"></asp:RequiredFieldValidator>
+                                                            <asp:CompareValidator ID="CompareValidator2" runat="server"
+                                                                ControlToValidate="txtcant" ErrorMessage="Debe ser &gt; 0"
+                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG241" />
                                               
                                                             </td>
                                                         </tr>
                                                          <tr>
                                                              <td>
                                                                 <asp:Label ID="Label7e" runat="server">
-                                                                    Representante:</asp:Label>
+                                                                    Importe:</asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txtimporte" runat="server" TextMode="Number">
+                                                                <asp:TextBox ID="txtimporte" runat="server" TextMode="Number" CausesValidation="true">
                                                                 </asp:TextBox>
+                                                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator14"
+                                                                runat="server" Text="* campo requerido."
+                                                                ControlToValidate="txtimporte" ValidationGroup="VG241" SetFocusOnError="true"
+                                                                Display="Dynamic"></asp:RequiredFieldValidator>
+                                                            <asp:CompareValidator ID="CompareValidator1" runat="server"
+                                                                ControlToValidate="txtimporte" ErrorMessage="Debe ser &gt; 0"
+                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG21" />
                                                                 
 
                                                             </td>

@@ -514,8 +514,16 @@
                                                          <tr>
                                                             <td><asp:Label runat="server" Text="N° Factura:"></asp:Label></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtnumfact" runat="server">
-                                                                </asp:TextBox></td>
+                                                                <asp:TextBox ID="txtnumfact" runat="server" TextMode="Number" CausesValidation="true">
+                                                                </asp:TextBox>
+                                                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator14"
+                                                                runat="server" Text="* campo requerido."
+                                                                ControlToValidate="txtnumfact" ValidationGroup="VG2481" SetFocusOnError="true"
+                                                                Display="Dynamic"></asp:RequiredFieldValidator>
+                                                            <asp:CompareValidator ID="CompareValidator1" runat="server"
+                                                                ControlToValidate="txtnumfact" ErrorMessage="Debe ser &gt; 0"
+                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG2481" />
+                                                            </td>
                                                                 </tr>
                                                                 <tr>
                                                             <td><asp:Label runat="server" Text="Tipo:"></asp:Label></td>
@@ -531,8 +539,15 @@
                                                         <tr>
                                                             <td><asp:Label runat="server" Text="N° Sucursal:"></asp:Label></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtsucursal"  runat="server">
-                                                                </asp:TextBox>                                                                
+                                                                <asp:TextBox ID="txtsucursal"  runat="server" TextMode="Number" CausesValidation="true">
+                                                                </asp:TextBox>       
+                                                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                                                                runat="server" Text="* campo requerido."
+                                                                ControlToValidate="txtsucursal" ValidationGroup="VG2481" SetFocusOnError="true"
+                                                                Display="Dynamic"></asp:RequiredFieldValidator>
+                                                            <asp:CompareValidator ID="CompareValidator2" runat="server"
+                                                                ControlToValidate="txtsucursal" ErrorMessage="Debe ser &gt; 0"
+                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG2481" />
                                                             </td>
                                                         </tr>    
                                                           <tr>
@@ -560,7 +575,7 @@
                                             </asp:UpdatePanel>
                                         </div>
                                         <asp:Button ID="btnanfact" runat="server" Text="Agregar" OnClick="btnanfact_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
-                                                                    ValidationGroup="VG11111" />
+                                                                    ValidationGroup="VG2481" />
                                         <asp:Button ID="Button8" CssClass="btn btn-danger rounded-3" ValidationGroup="wdko" runat="server" Text="Cerrar" />
                                         <br />
                                         <p>  </p>

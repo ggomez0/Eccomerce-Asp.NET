@@ -48,14 +48,14 @@
                                                             <asp:Label ID="Label5" runat="server">Cantidad:</asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="txtcantdep" runat="server" TextMode="Number"></asp:TextBox>
+                                                            <asp:TextBox ID="txtcantdep" runat="server" TextMode="Number" CausesValidation="true"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator14"
                                                                 runat="server" Text="* campo requerido."
                                                                 ControlToValidate="txtcantdep" ValidationGroup="VG21" SetFocusOnError="true"
                                                                 Display="Dynamic"></asp:RequiredFieldValidator>
                                                             <asp:CompareValidator ID="CompareValidator1" runat="server"
                                                                 ControlToValidate="txtcantdep" ErrorMessage="Debe ser &gt; 0"
-                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" />
+                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG21" />
                                                             
                                                         </td>
                                                     </tr>

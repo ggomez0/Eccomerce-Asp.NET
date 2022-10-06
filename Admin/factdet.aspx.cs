@@ -26,7 +26,7 @@ namespace ShopGaspar.Admin
                 lblord.Text += nID;
                 this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
                     "Descripcion,UnitPrice as Precio,CategoryID,Stock FROM Products", gvproductoslista);
-                this.databasecrud(connectionString, "SELECT ProductName, UnitPrice, c.CategoryName, l.idcomprdet" +
+                this.databasecrud(connectionString, "SELECT ProductName,cantidad, UnitPrice, c.CategoryName, l.idcomprdet" +
                     " FROM comprobantesdets l inner join Products p on l.Product_ProductID=p.ProductID inner join Categories c " +
                     "on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);
 
@@ -73,7 +73,7 @@ namespace ShopGaspar.Admin
                     string query = "insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@lstcomprar,@product,@lstcompra);";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@lstcompra", lblinvisible.Text);
-                    sqlCmd.Parameters.AddWithValue("@lstcomprar", 1);
+                    sqlCmd.Parameters.AddWithValue("@lstcomprar", (gvproductoslista.Rows[e.RowIndex].FindControl("txtcantlstfact") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@product", Convert.ToInt32(gvproductoslista.DataKeys[e.RowIndex].Value.ToString()));
 
                     sqlCmd.ExecuteNonQuery();
