@@ -60,22 +60,25 @@ namespace ShopGaspar.Admin
             Response.Redirect("~/Admin/ordcpraborrdet.aspx?id=" + id);
         }
 
-        protected void gvordcprarec_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+        protected void gvordcprarec_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
                 string query = "insert into comprobantesdets(cantidad,Comprobantes_idcomp,Product_ProductID)" +
-                    "(select cantidad, @comprobID, Product_ProductID from pedrepodets where " +
-                    "ProvID = @provid and pedrepo_idcomp = @idcomp)";
+                    "(select cantidad, 19, Product_ProductID from pedrepodets where " +
+                    "ProvID = 4 and pedrepo_idcomp = 1)";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                sqlCmd.Parameters.AddWithValue("@idpedidos", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Value.ToString()));
-
-
+                sqlCmd.Parameters.AddWithValue("@idcomp", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[0].ToString()));
+                sqlCmd.Parameters.AddWithValue("@provid", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[1].ToString()));
 
                 sqlCmd.ExecuteNonQuery();
                 gvordcprarec.EditIndex = -1;
             }
+
+
+
+
         }
     }
 }
