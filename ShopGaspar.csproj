@@ -230,6 +230,7 @@
     <Content Include="Account\orderdetailsuser.aspx" />
     <Content Include="Account\ordersusers.aspx" />
     <Content Include="Account\passrecov.aspx" />
+    <Content Include="AddToCart.aspx" />
     <Content Include="Admin\CategoriaAdmin.aspx" />
     <Content Include="Admin\ClientesAdmin.aspx" />
     <Content Include="Admin\ComprasAdmin.aspx" />
@@ -253,6 +254,10 @@
     <Content Include="Admin\prodendep.aspx" />
     <Content Include="Admin\ProductosAdmin.aspx" />
     <Content Include="Admin\TransaccionesAdmin.aspx" />
+    <Content Include="Checkout\CheckoutComplete.aspx" />
+    <Content Include="Checkout\CheckoutReview.aspx" />
+    <Content Include="Checkout\PagoCard.aspx" />
+    <Content Include="Contact\Contact.aspx" />
     <Content Include="Content\bootstrap-icons.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Admin\Menu.aspx" />
@@ -2000,11 +2005,14 @@
     <Content Include="Images\icons\bootstrap-icons.json" />
     <Content Include="Images\icons\bootstrap-icons.scss" />
     <Content Include=".editorconfig" />
+    <Content Include="Checkout\Web.config" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\coca.png" />
     <Content Include="Images\logog.png" />
     <Content Include="Images\Thumbs\coca.png" />
+    <Content Include="ProductDetails.aspx" />
+    <Content Include="ProductList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2033,6 +2041,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -2165,6 +2174,13 @@
     </Compile>
     <Compile Include="Account\ordersusers.aspx.designer.cs">
       <DependentUpon>ordersusers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddToCart.aspx.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddToCart.aspx.designer.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\CategoriaAdmin.aspx.cs">
       <DependentUpon>CategoriaAdmin.aspx</DependentUpon>
@@ -2332,6 +2348,34 @@
     <Compile Include="Admin\Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Checkout\CheckoutComplete.aspx.cs">
+      <DependentUpon>CheckoutComplete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout\CheckoutComplete.aspx.designer.cs">
+      <DependentUpon>CheckoutComplete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout\CheckoutReview.aspx.cs">
+      <DependentUpon>CheckoutReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout\CheckoutReview.aspx.designer.cs">
+      <DependentUpon>CheckoutReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout\PagoCard.aspx.cs">
+      <DependentUpon>PagoCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout\PagoCard.aspx.designer.cs">
+      <DependentUpon>PagoCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Logic\AddCards.cs" />
     <Compile Include="Logic\AddCategories.cs" />
     <Compile Include="Logic\addpedrepoes.cs" />
@@ -2382,7 +2426,28 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\proveedores.cs" />
     <Compile Include="Models\tipocomprobantes.cs" />
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductList.aspx.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductList.aspx.designer.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

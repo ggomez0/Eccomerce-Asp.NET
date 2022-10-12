@@ -63,14 +63,21 @@
         </li>
 
       
-          <li class="nav-item">
-             <a class="nav-link active" runat="server" href="~/Admin/Menu.aspx">ADMIN</a>
+                 
+
+             <li class="nav-item">
+              <a class="nav-link active" runat="server" href="~/ProductList">Productos</a>
           </li>
-        
+          <li class="nav-item">
+             <a class="nav-link active" runat="server" href="~/Ubicacion">Ubicacion</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link active" runat="server" href="~/Contact/Contact">Contacto</a>
+          </li>
 
           <%--carrito--%>
 
-          <%--<li>    
+          <li>    
               <a href="~/ShoppingCart" runat="server">
                 <img src="Images/shopping-cart.png" runat="server" style="height:40px; width:40px;"/>
              </a>
@@ -78,13 +85,13 @@
 
           <li class="nav-item">
             <a class="nav-link active" runat="server" href="~/ShoppingCart" ID="cartCount"/>          
-          </li>--%>
+          </li>
           
            <%--carrito--%>
              
-        <%--  <li class="nav-item">
+          <li class="nav-item">
               <a class="nav-link active" runat="server" id="adminLink" visible="false" href="~/Admin/Menu.aspx">Menu-Admin</a>
-          </li>--%>
+          </li>
          
       </ul>
         

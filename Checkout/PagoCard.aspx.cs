@@ -40,8 +40,8 @@ namespace ShopGaspar.Checkout
             bool addSuccess1 = order.AddOrders(DateTime.Now, firstName.Text, lastName.Text, address.Text, phone.Text, email.Text, User.Identity.Name);
             bool addSuccess = cards.AddCard(ccnumber.Text, Convert.ToInt32(cccvv.Text), ccexpiration.Text, ccname.Text);
             int max = _db.Orders.Max(p => p.OrderId);
-            this.sendemail(email.Text);
-            this.sendemail1();
+            //this.sendemail(email.Text);
+            //this.sendemail1();
 
             using (ShopGaspar.Logic.ShoppingCartActions usersShoppingCart = new ShopGaspar.Logic.ShoppingCartActions())
             {
@@ -75,55 +75,55 @@ namespace ShopGaspar.Checkout
         }
 
 
-        private void sendemail(string txt1)
-        {
-            int max = _db.Orders.Max(p => p.OrderId);
-            MailMessage mensaje = new MailMessage();
-            mensaje.From = new MailAddress("gaspargomez2000@outlook.com", "EL PUENTE");
-            mensaje.To.Add(txt1);
-            mensaje.Subject = string.Format("Gracias por la compra - Orden #{0}", max);
+        //private void sendemail(string txt1)
+        //{
+        //    int max = _db.Orders.Max(p => p.OrderId);
+        //    MailMessage mensaje = new MailMessage();
+        //    mensaje.From = new MailAddress("gaspargomez2000@outlook.com", "EL PUENTE");
+        //    mensaje.To.Add(txt1);
+        //    mensaje.Subject = string.Format("Gracias por la compra - Orden #{0}", max);
 
-            mensaje.IsBodyHtml = false;
-            mensaje.Body = ("Hola, has realizado la compra en EL PUENTE con exito. Ingresando a este link https://localhost:44351/Account/ordersusers con tu cuenta veras todas tus ordenes realizadas y sus detalles..");
+        //    mensaje.IsBodyHtml = false;
+        //    mensaje.Body = ("Hola, has realizado la compra en EL PUENTE con exito. Ingresando a este link https://localhost:44351/Account/ordersusers con tu cuenta veras todas tus ordenes realizadas y sus detalles..");
 
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.office365.com";
-            System.Net.NetworkCredential credenciales = new System.Net.NetworkCredential();
+        //    SmtpClient smtp = new SmtpClient();
+        //    smtp.Host = "smtp.office365.com";
+        //    System.Net.NetworkCredential credenciales = new System.Net.NetworkCredential();
 
-            credenciales.UserName = "gaspargomez2000@outlook.com";
-            credenciales.Password = "your password";
+        //    credenciales.UserName = "gaspargomez2000@outlook.com";
+        //    credenciales.Password = "your password";
 
-            smtp.UseDefaultCredentials = true;
-            smtp.Credentials = credenciales;
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
-            smtp.Send(mensaje);
-        }
+        //    smtp.UseDefaultCredentials = true;
+        //    smtp.Credentials = credenciales;
+        //    smtp.Port = 587;
+        //    smtp.EnableSsl = true;
+        //    smtp.Send(mensaje);
+        //}
 
-        private void sendemail1()
-        {
-            int max = _db.Orders.Max(p => p.OrderId);
-            MailMessage mensaje = new MailMessage();
-            mensaje.From = new MailAddress("gaspargomez2000@outlook.com", "EL PUENTE");
-            mensaje.To.Add("gaspargomez2000@outlook.com");
-            mensaje.Subject = string.Format("Venta Realizada - Orden #{0}", max);
+        //private void sendemail1()
+        //{
+        //    int max = _db.Orders.Max(p => p.OrderId);
+        //    MailMessage mensaje = new MailMessage();
+        //    mensaje.From = new MailAddress("gaspargomez2000@outlook.com", "EL PUENTE");
+        //    mensaje.To.Add("gaspargomez2000@outlook.com");
+        //    mensaje.Subject = string.Format("Venta Realizada - Orden #{0}", max);
 
-            mensaje.IsBodyHtml = false;
-            mensaje.Body = ("Hola, has realizado una venta en EL PUENTE con exito. Ingresar a tu cuenta para poder visualizar los detalles de la orden");
+        //    mensaje.IsBodyHtml = false;
+        //    mensaje.Body = ("Hola, has realizado una venta en EL PUENTE con exito. Ingresar a tu cuenta para poder visualizar los detalles de la orden");
 
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.office365.com";
-            System.Net.NetworkCredential credenciales = new System.Net.NetworkCredential();
+        //    SmtpClient smtp = new SmtpClient();
+        //    smtp.Host = "smtp.office365.com";
+        //    System.Net.NetworkCredential credenciales = new System.Net.NetworkCredential();
 
-            credenciales.UserName = "gaspargomez2000@outlook.com";
-            credenciales.Password = "your password";
+        //    credenciales.UserName = "gaspargomez2000@outlook.com";
+        //    credenciales.Password = "your password";
 
-            smtp.UseDefaultCredentials = true;
-            smtp.Credentials = credenciales;
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
-            smtp.Send(mensaje);
-        }
+        //    smtp.UseDefaultCredentials = true;
+        //    smtp.Credentials = credenciales;
+        //    smtp.Port = 587;
+        //    smtp.EnableSsl = true;
+        //    smtp.Send(mensaje);
+        //}
 
         private void updateprod(int qty, int id)
         {
