@@ -55,7 +55,7 @@
                  <p></p>
                 
                     <img src="../Images/email.png" style="height:70px; width:70px;" />
-                 admin@elpuente.com
+                 admin@gamersalta.com
              
             </div>
           </div>

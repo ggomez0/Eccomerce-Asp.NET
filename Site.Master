@@ -68,9 +68,9 @@
              <li class="nav-item">
               <a class="nav-link active" runat="server" href="~/ProductList">Productos</a>
           </li>
-          <li class="nav-item">
+          <%--<li class="nav-item">
              <a class="nav-link active" runat="server" href="~/Ubicacion">Ubicacion</a>
-          </li>
+          </li>--%>
           <li class="nav-item">
              <a class="nav-link active" runat="server" href="~/Contact/Contact">Contacto</a>
           </li>

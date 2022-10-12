@@ -261,6 +261,7 @@
     <Content Include="Content\bootstrap-icons.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Admin\Menu.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Images\Almacen.jpg" />
     <Content Include="Images\asado.jpg" />
     <Content Include="Images\asado1.jpg" />
@@ -2375,6 +2376,13 @@
     </Compile>
     <Compile Include="Contact\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\AddCards.cs" />
     <Compile Include="Logic\AddCategories.cs" />
