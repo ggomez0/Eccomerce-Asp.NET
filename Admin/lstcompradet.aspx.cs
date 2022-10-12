@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -21,9 +22,8 @@ namespace ShopGaspar.Admin
         {
             if (!IsPostBack)
             {
-                string nID = Request.QueryString["id1"];
+                string nID = Request.QueryString["id"];
                 lblinvisible.Text = nID;
-                lblord.Text += nID;
                 this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
                     "Descripcion,UnitPrice as Precio,CategoryID,Stock FROM Products", gvproductoslista);
 
@@ -35,6 +35,22 @@ namespace ShopGaspar.Admin
 
 
             }
+        }
+
+        
+        public IQueryable<pedrepo> GetPedido([QueryString("id")] int? pedidoid)
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable<pedrepo> query = _db.pedrepos;
+            if (pedidoid.HasValue && pedidoid > 0)
+            {
+                query = query.Where(p => p.idcomp == pedidoid);
+            }
+            else
+            {
+                query = null;
+            }
+            return query;
         }
 
         public IQueryable GetProveedores()

@@ -4,8 +4,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
      <div class="container">
-                  <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DEL PEDIDO N°</asp:Label>
-<p></p>
+                       <asp:FormView ID="pedidoid" runat="server" ItemType="ShopGaspar.Models.pedrepo" SelectMethod ="GetPedido" RenderOuterTable="false" >
+                            <ItemTemplate>
+                                <div>
+                                    <h1>Detalle de pedido N° <%#:Item.idcomp %></h1>
+                                </div>
+                                <br />
+                                   <tr>
+                                       <td>
+                  
+                                           <span>Fecha: <%#Item.dateTime %></span>
+                                        </td>
+                                    </tr>
+                                <br />
+                            </ItemTemplate>
+                        </asp:FormView>
+
                       <asp:Button ID="Button5" CssClass="btn btn-success rounded-3"  runat="server" Text="Agregar Productos" ValidationGroup="VG99" />
                                     <!-- ModalPopupExtender -->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"

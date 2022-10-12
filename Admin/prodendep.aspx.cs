@@ -5,8 +5,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ShopGaspar.Models;
 
 namespace ShopGaspar.Admin
 {
@@ -16,10 +18,24 @@ namespace ShopGaspar.Admin
         {
             if (!IsPostBack)
             {
-                string nID = Request.QueryString["id3"];
-                lblprodendep.Text += nID;
+                string nID = Request.QueryString["id"];
                 mostrarorder(nID);
             }
+        }
+
+        public IQueryable<depositos> GetDeposito([QueryString("id")] int? pedidoid)
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable<depositos> query = _db.depositos;
+            if (pedidoid.HasValue && pedidoid > 0)
+            {
+                query = query.Where(p => p.DepID== pedidoid);
+            }
+            else
+            {
+                query = null;
+            }
+            return query;
         }
 
         private void mostrarorder(string ido)

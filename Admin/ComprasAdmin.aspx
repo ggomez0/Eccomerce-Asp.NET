@@ -400,8 +400,8 @@
                                      <%--------------------------------------------------------------%>
 
                                           <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel" aria-labelledby="pills-lstcpra-tab">
-                                              
-                                  
+                                      
+                                      
                                         <asp:Button ID="addlstbtn" runat="server" Text="Nuevo Pedido de reposicion" OnClick="addlstbtn_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                                     ValidationGroup="VG1" />
                                     
@@ -439,30 +439,20 @@
                                                
                                    
                                            
-                                               <asp:TemplateField HeaderStyle-Width="10px" >
+                                               <asp:TemplateField HeaderStyle-Width="10px" HeaderText="Opciones" >
                                                             <ItemTemplate>
                                                                     <asp:ImageButton ImageUrl="~/Images/plus.png"
                                                                         runat="server" ValidationGroup="VG77" ID="btnlstdet" Width="20px" OnClick="btnlstdet_Click"
                                                                         Height="20px" CommandArgument='<%#Eval("idcomp") %>'  />
                                                                
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                             
-                                       
-                                                        <asp:TemplateField HeaderStyle-Width="10px">
-                                                            <ItemTemplate>
-
+                                                        
                                                                 <asp:ImageButton ImageUrl="~/Images/delete.png"
                                                                     runat="server" CommandName="Delete"
                                                                     ValidationGroup="VG108" ToolTip="Eliminar"
                                                                     Width="20px" Height="20px" />
-                                                            </ItemTemplate>                                                       
-                                                        </asp:TemplateField>
-
-                                             <asp:TemplateField HeaderStyle-Width="10px" >
-                                                            <ItemTemplate>
+                                                       
                                                              
-                                                                   <asp:ImageButton ImageUrl="~/Images/plus.png"
+                                                                   <asp:ImageButton ImageUrl="~/Images/caja.png"
                                                                         runat="server" ValidationGroup="VG7007" ID="btnlstpasaraord" Width="20px"
                                                                         Height="20px" CommandName="Update"  />
                                                                
@@ -471,6 +461,7 @@
                                                         </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
+
 
                                           </div>
 

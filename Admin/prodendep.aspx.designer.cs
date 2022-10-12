@@ -15,13 +15,13 @@ namespace ShopGaspar.Admin
     {
 
         /// <summary>
-        /// Control lblprodendep.
+        /// Control pedidoid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblprodendep;
+        protected global::System.Web.UI.WebControls.FormView pedidoid;
 
         /// <summary>
         /// Control gvprodendep.

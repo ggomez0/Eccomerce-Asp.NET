@@ -84,8 +84,8 @@ namespace ShopGaspar.Admin
 
         protected void depdet_Click(object sender, ImageClickEventArgs e)
         {
-            int id3 = Convert.ToInt32((sender as ImageButton).CommandArgument);
-            Response.Redirect("~/Admin/prodendep.aspx?id3=" + id3);
+            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/prodendep.aspx?id=" + id);
         }
 
         protected void gvdep_RowEditing(object sender, GridViewEditEventArgs e)
