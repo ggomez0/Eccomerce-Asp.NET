@@ -266,6 +266,7 @@
     <Content Include="Images\asado.jpg" />
     <Content Include="Images\asado1.jpg" />
     <Content Include="Images\asado2.jpg" />
+    <Content Include="Images\caja.png" />
     <Content Include="Images\cancel.png" />
     <Content Include="Images\carne1.jpg" />
     <Content Include="Images\carne2.jpg" />
