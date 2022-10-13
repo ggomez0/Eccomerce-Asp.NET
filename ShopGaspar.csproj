@@ -2008,6 +2008,7 @@
     <Content Include="Images\icons\bootstrap-icons.scss" />
     <Content Include=".editorconfig" />
     <Content Include="Checkout\Web.config" />
+    <Content Include="Web.sitemap" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\coca.png" />

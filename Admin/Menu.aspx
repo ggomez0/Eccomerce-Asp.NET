@@ -24,7 +24,7 @@
 
                 .button64{background-color:#060606; height:12em; width:12em; border-inline:hidden}
                     </style>
-                 <h1 style="text-align:center;">Administracion</h1>
+<%--                 <h1 style="text-align:center;">Administracion</h1>--%>
                 <div class="game-board container">
                     <asp:Button runat="server" CssClass="button64 box" Text="Categoria" ID="btncat" OnClick="btncat_Click" />
                     <asp:Button runat="server" CssClass="button64 box" Text="Productos" ID="btnprod" OnClick="btnprod_Click" />
@@ -44,6 +44,7 @@
 
                 
                 </div>
+
 
 
 </asp:Content>

@@ -28,11 +28,10 @@ namespace ShopGaspar.Admin
                     "Descripcion,UnitPrice as Precio,CategoryID,Stock FROM Products", gvproductoslista);
 
 
-
-                //poner atributos con innerjoin
-                this.databasecrud(connectionString, "SELECT * from pedrepodets where pedrepo_idcomp =" + nID, gvlstcompradet);
-                //
-
+                this.databasecrud(connectionString, "SELECT IDCOMPRDET as ID, pr.ProductName as Producto, cantidad, ProvName as Proveedor" +
+                    " from pedrepodets p inner join products pr on p.Product_ProductID=pr.ProductID" +
+                    " inner join proveedores prov on prov.ProvID=p.ProvID where pedrepo_idcomp =" + nID, gvlstcompradet);
+             
 
             }
         }

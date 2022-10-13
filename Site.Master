@@ -122,8 +122,14 @@
                     </asp:LoginView>
             </div> 
     </div>
-      
-        </nav>     
+      </nav>
+    
+        <div class="container" runat="server">
+                  <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="true"/>
+                <asp:SiteMapPath ID="SiteMapPath1" runat="server" PathSeparator=" / " RenderCurrentNodeAsLink="false">
+                </asp:SiteMapPath>
+                <hr />
+          </div>
         
       
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

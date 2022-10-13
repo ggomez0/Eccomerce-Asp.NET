@@ -125,7 +125,7 @@
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvlstcompradet" 
             ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
-            DataKeyNames="idcomprdet"  OnRowDeleting="gvlstcompradet_RowDeleting">
+            DataKeyNames="ID"  OnRowDeleting="gvlstcompradet_RowDeleting">
              <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White"  />
         <Columns>
             <asp:TemplateField>

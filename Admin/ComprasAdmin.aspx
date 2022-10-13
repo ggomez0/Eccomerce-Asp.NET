@@ -526,7 +526,7 @@
                                                          <tr>
                                                             <td><asp:Label runat="server" Text="N° Factura:"></asp:Label></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtnumfact" runat="server" TextMode="Number" CausesValidation="true">
+                                                                <asp:TextBox ID="txtnumfact" style="width:60%" runat="server" TextMode="Number" CausesValidation="true">
                                                                 </asp:TextBox>
                                                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator14"
                                                                 runat="server" Text="* campo requerido."
@@ -540,7 +540,7 @@
                                                                 <tr>
                                                             <td><asp:Label runat="server" Text="Tipo:"></asp:Label></td>
                                                             <td>
-                                                                <asp:DropDownList ID="txttipo" runat="server">
+                                                                <asp:DropDownList ID="txttipo" runat="server" style="width:60%">
                                                                     <asp:ListItem Text="A"></asp:ListItem>
                                                                     <asp:ListItem Text="B"></asp:ListItem>
                                                                     <asp:ListItem Text="C"></asp:ListItem>
@@ -551,7 +551,7 @@
                                                         <tr>
                                                             <td><asp:Label runat="server" Text="N° Sucursal:"></asp:Label></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtsucursal"  runat="server" TextMode="Number" CausesValidation="true">
+                                                                <asp:TextBox ID="txtsucursal"  runat="server" TextMode="Number" style="width:60%" CausesValidation="true">
                                                                 </asp:TextBox>       
                                                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
                                                                 runat="server" Text="* campo requerido."
@@ -565,7 +565,7 @@
                                                           <tr>
                                                             <td><asp:Label runat="server" Text="Fecha factura:"></asp:Label></td>
                                                             <td>
-                                                              <asp:TextBox runat="server" TextMode="DateTimeLocal" ID="txtcalendar"> </asp:TextBox>
+                                                              <asp:TextBox runat="server" TextMode="Date" style="width:60%" ID="txtcalendar"> </asp:TextBox>
                                                         </td>
                                                         </tr>                                         
                                                        <tr>
@@ -574,7 +574,7 @@
                                                                     Proveedor:</asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:DropDownList ID="ddlistfact"
+                                                                <asp:DropDownList ID="ddlistfact" style="width:60%"
                                                                     runat="server" ItemType="ShopGaspar.Models.proveedores"
                                                                     SelectMethod="GetProveedores"
                                                                     DataTextField="ProvName"
