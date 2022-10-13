@@ -351,10 +351,8 @@
                                                                     SetFocusOnError="true" Display="Dynamic"
                                                                     ValidationGroup="VG106"></asp:RequiredFieldValidator>
                                                             </td>
-                                                        </tr>
-                                                        
+                                                        </tr>                                                        
                                                         <tr>
-
                                                             <td>
                                                                 <asp:Label ID="Label4e" runat="server" Text="">
                                                                 </asp:Label>
@@ -391,12 +389,7 @@
                                                         </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
-                                              
-
                                           </div>
-
-
-
                                      <%--------------------------------------------------------------%>
 
                                           <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel" aria-labelledby="pills-lstcpra-tab">
@@ -404,10 +397,6 @@
                                       
                                         <asp:Button ID="addlstbtn" runat="server" Text="Nuevo Pedido de reposicion" OnClick="addlstbtn_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                                     ValidationGroup="VG1" />
-                                    
-                                              
-
-                                 
                                     <asp:GridView ID="gvlstcpra" runat="server" CssClass="grid"
                                         ShowHeaderWhenEmpty="true" class="table thead-dark" AutoGenerateColumns="false"
                                         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
@@ -418,11 +407,7 @@
                                                     OnRowDeleting="gvlstcpra_RowDeleting">
                                                             <HeaderStyle BackColor="black" Font-Bold="True"
                                                                 ForeColor="White"  />
-                                                            
-                                                          
-                                                           
                                         <Columns>
-
                                               <asp:TemplateField HeaderText="ID">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("idcomp") %>'
@@ -536,19 +521,9 @@
                                                                 ControlToValidate="txtnumfact" ErrorMessage="Debe ser &gt; 0"
                                                                 Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG2481" />
                                                             </td>
+
                                                                 </tr>
-                                                                <tr>
-                                                            <td><asp:Label runat="server" Text="Tipo:"></asp:Label></td>
-                                                            <td>
-                                                                <asp:DropDownList ID="txttipo" runat="server" style="width:60%">
-                                                                    <asp:ListItem Text="A"></asp:ListItem>
-                                                                    <asp:ListItem Text="B"></asp:ListItem>
-                                                                    <asp:ListItem Text="C"></asp:ListItem>
-                                                                </asp:DropDownList>
-                                                                                                                          
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
+                                                         <tr>
                                                             <td><asp:Label runat="server" Text="N° Sucursal:"></asp:Label></td>
                                                             <td>
                                                                 <asp:TextBox ID="txtsucursal"  runat="server" TextMode="Number" style="width:60%" CausesValidation="true">
@@ -561,14 +536,8 @@
                                                                 ControlToValidate="txtsucursal" ErrorMessage="Debe ser &gt; 0"
                                                                 Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG2481" />
                                                             </td>
-                                                        </tr>    
+                                                        </tr>   
                                                           <tr>
-                                                            <td><asp:Label runat="server" Text="Fecha factura:"></asp:Label></td>
-                                                            <td>
-                                                              <asp:TextBox runat="server" TextMode="Date" style="width:60%" ID="txtcalendar"> </asp:TextBox>
-                                                        </td>
-                                                        </tr>                                         
-                                                       <tr>
                                                             <td>
                                                                 <asp:Label runat="server">
                                                                     Proveedor:</asp:Label>
@@ -582,6 +551,25 @@
                                                                 </asp:DropDownList>
                                                             </td>
                                                         </tr>    
+                                                                <tr>
+                                                            <td><asp:Label runat="server" Text="Tipo:"></asp:Label></td>
+                                                            <td>
+                                                                <asp:DropDownList ID="txttipo" runat="server" style="width:60%">
+                                                                    <asp:ListItem Text="A"></asp:ListItem>
+                                                                    <asp:ListItem Text="B"></asp:ListItem>
+                                                                    <asp:ListItem Text="C"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                                                                                          
+                                                            </td>
+                                                        </tr>
+                                                       
+                                                          <tr>
+                                                            <td><asp:Label runat="server" Text="Fecha factura:"></asp:Label></td>
+                                                            <td>
+                                                              <asp:TextBox runat="server" TextMode="Date" style="width:60%" ID="txtcalendar"> </asp:TextBox>
+                                                        </td>
+                                                        </tr>                                         
+                                                     
                                                     </table>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
@@ -655,15 +643,7 @@
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
 
-                            <%--                  <asp:TemplateField HeaderStyle-Width="10px" >
-                                                            <ItemTemplate>
-                                                                    <asp:ImageButton ImageUrl="~/Images/pdf.png"
-                                                                        runat="server" ValidationGroup="VG77111" ID="btngeneratepdf" Width="20px" OnClick="GenerateInvoicePDF"
-                                                                        Height="20px"  />
-                                                               
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>--%>
-                                             
+                                            
                                        
                                                         <asp:TemplateField HeaderStyle-Width="10px">
                                                             <ItemTemplate>
