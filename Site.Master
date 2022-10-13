@@ -127,11 +127,9 @@
         <div class="container" runat="server">
                   <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="true"/>
                 <asp:SiteMapPath ID="SiteMapPath1" runat="server" PathSeparator=" / " RenderCurrentNodeAsLink="false">
-                </asp:SiteMapPath>
-                <hr />
+                </asp:SiteMapPath>          
           </div>
-        
-      
+              
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             
