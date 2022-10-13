@@ -247,8 +247,8 @@
     <Content Include="Admin\ordcpraborrdet.aspx" />
     <Content Include="Admin\ordcpradet.aspx" />
     <Content Include="Admin\ordcpraenv.aspx" />
-    <Content Include="Admin\ordcprafin.aspx" />
     <Content Include="Admin\ordcprarec.aspx" />
+    <Content Include="Admin\ordcprabor.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
     <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
@@ -2293,19 +2293,19 @@
     <Compile Include="Admin\ordcpraenv.aspx.designer.cs">
       <DependentUpon>ordcpraenv.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ordcprafin.aspx.cs">
-      <DependentUpon>ordcprafin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ordcprafin.aspx.designer.cs">
-      <DependentUpon>ordcprafin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\ordcprarec.aspx.cs">
       <DependentUpon>ordcprarec.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\ordcprarec.aspx.designer.cs">
       <DependentUpon>ordcprarec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ordcprabor.aspx.cs">
+      <DependentUpon>ordcprabor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ordcprabor.aspx.designer.cs">
+      <DependentUpon>ordcprabor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ordorduser.aspx.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
