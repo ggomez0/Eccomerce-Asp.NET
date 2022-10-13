@@ -267,6 +267,15 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.GridView gvlstcpra;
 
         /// <summary>
+        /// Control btnordcprabor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnordcprabor;
+
+        /// <summary>
         /// Control btnordcprarec.
         /// </summary>
         /// <remarks>
@@ -283,15 +292,6 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnordcpraenv;
-
-        /// <summary>
-        /// Control btnordcprafin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnordcprafin;
 
         /// <summary>
         /// Control Button123123.
@@ -357,15 +357,6 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
 
         /// <summary>
-        /// Control txttipo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txttipo;
-
-        /// <summary>
         /// Control txtsucursal.
         /// </summary>
         /// <remarks>
@@ -393,15 +384,6 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
 
         /// <summary>
-        /// Control txtcalendar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcalendar;
-
-        /// <summary>
         /// Control ddlistfact.
         /// </summary>
         /// <remarks>
@@ -409,6 +391,24 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlistfact;
+
+        /// <summary>
+        /// Control txttipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txttipo;
+
+        /// <summary>
+        /// Control txtcalendar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtcalendar;
 
         /// <summary>
         /// Control btnanfact.

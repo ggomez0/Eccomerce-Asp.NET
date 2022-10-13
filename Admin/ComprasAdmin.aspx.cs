@@ -176,7 +176,7 @@ namespace ShopGaspar.Admin
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "(insert comprobantes(ProvID, stringn, idcomprobante, dateTime, descripcion)(select distinct ProvID, pedrepo_idcomp, 2,"+
+                string query = "insert comprobantes(ProvID, stringn, idcomprobante, dateTime, descripcion)(select distinct ProvID, pedrepo_idcomp, 2,"+
                                     "GETDATE(), 'Borrador' from pedrepodets where (ProvID in (select ProvID  from pedrepodets group by ProvID)))";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@idpedidos", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
@@ -263,7 +263,7 @@ namespace ShopGaspar.Admin
         protected void btnlstdet_Click(object sender, ImageClickEventArgs e)
         {
             int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
-            Response.Redirect("~/Admin/lstcompradet.aspx?id1=" + id);
+            Response.Redirect("~/Admin/lstcompradet.aspx?id=" + id);
         }
 
         protected void gvordcpra_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -377,13 +377,11 @@ namespace ShopGaspar.Admin
             Response.Redirect("~/Admin/ordcpraenv");
 
         }
+   
 
-        protected void btnordcprafin_Click(object sender, EventArgs e)
+        protected void btnordcprabor_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Admin/ordcprafin");
-
+             Response.Redirect("~/Admin/ordcprabor");
         }
-
-     
     }
 }

@@ -3,8 +3,20 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
       <div class="container">
-      
-        <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black">Productos</asp:Label>
+                   <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA FACTURA N°</asp:Label>
+<p></p>
+                          <asp:Button ID="Button1231234" CssClass="btn btn-success rounded-3"  runat="server" Text="Agregar Producto" />
+                                    <!-- ModalPopupExtender --->
+                                    <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
+                                        PopupControlID="Panel1112" TargetControlID="Button1231234" CancelControlID="Button8122"
+                                        BackgroundCssClass="modalBackground">
+                                    </cc1:ModalPopupExtender>
+                                    <asp:Panel ID="Panel1112" runat="server" CssClass="modalPopup" align="center"
+                                        Style="background-color:white; border:solid; border-color:black;" >
+                                        <div style="padding:20px">
+                                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                                <ContentTemplate>
+                                                   <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black">Productos</asp:Label>
          <h3>Seleccione los productos para agregarlos a la factura</h3>
         
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
@@ -65,13 +77,24 @@
             </asp:TemplateField>
         </Columns>
         </asp:GridView>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
+                          
+                                        <asp:Button ID="Button8122" CssClass="btn btn-danger rounded-3" ValidationGroup="wdko" runat="server" Text="Cerrar" />
+                                        <br />
+                                        <p>  </p>
+                                        <p></p>
+                                    </asp:Panel>
+        
           <p></p>
          <p></p>
 
 
 
 
-         <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA FACTURA N°</asp:Label>
+
+
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvlstcompradet" 
             ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
             DataKeyNames="idcomprdet"  OnRowDeleting="gvlstcompradet_RowDeleting">

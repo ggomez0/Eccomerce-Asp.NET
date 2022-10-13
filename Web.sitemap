@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Admin/Menu" title="Menu"  description="Menu">
+    <siteMapNode url="~/Admin/ProductosAdmin" title="Productos" />
+    <siteMapNode url="~/Admin/IngEgrAdmin" title="Stock" />
+	  <siteMapNode url="~/Admin/CategoriaAdmin" title="Categoria">
+		 <siteMapNode url="~/Admin/detprodcat" title="Detalles"/>
+		  
+	  </siteMapNode>
+    <siteMapNode url="~/Admin/DepositosAdmin" title="Depositos">
+		<siteMapNode url="~/Admin/historial" title="Historial"></siteMapNode>
+		<siteMapNode url="~/Admin/prodendep" title="Detalles"></siteMapNode>
+	</siteMapNode>
+	  <siteMapNode url="~/Admin/ComprasAdmin" title="Compras">
+		 <siteMapNode url="~/Admin/lstcompradet" title="Detalle Pedido"/>
+		  <siteMapNode url="~/Admin/ordcprabor" title="Orden Borrador">
+			<siteMapNode url="~/Admin/ordcpraborrdet" title="Detalle"/>
+			  
+		  </siteMapNode>
+		 <siteMapNode url="~/Admin/ordcprarec" title="Orden Recibido"/>
+		 <siteMapNode url="~/Admin/ordcpraenv" title="Orden Enviado"/>
+		 <siteMapNode url="~/Admin/factdet" title="Detalle Factura"/>
+		  
+		  
+	  </siteMapNode>
+
+  </siteMapNode>
+</siteMap>
+

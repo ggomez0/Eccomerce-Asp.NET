@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ShopGaspar.Admin
+namespace ShopGaspar
 {
 
 
-    public partial class ordcprarec
+    public partial class Default
     {
     }
 }
