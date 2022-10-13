@@ -267,6 +267,15 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.GridView gvlstcpra;
 
         /// <summary>
+        /// Control btnordcprabor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnordcprabor;
+
+        /// <summary>
         /// Control btnordcprarec.
         /// </summary>
         /// <remarks>
@@ -283,15 +292,6 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnordcpraenv;
-
-        /// <summary>
-        /// Control btnordcprafin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnordcprafin;
 
         /// <summary>
         /// Control Button123123.

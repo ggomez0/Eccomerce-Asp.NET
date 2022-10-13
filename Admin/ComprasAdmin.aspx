@@ -455,6 +455,28 @@
                                                                    <asp:ImageButton ImageUrl="~/Images/caja.png"
                                                                         runat="server" ValidationGroup="VG7007" ID="btnlstpasaraord" Width="20px"
                                                                         Height="20px" CommandName="Update"  />
+                                    <!-- ModalPopupExtender -->
+                                    <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
+                                        PopupControlID="Panel21" TargetControlID="btnlstpasaraord" CancelControlID="Button745"
+                                        BackgroundCssClass="modalBackground">
+                                    </cc1:ModalPopupExtender>
+                                    <asp:Panel ID="Panel21" runat="server" CssClass="modalPopup" align="center"
+                                        Style="background-color:white; border:solid; border-color:black;" >
+                                        <div style="padding:20px">
+                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                <ContentTemplate>
+                                                        <span>Desea enviar este pedido de reposicion a ordenes de compra?</span>        
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                        <asp:Button ID="btnagregarprov" runat="server" Text="Enviar" CommandName="Update"       
+                                                                     CssClass="btn btn-success rounded-3" CausesValidation="true"
+                                                                     />
+                                        <asp:Button ID="Button745" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG10122" />
+                                        <br />
+                                        <p>  </p>
+                                        <p></p>
+                                    </asp:Panel>
                                                                
                                                                
                                                             </ItemTemplate>
@@ -473,17 +495,16 @@
 
 
                                           <div class="tab-pane fade" id="pills-ordcpra" role="tabpanel" aria-labelledby="pills-ordcpra-tab">
+                                           
                                               <p></p>
                                               <h3>Seleccione el tipo de orden que requiera</h3>
                                               <p></p>
-                                              <asp:Button runat="server" ID="btnordcprarec" OnClick="btnordcprarec_Click" CssClass="btn btn-success rounded-3" Text="Ordenes borrador" />
-                                              <asp:Button runat="server" ID="btnordcpraenv" OnClick="btnordcpraenv_Click" CssClass="btn btn-success rounded-3" Text="Ordenes recibidos" />
-                                              <asp:Button runat="server" ID="btnordcprafin" OnClick="btnordcprafin_Click" CssClass="btn btn-success rounded-3" Text="Ordenes enviados" />
+                                              <asp:Button runat="server" ID="btnordcprabor" OnClick="btnordcprabor_Click" CssClass="btn btn-success rounded-3" Text="Ordenes borrador" />
+                                              <asp:Button runat="server" ID="btnordcprarec" OnClick="btnordcprarec_Click" CssClass="btn btn-success rounded-3" Text="Ordenes recibidos" />
+                                              <asp:Button runat="server" ID="btnordcpraenv" OnClick="btnordcpraenv_Click" CssClass="btn btn-success rounded-3" Text="Ordenes enviados" />
 
-                                            
-
-                                          </div>
-                                            
+                                            </div>
+                                           
 
                                            <%------------------------------------------------------------------------------------------%>
 

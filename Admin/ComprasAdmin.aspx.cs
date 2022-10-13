@@ -377,13 +377,11 @@ namespace ShopGaspar.Admin
             Response.Redirect("~/Admin/ordcpraenv");
 
         }
+   
 
-        protected void btnordcprafin_Click(object sender, EventArgs e)
+        protected void btnordcprabor_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Admin/ordcprafin");
-
+             Response.Redirect("~/Admin/ordcprabor");
         }
-
-     
     }
 }
