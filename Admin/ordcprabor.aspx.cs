@@ -62,25 +62,7 @@ namespace ShopGaspar.Admin
 
         protected void gvordcprarec_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            //using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            //{
-            //    sqlCon.Open();
-            //    string query = "insert into comprobantesdets(cantidad,Comprobantes_idcomp,Product_ProductID)" +
-            //        "(select cantidad, @idcomp, Product_ProductID from pedrepodets where " +
-            //        "ProvID = @provid)";
-            //    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-            //    sqlCmd.Parameters.AddWithValue("@idcomp", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[0].ToString()));
-            //    sqlCmd.Parameters.AddWithValue("@provid", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[1].ToString()));
-
-            //    sqlCmd.ExecuteNonQuery();
-            //    gvordcprarec.EditIndex = -1;
-            //}
-
-            Response.Redirect("~/Admin/ordcpraborrdet.aspx?id=" + Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[0].ToString()));
-
-
-
-
+             Response.Redirect("~/Admin/ordcpraborrdet.aspx?id=" + Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[0].ToString()));
 
         }
 
@@ -115,7 +97,7 @@ namespace ShopGaspar.Admin
 
             catch (Exception ex)
             {
-                lblerror.Text = string.Format("Error al ingresar el beneficio ! Detalle: {0}", ex.Message);
+                lblerror.Text = string.Format("Error! Detalle: {0}", ex.Message);
             }
         }
     }

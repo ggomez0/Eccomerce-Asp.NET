@@ -627,7 +627,43 @@
                                                                 <asp:ImageButton ImageUrl="~/Images/delete.png"
                                                                     runat="server" CommandName="Delete"
                                                                     ValidationGroup="VG1011" ToolTip="Eliminar"
-                                                                    Width="20px" Height="20px" />
+                                                                    Width="20px" Height="20px" ID="eliminarfact" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField>
+                                                                <ItemTemplate>
+                                                                    
+
+                                                                 <asp:ImageButton ImageUrl="~/Images/usdsign.png"
+                                                                        runat="server" ID="btnpagaropen" Width="20px"
+                                                                        Height="20px"  />
+
+                                                                  <cc1:ModalPopupExtender ID="modalpofact" runat="server"
+                                                                        PopupControlID="panelfact"
+                                                                        TargetControlID="btnpagaropen"
+                                                                        CancelControlID="btnpagarcerrar"
+                                                                        BackgroundCssClass="modalBackground">
+                                                                    </cc1:ModalPopupExtender>
+                                                                    <asp:Panel ID="panelfact" runat="server"
+                                                                        CssClass="modalPopup" align="center"
+                                                                        Style="background-color:white; border:solid; border-color:black;">
+                                                                        <div style="padding:20px">
+                                                                            <asp:UpdatePanel runat="server">
+                                                                                <ContentTemplate>
+                                                                                    <span>Desea pagar factura?</span>
+                                                                                    <asp:DropDownList runat="server">
+                                                                                        <asp:ListItem>Forma de pago 1</asp:ListItem>
+                                                                                        <asp:ListItem>Forma de pago 2</asp:ListItem>
+                                                                                        <asp:ListItem>Forma de pago 3</asp:ListItem>
+                                                                                    </asp:DropDownList>     
+                                                                                </ContentTemplate>                                                                                
+                                                                            </asp:UpdatePanel>
+                                                                              <asp:Button runat="server" Text="Pagar" ID="pagarbtnno" CssClass="btn btn-success rounded-3"/>
+                                                                <asp:Button ID="btnpagarcerrar" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar"  />
+                                                                        </div>                                                                    
+                                                                    </asp:Panel>
+
+                                     
                                                             </ItemTemplate>                                                       
                                                         </asp:TemplateField>
                                         </Columns>

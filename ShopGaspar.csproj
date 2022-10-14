@@ -278,6 +278,7 @@
     <Content Include="Images\email.png" />
     <Content Include="Images\Facebook.png" />
     <Content Include="Images\Google.png" />
+    <Content Include="Images\Thumbs\i7.jpg" />
     <Content Include="Images\icons\123.svg" />
     <Content Include="Images\icons\activity.svg" />
     <Content Include="Images\icons\alarm-fill.svg" />
@@ -1953,6 +1954,7 @@
     <Content Include="Images\carrito.png" />
     <Content Include="Images\logoh.png" />
     <Content Include="Images\lupa.png" />
+    <Content Include="Images\Thumbs\mother.jpg" />
     <Content Include="Images\pdf.png" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\plus.png" />
@@ -1967,6 +1969,7 @@
     <Content Include="Images\Thumbs\prs.jpg" />
     <Content Include="Images\Thumbs\sinimagen.jpg" />
     <Content Include="Images\Thumbs\spf.png" />
+    <Content Include="Images\usdsign.png" />
     <Content Include="Images\verduleria.jpg" />
     <Content Include="Images\whatsapp.png" />
     <Content Include="Account\AddPhoneNumber.aspx" />

@@ -7,21 +7,7 @@
         <p></p>
                 <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA ORDEN BORRADOR N°</asp:Label>
         <p>        </p>
-       <%-- <table>
-            <tr>
-                <td>
-                    <asp:Label runat="server" Text="Forma de pago:"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList runat="server" ID="ddlistformadepago">
-                        <asp:ListItem>Forma de pago 1</asp:ListItem>
-                        <asp:ListItem>Forma de pago 2</asp:ListItem>
-                        <asp:ListItem>Forma de pago 3</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-        </table>
-        <p></p>--%>
+  
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvordcpraborrdet" 
             ShowHeaderWhenEmpty="true" AutoGenerateColumns="true"> 
