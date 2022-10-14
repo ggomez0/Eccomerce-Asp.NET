@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopGaspar.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -94,6 +95,7 @@ namespace ShopGaspar.Admin
 
         protected void btnlstpasaraord_Click1(object sender, EventArgs e)
         {
+          
             try
             {
                 using (SqlConnection sqlCon11 = new SqlConnection(connectionString))
@@ -102,6 +104,17 @@ namespace ShopGaspar.Admin
                     string query5 = "insert comprobantes(ProvID, stringn, idcomprobante, dateTime, descripcion)(select distinct ProvID, @idpedidos, 2,GETDATE(), 'Borrador' from pedrepodets where (ProvID in (select ProvID  from pedrepodets group by ProvID)) and pedrepo_idcomp=@idpedidos)";
                     SqlCommand sqlCmd12 = new SqlCommand(query5, sqlCon11);
                     sqlCmd12.Parameters.AddWithValue("@idpedidos", ddlistpedidos.SelectedValue);
+
+                    sqlCmd12.ExecuteNonQuery();
+
+
+                }
+                using (SqlConnection sqlCon11 = new SqlConnection(connectionString))
+                {
+                    sqlCon11.Open();
+                    string query5 = "declare @maxprov int = (select max(ProvID) from pedrepodets where pedrepo_idcomp=@idcomp) declare @current int = 1 while (@current <= @maxprov) begin insert into comprobantesdets(cantidad, Comprobantes_idcomp, Product_ProductID)(select cantidad, (select max(idcomp) from comprobantes), Product_ProductID from pedrepodets where ProvID = @current and pedrepo_idcomp = @idcomp) set @current = @current + 1; end";
+                    SqlCommand sqlCmd12 = new SqlCommand(query5, sqlCon11);
+                    sqlCmd12.Parameters.AddWithValue("@idcomp", ddlistpedidos.SelectedValue);
 
                     sqlCmd12.ExecuteNonQuery();
 

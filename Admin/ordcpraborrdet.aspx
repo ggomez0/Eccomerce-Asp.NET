@@ -7,7 +7,7 @@
         <p></p>
                 <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA ORDEN BORRADOR N°</asp:Label>
         <p>        </p>
-        <table>
+       <%-- <table>
             <tr>
                 <td>
                     <asp:Label runat="server" Text="Forma de pago:"></asp:Label>
@@ -21,7 +21,7 @@
                 </td>
             </tr>
         </table>
-        <p></p>
+        <p></p>--%>
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvordcpraborrdet" 
             ShowHeaderWhenEmpty="true" AutoGenerateColumns="true"> 
