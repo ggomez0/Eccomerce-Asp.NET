@@ -98,19 +98,7 @@ namespace ShopGaspar.Admin
           
             try
             {
-                //using (SqlConnection sqlCon11 = new SqlConnection(connectionString))
-                //{
-                //    sqlCon11.Open();
-                //    string query5 = "insert comprobantes(ProvID, stringn, idcomprobante, dateTime, descripcion)" +
-                //        "(select distinct ProvID, @idpedidos, 2,GETDATE(), 'Borrador' from pedrepodets where " +
-                //        "(ProvID in (select ProvID  from pedrepodets group by ProvID)) and pedrepo_idcomp=@idpedidos)";
-                //    SqlCommand sqlCmd12 = new SqlCommand(query5, sqlCon11);
-                //    sqlCmd12.Parameters.AddWithValue("@idpedidos", ddlistpedidos.SelectedValue);
-
-                //    sqlCmd12.ExecuteNonQuery();
-
-
-                //}
+                
                 using (SqlConnection sqlCon11 = new SqlConnection(connectionString))
                 {
                     sqlCon11.Open();
