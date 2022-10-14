@@ -437,31 +437,7 @@
                                                                     Width="20px" Height="20px" />
                                                        
                                                              
-                                                                   <asp:ImageButton ImageUrl="~/Images/caja.png"
-                                                                        runat="server" ValidationGroup="VG7007" ID="btnlstpasaraord" Width="20px"
-                                                                        Height="20px" CommandName="Update"  />
-                                    <!-- ModalPopupExtender -->
-                                    <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
-                                        PopupControlID="Panel21" TargetControlID="btnlstpasaraord" CancelControlID="Button745"
-                                        BackgroundCssClass="modalBackground">
-                                    </cc1:ModalPopupExtender>
-                                    <asp:Panel ID="Panel21" runat="server" CssClass="modalPopup" align="center"
-                                        Style="background-color:white; border:solid; border-color:black;" >
-                                        <div style="padding:20px">
-                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                                <ContentTemplate>
-                                                        <span>Desea enviar este pedido de reposicion a ordenes de compra?</span>        
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                        </div>
-                                        <asp:Button ID="btnagregarprov" runat="server" Text="Enviar" CommandName="Update"       
-                                                                     CssClass="btn btn-success rounded-3" CausesValidation="true"
-                                                                     />
-                                        <asp:Button ID="Button745" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG10122" />
-                                        <br />
-                                        <p>  </p>
-                                        <p></p>
-                                    </asp:Panel>
+                                                               
                                                                
                                                                
                                                             </ItemTemplate>

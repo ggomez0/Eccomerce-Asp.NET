@@ -173,19 +173,7 @@ namespace ShopGaspar.Admin
 
         protected void gvlstcpra_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                sqlCon.Open();
-                string query = "insert comprobantes(ProvID, stringn, idcomprobante, dateTime, descripcion)(select distinct ProvID, pedrepo_idcomp, 2,"+
-                                    "GETDATE(), 'Borrador' from pedrepodets where (ProvID in (select ProvID  from pedrepodets group by ProvID)))";
-                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                sqlCmd.Parameters.AddWithValue("@idpedidos", Convert.ToInt32(gvlstcpra.DataKeys[e.RowIndex].Value.ToString()));
-
-                sqlCmd.ExecuteNonQuery();
-                gvlstcpra.EditIndex = -1;
-                lblSuccessMessage.Text = "Agregado con exito";
-                lblErrorMessage.Text = "";
-            }
+            
 
             
          

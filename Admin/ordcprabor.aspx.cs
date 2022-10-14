@@ -18,8 +18,9 @@ namespace ShopGaspar.Admin
         {
             if(!IsPostBack)
             {
-                this.databasecrud(connectionString, "select * from comprobantes where idcomprobante=2 and descripcion='Borrador'",gvordcprarec);
+                this.databasecrud(connectionString, "select * from comprobantes where idcomprobante=2 and descripcion='Borrador' order by idcomp desc",gvordcprarec);
             }
+            
         }
 
 
@@ -60,19 +61,19 @@ namespace ShopGaspar.Admin
 
         protected void gvordcprarec_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                sqlCon.Open();
-                string query = "insert into comprobantesdets(cantidad,Comprobantes_idcomp,Product_ProductID)" +
-                    "(select cantidad, @idcomp, Product_ProductID from pedrepodets where " +
-                    "ProvID = @provid)";
-                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                sqlCmd.Parameters.AddWithValue("@idcomp", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[0].ToString()));
-                sqlCmd.Parameters.AddWithValue("@provid", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[1].ToString()));
+            //using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            //{
+            //    sqlCon.Open();
+            //    string query = "insert into comprobantesdets(cantidad,Comprobantes_idcomp,Product_ProductID)" +
+            //        "(select cantidad, @idcomp, Product_ProductID from pedrepodets where " +
+            //        "ProvID = @provid)";
+            //    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+            //    sqlCmd.Parameters.AddWithValue("@idcomp", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[0].ToString()));
+            //    sqlCmd.Parameters.AddWithValue("@provid", Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[1].ToString()));
 
-                sqlCmd.ExecuteNonQuery();
-                gvordcprarec.EditIndex = -1;
-            }
+            //    sqlCmd.ExecuteNonQuery();
+            //    gvordcprarec.EditIndex = -1;
+            //}
 
             Response.Redirect("~/Admin/ordcpraborrdet.aspx?id=" + Convert.ToInt32(gvordcprarec.DataKeys[e.RowIndex].Values[0].ToString()));
 
@@ -80,6 +81,39 @@ namespace ShopGaspar.Admin
 
 
 
+        }
+
+    
+
+        public IQueryable Getpedidosrepo()
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable query = _db.pedrepos;
+            return query;
+        }
+
+        protected void btnlstpasaraord_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlCon11 = new SqlConnection(connectionString))
+                {
+                    sqlCon11.Open();
+                    string query5 = "insert comprobantes(ProvID, stringn, idcomprobante, dateTime, descripcion)(select distinct ProvID, @idpedidos, 2,GETDATE(), 'Borrador' from pedrepodets where (ProvID in (select ProvID  from pedrepodets group by ProvID)) and pedrepo_idcomp=@idpedidos)";
+                    SqlCommand sqlCmd12 = new SqlCommand(query5, sqlCon11);
+                    sqlCmd12.Parameters.AddWithValue("@idpedidos", ddlistpedidos.SelectedValue);
+
+                    sqlCmd12.ExecuteNonQuery();
+
+
+                }
+                Response.Redirect(Request.RawUrl);
+            }
+
+            catch (Exception ex)
+            {
+                lblerror.Text = string.Format("Error al ingresar el beneficio ! Detalle: {0}", ex.Message);
+            }
         }
     }
 }

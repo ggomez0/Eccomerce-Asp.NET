@@ -125,27 +125,7 @@ namespace ShopGaspar
             Response.Redirect("~/Checkout/Pagocard.aspx?total=" + lblTotal.Text);
         }
 
-        //protected void imgremove_Click(object sender, ImageClickEventArgs e)
-        //{
-        //    using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
-        //    {
-        //        String cartId = usersShoppingCart.GetCartId();
-
-        //        ShoppingCartActions.ShoppingCartUpdates[] cartUpdates = new ShoppingCartActions.ShoppingCartUpdates[CartList.Rows.Count];
-        //        for (int i = 0; i < CartList.Rows.Count; i++)
-        //        {
-
-        //            IOrderedDictionary rowValues = new OrderedDictionary();
-        //            rowValues = GetValues(CartList.Rows[i]);
-        //            cartUpdates[i].ProductId = Convert.ToInt32(rowValues["ProductID"]);
-        //            ImageButton imgbtnremove = new ImageButton();
-        //            imgbtnremove = (ImageButton)CartList.Rows[i].FindControl("imgremove");
-        //            cartUpdates[i].RemoveItem = imgbtnremove.Enabled;
-        //        }
-        //        usersShoppingCart.UpdateShoppingCartDatabase(cartId, cartUpdates);
-        //        CartList.DataBind();
-        //        UpdateCartItems();
-               
+      
             
         }
     }

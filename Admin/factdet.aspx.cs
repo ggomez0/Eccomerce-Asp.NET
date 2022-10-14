@@ -26,7 +26,7 @@ namespace ShopGaspar.Admin
                 lblord.Text += nID;
                 this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
                     "Descripcion,UnitPrice as Precio,CategoryID,Stock FROM Products", gvproductoslista);
-                this.databasecrud(connectionString, "SELECT ProductName,cantidad, UnitPrice, c.CategoryName, l.idcomprdet" +
+                this.databasecrud(connectionString, "SELECT ProductName,cantidad, UnitPrice, c.CategoryName, l.idcomprdet, (cantidad*UnitPrice) as Total" +
                     " FROM comprobantesdets l inner join Products p on l.Product_ProductID=p.ProductID inner join Categories c " +
                     "on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);
 
@@ -75,6 +75,20 @@ namespace ShopGaspar.Admin
                     sqlCmd.Parameters.AddWithValue("@lstcompra", lblinvisible.Text);
                     sqlCmd.Parameters.AddWithValue("@lstcomprar", (gvproductoslista.Rows[e.RowIndex].FindControl("txtcantlstfact") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@product", Convert.ToInt32(gvproductoslista.DataKeys[e.RowIndex].Value.ToString()));
+
+                    sqlCmd.ExecuteNonQuery();
+                    gvproductoslista.EditIndex = -1;
+                    this.databasecrud(connectionString, "SELECT * FROM Products", gvproductoslista);
+                    lblSuccessMessage.Text = "Agregado con exito";
+                    lblErrorMessage.Text = "";
+                }
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "update comprobante set importe=(select sum(@lstcomprar*importe) from comprobantesdets where idcomp=@lstcompra) where Comprobantes_idcomp=@lstcompra;";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@lstcompra", lblinvisible.Text);
+                    sqlCmd.Parameters.AddWithValue("@lstcomprar", (gvproductoslista.Rows[e.RowIndex].FindControl("txtcantlstfact") as TextBox).Text.Trim());
 
                     sqlCmd.ExecuteNonQuery();
                     gvproductoslista.EditIndex = -1;
