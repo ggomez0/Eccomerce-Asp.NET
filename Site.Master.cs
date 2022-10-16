@@ -78,6 +78,9 @@ namespace ShopGaspar
             if (HttpContext.Current.User.IsInRole("ADMIN"))
             {
                 adminLink.Visible = true;
+                cartCount.Visible = false;
+                cartCountimg.Visible = false;
+
             }
         }
         protected void Page_PreRender(object sender, EventArgs e)

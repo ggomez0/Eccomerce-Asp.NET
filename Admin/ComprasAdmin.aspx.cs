@@ -371,5 +371,11 @@ namespace ShopGaspar.Admin
         {
              Response.Redirect("~/Admin/ordcprabor");
         }
+
+        protected void pagarbtnno_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
+
+        }
     }
 }

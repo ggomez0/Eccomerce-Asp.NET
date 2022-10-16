@@ -449,9 +449,6 @@
                                           </div>
 
 
-
-
-
                                             <%------------------------------------------------------------------------------------------%>
 
 
@@ -629,14 +626,14 @@
                                                                     ValidationGroup="VG1011" ToolTip="Eliminar"
                                                                     Width="20px" Height="20px" ID="eliminarfact" />
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField>
+                                                            </asp:TemplateField >
+                                                            <asp:TemplateField HeaderStyle-Width="10px">
                                                                 <ItemTemplate>
                                                                     
 
                                                                  <asp:ImageButton ImageUrl="~/Images/usdsign.png"
-                                                                        runat="server" ID="btnpagaropen" Width="20px"
-                                                                        Height="20px"  />
+                                                                        runat="server" ID="btnpagaropen" Width="30px"
+                                                                        Height="30px"/>
 
                                                                   <cc1:ModalPopupExtender ID="modalpofact" runat="server"
                                                                         PopupControlID="panelfact"
@@ -647,21 +644,27 @@
                                                                     <asp:Panel ID="panelfact" runat="server"
                                                                         CssClass="modalPopup" align="center"
                                                                         Style="background-color:white; border:solid; border-color:black;">
-                                                                        <div style="padding:20px">
+                                                                        
                                                                             <asp:UpdatePanel runat="server">
                                                                                 <ContentTemplate>
+                                                                                    <div style="padding:20px">
+                                                                                       
                                                                                     <span>Desea pagar factura?</span>
                                                                                     <asp:DropDownList runat="server">
                                                                                         <asp:ListItem>Forma de pago 1</asp:ListItem>
                                                                                         <asp:ListItem>Forma de pago 2</asp:ListItem>
                                                                                         <asp:ListItem>Forma de pago 3</asp:ListItem>
-                                                                                    </asp:DropDownList>     
+                                                                                    </asp:DropDownList> 
+                                                                                      
+
+                                                                              <asp:Button runat="server" Text="Pagar" ID="pagarbtnno" OnClick="pagarbtnno_Click" CssClass="btn btn-success rounded-3"/>
+                                                                <asp:Button ID="btnpagarcerrar" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar"  />
+                                                                                </div>
+                                                                                                    
                                                                                 </ContentTemplate>                                                                                
                                                                             </asp:UpdatePanel>
-                                                                              <asp:Button runat="server" Text="Pagar" ID="pagarbtnno" CssClass="btn btn-success rounded-3"/>
-                                                                <asp:Button ID="btnpagarcerrar" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar"  />
-                                                                        </div>                                                                    
-                                                                    </asp:Panel>
+                                                                   
+                                                                         </asp:Panel>
 
                                      
                                                             </ItemTemplate>                                                       
