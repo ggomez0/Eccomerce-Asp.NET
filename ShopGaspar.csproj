@@ -2400,17 +2400,9 @@
     <Compile Include="Logic\addprodendep.cs" />
     <Compile Include="Logic\AgregarProv.cs" />
     <Compile Include="Logic\Ordenarlista.cs" />
-    <Compile Include="Migrations\202210041623534_aver.cs" />
-    <Compile Include="Migrations\202210041623534_aver.Designer.cs">
-      <DependentUpon>202210041623534_aver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210051656156_werr.cs" />
-    <Compile Include="Migrations\202210051656156_werr.Designer.cs">
-      <DependentUpon>202210051656156_werr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210051716446_werrx.cs" />
-    <Compile Include="Migrations\202210051716446_werrx.Designer.cs">
-      <DependentUpon>202210051716446_werrx.cs</DependentUpon>
+    <Compile Include="Migrations\202210181850050_wer.cs" />
+    <Compile Include="Migrations\202210181850050_wer.Designer.cs">
+      <DependentUpon>202210181850050_wer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
@@ -2499,14 +2491,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202210041623534_aver.resx">
-      <DependentUpon>202210041623534_aver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210051656156_werr.resx">
-      <DependentUpon>202210051656156_werr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210051716446_werrx.resx">
-      <DependentUpon>202210051716446_werrx.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202210181850050_wer.resx">
+      <DependentUpon>202210181850050_wer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -143,8 +143,8 @@
                                                         <asp:TemplateField HeaderText="Foto">
                                                             <ItemTemplate>
 
-                                                                <img class="card-img-top" src="/Images/Thumbs/<%#:Eval("ImagePath") %>" style="height:10rem;
-                                                                object-fit:contain;" />
+                                                                <img class="card-img-top" src="/Images/Thumbs/<%#:Eval("ImagePath") %>" style="
+                                                                object-fit:fill; width:10em" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                         <asp:TemplateField>

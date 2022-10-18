@@ -7,13 +7,13 @@ namespace ShopGaspar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class aver : IMigrationMetadata
+    public sealed partial class wer : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(aver));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(wer));
         
         string IMigrationMetadata.Id
         {
-            get { return "202210041623534_aver"; }
+            get { return "202210181850050_wer"; }
         }
         
         string IMigrationMetadata.Source
