@@ -19,7 +19,7 @@ namespace ShopGaspar.Admin
         {
             if(!IsPostBack)
             {
-                this.databasecrud(connectionString, "select * from comprobantes where idcomprobante=2 and descripcion='Borrador' order by idcomp desc",gvordcprarec);
+                this.databasecrud(connectionString, "select IDcomp as ID, Descripcion as Estado, c.DateTime as Fecha,pr.ProvID, pr.ProvName as Proveedor, stringn as PedidoID from comprobantes c inner join proveedores pr on pr.ProvID=c.ProvID where idcomprobante=2 and descripcion='Borrador' order by idcomp desc",gvordcprarec);
             }
             
         }

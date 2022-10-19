@@ -50,7 +50,7 @@
 
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvordcprarec" 
-            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" OnRowUpdating="gvordcprarec_RowUpdating" DataKeyNames="idcomp, ProvID"> 
+            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" OnRowUpdating="gvordcprarec_RowUpdating" DataKeyNames="ID, ProvID"> 
             <HeaderStyle BackColor="black" Font-Bold="True"
                                                                 ForeColor="White"  />
         
@@ -58,7 +58,7 @@
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:Button runat="server" Text="Ver" CssClass="btn btn-success rounded-3" ID="btnvermasordcpraenv" CommandName="Update"   OnClick="btnvermasordcpraenv_Click" 
-                            CommandArgument='<%#Eval("idcomp") %>' />
+                            CommandArgument='<%#Eval("ID") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

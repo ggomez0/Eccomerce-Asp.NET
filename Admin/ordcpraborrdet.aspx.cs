@@ -20,7 +20,7 @@ namespace ShopGaspar.Admin
             {
                 string nID = Request.QueryString["id"];
                 lblord.Text += nID;
-                this.databasecrud(connectionString, "select * from comprobantesdets where Comprobantes_idcomp=" + nID , gvordcpraborrdet);
+                this.databasecrud(connectionString, "select idcomprdet as ID, p.ProductName as Producto, cantidad from comprobantesdets cd inner join products p on cd.Product_ProductID=p.ProductID where Comprobantes_idcomp=" + nID , gvordcpraborrdet);
             }
         }
 

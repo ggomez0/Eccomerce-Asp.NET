@@ -16,6 +16,9 @@
                                           </li>
                                             <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="pills-fact-tab" data-bs-toggle="pill" data-bs-target="#pills-fact" type="button" role="tab" aria-controls="pills-fact" aria-selected="false">Factura</button>
+                                          </li> 
+                                               <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="pills-cpra-tab" data-bs-toggle="pill" data-bs-target="#pills-cpra" type="button" role="tab" aria-controls="pills-cpra" aria-selected="false">Pago de Factura</button>
                                           </li>
                                         </ul>
 
@@ -672,7 +675,16 @@
                                         </Columns>
                                     </asp:GridView>
                                           </div>
-                                        </div>
+                                   
+
+
+
+                                                  <div class="tab-pane fade show active" id="pills-cpra" role="tabpanel" aria-labelledby="pills-cpra-tab">
+                                                  
+                                                  
+                                                  
+                                                  </div>
+                                                 </div>     
 
                                     </div>
     <asp:Label runat="server" ID="lblSuccessMessage"></asp:Label>
