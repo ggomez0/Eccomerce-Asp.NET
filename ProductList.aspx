@@ -13,7 +13,7 @@
       <asp:TextBox ID="txtsearch" runat="server"></asp:TextBox>
     <asp:Button ID="btnSearch" runat="server" type="submit" Text="Buscar" OnClick="btnSearch_Click" CssClass="rounded-3 btn-success" />      
    </td></tr></table> <p></p>
-       <div style="">
+       <div style="margin-left:5%">
     <asp:ListView ID="productlist" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="4">
         <AlternatingItemTemplate>
           <td runat="server">
@@ -191,7 +191,7 @@
   
    
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ShopGaspar %>"
-        SelectCommand="SELECT [ProductID], [ImagePath], [ProductName], [UnitPrice] from Products p inner join categories c on c.CategoryID=p.CategoryID WHERE ([ProductName] LIKE '%' + @ProductName + '%') AND (CategoryName = @CategoryName OR ISNULL(@CategoryName,'') = '') and stock>0">
+        SelectCommand="SELECT [ProductID], [ImagePath], [ProductName], [UnitPrice] from Products p inner join categories c on c.CategoryID=p.CategoryID WHERE ([ProductName] LIKE '%' + @ProductName + '%') AND (CategoryName = @CategoryName OR ISNULL(@CategoryName,'') = '') ">
         <SelectParameters>
             <asp:ControlParameter ControlID="txtsearch" Name="ProductName" PropertyName="Text" Type="String" ConvertEmptyStringToNull="false" />
             <asp:ControlParameter ControlID="DropDownList1" Name="CategoryName" PropertyName="SelectedValue" Type="String" ConvertEmptyStringToNull="false" />

@@ -10,7 +10,7 @@
   
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvordcpraborrdet" 
-            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true"> 
+            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" OnRowUpdating="gvordcpraborrdet_RowUpdating"> 
             <HeaderStyle BackColor="black" Font-Bold="True"
                                                                 ForeColor="White"  />
             <Columns>
@@ -58,7 +58,7 @@
                                                                     Importe:</asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txtimporte" runat="server" TextMode="Number" CausesValidation="true">
+                                                                <asp:TextBox ID="txtimporte" runat="server" TextMode="Number" CausesValidation="true" Text='<%# Eval("precio") %>'>
                                                                 </asp:TextBox>
                                                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator14"
                                                                 runat="server" Text="* campo requerido."

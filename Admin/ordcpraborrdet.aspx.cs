@@ -20,7 +20,7 @@ namespace ShopGaspar.Admin
             {
                 string nID = Request.QueryString["id"];
                 lblord.Text += nID;
-                this.databasecrud(connectionString, "select idcomprdet as ID, p.ProductName as Producto, cantidad from comprobantesdets cd inner join products p on cd.Product_ProductID=p.ProductID where Comprobantes_idcomp=" + nID , gvordcpraborrdet);
+                this.databasecrud(connectionString, "select idcomprdet as ID, p.ProductName as Producto, cantidad, precio from comprobantesdets cd inner join products p on cd.Product_ProductID=p.ProductID where Comprobantes_idcomp=" + nID , gvordcpraborrdet);
             }
         }
 
@@ -57,6 +57,22 @@ namespace ShopGaspar.Admin
         protected void btnordcprahecho_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Admin/ComprasAdmin.aspx");
+        }
+
+        protected void gvordcpraborrdet_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
+            {
+                sqlCon1.Open();
+                string query1 = "UPDATE comprobantesdets SET cantidad = @cantidad, precio=@precio  WHERE idcomprdet=@idcomp ";
+                SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
+                sqlCmd1.Parameters.AddWithValue("@cantidad", (gvordcpraborrdet.Rows[e.RowIndex].FindControl("txtcant") as TextBox).Text.Trim());
+                sqlCmd1.Parameters.AddWithValue("@precio", (gvordcpraborrdet.Rows[e.RowIndex].FindControl("txtimporte") as TextBox).Text.Trim());
+                sqlCmd1.Parameters.AddWithValue("@idcomp", Convert.ToInt32(gvordcpraborrdet.DataKeys[e.RowIndex].Value.ToString()));               
+
+                sqlCmd1.ExecuteNonQuery();
+                sqlCon1.Close();
+            }
         }
     }
 }
