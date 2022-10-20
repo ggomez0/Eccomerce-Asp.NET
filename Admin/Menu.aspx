@@ -20,7 +20,7 @@
                     <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Transacciones" ID="btntrans" OnClick="btntrans_Click" />
                     <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Clientes" ID="btnclientes" OnClick="btnclientes_Click" />
                     <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Estadisticas" ID="btnestadi" OnClick="btnestadi_Click" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="" />
+                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Pago Comprobantes" ID="btnpagocomp" OnClick="btnpagocomp_Click" />
                     <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="" />
                     <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="" />
                     <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="" />

@@ -72,6 +72,10 @@
   box-sizing: border-box;
 }
 
+.modal-backdrop {
+    opacity: 0.5 !important
+}
+
 /*//------------------*/
 .tabs-left, .tabs-right {
     border-bottom: none;
@@ -5895,17 +5899,23 @@ fieldset:disabled .btn {
   opacity: 0.5;
 }
 
+
+
+
+
+
+
 .modal-header {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 1rem 1rem;
-  border-bottom: 1px solid #eceeef;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #eceeef;
 }
 
 .modal-header .btn-close {

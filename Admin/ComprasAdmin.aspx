@@ -17,9 +17,7 @@
                                             <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="pills-fact-tab" data-bs-toggle="pill" data-bs-target="#pills-fact" type="button" role="tab" aria-controls="pills-fact" aria-selected="false">Factura</button>
                                           </li> 
-                                               <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-cpra-tab" data-bs-toggle="pill" data-bs-target="#pills-cpra" type="button" role="tab" aria-controls="pills-cpra" aria-selected="false">Pago de Factura</button>
-                                          </li>
+                                               
                                         </ul>
 
 
@@ -471,6 +469,7 @@
 
                                             <div class="tab-pane fade" id="pills-fact" role="tabpanel" aria-labelledby="pills-fact-tab">
 
+                                               
                                               <asp:Button ID="Button123123" CssClass="btn btn-success rounded-3"  runat="server" Text="Nueva Factura" />
                                     <!-- ModalPopupExtender --->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
@@ -479,7 +478,7 @@
                                     </cc1:ModalPopupExtender>
                                     <asp:Panel ID="Panel111" runat="server" CssClass="modalPopup" align="center"
                                         Style="background-color:white; border:solid; border-color:black;" >
-                                        <div style="padding:20px">
+                                        <div style="padding:20px; max-height: 500px; overflow:auto; ">
                                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                                 <ContentTemplate>
                                                     <h3>Nueva Factura</h3>
@@ -498,8 +497,7 @@
                                                                 Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG2481" />
                                                             </td>
 
-                                                                </tr>
-                                                         <tr>
+                                                                
                                                             <td><asp:Label runat="server" Text="N° Sucursal:"></asp:Label></td>
                                                             <td>
                                                                 <asp:TextBox ID="txtsucursal"  runat="server" TextMode="Number" style="width:60%" CausesValidation="true">
@@ -526,8 +524,7 @@
                                                                     DataValueField="ProvID">
                                                                 </asp:DropDownList>
                                                             </td>
-                                                        </tr>    
-                                                                <tr>
+                                                        
                                                             <td><asp:Label runat="server" Text="Tipo:"></asp:Label></td>
                                                             <td>
                                                                 <asp:DropDownList ID="txttipo" runat="server" style="width:60%">
@@ -547,6 +544,70 @@
                                                         </tr>                                         
                                                      
                                                     </table>
+                                                    <p></p>
+
+                                                    <h3>Productos</h3>
+
+
+        <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
+            ID="gvproductosfact" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" DataKeyNames="ID" >
+             <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White" />
+        <Columns>
+             <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:CheckBox ID="checkboxprodfact" runat="server" />                    
+                </ItemTemplate>
+            </asp:TemplateField>
+               <asp:TemplateField HeaderText="ID">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblidprod" Text='<%# Eval("ID") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+               <asp:TemplateField HeaderText="Producto">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("Producto") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+               <asp:TemplateField HeaderText="Descripcion">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("Descripcion") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+               <asp:TemplateField HeaderText="Precio">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%#:String.Format("{0:c}", Eval("Precio"))%>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+               <asp:TemplateField HeaderText="Categoria">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("CategoryID") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+               <asp:TemplateField HeaderText="Stock">
+                                                            <ItemTemplate>
+                                                                <asp:Label Text='<%# Eval("Stock") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+            <asp:TemplateField HeaderText="Cant.">
+                <ItemTemplate>
+                    <asp:TextBox runat="server" Width="60px" ID="txtcantlstfact" TextMode="Number" CssClass="rounded-3" CausesValidation="true" />
+                    <asp:CompareValidator runat="server" ControlToValidate="txtcantlstfact" ErrorMessage="Debe ser &gt; 0" 
+                        Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG2481" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+           
+            </Columns>
+            </asp:GridView>
+                                                    
+                                                    <%--------------------------------------%>
+
+
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </div>
@@ -557,6 +618,14 @@
                                         <p>  </p>
                                         <p></p>
                                     </asp:Panel>
+
+
+
+
+
+
+
+
 
                               
                                     <asp:GridView ID="gvfact" runat="server" CssClass="grid" 
@@ -605,7 +674,7 @@
                                                         </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Total">
                                                             <ItemTemplate>
-                                                                <asp:Label Text='<%# Eval("importe") %>'
+                                                                <asp:Label Text=<%#:String.Format("{0:c}", Eval("importe"))%>
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
@@ -630,48 +699,9 @@
                                                                     Width="20px" Height="20px" ID="eliminarfact" />
                                                                 </ItemTemplate>
                                                             </asp:TemplateField >
-                                                            <asp:TemplateField HeaderStyle-Width="10px">
-                                                                <ItemTemplate>
-                                                                    
-
-                                                                 <asp:ImageButton ImageUrl="~/Images/usdsign.png"
-                                                                        runat="server" ID="btnpagaropen" Width="30px"
-                                                                        Height="30px"/>
-
-                                                                  <cc1:ModalPopupExtender ID="modalpofact" runat="server"
-                                                                        PopupControlID="panelfact"
-                                                                        TargetControlID="btnpagaropen"
-                                                                        CancelControlID="btnpagarcerrar"
-                                                                        BackgroundCssClass="modalBackground">
-                                                                    </cc1:ModalPopupExtender>
-                                                                    <asp:Panel ID="panelfact" runat="server"
-                                                                        CssClass="modalPopup" align="center"
-                                                                        Style="background-color:white; border:solid; border-color:black;">
-                                                                        
-                                                                            <asp:UpdatePanel runat="server">
-                                                                                <ContentTemplate>
-                                                                                    <div style="padding:20px">
-                                                                                       
-                                                                                    <span>Desea pagar factura?</span>
-                                                                                    <asp:DropDownList runat="server">
-                                                                                        <asp:ListItem>Forma de pago 1</asp:ListItem>
-                                                                                        <asp:ListItem>Forma de pago 2</asp:ListItem>
-                                                                                        <asp:ListItem>Forma de pago 3</asp:ListItem>
-                                                                                    </asp:DropDownList> 
-                                                                                      
-
-                                                                              <asp:Button runat="server" Text="Pagar" ID="pagarbtnno" OnClick="pagarbtnno_Click" CssClass="btn btn-success rounded-3"/>
-                                                                <asp:Button ID="btnpagarcerrar" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar"  />
-                                                                                </div>
+                                                         
                                                                                                     
-                                                                                </ContentTemplate>                                                                                
-                                                                            </asp:UpdatePanel>
-                                                                   
-                                                                         </asp:Panel>
-
-                                     
-                                                            </ItemTemplate>                                                       
-                                                        </asp:TemplateField>
+                                                                              
                                         </Columns>
                                     </asp:GridView>
                                           </div>
@@ -679,11 +709,7 @@
 
 
 
-                                                  <div class="tab-pane fade show active" id="pills-cpra" role="tabpanel" aria-labelledby="pills-cpra-tab">
-                                                  
-                                                  
-                                                  
-                                                  </div>
+                                                 
                                                  </div>     
 
                                     </div>

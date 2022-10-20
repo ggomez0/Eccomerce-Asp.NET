@@ -25,6 +25,7 @@ namespace ShopGaspar.Models
         public DateTime dateTime { get; set; }
 
         public int? ProvID { get; set; }
+        public bool? Pagado { get; set; }
 
         public int? idcomprobante { get; set;}
 

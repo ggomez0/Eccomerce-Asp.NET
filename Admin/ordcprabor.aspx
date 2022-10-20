@@ -25,7 +25,7 @@
 
          <asp:Button ID="btnlstpasaraord" runat="server"  Text="-->"/>
 
-                                    <!-- ModalPopupExtender -->
+                                    <!-- Extender -->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
                                         PopupControlID="Panel21" TargetControlID="btnlstpasaraord" CancelControlID="Button745"
                                         BackgroundCssClass="modalBackground">

@@ -250,6 +250,7 @@
     <Content Include="Admin\ordcprarec.aspx" />
     <Content Include="Admin\ordcprabor.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
+    <Content Include="Admin\PagoComprobantes.aspx" />
     <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
     <Content Include="Admin\ProductosAdmin.aspx" />
@@ -647,6 +648,13 @@
     <Compile Include="Admin\ordorduser.aspx.designer.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\PagoComprobantes.aspx.cs">
+      <DependentUpon>PagoComprobantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PagoComprobantes.aspx.designer.cs">
+      <DependentUpon>PagoComprobantes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\proddeprov.aspx.cs">
       <DependentUpon>proddeprov.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -732,6 +740,10 @@
     <Compile Include="Migrations\202210192033329_gg.cs" />
     <Compile Include="Migrations\202210192033329_gg.Designer.cs">
       <DependentUpon>202210192033329_gg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210200502390_ert.cs" />
+    <Compile Include="Migrations\202210200502390_ert.Designer.cs">
+      <DependentUpon>202210200502390_ert.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
@@ -822,6 +834,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202210192033329_gg.resx">
       <DependentUpon>202210192033329_gg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210200502390_ert.resx">
+      <DependentUpon>202210200502390_ert.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

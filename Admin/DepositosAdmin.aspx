@@ -15,8 +15,7 @@
                                         </cc1:ModalPopupExtender>
                                         <asp:Panel ID="Panel3" runat="server" CssClass="modalPopup" align="center"
                                             Style="background-color:white; border:solid; border-color:black;">
-                                            <div style="padding:20px">
-                                            
+                                            <div style="padding:20px;">                                            
 
                                                         <h3>Agregar Depositos</h3>
                                                         <table>

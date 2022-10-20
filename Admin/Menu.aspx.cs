@@ -59,5 +59,10 @@ namespace ShopGaspar
             Response.Redirect("~/Admin/EstadisticasAdmin.aspx");
 
         }
+
+        protected void btnpagocomp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/PagoComprobantes.aspx");
+        }
     }
 }
