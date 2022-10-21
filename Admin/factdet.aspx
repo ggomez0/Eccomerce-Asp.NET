@@ -3,8 +3,25 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
       <div class="container">
-                   <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA FACTURA N°</asp:Label>
-<p></p>
+           <asp:FormView ID="factid" runat="server" ItemType="ShopGaspar.Models.comprobantes" SelectMethod ="GetFactura" RenderOuterTable="false" >
+                            <ItemTemplate>
+                                <div>
+                                    <h1>Detalle de la factura N° <%#:Item.idcomp %></h1>
+                                </div>
+                                <br />
+                                   <tr>
+                                       <td>
+                  
+                                           <span style="font-size:1em">N° Factura: <%#Item.descripcion %></span><br />
+                                           <span style="font-size:1em">N° Sucursal: <%#Item.stringn %></span><br />
+                                           <span style="font-size:1em">Tipo de factura: <%#Item.Nombre %></span><br />
+                                           <span style="font-size:1em">Fecha: <%#Item.fechacomprobante %></span><br />
+                                           <span style="font-size:1em">Total: <%#Item.importe %></span><br />
+                                        </td>
+                                    </tr>
+                                <br />
+                            </ItemTemplate>
+                        </asp:FormView>
                        
 
 

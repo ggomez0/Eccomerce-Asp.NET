@@ -93,17 +93,12 @@
                                                              <Columns>
                                                                 <asp:TemplateField>
                                                                      <ItemTemplate>
-                                                                         <asp:CheckBox runat="server" ID="checkboxpagado"/>
+                                                                         <asp:CheckBox runat="server" ID="cboxpagado"/>
                                                                      </ItemTemplate>
                                                                      
                                                                  </asp:TemplateField>
-                                                                  <asp:TemplateField HeaderText="#BDD">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblidfact" Text='<%# Eval("idcomp") %>'
-                                                                    runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                              <asp:TemplateField HeaderText="#Fact">
+                                                             
+                                              <asp:TemplateField HeaderText="#">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("descripcion") %>'
                                                                     runat="server" />

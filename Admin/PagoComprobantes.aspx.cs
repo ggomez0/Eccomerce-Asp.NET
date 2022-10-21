@@ -70,34 +70,31 @@ namespace ShopGaspar.Admin
 
                     try
                     {
-                        if (((CheckBox)row.FindControl("checkboxpagado")).Checked)
+                        if (((CheckBox)row.FindControl("cboxpagado")).Checked)
                         {
 
                             using (SqlConnection sqlCon = new SqlConnection(connectionString))
                             {
                                 sqlCon.Open();
-                                string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); " +
-                                    "insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp,factid) " +
-                                    "values (0,1,@lstcompra,@factid);";
+                                string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp,factid) values (0,1,@lstcompra,14);";
                                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                                sqlCmd.Parameters.AddWithValue("@factid", Convert.ToInt32((((Label)row.FindControl("lblidfactpag")).Text).ToString()));
                                 lblSuccessMessage.Text = "Agregado con exito";
                                 sqlCmd.ExecuteNonQuery();
                             }
                         }
 
-                        //using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                        //{
-                        //    sqlCon.Open();
-                        //    string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); " +
-                        //        "declare @importee int = (select sum(precio) from comprobantesdets where Comprobantes_idcomp=@lstcompra); " +
-                        //        "update comprobantes set importe=@importee where idcomp=@lstcompra;";
-                        //    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                        //    sqlCmd.ExecuteNonQuery();
-                        //    gvpagofact.EditIndex = -1;
+                        using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                        {
+                            sqlCon.Open();
+                            string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); " +
+                                "declare @importee int = (select sum(precio) from comprobantesdets where Comprobantes_idcomp=@lstcompra); " +
+                                "update comprobantes set importe=@importee where idcomp=@lstcompra;";
+                            SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                            sqlCmd.ExecuteNonQuery();
+                            gvpagofact.EditIndex = -1;
 
-                        //    lblErrorMessage.Text = "";
-                        //}
+                            lblErrorMessage.Text = "";
+                        }
                     }
                     catch (Exception ex)
                     {

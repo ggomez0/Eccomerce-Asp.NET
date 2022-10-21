@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -22,7 +23,6 @@ namespace ShopGaspar.Admin
             {
                 string nID = Request.QueryString["id1"];
                 string nID1 = Request.QueryString["id2"];
-                lblord.Text += nID;
                 this.databasecrud(connectionString, "SELECT ProductName,cantidad, UnitPrice, c.CategoryName, l.idcomprdet, (cantidad*UnitPrice) as Total" +
                     " FROM comprobantesdets l inner join Products p on l.Product_ProductID=p.ProductID inner join Categories c " +
                     "on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);
@@ -62,8 +62,23 @@ namespace ShopGaspar.Admin
 
         protected void gvproductoslista_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-        }   
-          
+        }
+
+        public IQueryable<comprobantes> GetFactura([QueryString("id1")] int? idcomp)
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable<comprobantes> query = _db.comprobantes;
+            if (idcomp.HasValue && idcomp > 0)
+            {
+                query = query.Where(p => p.idcomp == idcomp);
+            }
+            else
+            {
+                query = null;
+            }
+            return query;
+        }
+
 
         protected void gvlstcompradet_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {

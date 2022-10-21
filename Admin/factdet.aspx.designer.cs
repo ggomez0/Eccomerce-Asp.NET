@@ -15,13 +15,13 @@ namespace ShopGaspar.Admin
     {
 
         /// <summary>
-        /// Control lblord.
+        /// Control factid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblord;
+        protected global::System.Web.UI.WebControls.FormView factid;
 
         /// <summary>
         /// Control gvlstcompradet.

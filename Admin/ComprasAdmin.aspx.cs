@@ -16,6 +16,7 @@ using System.Text;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
+using System.Web.ModelBinding;
 
 namespace ShopGaspar.Admin
 {
@@ -207,6 +208,8 @@ namespace ShopGaspar.Admin
 
         }
 
+       
+
         protected void gvlstcpra_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
@@ -232,6 +235,8 @@ namespace ShopGaspar.Admin
         }
 
       
+
+
         protected void addlstbtn_Click(object sender, EventArgs e)
         {
             addrepoes addlstcpra = new addrepoes();
