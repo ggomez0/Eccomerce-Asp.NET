@@ -856,7 +856,7 @@
                                                                 ForeColor="White"  />
 
                             <Columns>
-                                 <asp:TemplateField>
+                                 <asp:TemplateField HeaderText="#">
                                                             <ItemTemplate>
                                                                 <asp:Label Text='<%# Eval("idcomp") %>'
                                                                     runat="server" />

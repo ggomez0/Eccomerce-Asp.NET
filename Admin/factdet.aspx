@@ -12,11 +12,10 @@
                                    <tr>
                                        <td>
                   
-                                           <span style="font-size:1em">N° Factura: <%#Item.descripcion %></span><br />
-                                           <span style="font-size:1em">N° Sucursal: <%#Item.stringn %></span><br />
-                                           <span style="font-size:1em">Tipo de factura: <%#Item.Nombre %></span><br />
+=                                           <span style="font-size:1em">Estado: <%#Item.stringn %></span><br />
+                                           <span style="font-size:1em">Forma de pago: <%#Item.descripcion %></span><br />
                                            <span style="font-size:1em">Fecha: <%#Item.fechacomprobante %></span><br />
-                                           <span style="font-size:1em">Total: <%#Item.importe %></span><br />
+                                           <span style="font-size:1em">Total: <%#:String.Format("{0:c}", Item.importe) %></span><br />
                                         </td>
                                     </tr>
                                 <br />

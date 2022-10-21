@@ -16,6 +16,7 @@ using System.Text;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
+using System.Web.ModelBinding;
 
 namespace ShopGaspar.Admin
 {
@@ -28,13 +29,28 @@ namespace ShopGaspar.Admin
             if(!IsPostBack)
             {
                 string nID = Request.QueryString["id"];
-                lblord.Text += nID;
-                this.databasecrud(connectionString, "SELECT * from comprobantesdets where Comprobantes_idcomp =" + nID, gvfactdet);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantesdets cd inner join comprobantes c on c.idcomp=cd.factid inner join proveedores p on p.ProvID=c.ProvID where cd.Comprobantes_idcomp=" + nID, gvfactdet);
 
             }
 
 
 
+        }
+
+
+        public IQueryable<comprobantes> GetPago([QueryString("id")] int? idcomp)
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable<comprobantes> query = _db.comprobantes;
+            if (idcomp.HasValue && idcomp > 0)
+            {
+                query = query.Where(p => p.idcomp == idcomp);
+            }
+            else
+            {
+                query = null;
+            }
+            return query;
         }
 
         void databasecrud(string conexion, string sqlcomando, GridView tablag)

@@ -456,7 +456,7 @@ namespace ShopGaspar.Admin
                         {
                             sqlCon.Open();
                             string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); " +
-                                "declare @importee int = (select sum(precio) from comprobantesdets where Comprobantes_idcomp=@lstcompra); " +
+                                "declare @importee int = (select sum(importe) from comprobantes where idcomp=@lstcompra); " +
                                 "update comprobantes set importe=@importee where idcomp=@lstcompra;";
                             SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                             sqlCmd.ExecuteNonQuery();
