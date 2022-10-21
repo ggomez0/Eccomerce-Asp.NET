@@ -251,6 +251,7 @@
     <Content Include="Admin\ordcprabor.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
     <Content Include="Admin\PagoComprobantes.aspx" />
+    <Content Include="Admin\pagodetalles.aspx" />
     <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
     <Content Include="Admin\ProductosAdmin.aspx" />
@@ -264,6 +265,7 @@
     <Content Include="Admin\Menu.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Images\Almacen.jpg" />
+    <Content Include="Images\arribayabajo2010.png" />
     <Content Include="Images\asado.jpg" />
     <Content Include="Images\asado1.jpg" />
     <Content Include="Images\asado2.jpg" />
@@ -276,11 +278,17 @@
     <Content Include="Images\carousel1.png" />
     <Content Include="Images\carousel2.png" />
     <Content Include="Images\categories.png" />
+    <Content Include="Images\clasificacion2010.png" />
     <Content Include="Images\delete.png" />
+    <Content Include="Images\deposito2010.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\email.png" />
     <Content Include="Images\Facebook.png" />
     <Content Include="Images\Google.png" />
+    <Content Include="Images\investigacion2010.png" />
+    <Content Include="Images\productos2010.png" />
+    <Content Include="Images\receipt2010.png" />
+    <Content Include="Images\supermercado2010.png" />
     <Content Include="Images\Thumbs\i7.jpg" />
     <Content Include="Images\logo.ico" />
     <Content Include="Images\carrito.png" />
@@ -655,6 +663,13 @@
     <Compile Include="Admin\PagoComprobantes.aspx.designer.cs">
       <DependentUpon>PagoComprobantes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\pagodetalles.aspx.cs">
+      <DependentUpon>pagodetalles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\pagodetalles.aspx.designer.cs">
+      <DependentUpon>pagodetalles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\proddeprov.aspx.cs">
       <DependentUpon>proddeprov.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -744,6 +759,10 @@
     <Compile Include="Migrations\202210200502390_ert.cs" />
     <Compile Include="Migrations\202210200502390_ert.Designer.cs">
       <DependentUpon>202210200502390_ert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210210044440_dddj.cs" />
+    <Compile Include="Migrations\202210210044440_dddj.Designer.cs">
+      <DependentUpon>202210210044440_dddj.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
@@ -837,6 +856,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210200502390_ert.resx">
       <DependentUpon>202210200502390_ert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210210044440_dddj.resx">
+      <DependentUpon>202210210044440_dddj.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

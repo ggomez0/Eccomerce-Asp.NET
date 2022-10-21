@@ -344,8 +344,6 @@ namespace ShopGaspar.Admin
                     {
                         using (SqlConnection sqlCon = new SqlConnection(connectionString))
                         {
-
-
                             sqlCon.Open();
                             string query = " declare @lstcompra int = (select max(idcomp) from comprobantes); insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@cantidad,@product,@lstcompra);";
                             SqlCommand sqlCmd = new SqlCommand(query, sqlCon);

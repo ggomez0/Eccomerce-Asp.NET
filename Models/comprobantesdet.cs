@@ -13,6 +13,7 @@ namespace ShopGaspar.Models
 
         public int cantidad { get; set; }
         public int? precio { get; set; }
+        public int? factid { get; set; }
 
         public virtual Product Product { get; set; }
 
