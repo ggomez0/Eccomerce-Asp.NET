@@ -33,6 +33,9 @@ namespace ShopGaspar.Admin
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvfact);
                 this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
                   "Descripcion,UnitPrice as Precio,CategoryID,Stock FROM Products", gvproductosfact);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvpagofact);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes c inner join proveedores p on p.ProvID=c.ProvID where idcomprobante=4", gvfactpag);
+
             }
 
         }
@@ -416,6 +419,73 @@ namespace ShopGaspar.Admin
         {
             Response.Redirect(Request.RawUrl);
 
+        }
+
+
+
+        protected void btnagregarfact_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                addcomprobante addpagofact = new addcomprobante();
+                bool addSuccess = addpagofact.addcomprobantes(null, ddlisttrans.SelectedValue, 0, 4, ddlistpr.SelectedValue, "Pagado", txtcalendarpago.Text);
+
+
+                if (addSuccess)
+                {
+                    foreach (GridViewRow row in gvpagofact.Rows)
+                    {
+
+
+                        if (((CheckBox)row.FindControl("cboxpagado")).Checked)
+                        {
+
+                            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                            {
+                                sqlCon.Open();
+                                string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp,factid) values (0,1,@lstcompra,@product);";
+                                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                                sqlCmd.Parameters.AddWithValue("@product",((Label)row.FindControl("lblidfactpag")).Text);
+
+                                lblSuccessMessage.Text = "Agregado con exito";
+                                sqlCmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                        {
+                            sqlCon.Open();
+                            string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); " +
+                                "declare @importee int = (select sum(precio) from comprobantesdets where Comprobantes_idcomp=@lstcompra); " +
+                                "update comprobantes set importe=@importee where idcomp=@lstcompra;";
+                            SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                            sqlCmd.ExecuteNonQuery();
+                            gvpagofact.EditIndex = -1;
+
+                            lblErrorMessage.Text = "";
+                        }
+                    }
+                }
+
+
+                else
+                {
+                    lblErrorMessage.Text = "No se pudo agregar la factura ";
+                }
+            }
+
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnverfactpago_Click2(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
+            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
+            Response.Redirect("~/Admin/pagodetalles.aspx?id=" + id);
         }
     }
 }
