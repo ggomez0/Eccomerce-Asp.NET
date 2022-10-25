@@ -294,13 +294,13 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Button btnordcpraenv;
 
         /// <summary>
-        /// Control Button123123.
+        /// Control Button8factopen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button123123;
+        protected global::System.Web.UI.WebControls.Button Button8factopen;
 
         /// <summary>
         /// Control ModalPopupExtender2.
@@ -328,6 +328,15 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+
+        /// <summary>
+        /// Control lblnumidfact.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblnumidfact;
 
         /// <summary>
         /// Control txtnumfact.
@@ -411,6 +420,33 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.TextBox txtcalendar;
 
         /// <summary>
+        /// Control btnopenprodfact.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnopenprodfact;
+
+        /// <summary>
+        /// Control ModalPopupExtender4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender4;
+
+        /// <summary>
+        /// Control Panel1555.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1555;
+
+        /// <summary>
         /// Control gvproductosfact.
         /// </summary>
         /// <remarks>
@@ -418,6 +454,24 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvproductosfact;
+
+        /// <summary>
+        /// Control btnagregarprod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnagregarprod;
+
+        /// <summary>
+        /// Control btncloseprodfact.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btncloseprodfact;
 
         /// <summary>
         /// Control btnanfact.
@@ -429,13 +483,13 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Button btnanfact;
 
         /// <summary>
-        /// Control Button8.
+        /// Control Button8fact.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button8;
+        protected global::System.Web.UI.WebControls.Button Button8fact;
 
         /// <summary>
         /// Control gvfact.

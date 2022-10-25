@@ -468,15 +468,29 @@
                                             </div>
                                            
 
+
+
+
+
+
+
+
                                            <%------------------------------------------------------------------------------------------%>
+
+
+
+
+
+
+
 
                                             <div class="tab-pane fade" id="pills-fact" role="tabpanel" aria-labelledby="pills-fact-tab">
 
                                                
-                                              <asp:Button ID="Button123123" CssClass="btn btn-success rounded-3"  runat="server" Text="Nueva Factura" />
+                                              <asp:Button ID="Button8factopen" CssClass="btn btn-success rounded-3"  runat="server" Text="Nueva Factura" OnClick="Button8factopen_Click" />
                                     <!-- ModalPopupExtender --->
                                     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
-                                        PopupControlID="Panel111" TargetControlID="Button123123" CancelControlID="Button2123123"
+                                        PopupControlID="Panel111" TargetControlID="Button8factopen" CancelControlID="Button8fact"
                                         BackgroundCssClass="modalBackground">
                                     </cc1:ModalPopupExtender>
                                     <asp:Panel ID="Panel111" runat="server" CssClass="modalPopup" align="center"
@@ -489,6 +503,7 @@
                                                          <tr>
                                                             <td><asp:Label runat="server" Text="N° Factura:"></asp:Label></td>
                                                             <td>
+                                                                <asp:Label ID="lblnumidfact" runat="server"></asp:Label>
                                                                 <asp:TextBox ID="txtnumfact" style="width:60%" runat="server" TextMode="Number" CausesValidation="true">
                                                                 </asp:TextBox>
                                                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator14"
@@ -551,6 +566,24 @@
 
                                                     <h3>Productos</h3>
 
+                                                    <p></p>
+
+                                                          
+                                              <asp:Button ID="btnopenprodfact" CssClass="btn btn-success rounded-3"  runat="server" Text="+ Producto" />
+                                    <!-- ModalPopupExtender --->
+                                    <cc1:ModalPopupExtender ID="ModalPopupExtender4" runat="server"
+                                        PopupControlID="Panel1555" TargetControlID="btnopenprodfact" CancelControlID="btncloseprodfact"
+                                        BackgroundCssClass="modalBackground">
+                                    </cc1:ModalPopupExtender>
+                                    <asp:Panel ID="Panel1555" runat="server" CssClass="modalPopup" align="center"
+                                        Style="background-color:white; border:solid; border-color:black;" >
+                                        <div style="padding:20px; max-height: 500px; overflow:auto; ">
+                                            <asp:UpdatePanel runat="server">
+                                                <ContentTemplate>
+
+                                           
+                                           
+                                                    
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
             ID="gvproductosfact" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" DataKeyNames="ID" >
@@ -607,7 +640,21 @@
            
             </Columns>
             </asp:GridView>
-                                                    
+                                            </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                        <asp:Button ID="btnagregarprod" runat="server" Text="Agregar" CssClass="btn btn-success rounded-3" />
+                                        <asp:Button ID="btncloseprodfact" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" />
+                                        <br />
+                                        <p>  </p>
+                                        <p></p>
+                                    </asp:Panel>             
+
+
+
+
+
+
                                                     <%--------------------------------------%>
 
 
@@ -616,7 +663,7 @@
                                         </div>
                                         <asp:Button ID="btnanfact" runat="server" Text="Agregar" OnClick="btnanfact_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                                                     ValidationGroup="VG2481" />
-                                        <asp:Button ID="Button8" CssClass="btn btn-danger rounded-3" ValidationGroup="wdko" runat="server" Text="Cerrar" />
+                                        <asp:Button ID="Button8fact" CssClass="btn btn-danger rounded-3" ValidationGroup="wdko" runat="server" Text="Cerrar" />
                                         <br />
                                         <p>  </p>
                                         <p></p>

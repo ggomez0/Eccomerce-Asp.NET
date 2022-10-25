@@ -237,6 +237,8 @@ namespace ShopGaspar.Admin
             return query;
         }
 
+
+
       
 
 
@@ -338,54 +340,49 @@ namespace ShopGaspar.Admin
 
         protected void btnanfact_Click(object sender, EventArgs e)
         {
-            addcomprobante addfactura = new addcomprobante();
-            bool addSuccess = addfactura.addcomprobantes(txttipo.Text, txtsucursal.Text, 0, 3, ddlistfact.SelectedValue, txtnumfact.Text, txtcalendar.Text);
+            //addcomprobante addfactura = new addcomprobante();
+            //bool addSuccess = addfactura.addcomprobantes(txttipo.Text, txtsucursal.Text, 0, 3, ddlistfact.SelectedValue, txtnumfact.Text, txtcalendar.Text);
 
 
-            if (addSuccess)
+            foreach (GridViewRow row in gvproductosfact.Rows)
             {
-                foreach (GridViewRow row in gvproductosfact.Rows)
+
+
+                if (((CheckBox)row.FindControl("checkboxprodfact")).Checked)
                 {
-
-
-                    if (((CheckBox)row.FindControl("checkboxprodfact")).Checked)
-                    {
-                        using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                        {
-                            sqlCon.Open();
-                            string query = " declare @lstcompra int = (select max(idcomp) from comprobantes); insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@cantidad,@product,@lstcompra);";
-                            SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                            sqlCmd.Parameters.AddWithValue("@cantidad", ((TextBox)row.FindControl("txtcantlstfact")).Text);
-                            sqlCmd.Parameters.AddWithValue("@product", ((Label)row.FindControl("lblidprod")).Text);
-
-                            sqlCmd.ExecuteNonQuery();
-                        }
-                    }
-
                     using (SqlConnection sqlCon = new SqlConnection(connectionString))
                     {
                         sqlCon.Open();
-                        string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); declare @importee int = (select sum(cantidad*p.UnitPrice) from comprobantesdets c inner join products p on p.ProductID=c.Product_ProductID where Comprobantes_idcomp=@lstcompra); update comprobantes set importe=@importee where idcomp=@lstcompra;";
+                        string query = " declare @lstcompra int = (select max(idcomp) from comprobantes); insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@cantidad,@product,@lstcompra);";
                         SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                        sqlCmd.Parameters.AddWithValue("@cantidad", ((TextBox)row.FindControl("txtcantlstfact")).Text);
+                        sqlCmd.Parameters.AddWithValue("@product", ((Label)row.FindControl("lblidprod")).Text);
+
                         sqlCmd.ExecuteNonQuery();
-                        gvproductosfact.EditIndex = -1;
-                        lblSuccessMessage.Text = "Agregado con exito";
-                        lblErrorMessage.Text = "";
                     }
                 }
 
-
-
-
-                // Reload the page.
-                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                Response.Redirect(pageUrl + "?ProductAction=addfact");
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); declare @importee int = (select sum(cantidad*p.UnitPrice) from comprobantesdets c inner join products p on p.ProductID=c.Product_ProductID where Comprobantes_idcomp=@lstcompra); update comprobantes set importe=@importee where idcomp=@lstcompra;";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.ExecuteNonQuery();
+                    gvproductosfact.EditIndex = -1;
+                    lblSuccessMessage.Text = "Agregado con exito";
+                    lblErrorMessage.Text = "";
+                }
             }
-            else
-            {
-                lblconfirmardep.Text = "No se pudo agregar la factura ";
-            }
+
+
+
+
+            // Reload the page.
+            string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+            Response.Redirect(pageUrl + "?ProductAction=addfact");
         }
+           
+        
     
 
         protected void btnlstdet1_Click(object sender, ImageClickEventArgs e)
@@ -486,6 +483,16 @@ namespace ShopGaspar.Admin
         {
             int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
             Response.Redirect("~/Admin/pagodetalles.aspx?id=" + id);
+        }
+
+        protected void Button8factopen_Click(object sender, EventArgs e)
+        {
+            addcomprobante addfactura = new addcomprobante();
+            bool addSuccess = addfactura.addcomprobantes("NOREG", null, 0, 3, null, null, null);
+            var myItem = (from c in _db.comprobantes where c.idcomp == Convert.ToInt32(int.MaxValue) select c).FirstOrDefault();
+            txtnumfact.Text = myItem.ToString();
+
+
         }
     }
 }
