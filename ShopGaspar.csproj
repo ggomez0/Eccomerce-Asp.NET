@@ -237,13 +237,16 @@
     <Content Include="Admin\DepositosAdmin.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
     <Content Include="Admin\detprodcat.aspx" />
+    <Content Include="Admin\Det_Movimiento.aspx" />
     <Content Include="Admin\dropdownlist.asmx" />
     <Content Include="Admin\EstadisticasAdmin.aspx" />
     <Content Include="Admin\factdet.aspx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
-    <Content Include="Admin\historial.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
     <Content Include="Admin\lstcompradet.aspx" />
+    <Content Include="Admin\Nueva_factura.aspx" />
+    <Content Include="Admin\Nuevo_Movimiento.aspx" />
+    <Content Include="Admin\Nuevo_pago.aspx" />
     <Content Include="Admin\ordcpraborrdet.aspx" />
     <Content Include="Admin\ordcpradet.aspx" />
     <Content Include="Admin\ordcpraenv.aspx" />
@@ -568,6 +571,13 @@
     <Compile Include="Admin\detprodcat.aspx.designer.cs">
       <DependentUpon>detprodcat.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Det_Movimiento.aspx.cs">
+      <DependentUpon>Det_Movimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Det_Movimiento.aspx.designer.cs">
+      <DependentUpon>Det_Movimiento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\dropdownlist.asmx.cs">
       <DependentUpon>dropdownlist.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -593,13 +603,6 @@
     <Compile Include="Admin\gvordenesusuarios.aspx.designer.cs">
       <DependentUpon>gvordenesusuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\historial.aspx.cs">
-      <DependentUpon>historial.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\historial.aspx.designer.cs">
-      <DependentUpon>historial.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\IngEgrAdmin.aspx.cs">
       <DependentUpon>IngEgrAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -613,6 +616,27 @@
     </Compile>
     <Compile Include="Admin\lstcompradet.aspx.designer.cs">
       <DependentUpon>lstcompradet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Nueva_factura.aspx.cs">
+      <DependentUpon>Nueva_factura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Nueva_factura.aspx.designer.cs">
+      <DependentUpon>Nueva_factura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Nuevo_Movimiento.aspx.cs">
+      <DependentUpon>Nuevo_Movimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Nuevo_Movimiento.aspx.designer.cs">
+      <DependentUpon>Nuevo_Movimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Nuevo_pago.aspx.cs">
+      <DependentUpon>Nuevo_pago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Nuevo_pago.aspx.designer.cs">
+      <DependentUpon>Nuevo_pago.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ordcpraborrdet.aspx.cs">
       <DependentUpon>ordcpraborrdet.aspx</DependentUpon>
@@ -764,6 +788,10 @@
     <Compile Include="Migrations\202210210044440_dddj.Designer.cs">
       <DependentUpon>202210210044440_dddj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210262309416_stockprobv.cs" />
+    <Compile Include="Migrations\202210262309416_stockprobv.Designer.cs">
+      <DependentUpon>202210262309416_stockprobv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
     <Compile Include="Models\pedrepo.cs" />
@@ -859,6 +887,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210210044440_dddj.resx">
       <DependentUpon>202210210044440_dddj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210262309416_stockprobv.resx">
+      <DependentUpon>202210262309416_stockprobv.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

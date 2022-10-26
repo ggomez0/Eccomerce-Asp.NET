@@ -29,7 +29,6 @@ namespace ShopGaspar.Models
 
         public int? idcomprobante { get; set;}
 
-        public virtual proveedores Proveedores { get; set; }
         public virtual tipocomprobantes Tipocomprobantes { get; set; }
 
         public virtual ICollection<comprobantesdet> Comprobantesdets { get; set; }

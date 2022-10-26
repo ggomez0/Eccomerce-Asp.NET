@@ -6,8 +6,7 @@
 
         <asp:Button ID="Button3" CssClass="btn btn-success rounded-3" runat="server" Text="Agregar Depositos"
                                             ValidationGroup="VG11" />
-        <asp:Button ID="btnhistorial" CssClass="btn btn-success rounded-3" OnClick="btnhistorial_Click" runat="server" Text="HISTORIAL"
-                                            ValidationGroup="VG117899" />
+       
                                         <!-- ModalPopupExtender -->
                                         <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
                                             PopupControlID="Panel3" TargetControlID="Button3" CancelControlID="btncerrardep"
