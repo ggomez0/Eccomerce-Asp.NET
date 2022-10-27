@@ -12,19 +12,74 @@
 
                     </style>
                 <div class="game-board container">
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Categoria" ID="btncat" OnClick="btncat_Click" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Productos" ID="btnprod" OnClick="btnprod_Click" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Depositos" ID="btndep" OnClick="btndep_Click" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Ingreso / Egreso" ID="btningegr" OnClick="btningegr_Click" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Compras" ID="btncompras" OnClick="btncompras_Click" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Transacciones" ID="btntrans" OnClick="btntrans_Click" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Clientes" ID="btnclientes" OnClick="btnclientes_Click" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Estadisticas" ID="btnestadi" OnClick="btnestadi_Click" />
-<%--                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="Pago Comprobantes" ID="btnpagocomp" OnClick="btnpagocomp_Click" />--%>
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="" />
-                    <asp:Button runat="server" CssClass="btn btn-dark rounded-3" Text="" />
+                    <a class="btn btn-dark rounded-3" href="CategoriaAdmin.aspx" runat="server" >
+                        <p></p>
+                        <asp:Image ImageUrl="~/Images/categories.png" runat="server" Height="100px" />
+                        <p></p>
+                     <span>Categoria</span>
+                    </a>
+                    <a class="btn btn-dark rounded-3" href="ProductosAdmin.aspx" runat="server">
+                        <p></p>
+                        <asp:Image ImageUrl="~/Images/productos2010.png" runat="server" Height="100px" />
+                        <p></p>
+                    <span>Productos</span>
+                    </a>
+                    <a class="btn btn-dark rounded-3" runat="server" href="~/Admin/DepositosAdmin.aspx">
+                        <p></p>
+                        <asp:Image ImageUrl="~/Images/deposito2010.png" runat="server" Height="100px" />  
+                        <p></p>
+
+                        <span>Depositos</span>
+                    </a>
+                    <a class="btn btn-dark rounded-3" runat="server" href="IngEgrAdmin.aspx">
+                        <p></p>
+                        <asp:Image ImageUrl="~/Images/resize-7-512.png" runat="server" Height="100px" />
+                        <p></p>
+                        <span>Stock</span>
+                    </a>
+                    <a class="btn btn-dark rounded-3" runat="server" href="~/Admin/ComprasAdmin.aspx">
+                        <p></p>
+                        <asp:Image ImageUrl="~/Images/buy-512.png" runat="server" Height="100px" />
+                        <p></p>
+                        <span>Compras</span>
+                    </a>
+                    <a class="btn btn-dark rounded-3" runat="server" href="~/Admin/TransaccionesAdmin.aspx">
+                        <p></p>
+                        <asp:Image ImageUrl="~/Images/transaction.png" runat="server" Height="100px" />
+                        <p></p>
+                        <span>Transacciones</span>
+                    </a>
+                    <a class="btn btn-dark rounded-3" runat="server" href="~/Admin/ClientesAdmin.aspx">
+                        <p></p>
+                        <asp:Image ImageUrl="~/Images/user-512.png" runat="server" Height="100px" />
+                        <p></p>
+                        <span>Clientes</span>
+                    </a>
+                    <a class="btn btn-dark rounded-3" runat="server" href="EstadisticasAdmin.aspx">
+                        <p></p>
+                        <asp:Image ImageUrl="~/Images/statistics-512.png" runat="server" Height="100px" />
+                        <p> </p>
+                    <span>Estadisticias</span>
+                    </a>
+                    <a class="btn btn-dark rounded-3">
+                        <asp:Image runat="server" Height="100px" />
+                    <span></span>
+                    </a>
+                    <a class="btn btn-dark rounded-3">
+                        <asp:Image  runat="server" Height="100px" />
+                    <span></span>
+                    </a>
+                    <a class="btn btn-dark rounded-3">
+                        <asp:Image  runat="server" Height="100px" />
+                   <span></span>
+                    </a>
+                    <a class="btn btn-dark rounded-3">
+                        <asp:Image runat="server" Height="100px" />
+                   <span></span>
+                    </a>
+
+
+
       
                
 

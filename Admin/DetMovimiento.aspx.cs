@@ -1,33 +1,57 @@
-﻿using System;
+﻿using ShopGaspar.Models;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ShopGaspar.Models;
-using ShopGaspar.Logic;
-using System.Data.SqlClient;
-using System.Data;
-using System.Configuration;
-using System.Web.Services;
-using System.Web.Script.Services;
 
 namespace ShopGaspar.Admin
 {
-    public partial class IngEgrAdmin : System.Web.UI.Page
+    public partial class DetMovimiento : System.Web.UI.Page
     {
         private ProductContext _db = new ProductContext();
         string connectionString = ConfigurationManager.ConnectionStrings["ShopGaspar"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if(!IsPostBack)
             {
-                this.databasecrud(connectionString, "select * from comprobantes c inner join depositos d on c.stringn=d.DepID where idcomprobante=5 and not Nombre='NULL' order by idcomp desc", gvhistorial);
+                string nID = Request.QueryString["id"];
+                this.databasecrud(connectionString, "SELECT * from comprobantesdets cd inner join products p on p.ProductID=cd.Product_ProductID" +
+                    " where Comprobantes_idcomp=" + nID, gv_detmov);
 
+                //using (SqlConnection conn = new SqlConnection(connectionString))
+                //{
+                //    string result = "select d.DepName from comprobantes c inner join depositos d on d.DepID=c.stringn where c.stringn="+nID;
+                //    SqlCommand showresult = new SqlCommand(result, conn);
 
-
+                //    conn.Open();
+                //    lDepName = (Label)showresult.ExecuteScalar();
+                //    conn.Close();
+                //}
             }
+
         }
+
+        public IQueryable<comprobantes> GetMovimiento([QueryString("id")] int? idcomp)
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable<comprobantes> query = _db.comprobantes;
+            if (idcomp.HasValue && idcomp > 0)
+            {
+                query = query.Where(p => p.idcomp == idcomp);
+            }
+            else
+            {
+                query = null;
+            }
+            return query;
+        }
+
 
         void databasecrud(string conexion, string sqlcomando, GridView tablag)
         {
@@ -39,7 +63,7 @@ namespace ShopGaspar.Admin
                 sqlDa.Fill(dtbl);
             }
             if (dtbl.Rows.Count > 0)
-            {
+            {             
                 tablag.DataSource = dtbl;
                 tablag.DataBind();
             }
@@ -58,26 +82,6 @@ namespace ShopGaspar.Admin
             tablag.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
-  
-
-        protected void btnmov_Click(object sender, EventArgs e)
-        {
-            addcomprobante addmov = new addcomprobante();
-            bool addSuccess = addmov.addcomprobantes(null, null, 0, 5, null, null, null);
-
-
-            if (addSuccess)
-            {
-                Response.Redirect("~/Admin/Nuevo_Movimiento.aspx");
-            }
-            
-        }
-
-        protected void btn_det_mov_Click(object sender, ImageClickEventArgs e)
-        {
-            int id = Convert.ToInt32((sender as ImageButton).CommandArgument);
-            Response.Redirect("~/Admin/DetMovimiento.aspx?id=" + id);
-
-        }
     }
+
 }

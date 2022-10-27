@@ -236,8 +236,8 @@
     <Content Include="Admin\ComprasAdmin.aspx" />
     <Content Include="Admin\DepositosAdmin.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
+    <Content Include="Admin\DetMovimiento.aspx" />
     <Content Include="Admin\detprodcat.aspx" />
-    <Content Include="Admin\Det_Movimiento.aspx" />
     <Content Include="Admin\dropdownlist.asmx" />
     <Content Include="Admin\EstadisticasAdmin.aspx" />
     <Content Include="Admin\factdet.aspx" />
@@ -272,6 +272,7 @@
     <Content Include="Images\asado.jpg" />
     <Content Include="Images\asado1.jpg" />
     <Content Include="Images\asado2.jpg" />
+    <Content Include="Images\buy-512.png" />
     <Content Include="Images\caja.png" />
     <Content Include="Images\cancel.png" />
     <Content Include="Images\carne1.jpg" />
@@ -283,14 +284,18 @@
     <Content Include="Images\categories.png" />
     <Content Include="Images\clasificacion2010.png" />
     <Content Include="Images\delete.png" />
+    <Content Include="Images\deposito-512.png" />
     <Content Include="Images\deposito2010.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\email.png" />
     <Content Include="Images\Facebook.png" />
     <Content Include="Images\Google.png" />
     <Content Include="Images\investigacion2010.png" />
+    <Content Include="Images\product-512.png" />
     <Content Include="Images\productos2010.png" />
     <Content Include="Images\receipt2010.png" />
+    <Content Include="Images\resize-7-512.png" />
+    <Content Include="Images\statistics-512.png" />
     <Content Include="Images\supermercado2010.png" />
     <Content Include="Images\Thumbs\i7.jpg" />
     <Content Include="Images\logo.ico" />
@@ -312,7 +317,9 @@
     <Content Include="Images\Thumbs\prs.jpg" />
     <Content Include="Images\Thumbs\sinimagen.jpg" />
     <Content Include="Images\Thumbs\spf.png" />
+    <Content Include="Images\transaction.png" />
     <Content Include="Images\usdsign.png" />
+    <Content Include="Images\user-512.png" />
     <Content Include="Images\verduleria.jpg" />
     <Content Include="Images\whatsapp.png" />
     <Content Include="Account\AddPhoneNumber.aspx" />
@@ -564,19 +571,19 @@
     <Compile Include="Admin\detallesordenes.aspx.designer.cs">
       <DependentUpon>detallesordenes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\DetMovimiento.aspx.cs">
+      <DependentUpon>DetMovimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DetMovimiento.aspx.designer.cs">
+      <DependentUpon>DetMovimiento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\detprodcat.aspx.cs">
       <DependentUpon>detprodcat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\detprodcat.aspx.designer.cs">
       <DependentUpon>detprodcat.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Det_Movimiento.aspx.cs">
-      <DependentUpon>Det_Movimiento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Det_Movimiento.aspx.designer.cs">
-      <DependentUpon>Det_Movimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\dropdownlist.asmx.cs">
       <DependentUpon>dropdownlist.asmx</DependentUpon>

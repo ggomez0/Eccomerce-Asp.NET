@@ -36,11 +36,11 @@
                                                         <td>
                                                             <asp:Label runat="server" Text="Observaciones: " Font-Bold="true"></asp:Label>
                                                             </td> <td>
-                                                             <asp:TextBox ID="txtobsdep" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                                             <asp:TextBox ID="txtobsmov" runat="server" TextMode="MultiLine"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ValidationGroup="VG21"
                                                                 ID="RequiredFieldValidator10" runat="server"
                                                                 Text="* Observaciones requerida."
-                                                                ControlToValidate="txtobsdep" SetFocusOnError="true"
+                                                                ControlToValidate="txtobsmov" SetFocusOnError="true"
                                                                 Display="Dynamic"></asp:RequiredFieldValidator>
                                                             </td>
         
@@ -48,7 +48,7 @@
                                                         </table>
                                         
 
-<asp:Button runat="server" ID="btnagregarprodmov" Text="➕ Producto" CssClass="btn btn-success" />
+<asp:Button runat="server" ID="btnagregarprodmov" Text="+ Producto" CssClass="btn btn-success" />
                                              
 
 
@@ -89,8 +89,35 @@
                         </asp:Panel>
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
-            ID="gvprodmov" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true">
-             <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White" /> </asp:GridView>
+            ID="gvprodmov" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowDeleting="gvprodmov_RowDeleting" DataKeyNames="idcomprdet">
+             <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White"  /> 
+            <Columns>
+                <asp:TemplateField HeaderText="#">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("idcomprdet") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+             
+                <asp:TemplateField HeaderText="Producto">
+                    <ItemTemplate>
+                        <asp:Label ID="lblprodmov"  Text='<%# Eval("ProductName") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Cantidad">
+                    <ItemTemplate>
+                        <asp:Label ID="lblcantmov" Text='<%# Eval("cantidad") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:ImageButton runat="server" ImageUrl="~/Images/delete.png" Height="30px" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+
+
+            <asp:Button ID="btnguardarmov" OnClick="btnguardarmov_Click"  CssClass="btn btn-info rounded-3" runat="server"  Text="Guardar movimiento"/>
         </div>
 
     <asp:Label runat="server" ID="lblSuccessMessage"></asp:Label>
