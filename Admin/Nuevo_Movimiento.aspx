@@ -63,13 +63,18 @@
          <h3>Seleccione los productos</h3>
         
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
-            ID="gvproductoslista" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
-            DataKeyNames="ID"     OnRowUpdating="gvproductoslista_RowUpdating">
+            ID="gvproductoslista" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" DataKeyNames="ID" 
+             OnRowUpdating="gvproductoslista_RowUpdating">
             <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
                     
-                      <asp:Button ID="Button5" CssClass="btn btn-success rounded-3"  runat="server" Text="+"/>
+                      <asp:Button ID="Button5" CssClass="btn btn-success rounded-3"  runat="server" Text="+" CommandName="Update"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                    <asp:TextBox ID="txtcantpedido" runat="server" TextMode="Number" Width="50px"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -84,8 +89,7 @@
                         </asp:Panel>
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
-            ID="gvprodmov" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
-            DataKeyNames="ID"     OnRowUpdating="gvproductoslista_RowUpdating">
+            ID="gvprodmov" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true">
              <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White" /> </asp:GridView>
         </div>
 
