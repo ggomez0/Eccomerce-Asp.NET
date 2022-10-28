@@ -30,10 +30,9 @@ namespace ShopGaspar.Admin
             {
                 this.databasecrud(connectionString, "SELECT * FROM proveedores", gvproveedores);
                 this.databasecrud(connectionString, "SELECT * FROM pedrepoes", gvlstcpra);
-                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvfact);
+                this.databasecrud(connectionString, "SELECT * FROM comprobantes c inner join proveedores p on c.ProvID=p.ProvID where idcomprobante=3", gvfact);
                 
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvpagofact);
-                this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvdetprod);
                 this.databasecrud(connectionString, "SELECT * FROM comprobantes c inner join proveedores p on p.ProvID=c.ProvID where idcomprobante=4", gvfactpag);
 
             }

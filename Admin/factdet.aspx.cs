@@ -23,7 +23,7 @@ namespace ShopGaspar.Admin
             {
                 string nID = Request.QueryString["id1"];
                 string nID1 = Request.QueryString["id2"];
-                this.databasecrud(connectionString, "SELECT ProductName,cantidad, UnitPrice, c.CategoryName, l.idcomprdet, (cantidad*UnitPrice) as Total" +
+                this.databasecrud(connectionString, "SELECT ProductName,cantidad, precio, c.CategoryName, l.idcomprdet, (cantidad*precio) as Total" +
                     " FROM comprobantesdets l inner join Products p on l.Product_ProductID=p.ProductID inner join Categories c " +
                     "on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);
 

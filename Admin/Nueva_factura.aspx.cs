@@ -17,22 +17,20 @@ namespace ShopGaspar.Admin
             if(!IsPostBack)
             {
                 this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
-                  "Descripcion,UnitPrice as Precio,CategoryID,Stock FROM Products", gvproductoslista);
+                  "Descripcion, CategoryID,Stock FROM Products", gvproductoslista);
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string result = "select max(idcomp) from comprobantes";
                     SqlCommand showresult = new SqlCommand(result, conn);
-
                     conn.Open();
                     string nummov = showresult.ExecuteScalar().ToString();
-                    txtidfact.Text = nummov;
+                    lblInvisible.Text = nummov;
                     conn.Close();
                 }
 
-                this.databasecrud(connectionString, "SELECT * from comprobantesdets cd inner join products p on p.ProductID=cd.Product_ProductID" +
-                    " where Comprobantes_idcomp=" + Convert.ToInt32(txtidfact.Text), gvprodfact);
-
+                this.databasecrud(connectionString, "SELECT cd.idcomprdet,p.ProductName,cd.cantidad,cd.precio,(precio*cantidad) as Total from comprobantesdets cd inner join products p on p.ProductID=cd.Product_ProductID " +
+                       " where Comprobantes_idcomp=" + Convert.ToInt32(lblInvisible.Text), gvprodfact);
             }
 
 
@@ -41,16 +39,81 @@ namespace ShopGaspar.Admin
 
         protected void btnguardarfact_Click(object sender, EventArgs e)
         {
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "declare @importee int = (select sum(cantidad*precio) from comprobantesdets where Comprobantes_idcomp=@idped); update comprobantes set Nombre=@tipo, stringn=@idfact, ProvID=@ProvID, descripcion=@idsucur, importe=@importee, fechacomprobante=@fechaa where idcomp=@idped;";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.Parameters.AddWithValue("@tipo", txttipo.SelectedValue);
+                sqlCmd.Parameters.AddWithValue("@ProvID", ddlistprov.SelectedValue);
+                sqlCmd.Parameters.AddWithValue("@idped", Convert.ToInt32(lblInvisible.Text));
+                sqlCmd.Parameters.AddWithValue("@idfact", txtidfact.Text);
+                sqlCmd.Parameters.AddWithValue("@idsucur", txtsucursal.Text);
+                sqlCmd.Parameters.AddWithValue("@fechaa", txtcalendar.Text);
 
+                sqlCmd.ExecuteNonQuery();
+            }
+            Response.Redirect("~/Admin/ComprasAdmin.aspx");
+        }
+
+        public IQueryable GetProveedores()
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable query = _db.proveedores;
+            return query;
         }
 
         protected void gvprodfact_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "delete from comprobantesdets where idcomprdet=@id);";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@id", Convert.ToInt32(gvprodfact.DataKeys[e.RowIndex].Value.ToString()));
+                    sqlCmd.ExecuteNonQuery();
+                    gvproductoslista.EditIndex = -1;
+                    lblSuccessMessage.Text = "Agregado con exito";
+                    lblErrorMessage.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+            Response.Redirect(Request.RawUrl);
 
         }
 
         protected void gvproductoslista_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            try
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp,precio) values (@cantped,@product,@idpedido,@precio);";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.Parameters.AddWithValue("@cantped", Convert.ToInt32((gvproductoslista.Rows[e.RowIndex].FindControl("txtcantfact") as TextBox).Text.Trim()));
+                    sqlCmd.Parameters.AddWithValue("@precio", Convert.ToInt32((gvproductoslista.Rows[e.RowIndex].FindControl("txtpricefact") as TextBox).Text.Trim()));
+                    sqlCmd.Parameters.AddWithValue("@idpedido", Convert.ToInt32((lblInvisible.Text).ToString()));
+                    sqlCmd.Parameters.AddWithValue("@product", Convert.ToInt32(gvproductoslista.DataKeys[e.RowIndex].Value.ToString()));
+
+                    sqlCmd.ExecuteNonQuery();
+                    gvproductoslista.EditIndex = -1;
+                    lblSuccessMessage.Text = "Agregado con exito";
+                    lblErrorMessage.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblSuccessMessage.Text = "";
+                lblErrorMessage.Text = ex.Message;
+            }
+            Response.Redirect(Request.RawUrl);
 
         }
 
@@ -84,52 +147,8 @@ namespace ShopGaspar.Admin
         }
 
 
-        //protected void btnanfact_Click(object sender, EventArgs e)
-        //{
-        //    addcomprobante addfactura = new addcomprobante();
-        //    bool addSuccess = addfactura.addcomprobantes(txttipo.Text, txtsucursal.Text, 0, 3, ddlistfact.SelectedValue, txtnumfact.Text, txtcalendar.Text);
-
-        //    if (addSuccess)
-        //    {
-
-        //        foreach (GridViewRow row in gvproductosfact.Rows)
-        //        {
 
 
-        //            if (((CheckBox)row.FindControl("checkboxprodfact")).Checked)
-        //            {
-        //                using (SqlConnection sqlCon = new SqlConnection(connectionString))
-        //                {
-        //                    sqlCon.Open();
-        //                    string query = " declare @lstcompra int = (select max(idcomp) from comprobantes); insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@cantidad,@product,@lstcompra);";
-        //                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-        //                    sqlCmd.Parameters.AddWithValue("@cantidad", ((TextBox)row.FindControl("txtcantlstfact")).Text);
-        //                    sqlCmd.Parameters.AddWithValue("@product", ((Label)row.FindControl("lblidprod")).Text);
-
-        //                    sqlCmd.ExecuteNonQuery();
-        //                }
-        //            }
-
-        //            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-        //            {
-        //                sqlCon.Open();
-        //                string query = "declare @lstcompra int = (select max(idcomp) from comprobantes); declare @importee int = (select sum(cantidad*p.UnitPrice) from comprobantesdets c inner join products p on p.ProductID=c.Product_ProductID where Comprobantes_idcomp=@lstcompra); update comprobantes set importe=@importee where idcomp=@lstcompra;";
-        //                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-        //                sqlCmd.ExecuteNonQuery();
-        //                gvproductosfact.EditIndex = -1;
-        //                lblSuccessMessage.Text = "Agregado con exito";
-        //                lblErrorMessage.Text = "";
-        //            }
-        //        }
-        //    }
-
-
-
-
-        //    // Reload the page.
-        //    string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-        //    Response.Redirect(pageUrl + "?ProductAction=addfact");
-        //}
 
     }
 }

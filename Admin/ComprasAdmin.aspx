@@ -486,50 +486,12 @@
 
                                     <asp:Button ID="Button8factopen" CssClass="btn btn-success rounded-3" runat="server"
                                         Text="Nueva Factura" OnClick="Button8factopen_Click" />
-                                  
-                                                    
-
-                                                    <asp:GridView runat="server" CssClass="grid" BorderStyle="None"
-                                                        ID="gvdetprod" ShowHeaderWhenEmpty="true"
-                                                        AutoGenerateColumns="true">
-                                                        <HeaderStyle BackColor="black" Font-Bold="True"
-                                                            ForeColor="White" />
-                                                    </asp:GridView>
-
-
-
-
-                                                    <%--------------------------------------%>
-
-
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                        </div>
-                                        <asp:Button ID="btnanfact" runat="server" Text="Agregar"
-                                            OnClick="btnanfact_Click" CssClass="btn btn-success rounded-3"
-                                            CausesValidation="true" ValidationGroup="VG2481" />
-                                        <asp:Button ID="Button8fact" CssClass="btn btn-danger rounded-3"
-                                            ValidationGroup="wdko" runat="server" Text="Cerrar" />
-                                        <br />
-                                        <p> </p>
-                                        <p></p>
-                                    </asp:Panel>
-
-
-
-
-
-
-
-
-
 
                                     <asp:GridView ID="gvfact" runat="server" CssClass="grid" ShowHeaderWhenEmpty="true"
                                         class="table thead-dark" AutoGenerateColumns="false" BackColor="White"
                                         BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                         DataKeyNames="idcomp" OnRowCommand="gvfact_RowCommand"
                                         OnRowUpdating="gvfact_RowUpdating" OnRowDeleting="gvfact_RowDeleting">
-                                        <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White" />
 
 
 
@@ -557,7 +519,7 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Proveedor">
                                                 <ItemTemplate>
-                                                    <asp:Label Text='<%# Eval("ProvID") %>' runat="server" />
+                                                    <asp:Label Text='<%# Eval("ProvName") %>' runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Total">

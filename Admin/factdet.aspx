@@ -11,9 +11,8 @@
                                 <br />
                                    <tr>
                                        <td>
-                  
-=                                           <span style="font-size:1em">Estado: <%#Item.stringn %></span><br />
-                                           <span style="font-size:1em">Forma de pago: <%#Item.descripcion %></span><br />
+                                           <span style="font-size:1em">N° Sucursal: <%#Item.descripcion %></span><br />
+                                           <span style="font-size:1em">N° Factura: <%#Item.stringn %></span><br />
                                            <span style="font-size:1em">Fecha: <%#Item.fechacomprobante %></span><br />
                                            <span style="font-size:1em">Total: <%#:String.Format("{0:c}", Item.importe) %></span><br />
                                         </td>
@@ -26,11 +25,41 @@
 
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvlstcompradet" 
-            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
+            ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" 
             DataKeyNames="idcomprdet"  OnRowDeleting="gvlstcompradet_RowDeleting">
              <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White"  />
         <Columns>
-            <asp:TemplateField>
+            <asp:TemplateField HeaderText="#">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("idcomprdet") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Producto">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("ProductName") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Cantidad">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("cantidad") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Precio">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("precio") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Categoria">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("CategoryName") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Total">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("Total") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <%--<asp:TemplateField>
                 <ItemTemplate>
 
                     <asp:ImageButton ImageUrl="~/Images/delete.png"
@@ -38,7 +67,7 @@
                         ValidationGroup="Vagosdep" ToolTip="Eliminar"
                         Width="30px" Height="30px" />
                 </ItemTemplate>
-            </asp:TemplateField>
+            </asp:TemplateField>--%>
         </Columns>
         </asp:GridView>
 

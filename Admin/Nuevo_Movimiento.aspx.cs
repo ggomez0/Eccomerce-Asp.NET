@@ -70,7 +70,6 @@ namespace ShopGaspar.Admin
                 lblErrorMessage.Text = ex.Message;
             }
             Response.Redirect(Request.RawUrl);
-
         }
 
 

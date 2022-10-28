@@ -13,5 +13,10 @@ namespace ShopGaspar.Admin
         {
 
         }
+
+        protected void btnguardarpago_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
