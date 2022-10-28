@@ -24,31 +24,31 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.TextBox txtidpago;
 
         /// <summary>
-        /// Control ddlistdep.
+        /// Control ddlistpr.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlistdep;
+        protected global::System.Web.UI.WebControls.DropDownList ddlistpr;
 
         /// <summary>
-        /// Control txtobsmov.
+        /// Control ddlisttrans.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtobsmov;
+        protected global::System.Web.UI.WebControls.DropDownList ddlisttrans;
 
         /// <summary>
-        /// Control RequiredFieldValidator10.
+        /// Control txtcalendarpago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        protected global::System.Web.UI.WebControls.TextBox txtcalendarpago;
 
         /// <summary>
         /// Control btnagregarfactpago.
@@ -78,13 +78,13 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Panel Panel21;
 
         /// <summary>
-        /// Control gvproductoslista.
+        /// Control gvfacturas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvproductoslista;
+        protected global::System.Web.UI.WebControls.GridView gvfacturas;
 
         /// <summary>
         /// Control btncerrarfactpago.
@@ -96,13 +96,13 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.Button btncerrarfactpago;
 
         /// <summary>
-        /// Control gvprodmov.
+        /// Control gvfactpago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvprodmov;
+        protected global::System.Web.UI.WebControls.GridView gvfactpago;
 
         /// <summary>
         /// Control btnguardarpago.

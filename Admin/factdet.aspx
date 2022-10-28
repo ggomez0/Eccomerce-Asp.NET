@@ -11,8 +11,9 @@
                                 <br />
                                    <tr>
                                        <td>
-                                           <span style="font-size:1em">N° Sucursal: <%#Item.descripcion %></span><br />
+                                           
                                            <span style="font-size:1em">N° Factura: <%#Item.stringn %></span><br />
+                                           <span style="font-size:1em">N° Sucursal: <%#Item.descripcion %></span><br />
                                            <span style="font-size:1em">Fecha: <%#Item.fechacomprobante %></span><br />
                                            <span style="font-size:1em">Total: <%#:String.Format("{0:c}", Item.importe) %></span><br />
                                         </td>
@@ -46,7 +47,7 @@
                                             </asp:TemplateField>
             <asp:TemplateField HeaderText="Precio">
                                                 <ItemTemplate>
-                                                    <asp:Label Text='<%# Eval("precio") %>' runat="server" />
+                                                    <asp:Label Text=<%#:String.Format("{0:c}", Eval("precio"))%> runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
             <asp:TemplateField HeaderText="Categoria">
@@ -56,7 +57,7 @@
                                             </asp:TemplateField>
             <asp:TemplateField HeaderText="Total">
                                                 <ItemTemplate>
-                                                    <asp:Label Text='<%# Eval("Total") %>' runat="server" />
+                                                    <asp:Label Text=<%#:String.Format("{0:c}", Eval("Total"))%> runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
             <%--<asp:TemplateField>

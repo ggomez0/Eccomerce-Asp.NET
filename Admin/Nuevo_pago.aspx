@@ -11,32 +11,44 @@
                                                   </td><td>
                                                       <asp:TextBox runat="server" Enabled="false" ID="txtidpago"></asp:TextBox>
                                                       </td></tr>
-                                                    <tr>
-                                                        <td>
-                                                   
-                                                            <asp:Label Font-Bold="true" runat="server">Deposito:</asp:Label>
-                                                   </td><td>
-                                                            <asp:DropDownList ID="ddlistdep" runat="server"
-                                                                ItemType="ShopGaspar.Models.depositos"
-                                                                SelectMethod="GetDepositos" DataTextField="DepName"
-                                                                DataValueField="DepID">
-                                                            </asp:DropDownList>
-                                                       </td>
-                                                        </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label runat="server" Text="Observaciones: " Font-Bold="true"></asp:Label>
-                                                            </td> <td>
-                                                             <asp:TextBox ID="txtobsmov" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ValidationGroup="VG21"
-                                                                ID="RequiredFieldValidator10" runat="server"
-                                                                Text="* Observaciones requerida."
-                                                                ControlToValidate="txtobsmov" SetFocusOnError="true"
-                                                                Display="Dynamic"></asp:RequiredFieldValidator>
-                                                            </td>
-        
-                                                        </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Label runat="server" Text="Proveedor: " />
+                                                                </td>
+                                                                <td style="padding-right:30px">
+                                                                    <asp:DropDownList ID="ddlistpr" runat="server"
+                                                                        ItemType="ShopGaspar.Models.proveedores"
+                                                                        SelectMethod="GetProveedores"
+                                                                        DataTextField="ProvName"
+                                                                        DataValueField="ProvID">
+                                                                    </asp:DropDownList>
+                                                                </td>
+
+                                                                <td>
+                                                                    <asp:Label runat="server" Text="Metodo de Pago: " />
+                                                                </td>
+                                                                <td>
+                                                                    <asp:DropDownList runat="server" ID="ddlisttrans">
+
+                                                                        <asp:ListItem>Transferencia</asp:ListItem>
+                                                                        <asp:ListItem>Efectivo</asp:ListItem>
+                                                                        <asp:ListItem>Cheque</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </td>
+                                                                <td style="padding-left:30px">
+                                                                    <asp:Label runat="server" Text="Fecha"></asp:Label>
+                                                                </td>
+                                                                <td>
+                                                                    <asp:TextBox runat="server" TextMode="Date"
+                                                                        ID="txtcalendarpago"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+
+
                                                         </table>
+
+                                                   
+                                                  
                                         
 
 <asp:Button runat="server" ID="btnagregarfactpago" Text="+ Factura" CssClass="btn btn-success" />
@@ -47,15 +59,15 @@
                             TargetControlID="btnagregarfactpago" CancelControlID="btncerrarfactpago" BackgroundCssClass="modalBackground">
                         </cc1:ModalPopupExtender>
                         <asp:Panel ID="Panel21" runat="server" CssClass="modalPopup" align="center"
-                            Style="background-color:white; border:solid; border-color:black;">
+                            Style="background-color:white; border:solid; border-color:black; height:650px; overflow:auto;">
                             <div style="padding:20px">
                                 <asp:UpdatePanel runat="server">
                                     <ContentTemplate>
-         <h3>Seleccione los productos</h3>
+         <h3>Seleccione las facturas</h3>
         
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
-            ID="gvproductoslista" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" DataKeyNames="ID" 
-             OnRowUpdating="gvproductoslista_RowUpdating">
+            ID="gvfacturas" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" DataKeyNames="ID" OnRowUpdating="gvfacturas_RowUpdating" 
+             >
             <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
@@ -63,11 +75,7 @@
                       <asp:Button ID="Button5" CssClass="btn btn-success rounded-3"  runat="server" Text="+" CommandName="Update"/>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                    <asp:TextBox ID="txtcantpedido" runat="server" TextMode="Number" Width="50px"></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                
             </Columns>
             </asp:GridView>
                                             </ContentTemplate>
@@ -80,26 +88,10 @@
                         </asp:Panel>
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
-            ID="gvprodmov" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowDeleting="gvprodmov_RowDeleting" DataKeyNames="idcomprdet">
+            ID="gvfactpago" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" OnRowDeleting="gvfactpago_RowDeleting" DataKeyNames="ID">
              <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White"  /> 
             <Columns>
-                <asp:TemplateField HeaderText="#">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("idcomprdet") %>' runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-             
-                <asp:TemplateField HeaderText="Producto">
-                    <ItemTemplate>
-                        <asp:Label ID="lblprodmov"  Text='<%# Eval("ProductName") %>' runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Cantidad">
-                    <ItemTemplate>
-                        <asp:Label ID="lblcantmov" Text='<%# Eval("cantidad") %>' runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField>
+              <asp:TemplateField>
                     <ItemTemplate>
                         <asp:ImageButton runat="server" ImageUrl="~/Images/delete.png" Height="30px" />
                     </ItemTemplate>

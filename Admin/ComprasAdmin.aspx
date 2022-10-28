@@ -14,13 +14,13 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-lstcpra-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-lstcpra" type="button" role="tab" aria-controls="pills-lstcpra"
-                            aria-selected="false">Pedido de reposicion</button>
+                            aria-selected="false">Orden de compra</button>
                     </li>
-                    <li class="nav-item" role="presentation">
+                   <%-- <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-ordcpra-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-ordcpra" type="button" role="tab" aria-controls="pills-ordcpra"
+                            data-bs-target="#pills-ordcpra"  type="button" role="tab" aria-controls="pills-ordcpra"
                             aria-selected="false">Ordenes de Compra</button>
-                    </li>
+                    </li>--%>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-fact-tab" data-bs-toggle="pill" data-bs-target="#pills-fact"
                             type="button" role="tab" aria-controls="pills-fact" aria-selected="false">Factura</button>
@@ -408,7 +408,7 @@
                             aria-labelledby="pills-lstcpra-tab">
 
 
-                            <asp:Button ID="addlstbtn" runat="server" Text="Nuevo Pedido de reposicion"
+                            <asp:Button ID="addlstbtn" runat="server" Text="Nueva Orden de compra"
                                 OnClick="addlstbtn_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
                                 ValidationGroup="VG1" />
                             <asp:GridView ID="gvlstcpra" runat="server" CssClass="grid" ShowHeaderWhenEmpty="true"
@@ -499,12 +499,12 @@
 
                                             <asp:TemplateField HeaderText="#">
                                                 <ItemTemplate>
-                                                    <asp:Label Text='<%# Eval("descripcion") %>' runat="server" />
+                                                    <asp:Label Text='<%# Eval("stringn") %>' runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Sucursal">
                                                 <ItemTemplate>
-                                                    <asp:Label Text='<%# Eval("stringn") %>' runat="server" />
+                                                    <asp:Label Text='<%# Eval("descripcion") %>' runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Tipo de factura">
@@ -566,149 +566,15 @@
                                         <h3>Pago de Facturas</h3>
                                         <p></p>
 
-                                        <asp:Button runat="server" ID="btnabrirpagofact"
-                                            CssClass="btn btn-success rounded-3" Text="Realizar Pago" />
-                                        <!-- ModalPopupExtender -->
-                                        <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
-                                            PopupControlID="Panel1059" TargetControlID="btnabrirpagofact"
-                                            CancelControlID="btncerrarpagofact" BackgroundCssClass="modalBackground">
-                                        </cc1:ModalPopupExtender>
-                                        <asp:Panel ID="Panel1059" runat="server" CssClass="modalPopup" align="center"
-                                            Style="background-color:white; border:solid; border-color:black; overflow:auto; height:600px; width:1000px">
-                                            <div style="padding:20px">
-                                                <asp:UpdatePanel runat="server">
-                                                    <ContentTemplate>
-                                                        <h3>Realizar Pago</h3>
-                                                        <table>
-                                                            <tr>
-                                                                <td>
-                                                                    <asp:Label runat="server" Text="Proveedor: " />
-                                                                </td>
-                                                                <td style="padding-right:30px">
-                                                                    <asp:DropDownList ID="ddlistpr" runat="server"
-                                                                        ItemType="ShopGaspar.Models.proveedores"
-                                                                        SelectMethod="GetProveedores"
-                                                                        DataTextField="ProvName"
-                                                                        DataValueField="ProvID">
-                                                                    </asp:DropDownList>
-                                                                </td>
-
-                                                                <td>
-                                                                    <asp:Label runat="server" Text="Metodo de Pago: " />
-                                                                </td>
-                                                                <td>
-                                                                    <asp:DropDownList runat="server" ID="ddlisttrans">
-
-                                                                        <asp:ListItem>Transferencia</asp:ListItem>
-                                                                        <asp:ListItem>Efectivo</asp:ListItem>
-                                                                        <asp:ListItem>Cheque</asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                                <td style="padding-left:30px">
-                                                                    <asp:Label runat="server" Text="Fecha"></asp:Label>
-                                                                </td>
-                                                                <td>
-                                                                    <asp:TextBox runat="server" TextMode="Date"
-                                                                        ID="txtcalendarpago"></asp:TextBox>
-                                                                </td>
-                                                            </tr>
-
-
-                                                        </table>
-                                                        <p></p>
-
-
-
-
-
-
-                                                        <asp:GridView ID="gvpagofact" runat="server" CssClass="grid"
-                                                            ShowHeaderWhenEmpty="true" class="table thead-dark"
-                                                            AutoGenerateColumns="false" BackColor="White"
-                                                            BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
-                                                            DataKeyNames="idcomp" CellPadding="3">
-                                                            <HeaderStyle BackColor="black" Font-Bold="True"
-                                                                ForeColor="White" />
-                                                            <Columns>
-                                                                <asp:TemplateField>
-                                                                    <ItemTemplate>
-                                                                        <asp:CheckBox runat="server" ID="cboxpagado" />
-                                                                    </ItemTemplate>
-
-                                                                </asp:TemplateField>
-                                                                <asp:TemplateField>
-                                                                    <ItemTemplate>
-                                                                        <asp:Label ID="lblidfactpag"
-                                                                            Text='<%# Eval("idcomp") %>'
-                                                                            runat="server" />
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="#">
-                                                                    <ItemTemplate>
-                                                                        <asp:Label Text='<%# Eval("descripcion") %>'
-                                                                            runat="server" />
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Sucursal">
-                                                                    <ItemTemplate>
-                                                                        <asp:Label Text='<%# Eval("stringn") %>'
-                                                                            runat="server" />
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Tipo de factura">
-                                                                    <ItemTemplate>
-                                                                        <asp:Label Text='<%# Eval("Nombre") %>'
-                                                                            runat="server" />
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Fecha">
-                                                                    <ItemTemplate>
-                                                                        <asp:Label
-                                                                            Text='<%# Eval("fechacomprobante") %>'
-                                                                            runat="server" />
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Proveedor">
-                                                                    <ItemTemplate>
-                                                                        <asp:Label Text='<%# Eval("ProvID") %>'
-                                                                            runat="server" />
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Total">
-                                                                    <ItemTemplate>
-                                                                        <asp:Label
-                                                                            Text='<%#:String.Format("{0:c}", Eval("importe"))%>'
-                                                                            runat="server" />
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-
-
-
-
-
-                                                            </Columns>
-
-
-                                                        </asp:GridView>
-
-                                                    </ContentTemplate>
-
-                                                </asp:UpdatePanel>
-                                            </div>
-                                            <asp:Button ID="btnagregarfact" runat="server" Text="Agregar"
-                                                OnClick="btnagregarfact_Click" CssClass="btn btn-success rounded-3" />
-                                            <asp:Button ID="btncerrarpagofact" CssClass="btn btn-danger rounded-3"
-                                                runat="server" Text="Cerrar" />
-
-
-                                        </asp:Panel>
+                                        <asp:Button runat="server" ID="btnpagofact"
+                                            CssClass="btn btn-success rounded-3" Text="Realizar Pago" OnClick="btnpagofact_Click" />
+                                       
 
 
                                         <asp:GridView ID="gvfactpag" runat="server" CssClass="grid"
                                             ShowHeaderWhenEmpty="true" class="table thead-dark"
                                             AutoGenerateColumns="false" BackColor="White" BorderColor="#CCCCCC"
                                             BorderStyle="None" BorderWidth="1px" CellPadding="3">
-                                            <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White" />
 
                                             <Columns>
                                                 <asp:TemplateField HeaderText="#">
@@ -716,11 +582,7 @@
                                                         <asp:Label Text='<%# Eval("idcomp") %>' runat="server" />
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Estado">
-                                                    <ItemTemplate>
-                                                        <asp:Label Text='<%# Eval("stringn") %>' runat="server" />
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
+                                               
                                                 <asp:TemplateField HeaderText="Proveedor">
                                                     <ItemTemplate>
                                                         <asp:Label Text='<%# Eval("descripcion") %>' runat="server" />
