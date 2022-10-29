@@ -196,6 +196,51 @@
 
                    
   </script>
+<%--     <script src="Scripts/jquery-1.7.1.js"></script>
+            <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ 
+            <script>
+                var chartData; // globar variable for hold chart data
+                google.load("visualization", "1", { packages: ["corechart"] });
+
+                // Here We will fill chartData
+
+                $(document).ready(function () {
+
+                    $.ajax({
+                        url: "~/Admin/Reportes.aspx/GetChartData",
+                        data: "",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; chartset=utf-8",
+                        success: function (data) {
+                            chartData = data.d;
+                        },
+                        error: function () {
+                            alert("Error loading data! Please try again.");
+                        }
+                    }).done(function () {
+                        // after complete loading data
+                        google.setOnLoadCallback(drawChart);
+                        drawChart();
+                    });
+                });
+
+
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable(chartData);
+
+                    var options = {
+                        title: "Company Revenue",
+                        pointSize: 5
+                    };
+
+                    var columnChart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                    columnChart.draw(data, options);
+
+                }
+
+            </script>--%>
 
 </body>    
 </html>
