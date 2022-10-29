@@ -51,13 +51,18 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    //where idcomp= @idpeddeclare @importee int = (select sum(cantidad * precio) from comprobantesdets where Comprobantes_idcomp = @idped)
-                    string query = "update comprobantes set stringn='Pagado', descripcion=@forma, importe=0, fechacomprobantes=@fechacomprobante, ProvID=@ProvID, idcomprobante=4 where idcomp=@idped";
+                   
+                    string query = "declare @importee int = (select sum(cc.importe) from comprobantes c " +
+                        "inner join comprobantesdets cd on cd.Comprobantes_idcomp=c.idcomp inner join comprobantes cc" +
+                        " on cc.idcomp=cd.factid where c.idcomp = @idped);" +
+                        " update comprobantes set stringn='Pagado', descripcion=@forma, importe=@importee, " +
+                        "fechacomprobante=@fechacomprobante, ProvID=@ProvID, idcomprobante=4 where idcomp=@idped;";
+
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@forma", ddlisttrans.SelectedValue);
                     sqlCmd.Parameters.AddWithValue("@fechacomprobante", txtcalendarpago.Text);
-                    sqlCmd.Parameters.AddWithValue("@ProvID", ddlistpr.SelectedValue);
-                    sqlCmd.Parameters.AddWithValue("@idped", Convert.ToInt32((txtidpago.Text).ToString()));
+                    sqlCmd.Parameters.AddWithValue("@ProvID", Convert.ToInt32(ddlistpr.SelectedValue));
+                    sqlCmd.Parameters.AddWithValue("@idped", Convert.ToInt32(txtidpago.Text));
 
                     sqlCmd.ExecuteNonQuery();
                     lblSuccessMessage.Text = "Agregado con exito";
@@ -69,7 +74,7 @@ namespace ShopGaspar.Admin
                 lblSuccessMessage.Text = "";
                 lblErrorMessage.Text = ex.Message;
             }
-            Response.Redirect(Request.RawUrl);
+            Response.Redirect("~/Admin/ComprasAdmin.aspx");
 
         }
 

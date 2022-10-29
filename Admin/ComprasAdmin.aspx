@@ -583,7 +583,7 @@
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                
-                                                <asp:TemplateField HeaderText="Proveedor">
+                                                <asp:TemplateField HeaderText="Forma">
                                                     <ItemTemplate>
                                                         <asp:Label Text='<%# Eval("descripcion") %>' runat="server" />
                                                     </ItemTemplate>
@@ -597,6 +597,11 @@
                                                 <asp:TemplateField HeaderText="Proveedor">
                                                     <ItemTemplate>
                                                         <asp:Label Text='<%# Eval("ProvName") %>' runat="server" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Importe">
+                                                    <ItemTemplate>
+                                                        <asp:Label Text='<%# Eval("importe") %>' runat="server" />
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Opciones">

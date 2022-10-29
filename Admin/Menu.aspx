@@ -61,9 +61,9 @@
                         <p> </p>
                     <span>Estadisticias</span>
                     </a>
-                    <a class="btn btn-dark rounded-3">
+                    <a class="btn btn-dark rounded-3" runat="server" href="Reportes.aspx">
                         <asp:Image runat="server" Height="100px" />
-                    <span></span>
+                    <span>Reportes</span>
                     </a>
                     <a class="btn btn-dark rounded-3">
                         <asp:Image  runat="server" Height="100px" />

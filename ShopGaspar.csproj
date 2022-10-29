@@ -258,6 +258,7 @@
     <Content Include="Admin\proddeprov.aspx" />
     <Content Include="Admin\prodendep.aspx" />
     <Content Include="Admin\ProductosAdmin.aspx" />
+    <Content Include="Admin\Reportes.aspx" />
     <Content Include="Admin\TransaccionesAdmin.aspx" />
     <Content Include="Checkout\CheckoutComplete.aspx" />
     <Content Include="Checkout\CheckoutReview.aspx" />
@@ -721,6 +722,13 @@
     </Compile>
     <Compile Include="Admin\ProductosAdmin.aspx.designer.cs">
       <DependentUpon>ProductosAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\TransaccionesAdmin.aspx.cs">
       <DependentUpon>TransaccionesAdmin.aspx</DependentUpon>
