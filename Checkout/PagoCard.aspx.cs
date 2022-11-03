@@ -42,6 +42,7 @@ namespace ShopGaspar.Checkout
             int max = _db.Orders.Max(p => p.OrderId);
             //this.sendemail(email.Text);
             //this.sendemail1();
+            
 
             using (ShopGaspar.Logic.ShoppingCartActions usersShoppingCart = new ShopGaspar.Logic.ShoppingCartActions())
             {
@@ -58,6 +59,14 @@ namespace ShopGaspar.Checkout
                 }
                     Response.Redirect("~/Checkout/CheckoutComplete.aspx?id=" + max);
                 
+            }
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "declare @id int = (select max(OrderId) from Orders); declare @totalprod int = (select sum(totalprod) from OrderDetails where OrderId=@id); update Orders set Total=@totalprod where OrderId=@id";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.ExecuteNonQuery();
+
             }
             if (addSuccess & addSuccess1)
             {
