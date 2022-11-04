@@ -4,68 +4,71 @@
                     <style>
                         .game-board {
                     display: grid;
-                    grid-template-rows: 12.5em 12.5em ;
-                    grid-template-columns: 12.5em 12.5em 12.5em 12.5em 12.5em 12.5em;
+                    grid-template-rows: 10em 10em 10em ;
+                    grid-template-columns: 10em 10em 10em;
                     grid-gap:1em;
+                    grid-column-gap:6em;
                 }
 
 
                     </style>
-                <div class="game-board container">
+                <div class="game-board" style="margin-left:25%;">
                     <a class="btn btn-dark rounded-3" href="CategoriaAdmin.aspx" runat="server" >
                         <p></p>
-                        <asp:Image ImageUrl="~/Images/categories.png" runat="server" Height="100px" />
+                        <asp:Image ImageUrl="~/Images/categorias7.png" runat="server" Height="75px" />
                         <p></p>
                      <span>Categoria</span>
                     </a>
                     <a class="btn btn-dark rounded-3" href="ProductosAdmin.aspx" runat="server">
                         <p></p>
-                        <asp:Image ImageUrl="~/Images/productos2010.png" runat="server" Height="100px" />
+                        <asp:Image ImageUrl="~/Images/productos7.png" runat="server" Height="75px" />
                         <p></p>
                     <span>Productos</span>
                     </a>
                     <a class="btn btn-dark rounded-3" runat="server" href="~/Admin/DepositosAdmin.aspx">
                         <p></p>
-                        <asp:Image ImageUrl="~/Images/deposito2010.png" runat="server" Height="100px" />  
+                        <asp:Image ImageUrl="~/Images/deposito7.png" runat="server" Height="75px" />  
                         <p></p>
 
                         <span>Depositos</span>
                     </a>
                     <a class="btn btn-dark rounded-3" runat="server" href="IngEgrAdmin.aspx">
                         <p></p>
-                        <asp:Image ImageUrl="~/Images/resize-7-512.png" runat="server" Height="100px" />
+                        <asp:Image ImageUrl="~/Images/ingreso-egreso7.png" runat="server" Height="75px" />
                         <p></p>
                         <span>Stock</span>
                     </a>
                     <a class="btn btn-dark rounded-3" runat="server" href="~/Admin/ComprasAdmin.aspx">
                         <p></p>
-                        <asp:Image ImageUrl="~/Images/buy-512.png" runat="server" Height="100px" />
+                        <asp:Image ImageUrl="~/Images/compras7.png" runat="server" Height="75px" />
                         <p></p>
                         <span>Compras</span>
                     </a>
                     <a class="btn btn-dark rounded-3" runat="server" href="~/Admin/TransaccionesAdmin.aspx">
                         <p></p>
-                        <asp:Image ImageUrl="~/Images/transaction.png" runat="server" Height="100px" />
+                        <asp:Image ImageUrl="~/Images/transa7.png" runat="server" Height="75px" />
                         <p></p>
                         <span>Transacciones</span>
                     </a>
                     <a class="btn btn-dark rounded-3" runat="server" href="~/Admin/ClientesAdmin.aspx">
                         <p></p>
-                        <asp:Image ImageUrl="~/Images/user-512.png" runat="server" Height="100px" />
+                        <asp:Image ImageUrl="~/Images/clientes7.png" runat="server" Height="75px" />
                         <p></p>
                         <span>Clientes</span>
                     </a>
                     <a class="btn btn-dark rounded-3" runat="server" href="EstadisticasAdmin.aspx">
                         <p></p>
-                        <asp:Image ImageUrl="~/Images/statistics-512.png" runat="server" Height="100px" />
+                        <asp:Image ImageUrl="~/Images/estadisticas7.png" runat="server" Height="75px" />
                         <p> </p>
-                    <span>Estadisticias</span>
+                    <span>Estadisticas</span>
                     </a>
                     <a class="btn btn-dark rounded-3" runat="server" href="Reportes.aspx">
-                        <asp:Image runat="server" Height="100px" />
+                        <p></p>
+                        <asp:Image runat="server" Height="75px" ImageUrl="~/Images/reportes7.png" />
+                        <p></p>
                     <span>Reportes</span>
                     </a>
-                    <a class="btn btn-dark rounded-3">
+                   <%-- <a class="btn btn-dark rounded-3">
                         <asp:Image  runat="server" Height="100px" />
                     <span></span>
                     </a>
@@ -77,7 +80,7 @@
                         <asp:Image runat="server" Height="100px" />
                    <span></span>
                     </a>
-
+--%>
 
 
       
