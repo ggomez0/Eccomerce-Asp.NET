@@ -13,11 +13,16 @@
 
         function drawChart() {
 
-            var data = new google.visualization.DataTable(<%=this.obtenerDatos()%>);
+            var data = new google.visualization.DataTable();
+
+            //data.addColumn('date', 'Año');
+            //data.addColumn('number', 'Java');
+            //data.addColumn('number', 'Python');
+            //data.addColumn('number', 'C#');
+            //data.addColumn('number', 'JavaScript');
 
 
-           
-
+            data.addRows(<%=this.obtenerDatos()%>);
 
             // var options es como el css del chart
             // pero para ahorrar tiempo se puede ver este generador de codigo para la personalizacion del chart:

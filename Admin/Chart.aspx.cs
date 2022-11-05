@@ -22,7 +22,7 @@ namespace ShopGaspar
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT ProductName, UnitPrice FROM OrderDetails";
+            cmd.CommandText = "SELECT ProductName, OrderId, ProductId, UnitPrice FROM OrderDetails";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = connectionString;
             connectionString.Open();
@@ -53,9 +53,7 @@ namespace ShopGaspar
             foreach (DataRow dr in Datos.Rows)
             {
                 strDatos = strDatos + "[";
-                strDatos = strDatos + "" + dr[0] + "" + "," + dr[1] ;
-
-                //+"," + dr[3].ToString().Replace(",", ".") + "," + dr[4].ToString().Replace(",", ".") + "," + dr[2].ToString().Replace(",", ".") 
+                strDatos = strDatos + "" + dr[0] + "" + "," + dr[1].ToString().Replace(",", ".") + "," + dr[2].ToString().Replace(",", ".") + "," + dr[3].ToString().Replace(",", ".") ;
                 strDatos = strDatos + "],";
 
             }
