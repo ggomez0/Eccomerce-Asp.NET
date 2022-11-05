@@ -126,7 +126,7 @@ namespace ShopGaspar.Admin
                     //    sqlCon1.Open();
                     //    string query1 = "UPDATE Products SET stock = stock + @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
                     //    SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
-                    //    sqlCmd1.Parameters.AddWithValue("@stock", lbl   );
+                    //    sqlCmd1.Parameters.AddWithValue("@stock", lbl);
                     //    sqlCmd1.Parameters.AddWithValue("@Productos",  );
                     //    sqlCmd1.ExecuteNonQuery();
                     //    sqlCon1.Close();

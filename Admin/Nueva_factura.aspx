@@ -161,7 +161,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:ImageButton runat="server" ImageUrl="~/Images/delete.png" Height="30px" />
+                        <asp:ImageButton runat="server" ImageUrl="~/Images/delete.png" Height="30px" CommandName="Delete" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

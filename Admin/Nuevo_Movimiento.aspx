@@ -92,6 +92,11 @@
             ID="gvprodmov" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowDeleting="gvprodmov_RowDeleting" DataKeyNames="idcomprdet">
              <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White"  /> 
             <Columns>
+                  <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button Text="-" CssClass="btn btn-danger rounded-3"  runat="server" ImageUrl="~/Images/delete.png" Font-Size="Large" CommandName="Delete" ToolTip="Eliminar" ValidationGroup="ELIM_PROD_MOV"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="#">
                     <ItemTemplate>
                         <asp:Label Text='<%# Eval("idcomprdet") %>' runat="server" />
@@ -108,11 +113,7 @@
                         <asp:Label ID="lblcantmov" Text='<%# Eval("cantidad") %>' runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:ImageButton runat="server" ImageUrl="~/Images/delete.png" Height="30px" />
-                    </ItemTemplate>
-                </asp:TemplateField>
+              
             </Columns>
         </asp:GridView>
 

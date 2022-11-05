@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         
+        
         <h3>Reportes</h3>
 
         <hr />
@@ -17,6 +18,7 @@
             
         
         </div>
+        <p></p>
 
         <h6>Egresos</h6>
      <div style="width:100%;overflow-x:auto; border-style:none">
