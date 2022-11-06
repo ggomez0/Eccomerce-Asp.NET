@@ -16,35 +16,40 @@ namespace ShopGaspar
         {
 
         }
+      
+
+
         protected string obtenerDatos()
         {
-            SqlConnection connectionString = new SqlConnection("Data Source=GOMEZGASPAR\\GASPARGOMEZ;Initial Catalog=SISTEMASIII006_231b468c28eb457a866e1010c0d04c15; Integrated Security=True");
+            //SqlConnection connectionString = new SqlConnection("Data Source=GOMEZGASPAR\\GASPARGOMEZ;Initial Catalog=SISTEMASIII006_231b468c28eb457a866e1010c0d04c15; Integrated Security=True");
 
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT ProductName, OrderId, ProductId, UnitPrice FROM OrderDetails";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = connectionString;
-            connectionString.Open();
-            DataTable Datos = new DataTable();
-            Datos.Load(cmd.ExecuteReader());
-            connectionString.Close();
-                
-
-
+            //SqlCommand cmd = new SqlCommand();
+            //cmd.CommandText = "SELECT concat(YEAR(fechacomprobante),'-', MONTH(fechacomprobante)) AS Mes, " +
+            //    "SUM(importe) AS Egresos,(SELECT SUM(d.totalprod) AS Expr1 FROM dbo.Orders AS o INNER JOIN " +
+            //    "dbo.OrderDetails AS d ON o.OrderId = d.OrderId WHERE (YEAR(c.fechacomprobante) = YEAR(o.OrderDate))" +
+            //    " AND (MONTH(c.fechacomprobante) = MONTH(o.OrderDate))) AS Ingresos FROM " +
+            //    "dbo.comprobantes AS c WHERE  (idcomprobante = 4) " +
+            //    "GROUP BY YEAR(fechacomprobante), MONTH(fechacomprobante)";
+            //cmd.CommandType = CommandType.Text;
+            //cmd.Connection = connectionString;
+            //connectionString.Open();
             //DataTable Datos = new DataTable();
+           
+            //Datos.Rows.Add(cmd.ExecuteReader());
+            //connectionString.Close();
 
-            ////Columnas de los datos
-            //Datos.Columns.Add(new DataColumn("Año", typeof(string)));
-            //Datos.Columns.Add(new DataColumn("Java", typeof(string)));
-            //Datos.Columns.Add(new DataColumn("Python", typeof(string)));
-            //Datos.Columns.Add(new DataColumn("C#", typeof(string)));
-            //Datos.Columns.Add(new DataColumn("JavaScript", typeof(string)));
 
-            ////Datos de las columnas (mostrar en el chart)
-            //Datos.Rows.Add(new Object[] { "new Date(2015, 5, 6)", 15, 2.8, 5.7, 3.6 });
-            //Datos.Rows.Add(new Object[] { "new Date(2016, 5, 6)", 21, 4.4, 5.4, 2.9 });
-            //Datos.Rows.Add(new Object[] { "new Date(2017, 5, 6)", 14.6, 3.5, 3.6, 3.0 });
+
+            DataTable Datos = new DataTable();
+
+            //Columnas de los datos
+            Datos.Columns.Add(new DataColumn("Año", typeof(string)));
+            Datos.Columns.Add(new DataColumn("ing", typeof(string)));
+            Datos.Columns.Add(new DataColumn("Egreso", typeof(string)));
+
+            //Datos de las columnas (mostrar en el chart)
+            Datos.Rows.Add(new Object[] { "new Date(2015, 5, 6)", 15, 8 });
 
             string strDatos;
 
@@ -53,7 +58,7 @@ namespace ShopGaspar
             foreach (DataRow dr in Datos.Rows)
             {
                 strDatos = strDatos + "[";
-                strDatos = strDatos + "" + dr[0] + "" + "," + dr[1].ToString().Replace(",", ".") + "," + dr[2].ToString().Replace(",", ".") + "," + dr[3].ToString().Replace(",", ".") ;
+                strDatos = strDatos + "" + dr[0] + "" + "," + dr[1].ToString().Replace(",", ".") + "," + dr[2].ToString().Replace(",", ".");
                 strDatos = strDatos + "],";
 
             }
@@ -61,7 +66,11 @@ namespace ShopGaspar
 
             return strDatos;
         }
+
+
     }
+
+
 }
     
 
