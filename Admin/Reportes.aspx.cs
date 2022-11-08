@@ -57,7 +57,8 @@ namespace ShopGaspar.Admin
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT concat(YEAR(fechacomprobante),'-',month(fechacomprobante)) as Fecha, (SELECT SUM(d.totalprod) AS Expr1 FROM dbo.Orders AS o INNER JOIN dbo.OrderDetails AS d ON o.OrderId = d.OrderId WHERE" +
-                " (YEAR(c.fechacomprobante) = YEAR(o.OrderDate)) AND (MONTH(c.fechacomprobante) = MONTH(o.OrderDate))) AS Ingresos, SUM(importe) AS Egresos FROM " +
+                " (YEAR(c.fechacomprobante) = YEAR(o.OrderDate)) AND (MONTH(c.fechacomprobante) = MONTH(o.OrderDate))) AS Ingresos, SUM(importe) AS Egresos, ((SELECT SUM(d.totalprod) AS Expr1 FROM dbo.Orders AS o INNER JOIN dbo.OrderDetails AS d ON o.OrderId = d.OrderId WHERE " +
+                "(YEAR(c.fechacomprobante) = YEAR(o.OrderDate)) AND (MONTH(c.fechacomprobante) = MONTH(o.OrderDate))) - SUM(importe)) as Ganancias FROM " +
                 "dbo.comprobantes AS c WHERE (idcomprobante = 4) GROUP BY YEAR(fechacomprobante), MONTH(fechacomprobante) order by YEAR(fechacomprobante), MONTH(fechacomprobante) asc ";
 
             cmd.CommandType = CommandType.Text;
@@ -71,11 +72,11 @@ namespace ShopGaspar.Admin
 
 
             string xdata;
-            xdata = "[['Fecha','Ingresos','Egresos'],";
+            xdata = "[['Fecha','Ingresos','Egresos','Ganancias'],";
             foreach (DataRow dr in gdatos.Rows)
             {
                 xdata = xdata + "[";
-                xdata = xdata + "'" + dr[0] + "'" + "," + dr[1].ToString() + "," + dr[2].ToString();
+                xdata = xdata + "'" + dr[0] + "'" + "," + dr[1].ToString() + "," + dr[2].ToString() + "," + dr[3].ToString();
                 xdata = xdata + "],";
             }
 

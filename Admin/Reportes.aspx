@@ -10,26 +10,19 @@
 
             var data = new google.visualization.arrayToDataTable(<%=this.datosql1()%>);
             var options = {
-
                 title: 'Balance GAMERSALTA',
                 backgroundColor: { fill: "white" },
                 legend: { position: "labeled", textStyle: { color: "black", fontSize: 12 } },
                 tooltip: { textStyle: { color: "black" }, showColorCode: true },
-                colors: ["blue", "red"],
-                
-
-
+                colors: ["blue", "red", "yellow"],   
+                bar: { groupWidth: "15%" },
             };
 
-
             var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
-
             chart.draw(data, options);
         }
     </script>
-
-  
-    
+<%--////////////////////////////////////////////////////////////////--%>
     <div class="container">
         <h3 class="text-center">REPORTES</h3>
         <p></p>
@@ -38,7 +31,7 @@
         <div class="card">
       <div class="card-body" style="margin-left: auto; margin-right: auto; text-align: center;">
         <h5 class="card-title text-center">Ingresos</h5><p></p>
-        <asp:Label runat="server" ID="lbling" Text="$" Font-Bold="true" Font-Size="3em" ForeColor="Green"></asp:Label>
+        <asp:Label runat="server" ID="lbling" Text="+$" Font-Bold="true" Font-Size="3em" ForeColor="Green"></asp:Label>
       </div>
     </div>
      </div>
@@ -60,6 +53,6 @@
     </div>
   </div>
 
-            <div id="chart3" style="width: 90%; height: 500px;"></div>
+            <div id="chart3" style="width: 95%; height: 500px;"></div>
         </div>
 </asp:Content>

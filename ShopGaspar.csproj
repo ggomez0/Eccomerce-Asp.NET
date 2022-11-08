@@ -232,7 +232,6 @@
     <Content Include="Account\passrecov.aspx" />
     <Content Include="AddToCart.aspx" />
     <Content Include="Admin\CategoriaAdmin.aspx" />
-    <Content Include="Admin\Chart.aspx" />
     <Content Include="Admin\ClientesAdmin.aspx" />
     <Content Include="Admin\ComprasAdmin.aspx" />
     <Content Include="Admin\DepositosAdmin.aspx" />
@@ -296,9 +295,12 @@
     <Content Include="Images\email.png" />
     <Content Include="Images\estadisticas7.png" />
     <Content Include="Images\Facebook.png" />
+    <Content Include="Images\gabinetesdefault.jpg" />
     <Content Include="Images\Google.png" />
     <Content Include="Images\ingreso-egreso7.png" />
     <Content Include="Images\investigacion2010.png" />
+    <Content Include="Images\monitoresdefault.jpg" />
+    <Content Include="Images\perifericosdefault.jpg" />
     <Content Include="Images\product-512.png" />
     <Content Include="Images\productos2010.png" />
     <Content Include="Images\productos7.png" />
@@ -553,13 +555,6 @@
     </Compile>
     <Compile Include="Admin\CategoriaAdmin.aspx.designer.cs">
       <DependentUpon>CategoriaAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Chart.aspx.cs">
-      <DependentUpon>Chart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Chart.aspx.designer.cs">
-      <DependentUpon>Chart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ClientesAdmin.aspx.cs">
       <DependentUpon>ClientesAdmin.aspx</DependentUpon>
