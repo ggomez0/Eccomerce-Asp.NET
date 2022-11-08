@@ -16,11 +16,6 @@
                             data-bs-target="#pills-lstcpra" type="button" role="tab" aria-controls="pills-lstcpra"
                             aria-selected="false">Orden de compra</button>
                     </li>
-                   <%-- <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-ordcpra-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-ordcpra"  type="button" role="tab" aria-controls="pills-ordcpra"
-                            aria-selected="false">Ordenes de Compra</button>
-                    </li>--%>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-fact-tab" data-bs-toggle="pill" data-bs-target="#pills-fact"
                             type="button" role="tab" aria-controls="pills-fact" aria-selected="false">Factura</button>

@@ -15,10 +15,7 @@ namespace ShopGaspar.Admin
         string connectionString = ConfigurationManager.ConnectionStrings["ShopGaspar"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //this.databasecrud(connectionString, "SELECT * FROM comprobantes where idcomprobante=3", gvpagofact);
-            //this.databasecrud(connectionString, "SELECT * FROM comprobantes c inner join proveedores p on p.ProvID=c.ProvID where idcomprobante=4", gvfactpag);
-
-
+            
         }
 
         void databasecrud(string conexion, string sqlcomando, GridView tablag)

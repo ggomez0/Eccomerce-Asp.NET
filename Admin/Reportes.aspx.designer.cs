@@ -15,21 +15,30 @@ namespace ShopGaspar.Admin
     {
 
         /// <summary>
-        /// Control BarChart2.
+        /// Control lbling.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.BarChart BarChart2;
+        protected global::System.Web.UI.WebControls.Label lbling;
 
         /// <summary>
-        /// Control BarChart1.
+        /// Control lblped.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.BarChart BarChart1;
+        protected global::System.Web.UI.WebControls.Label lblped;
+
+        /// <summary>
+        /// Control lblegr.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblegr;
     }
 }
