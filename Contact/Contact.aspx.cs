@@ -31,7 +31,7 @@ namespace ShopGaspar
             System.Net.NetworkCredential credenciales = new System.Net.NetworkCredential();
 
             credenciales.UserName = "gaspargomez2000@outlook.com";
-            credenciales.Password = "your password";
+            credenciales.Password = "jrhylwcrnquozwpq";
 
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = credenciales;
