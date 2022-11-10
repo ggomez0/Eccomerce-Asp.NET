@@ -119,6 +119,7 @@ namespace ShopGaspar.Admin
                     sqlCon.Close();
                 }
 
+
                 foreach (GridViewRow row in gvprodmov.Rows)
                 {
                     using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
@@ -126,10 +127,27 @@ namespace ShopGaspar.Admin
                         sqlCon1.Open();
                         string query1 = "UPDATE Products SET stock = stock + @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
                         SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
-                        sqlCmd1.Parameters.AddWithValue("@stock", Convert.ToInt32((gvprodmov.Rows[row.RowIndex].FindControl("lblcantmov") as TextBox).Text.Trim()));
-                        sqlCmd1.Parameters.AddWithValue("@Productos",  );
+                        sqlCmd1.Parameters.AddWithValue("@stock", Convert.ToInt32((gvprodmov.Rows[row.RowIndex].FindControl("lblcantmov") as Label).Text.Trim()));
+                        sqlCmd1.Parameters.AddWithValue("@Productos", (gvprodmov.Rows[row.RowIndex].FindControl("lblprodmov") as Label).Text.Trim());
                         sqlCmd1.ExecuteNonQuery();
                         sqlCon1.Close();
+                    }
+
+                    using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                    {
+                        sqlCon.Open();
+                        string query = "IF EXISTS(SELECT* FROM prodendeps WHERE Depositos_DepID = @Depositos and (prodendeps.Product_ProductID in " +
+                            "(select ProductID from Products where ProductName = @Productos))) BEGIN UPDATE prodendeps " +
+                            "SET cantingreso = cantingreso + @cantingreso WHERE Depositos_DepID = @Depositos and " +
+                            "(prodendeps.Product_ProductID in (select ProductID from Products where ProductName = @Productos)); END ELSE BEGIN insert into " +
+                            "prodendeps(cantingreso, Depositos_DepID, Product_ProductID) values(@cantingreso, @Depositos, " +
+                            "(select ProductID from Products where ProductName = @Productos)); END";
+                        SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                        sqlCmd.Parameters.AddWithValue("@cantingreso", Convert.ToInt32((gvprodmov.Rows[row.RowIndex].FindControl("lblcantmov") as Label).Text.Trim()));
+                        sqlCmd.Parameters.AddWithValue("@Productos", (gvprodmov.Rows[row.RowIndex].FindControl("lblprodmov") as Label).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedValue);
+                        sqlCmd.ExecuteNonQuery();
+                        sqlCon.Close();
                     }
                 }
 
@@ -156,9 +174,26 @@ namespace ShopGaspar.Admin
                         sqlCon1.Open();
                         string query1 = "UPDATE Products SET stock = stock - @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
                         SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
-                        sqlCmd1.Parameters.AddWithValue("@stock", );
-                        sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                        sqlCmd1.Parameters.AddWithValue("@stock", Convert.ToInt32((gvprodmov.Rows[row.RowIndex].FindControl("lblcantmov") as Label).Text.Trim()));
+                        sqlCmd1.Parameters.AddWithValue("@Productos", (gvprodmov.Rows[row.RowIndex].FindControl("lblprodmov") as Label).Text.Trim());
+
                         sqlCmd1.ExecuteNonQuery();
+                    }
+                    using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                    {
+                        sqlCon.Open();
+                        string query = "IF EXISTS(SELECT* FROM prodendeps WHERE Depositos_DepID = @Depositos and (prodendeps.Product_ProductID in " +
+                            "(select ProductID from Products where ProductName = @Productos))) BEGIN UPDATE prodendeps " +
+                            "SET cantingreso = cantingreso - @cantingreso WHERE Depositos_DepID = @Depositos and " +
+                            "(prodendeps.Product_ProductID in (select ProductID from Products where ProductName = @Productos)); END ELSE BEGIN insert into " +
+                            "prodendeps(cantingreso, Depositos_DepID, Product_ProductID) values(@cantingreso, @Depositos, " +
+                            "(select ProductID from Products where ProductName = @Productos)); END";
+                        SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                        sqlCmd.Parameters.AddWithValue("@cantingreso", Convert.ToInt32((gvprodmov.Rows[row.RowIndex].FindControl("lblcantmov") as Label).Text.Trim()));
+                        sqlCmd.Parameters.AddWithValue("@Productos", (gvprodmov.Rows[row.RowIndex].FindControl("lblprodmov") as Label).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@Depositos", ddlistdep.SelectedValue);
+                        sqlCmd.ExecuteNonQuery();
+                        sqlCon.Close();
                     }
                 }
 
@@ -175,7 +210,7 @@ namespace ShopGaspar.Admin
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "delete from comprobantesdets where idcomprdet=@id);";
+                    string query = "delete from comprobantesdets where idcomprdet=@id;";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@id", Convert.ToInt32(gvprodmov.DataKeys[e.RowIndex].Value.ToString()));
 
