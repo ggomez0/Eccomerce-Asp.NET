@@ -69,12 +69,6 @@
                     <div class="invalid-feedback"> Telefono requerido </div>
                 </div>
               
-                
-              <%-- 
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="save-info">
-                    <label class="custom-control-label" for="save-info">Guardar informacion para la proxima vez</label>
-                </div>--%>
                 <hr class="mb-4">
                 <h4 class="mb-3">Pago</h4>
                 <div class="d-block my-3">

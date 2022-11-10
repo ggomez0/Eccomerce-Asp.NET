@@ -121,16 +121,16 @@ namespace ShopGaspar.Admin
 
                 foreach (GridViewRow row in gvprodmov.Rows)
                 {
-                    //using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
-                    //{
-                    //    sqlCon1.Open();
-                    //    string query1 = "UPDATE Products SET stock = stock + @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
-                    //    SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
-                    //    sqlCmd1.Parameters.AddWithValue("@stock", lbl);
-                    //    sqlCmd1.Parameters.AddWithValue("@Productos",  );
-                    //    sqlCmd1.ExecuteNonQuery();
-                    //    sqlCon1.Close();
-                    //}
+                    using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
+                    {
+                        sqlCon1.Open();
+                        string query1 = "UPDATE Products SET stock = stock + @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
+                        SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
+                        sqlCmd1.Parameters.AddWithValue("@stock", Convert.ToInt32((gvprodmov.Rows[row.RowIndex].FindControl("lblcantmov") as TextBox).Text.Trim()));
+                        sqlCmd1.Parameters.AddWithValue("@Productos",  );
+                        sqlCmd1.ExecuteNonQuery();
+                        sqlCon1.Close();
+                    }
                 }
 
             }
@@ -151,15 +151,15 @@ namespace ShopGaspar.Admin
 
                 foreach (GridViewRow row in gvprodmov.Rows)
                 {
-                    //using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
-                    //{
-                    //    sqlCon1.Open();
-                    //    string query1 = "UPDATE Products SET stock = stock - @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
-                    //    SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
-                    //    sqlCmd1.Parameters.AddWithValue("@stock", txtcantdep.Text);
-                    //    sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
-                    //    sqlCmd1.ExecuteNonQuery();
-                    //}
+                    using (SqlConnection sqlCon1 = new SqlConnection(connectionString))
+                    {
+                        sqlCon1.Open();
+                        string query1 = "UPDATE Products SET stock = stock - @stock WHERE ProductID in (select ProductID from Products where ProductName = @Productos) ";
+                        SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon1);
+                        sqlCmd1.Parameters.AddWithValue("@stock", );
+                        sqlCmd1.Parameters.AddWithValue("@Productos", txtacproddep.Text);
+                        sqlCmd1.ExecuteNonQuery();
+                    }
                 }
 
             }
