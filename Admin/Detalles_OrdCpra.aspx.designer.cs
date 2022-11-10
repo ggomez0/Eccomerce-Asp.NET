@@ -11,34 +11,52 @@ namespace ShopGaspar.Admin
 {
 
 
-    public partial class ordcpraborrdet
+    public partial class Detalles_OrdCpra
     {
 
         /// <summary>
-        /// Control lblord.
+        /// Control OrdID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblord;
+        protected global::System.Web.UI.WebControls.FormView OrdID;
 
         /// <summary>
-        /// Control gvordcpraborrdet.
+        /// Control gvlstcompradet.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvordcpraborrdet;
+        protected global::System.Web.UI.WebControls.GridView gvlstcompradet;
 
         /// <summary>
-        /// Control btnordcprahecho.
+        /// Control lblSuccessMessage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnordcprahecho;
+        protected global::System.Web.UI.WebControls.Label lblSuccessMessage;
+
+        /// <summary>
+        /// Control lblErrorMessage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
+
+        /// <summary>
+        /// Control lblinvisible.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblinvisible;
     }
 }

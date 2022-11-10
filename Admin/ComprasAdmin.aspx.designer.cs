@@ -249,13 +249,13 @@ namespace ShopGaspar.Admin
         protected global::System.Web.UI.WebControls.GridView gvproveedores;
 
         /// <summary>
-        /// Control addlstbtn.
+        /// Control addordcpra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addlstbtn;
+        protected global::System.Web.UI.WebControls.Button addordcpra;
 
         /// <summary>
         /// Control gvlstcpra.
@@ -265,33 +265,6 @@ namespace ShopGaspar.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvlstcpra;
-
-        /// <summary>
-        /// Control btnordcprabor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnordcprabor;
-
-        /// <summary>
-        /// Control btnordcprarec.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnordcprarec;
-
-        /// <summary>
-        /// Control btnordcpraenv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnordcpraenv;
 
         /// <summary>
         /// Control Button8factopen.

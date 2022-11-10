@@ -402,17 +402,15 @@
                         <div class="tab-pane fade" id="pills-lstcpra" role="tabpanel"
                             aria-labelledby="pills-lstcpra-tab">
 
+                            <asp:Button ID="addordcpra" runat="server" Text="Nueva Orden de compra"
+                                OnClick="addordcpra_Click" CssClass="btn btn-success rounded-3" />
 
-                            <asp:Button ID="addlstbtn" runat="server" Text="Nueva Orden de compra"
-                                OnClick="addlstbtn_Click" CssClass="btn btn-success rounded-3" CausesValidation="true"
-                                ValidationGroup="VG1" />
                             <asp:GridView ID="gvlstcpra" runat="server" CssClass="grid" ShowHeaderWhenEmpty="true"
                                 class="table thead-dark" AutoGenerateColumns="false" BackColor="White"
                                 BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                 DataKeyNames="idcomp" OnRowCommand="gvlstcpra_RowCommand"
                                 OnRowEditing="gvlstcpra_RowEditing" OnRowCancelingEdit="gvlstcpra_RowCancelingEdit"
                                 OnRowUpdating="gvlstcpra_RowUpdating" OnRowDeleting="gvlstcpra_RowDeleting">
-                                <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White" />
                                 <Columns>
                                     <asp:TemplateField HeaderText="ID">
                                         <ItemTemplate>
@@ -420,9 +418,19 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
+                                    <asp:TemplateField HeaderText="Proveedor">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%# Eval("ProvName") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Fecha">
                                         <ItemTemplate>
                                             <asp:Label Text='<%# Eval("dateTime") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="$">
+                                        <ItemTemplate>
+                                            <asp:Label Text=<%#:String.Format("{0:c}", Eval("importe"))%> runat="server" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
@@ -431,18 +439,14 @@
                                     <asp:TemplateField HeaderStyle-Width="10px" HeaderText="Opciones">
                                         <ItemTemplate>
                                             <asp:ImageButton ImageUrl="~/Images/plus.png" runat="server"
-                                                ValidationGroup="VG77" ID="btnlstdet" Width="20px"
+                                                ID="btnlstdet" Width="20px"
                                                 OnClick="btnlstdet_Click" Height="20px"
                                                 CommandArgument='<%#Eval("idcomp") %>' />
 
 
                                             <asp:ImageButton ImageUrl="~/Images/delete.png" runat="server"
-                                                CommandName="Delete" ValidationGroup="VG108" ToolTip="Eliminar"
+                                                CommandName="Delete" ToolTip="Eliminar"
                                                 Width="20px" Height="20px" />
-
-
-
-
 
                                         </ItemTemplate>
                                     </asp:TemplateField>
@@ -451,29 +455,6 @@
 
 
                         </div>
-
-
-                        <%------------------------------------------------------------------------------------------%>
-
-
-                            <div class="tab-pane fade" id="pills-ordcpra" role="tabpanel"
-                                aria-labelledby="pills-ordcpra-tab">
-
-                                <p></p>
-                                <h3>Seleccione el tipo de orden que requiera</h3>
-                                <p></p>
-                                <asp:Button runat="server" ID="btnordcprabor" OnClick="btnordcprabor_Click"
-                                    CssClass="btn btn-success rounded-3" Text="Ordenes borrador" />
-                                <asp:Button runat="server" ID="btnordcprarec" OnClick="btnordcprarec_Click"
-                                    CssClass="btn btn-success rounded-3" Text="Ordenes recibidos" />
-                                <asp:Button runat="server" ID="btnordcpraenv" OnClick="btnordcpraenv_Click"
-                                    CssClass="btn btn-success rounded-3" Text="Ordenes enviados" />
-
-                            </div>
-
-
-                            <%------------------------------------------------------------------------------------------%>
-
 
                                 <div class="tab-pane fade" id="pills-fact" role="tabpanel"
                                     aria-labelledby="pills-fact-tab">

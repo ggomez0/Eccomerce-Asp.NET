@@ -24,15 +24,7 @@ namespace ShopGaspar.Admin
                 this.databasecrud(connectionString, "SELECT * from comprobantesdets cd inner join products p on p.ProductID=cd.Product_ProductID" +
                     " where Comprobantes_idcomp=" + nID, gv_detmov);
 
-                //using (SqlConnection conn = new SqlConnection(connectionString))
-                //{
-                //    string result = "select d.DepName from comprobantes c inner join depositos d on d.DepID=c.stringn where c.stringn="+nID;
-                //    SqlCommand showresult = new SqlCommand(result, conn);
-
-                //    conn.Open();
-                //    lDepName = (Label)showresult.ExecuteScalar();
-                //    conn.Close();
-                //}
+        
             }
 
         }

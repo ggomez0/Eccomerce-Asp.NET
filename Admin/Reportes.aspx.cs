@@ -10,6 +10,7 @@ using ShopGaspar.Models;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace ShopGaspar.Admin
 {
@@ -33,6 +34,7 @@ namespace ShopGaspar.Admin
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string result = "select max(OrderId) from Orders";
+                    //((SELECT SUM(d.totalprod) AS Expr1 FROM dbo.Orders AS o INNER JOIN dbo.OrderDetails AS d ON o.OrderId = d.OrderId WHERE YEAR(c.fechacomprobante) = YEAR(o.OrderDate)) AND (MONTH(c.fechacomprobante) = MONTH(o.OrderDate))) - SUM(importe))
                     SqlCommand showresult = new SqlCommand(result, conn);
                     conn.Open();
                     string nummov1 = showresult.ExecuteScalar().ToString();

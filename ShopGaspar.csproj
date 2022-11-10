@@ -236,6 +236,7 @@
     <Content Include="Admin\ComprasAdmin.aspx" />
     <Content Include="Admin\DepositosAdmin.aspx" />
     <Content Include="Admin\detallesordenes.aspx" />
+    <Content Include="Admin\Detalles_OrdCpra.aspx" />
     <Content Include="Admin\DetMovimiento.aspx" />
     <Content Include="Admin\detprodcat.aspx" />
     <Content Include="Admin\dropdownlist.asmx" />
@@ -243,15 +244,10 @@
     <Content Include="Admin\factdet.aspx" />
     <Content Include="Admin\gvordenesusuarios.aspx" />
     <Content Include="Admin\IngEgrAdmin.aspx" />
-    <Content Include="Admin\lstcompradet.aspx" />
     <Content Include="Admin\Nueva_factura.aspx" />
     <Content Include="Admin\Nuevo_Movimiento.aspx" />
+    <Content Include="Admin\Nuevo_OrdenCompra.aspx" />
     <Content Include="Admin\Nuevo_pago.aspx" />
-    <Content Include="Admin\ordcpraborrdet.aspx" />
-    <Content Include="Admin\ordcpradet.aspx" />
-    <Content Include="Admin\ordcpraenv.aspx" />
-    <Content Include="Admin\ordcprarec.aspx" />
-    <Content Include="Admin\ordcprabor.aspx" />
     <Content Include="Admin\ordorduser.aspx" />
     <Content Include="Admin\PagoComprobantes.aspx" />
     <Content Include="Admin\pagodetalles.aspx" />
@@ -584,6 +580,13 @@
     <Compile Include="Admin\detallesordenes.aspx.designer.cs">
       <DependentUpon>detallesordenes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Detalles_OrdCpra.aspx.cs">
+      <DependentUpon>Detalles_OrdCpra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Detalles_OrdCpra.aspx.designer.cs">
+      <DependentUpon>Detalles_OrdCpra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\DetMovimiento.aspx.cs">
       <DependentUpon>DetMovimiento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -630,13 +633,6 @@
     <Compile Include="Admin\IngEgrAdmin.aspx.designer.cs">
       <DependentUpon>IngEgrAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\lstcompradet.aspx.cs">
-      <DependentUpon>lstcompradet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\lstcompradet.aspx.designer.cs">
-      <DependentUpon>lstcompradet.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Nueva_factura.aspx.cs">
       <DependentUpon>Nueva_factura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -651,47 +647,19 @@
     <Compile Include="Admin\Nuevo_Movimiento.aspx.designer.cs">
       <DependentUpon>Nuevo_Movimiento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Nuevo_OrdenCompra.aspx.cs">
+      <DependentUpon>Nuevo_OrdenCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Nuevo_OrdenCompra.aspx.designer.cs">
+      <DependentUpon>Nuevo_OrdenCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Nuevo_pago.aspx.cs">
       <DependentUpon>Nuevo_pago.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Nuevo_pago.aspx.designer.cs">
       <DependentUpon>Nuevo_pago.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ordcpraborrdet.aspx.cs">
-      <DependentUpon>ordcpraborrdet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ordcpraborrdet.aspx.designer.cs">
-      <DependentUpon>ordcpraborrdet.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ordcpradet.aspx.cs">
-      <DependentUpon>ordcpradet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ordcpradet.aspx.designer.cs">
-      <DependentUpon>ordcpradet.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ordcpraenv.aspx.cs">
-      <DependentUpon>ordcpraenv.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ordcpraenv.aspx.designer.cs">
-      <DependentUpon>ordcpraenv.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ordcprarec.aspx.cs">
-      <DependentUpon>ordcprarec.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ordcprarec.aspx.designer.cs">
-      <DependentUpon>ordcprarec.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ordcprabor.aspx.cs">
-      <DependentUpon>ordcprabor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ordcprabor.aspx.designer.cs">
-      <DependentUpon>ordcprabor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ordorduser.aspx.cs">
       <DependentUpon>ordorduser.aspx</DependentUpon>
