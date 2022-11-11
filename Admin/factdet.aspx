@@ -3,104 +3,64 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
       <div class="container">
-                   <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black" ID="lblord">DETALLE DE LA FACTURA N°</asp:Label>
-<p></p>
-                          <asp:Button ID="Button1231234" CssClass="btn btn-success rounded-3"  runat="server" Text="Agregar Producto" />
-                                    <!-- ModalPopupExtender --->
-                                    <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
-                                        PopupControlID="Panel1112" TargetControlID="Button1231234" CancelControlID="Button8122"
-                                        BackgroundCssClass="modalBackground">
-                                    </cc1:ModalPopupExtender>
-                                    <asp:Panel ID="Panel1112" runat="server" CssClass="modalPopup" align="center"
-                                        Style="background-color:white; border:solid; border-color:black;" >
-                                        <div style="padding:20px">
-                                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                                                <ContentTemplate>
-                                                   <asp:Label runat="server" Font-Size="2em" Font-Bold="true" ForeColor="Black">Productos</asp:Label>
-         <h3>Seleccione los productos para agregarlos a la factura</h3>
-        
-        <asp:GridView runat="server" CssClass="grid" BorderStyle="None" 
-            ID="gvproductoslista" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
-            DataKeyNames="ID"     OnRowUpdating="gvproductoslista_RowUpdating">
-             <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White" />
-        <Columns>
-            <asp:TemplateField>
-                <ItemTemplate>
-                    
-                    
-                            
-                 
-                      <asp:Button ID="Button5" CssClass="btn btn-success rounded-3"  runat="server" Text="+" ValidationGroup="VG99" />
-                                    <!-- ModalPopupExtender -->
-                                    <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server"
-                                        PopupControlID="Panel22" TargetControlID="Button5" CancelControlID="Button7"
-                                        BackgroundCssClass="modalBackground">
-                                    </cc1:ModalPopupExtender>
-                                    <asp:Panel ID="Panel22" runat="server" CssClass="modalPopup" align="center"
-                                        Style="background-color:white; border:solid; border-color:black;" >
-                                        <div style="padding:20px">
+           <asp:FormView ID="factid" runat="server" ItemType="ShopGaspar.Models.comprobantes" SelectMethod ="GetFactura" RenderOuterTable="false" >
+                            <ItemTemplate>
+                                <div>
+                                    <h1>Detalle de la factura N° <%#:Item.idcomp %></h1>
+                                </div>
+                                <br />
+                                   <tr>
+                                       <td>
                                            
-                                                    <h3>Agregar Producto a la factura</h3>
-                                                    <table>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Label Text="Cantidad" runat="server"></asp:Label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:TextBox runat="server" ID="txtcantlstfact" TextMode="Number" CssClass="rounded-3" CausesValidation="true" />
-                                                               
-                                                            <asp:CompareValidator runat="server"
-                                                                ControlToValidate="txtcantlstfact" ErrorMessage="Debe ser &gt; 0"
-                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG2144" />
-                                                            </td>
-                                                           
-                                                       
-                                                        </tr>
-
-                                                    </table>
-
-
-                                        </div>
-                                          <asp:Button ID="btnupdateinsert"
-                                            runat="server" Font-Size="Large" Font-Bold="true"
-                                            Text="+"
-                                            CommandName="Update"
-                                            ValidationGroup="VG2144" CssClass="btn btn-success rounded-3"  />
-                                        <asp:Button ID="Button7" CssClass="btn btn-danger rounded-3" runat="server" Text="Cerrar" ValidationGroup="VG101" />
-                                        <br />
-                                        <p>  </p>
-                                        <p></p>
-                                    </asp:Panel>
-                    
-                  
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-        </asp:GridView>
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                        </div>
-                          
-                                        <asp:Button ID="Button8122" CssClass="btn btn-danger rounded-3" ValidationGroup="wdko" runat="server" Text="Cerrar" />
-                                        <br />
-                                        <p>  </p>
-                                        <p></p>
-                                    </asp:Panel>
-        
-          <p></p>
-         <p></p>
-
-
-
+                                           <span style="font-size:1em">N° Factura: <%#Item.stringn %></span><br />
+                                           <span style="font-size:1em">N° Sucursal: <%#Item.descripcion %></span><br />
+                                           <span style="font-size:1em">Fecha: <%#Item.fechacomprobante %></span><br />
+                                           <span style="font-size:1em">Total: <%#:String.Format("{0:c}", Item.importe) %></span><br />
+                                        </td>
+                                    </tr>
+                                <br />
+                            </ItemTemplate>
+                        </asp:FormView>
+                       
 
 
 
         <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvlstcompradet" 
-            ShowHeaderWhenEmpty="true" AutoGenerateColumns="true" 
+            ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" 
             DataKeyNames="idcomprdet"  OnRowDeleting="gvlstcompradet_RowDeleting">
              <HeaderStyle BackColor="black" Font-Bold="True" ForeColor="White"  />
         <Columns>
-            <asp:TemplateField>
+            <asp:TemplateField HeaderText="#">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("idcomprdet") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Producto">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("ProductName") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Cantidad">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("cantidad") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Precio">
+                                                <ItemTemplate>
+                                                    <asp:Label Text=<%#:String.Format("{0:c}", Eval("precio"))%> runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Categoria">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("CategoryName") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Total">
+                                                <ItemTemplate>
+                                                    <asp:Label Text=<%#:String.Format("{0:c}", Eval("Total"))%> runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+            <%--<asp:TemplateField>
                 <ItemTemplate>
 
                     <asp:ImageButton ImageUrl="~/Images/delete.png"
@@ -108,7 +68,7 @@
                         ValidationGroup="Vagosdep" ToolTip="Eliminar"
                         Width="30px" Height="30px" />
                 </ItemTemplate>
-            </asp:TemplateField>
+            </asp:TemplateField>--%>
         </Columns>
         </asp:GridView>
 

@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -22,11 +23,7 @@ namespace ShopGaspar.Admin
             {
                 string nID = Request.QueryString["id1"];
                 string nID1 = Request.QueryString["id2"];
-                lblinvisible.Text = nID;
-                lblord.Text += nID;
-                this.databasecrud(connectionString, "SELECT ProductID as ID,ProductName as Producto,Description as " +
-                    "Descripcion,UnitPrice as Precio,CategoryID,Stock FROM Products", gvproductoslista);
-                this.databasecrud(connectionString, "SELECT ProductName,cantidad, UnitPrice, c.CategoryName, l.idcomprdet" +
+                this.databasecrud(connectionString, "SELECT ProductName,cantidad, precio, c.CategoryName, l.idcomprdet, (cantidad*precio) as Total" +
                     " FROM comprobantesdets l inner join Products p on l.Product_ProductID=p.ProductID inner join Categories c " +
                     "on c.CategoryID=p.CategoryID where Comprobantes_idcomp =" + nID, gvlstcompradet);
 
@@ -65,31 +62,21 @@ namespace ShopGaspar.Admin
 
         protected void gvproductoslista_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            try
-            {
-                using (SqlConnection sqlCon = new SqlConnection(connectionString))
-                {
-                    sqlCon.Open();
-                    string query = "insert into comprobantesdets(cantidad,Product_ProductID,Comprobantes_idcomp) values (@lstcomprar,@product,@lstcompra);";
-                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                    sqlCmd.Parameters.AddWithValue("@lstcompra", lblinvisible.Text);
-                    sqlCmd.Parameters.AddWithValue("@lstcomprar", (gvproductoslista.Rows[e.RowIndex].FindControl("txtcantlstfact") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@product", Convert.ToInt32(gvproductoslista.DataKeys[e.RowIndex].Value.ToString()));
+        }
 
-                    sqlCmd.ExecuteNonQuery();
-                    gvproductoslista.EditIndex = -1;
-                    this.databasecrud(connectionString, "SELECT * FROM Products", gvproductoslista);
-                    lblSuccessMessage.Text = "Agregado con exito";
-                    lblErrorMessage.Text = "";
-                }
-            }
-            catch (Exception ex)
+        public IQueryable<comprobantes> GetFactura([QueryString("id1")] int? idcomp)
+        {
+            var _db = new ShopGaspar.Models.ProductContext();
+            IQueryable<comprobantes> query = _db.comprobantes;
+            if (idcomp.HasValue && idcomp > 0)
             {
-                lblSuccessMessage.Text = "";
-                lblErrorMessage.Text = ex.Message;
+                query = query.Where(p => p.idcomp == idcomp);
             }
-            Response.Redirect(Request.RawUrl);
-
+            else
+            {
+                query = null;
+            }
+            return query;
         }
 
 

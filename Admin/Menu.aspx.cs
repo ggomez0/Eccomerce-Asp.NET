@@ -14,50 +14,7 @@ namespace ShopGaspar
      
         }
 
-        protected void btncat_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/CategoriaAdmin.aspx");
-        }
-
-        protected void btnprod_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/ProductosAdmin.aspx");
-
-        }
-
-        protected void btndep_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/DepositosAdmin.aspx");
-
-        }
-
-        protected void btningegr_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/IngEgrAdmin.aspx");
-
-        }
-
-        protected void btncompras_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/ComprasAdmin.aspx");
-
-        }
-
-        protected void btntrans_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/TransaccionesAdmin.aspx");
-        }
-
-        protected void btnclientes_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/ClientesAdmin.aspx");
-
-        }
-
-        protected void btnestadi_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/EstadisticasAdmin.aspx");
-
-        }
+      
+      
     }
 }

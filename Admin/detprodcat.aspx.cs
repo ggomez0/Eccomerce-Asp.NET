@@ -28,7 +28,7 @@ namespace ShopGaspar.Admin
             SqlCommand cmd = new SqlCommand();
             DataTable dataTable = new DataTable();
             SqlDataAdapter sqlDA; cnn.Open();
-            cmd.CommandText = "select * from Products where CategoryID = @catid";
+            cmd.CommandText = "select ProductID as #,ProductName as Producto, Description as Descripcion, Unitprice as Precio from Products where CategoryID = @catid";
             cmd.Parameters.AddWithValue("@catid", ido);
             cmd.CommandType = CommandType.Text;
             cmd.Connection = cnn;

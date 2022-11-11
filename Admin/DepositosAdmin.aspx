@@ -6,8 +6,7 @@
 
         <asp:Button ID="Button3" CssClass="btn btn-success rounded-3" runat="server" Text="Agregar Depositos"
                                             ValidationGroup="VG11" />
-        <asp:Button ID="btnhistorial" CssClass="btn btn-success rounded-3" OnClick="btnhistorial_Click" runat="server" Text="HISTORIAL"
-                                            ValidationGroup="VG117899" />
+       
                                         <!-- ModalPopupExtender -->
                                         <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
                                             PopupControlID="Panel3" TargetControlID="Button3" CancelControlID="btncerrardep"
@@ -15,8 +14,7 @@
                                         </cc1:ModalPopupExtender>
                                         <asp:Panel ID="Panel3" runat="server" CssClass="modalPopup" align="center"
                                             Style="background-color:white; border:solid; border-color:black;">
-                                            <div style="padding:20px">
-                                            
+                                            <div style="padding:20px;">                                            
 
                                                         <h3>Agregar Depositos</h3>
                                                         <table>
@@ -143,8 +141,8 @@
                                                         <asp:TemplateField HeaderText="Foto">
                                                             <ItemTemplate>
 
-                                                                <img class="card-img-top" src="/Images/Thumbs/<%#:Eval("ImagePath") %>" style="height:10rem;
-                                                                object-fit:contain;" />
+                                                                <img class="card-img-top" src="/Images/Thumbs/<%#:Eval("ImagePath") %>" style="
+                                                                object-fit:fill; width:10em" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                         <asp:TemplateField>

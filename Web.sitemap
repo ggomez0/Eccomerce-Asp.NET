@@ -2,6 +2,7 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="~/Admin/Menu" title="Menu"  description="Menu">
     <siteMapNode url="~/Admin/ProductosAdmin" title="Productos" />
+    <siteMapNode url="~/Admin/PagoComprobantes" title="Pago" />
     <siteMapNode url="~/Admin/IngEgrAdmin" title="Stock" />
 	  <siteMapNode url="~/Admin/CategoriaAdmin" title="Categoria">
 		 <siteMapNode url="~/Admin/detprodcat" title="Detalles"/>

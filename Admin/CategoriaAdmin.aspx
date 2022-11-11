@@ -125,15 +125,7 @@
                                                                                                     Text='<%# Eval("CategoryName") %>'
                                                                                                     runat="server" />
 
-                                                                                                <asp:RequiredFieldValidator
-                                                                                                    ValidationGroup="VG15"
-                                                                                                    ID="RequiredFieldValidator112"
-                                                                                                    runat="server"
-                                                                                                    Text="* Nombre del producto requerido."
-                                                                                                    ControlToValidate="txtCategoryNameedit"
-                                                                                                    SetFocusOnError="true"
-                                                                                                    Display="Dynamic">
-                                                                                                </asp:RequiredFieldValidator>
+                                                                                              
                                                                                             </td>
                                                                                         </tr>
 
@@ -145,10 +137,9 @@
 
                                                                                     <asp:Button CssClass="btn btn-success rounded-3" ID="Editcat"
                                                                                         runat="server"
-                                                                                        Text="Editar Producto"
+                                                                                        Text="Editar categoria"
                                                                                         CommandName="Update"
-                                                                                        CausesValidation="true"
-                                                                                        ValidationGroup="VG15" />
+                                                                                        ValidationGroup="VG188885" />
                                                                                       <asp:Button ID="btncerrareditcat" CssClass="btn btn-danger rounded-3" runat="server"
                                                                             Text="Cerrar"
                                                                             ValidationGroup="VG16" />

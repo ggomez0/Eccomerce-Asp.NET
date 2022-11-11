@@ -1,107 +1,49 @@
 ﻿<%@ Page Title="Movimientos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="IngEgrAdmin.aspx.cs" Inherits="ShopGaspar.Admin.IngEgrAdmin" %>
-    <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
-           <asp:UpdatePanel runat="server">
-                                            <ContentTemplate>
+        <h3>Movimientos de productos</h3>
+            <asp:Button ID="btnmov" CssClass="btn btn-success rounded-3" runat="server"
+                            Text="Realizar Movimiento" OnClick="btnmov_Click"/>
+                       
 
-                                                <h3>Realizar movimientos de stock</h3>
-                                                <table>
-                                                    <tr>
-                                                        <td>
+        <p></p>
+        <asp:GridView runat="server" CssClass="grid" BorderStyle="None" ID="gvhistorial" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
+            <Columns>
+                <asp:TemplateField HeaderText="#">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("idcomp") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Tipo de movimiento">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Nombre") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Deposito">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("DepName") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Observacion">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("descripcion") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Fecha">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("dateTime") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                       <asp:ImageButton runat="server" ImageUrl="~/Images/plus.png" Height="20px" ID="btn_det_mov" OnClick="btn_det_mov_Click" CommandArgument='<%#Eval("idcomp") %>'  />
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                                                            <asp:RadioButtonList ID="rblistlist" runat="server">
-
-                                                                <asp:ListItem>Ingreso</asp:ListItem>
-                                                                <asp:ListItem>Egreso</asp:ListItem>
-
-                                                            </asp:RadioButtonList>
-                                                        </td>
-                                                    </tr>
-
-
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="Label1" runat="server">Producto:</asp:Label>
-                                                        </td>
-                                                        <td>
-
-
-                                                            <asp:TextBox ID="txtacproddep" runat="server"
-                                                                AutoPostBack="true" AutoCompleteType="Search">
-                                                            </asp:TextBox>
-                                                            <cc1:AutoCompleteExtender ID="AutoCompleteExtender2"
-                                                                runat="server" ServiceMethod="ProductSearch"
-                                                                MinimumPrefixLength="1" CompletionInterval="100"
-                                                                EnableCaching="false" CompletionSetCount="10"
-                                                                TargetControlID="txtacproddep" FirstRowSelected="false"
-                                                                ServicePath="dropdownlist.asmx">
-                                                            </cc1:AutoCompleteExtender>
-
-
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="Label5" runat="server">Cantidad:</asp:Label>
-                                                        </td>
-                                                        <td>
-                                                            <asp:TextBox ID="txtcantdep" runat="server" TextMode="Number" CausesValidation="true"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator14"
-                                                                runat="server" Text="* campo requerido."
-                                                                ControlToValidate="txtcantdep" ValidationGroup="VG21" SetFocusOnError="true"
-                                                                Display="Dynamic"></asp:RequiredFieldValidator>
-                                                            <asp:CompareValidator ID="CompareValidator1" runat="server"
-                                                                ControlToValidate="txtcantdep" ErrorMessage="Debe ser &gt; 0"
-                                                                Operator="GreaterThan" Type="Integer" ValueToCompare="0" ValidationGroup="VG21" />
-                                                            
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="Label2" runat="server">Deposito:</asp:Label>
-                                                        </td>
-                                                        <td>
-                                                            <asp:DropDownList ID="ddlistdep" runat="server"
-                                                                ItemType="ShopGaspar.Models.depositos"
-                                                                SelectMethod="GetDepositos" DataTextField="DepName"
-                                                                DataValueField="DepID">
-                                                            </asp:DropDownList>
-
-                                                             
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="Label3" runat="server">Observaciones:
-                                                            </asp:Label>
-                                                        </td>
-                                                        <td>
-                                                            <asp:TextBox ID="txtobsdep" runat="server"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ValidationGroup="VG21"
-                                                                ID="RequiredFieldValidator10" runat="server"
-                                                                Text="* Observaciones requerida."
-                                                                ControlToValidate="txtobsdep" SetFocusOnError="true"
-                                                                Display="Dynamic"></asp:RequiredFieldValidator>
-                                                        </td>
-                                                    </tr>
-
-                                                </table>
-                                                <p></p>
-                                                <p></p>
-
-                                                <asp:Button ID="btndepexis" runat="server"
-                                                    Text="Realizar movimiento de existencias"
-                                                    OnClick="btndepexis_Click1" CausesValidation="true"
-                                                    ValidationGroup="VG21" CssClass="btn btn-success rounded-3" />
-                                                <asp:Label ID="lblprodendep" runat="server" Text=""></asp:Label>
-
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-
+            </Columns>
+        
+        
+        </asp:GridView>
     </div>
 </asp:Content>
