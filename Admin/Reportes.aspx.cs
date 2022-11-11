@@ -86,5 +86,72 @@ namespace ShopGaspar.Admin
             return xdata;
 
         }
+
+        protected string datosql2()
+        {
+
+            SqlConnection redSQL = new SqlConnection(connectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT concat(YEAR(fechacomprobante),'-',month(fechacomprobante)) as Fecha, (SELECT SUM(d.totalprod) AS Expr1 FROM dbo.Orders AS o INNER JOIN dbo.OrderDetails AS d ON o.OrderId = d.OrderId WHERE" +
+                " (YEAR(c.fechacomprobante) = YEAR(o.OrderDate)) AND (MONTH(c.fechacomprobante) = MONTH(o.OrderDate))) AS Ingresos FROM " +
+                "dbo.comprobantes AS c WHERE (idcomprobante = 4) GROUP BY YEAR(fechacomprobante), MONTH(fechacomprobante) order by YEAR(fechacomprobante), MONTH(fechacomprobante) asc ";
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = redSQL;
+            redSQL.Open();
+
+            DataTable gdatos = new DataTable();
+            gdatos.Load(cmd.ExecuteReader());
+            redSQL.Close();
+
+
+
+            string xdata;
+            xdata = "[['Fecha','Ingresos'],";
+            foreach (DataRow dr in gdatos.Rows)
+            {
+                xdata = xdata + "[";
+                xdata = xdata + "'" + dr[0] + "'" + "," + dr[1].ToString();
+                xdata = xdata + "],";
+            }
+
+            xdata = xdata + "]";
+            return xdata;
+
+        }
+
+        protected string datosql3()
+        {
+
+            SqlConnection redSQL = new SqlConnection(connectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT concat(YEAR(fechacomprobante),'-',month(fechacomprobante)) as Fecha, SUM(importe) AS Egresos FROM " +
+                "dbo.comprobantes AS c WHERE (idcomprobante = 4) GROUP BY YEAR(fechacomprobante), MONTH(fechacomprobante) order by YEAR(fechacomprobante), MONTH(fechacomprobante) asc ";
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = redSQL;
+            redSQL.Open();
+
+            DataTable gdatos = new DataTable();
+            gdatos.Load(cmd.ExecuteReader());
+            redSQL.Close();
+
+
+
+            string xdata;
+            xdata = "[['Fecha','Egresos'],";
+            foreach (DataRow dr in gdatos.Rows)
+            {
+                xdata = xdata + "[";
+                xdata = xdata + "'" + dr[0] + "'" + "," + dr[1].ToString();
+                xdata = xdata + "],";
+            }
+
+            xdata = xdata + "]";
+            return xdata;
+
+        }
     }
 }

@@ -5,6 +5,8 @@
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawChart1);
+        google.charts.setOnLoadCallback(drawChart2);
 
         function drawChart() {
 
@@ -20,6 +22,41 @@
 
             var chart = new google.visualization.ColumnChart(document.getElementById('chart3'));
             chart.draw(data, options);
+
+        }
+
+        function drawChart1() {
+
+            var data1 = new google.visualization.arrayToDataTable(<%=this.datosql2()%>);
+            var options1 = {
+                title: 'Ingresos',
+                backgroundColor: { fill: "white" },
+                legend: { position: "labeled", textStyle: { color: "black", fontSize: 12 } },
+                tooltip: { textStyle: { color: "black" }, showColorCode: true },
+                colors: ["blue"],
+                bar: { groupWidth: "12%" },
+            };
+
+            var chart1 = new google.visualization.ColumnChart(document.getElementById('chart1'));
+            chart1.draw(data1, options1);
+
+        }
+
+        function drawChart2() {
+
+            var data3 = new google.visualization.arrayToDataTable(<%=this.datosql3()%>);
+            var options3 = {
+                title: 'Egresos',
+                backgroundColor: { fill: "white" },
+                legend: { position: "labeled", textStyle: { color: "black", fontSize: 12 } },
+                tooltip: { textStyle: { color: "black" }, showColorCode: true },
+                colors: ["red"],
+                bar: { groupWidth: "12%" },
+            };
+
+            var chart3 = new google.visualization.ColumnChart(document.getElementById('chart2'));
+            chart3.draw(data3, options3);
+
         }
     </script>
 <%--////////////////////////////////////////////////////////////////--%>
@@ -53,6 +90,10 @@
     </div>
   </div>
 
+            <div id="chart1" style="width: 95%; height: 500px;"></div>
+        <p></p>
+            <div id="chart2" style="width: 95%; height: 500px;"></div>
+        <p></p>
             <div id="chart3" style="width: 95%; height: 500px;"></div>
         </div>
 </asp:Content>
