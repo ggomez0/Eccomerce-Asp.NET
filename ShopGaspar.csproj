@@ -771,22 +771,6 @@
     <Compile Include="Logic\addprodendep.cs" />
     <Compile Include="Logic\AgregarProv.cs" />
     <Compile Include="Logic\Ordenarlista.cs" />
-    <Compile Include="Migrations\202210192033329_gg.cs" />
-    <Compile Include="Migrations\202210192033329_gg.Designer.cs">
-      <DependentUpon>202210192033329_gg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210200502390_ert.cs" />
-    <Compile Include="Migrations\202210200502390_ert.Designer.cs">
-      <DependentUpon>202210200502390_ert.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210210044440_dddj.cs" />
-    <Compile Include="Migrations\202210210044440_dddj.Designer.cs">
-      <DependentUpon>202210210044440_dddj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210262309416_stockprobv.cs" />
-    <Compile Include="Migrations\202210262309416_stockprobv.Designer.cs">
-      <DependentUpon>202210262309416_stockprobv.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cards.cs" />
     <Compile Include="Models\pedrepo.cs" />
@@ -872,20 +856,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202210192033329_gg.resx">
-      <DependentUpon>202210192033329_gg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210200502390_ert.resx">
-      <DependentUpon>202210200502390_ert.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210210044440_dddj.resx">
-      <DependentUpon>202210210044440_dddj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210262309416_stockprobv.resx">
-      <DependentUpon>202210262309416_stockprobv.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
