@@ -6,10 +6,10 @@
               <img class="d-block img-fluid" src="Images/carousel1.png" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="Images/carousel2.png" alt="Second slide">
+              <img class="d-block img-fluid" src="Images/carousel1.png" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="Images/carousel2.png" alt="Third slide">
+              <img class="d-block img-fluid" src="Images/carousel1.png" alt="Third slide">
             </div>
           </div>
          </div>
